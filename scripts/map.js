@@ -17,7 +17,7 @@ const atlasView = `
     </div>
     <button type="button" id="zoom-fit" aria-label="適合全圖" title="適合全圖">⤢</button>
   </div>
-  <div class="map-status"><span id="coords">X / Y</span><span id="scale">3x</span></div>
+  <div class="map-status"><span id="coords">X / Y</span><span id="scale"></span></div>
   <div id="map-tip" class="map-tip" role="group" aria-label="地圖格位提示" hidden></div>
   <nav id="maps-drawer" class="drawer drawer-start" aria-labelledby="maps-title" hidden>
     <div class="panel-heading">
@@ -101,6 +101,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   const nspace = 'http://www.w3.org/2000/svg';
   const typeKeys = Object.keys(atlas.types);
   const layerStorageKey = 'underkeep.atlas.layers';
+  const zoomStorageKey = 'underkeep.atlas.zoom';
   const secretWallSprite = 'secret_wall_tile';
   const buildingSignPrefix = 'mtile_sign_';
   const buildingSignSize = Math.max(...Object.entries(atlas.art)
@@ -119,9 +120,9 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   let markerLayer;
   let selectedLayer;
   let selected = null;
-  const defaultZoom = 3;
-  const maxZoom = 8;
-  let magnification = defaultZoom;
+  const defaultZoom = window.matchMedia('(max-width: 600px), (pointer: coarse)').matches ? 6 : 3;
+  const maxZoom = 9;
+  let magnification = loadZoom();
   let camera;
   let view;
   let paperFill;
@@ -171,6 +172,24 @@ function mountUnderkeepAtlas(signal, loadDetails) {
       } else window.localStorage.removeItem(layerStorageKey);
     } catch {
       // Layer controls still work when browser storage is unavailable.
+    }
+  }
+
+  function loadZoom() {
+    try {
+      const saved = Number(window.localStorage.getItem(zoomStorageKey));
+      if (Number.isInteger(saved) && saved >= 1 && saved <= maxZoom) return saved;
+    } catch {
+      // The default zoom still works when browser storage is unavailable.
+    }
+    return defaultZoom;
+  }
+
+  function saveZoom() {
+    try {
+      window.localStorage.setItem(zoomStorageKey, String(magnification));
+    } catch {
+      // Zoom controls still work when browser storage is unavailable.
     }
   }
 
@@ -873,12 +892,15 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     setView();
   }
 
-  function frameMap(minZoom, fit) {
+  function frameMap(fit = false) {
     const [left, top, width, height] = current.focusBounds || current.bounds;
     const area = visibleMapArea();
-    const { dpr } = metrics();
-    const fitted = Math.floor(Math.min(area.width / width, area.height / height) * dpr / 10);
-    magnification = fit ? Math.max(minZoom, Math.min(maxZoom, fitted)) : minZoom;
+    if (fit) {
+      const { dpr } = metrics();
+      const fitted = Math.floor(Math.min(area.width / width, area.height / height) * dpr / 10);
+      magnification = Math.max(1, Math.min(maxZoom, fitted));
+      saveZoom();
+    }
     const { cssPitch } = metrics();
     camera = { x: left + width / 2 - area.dx / cssPitch, y: top + height / 2 - area.dy / cssPitch };
     clearHover();
@@ -895,6 +917,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
       camera = { x: point.x - offsetX * magnification / next, y: point.y - offsetY * magnification / next };
     }
     magnification = next;
+    saveZoom();
     clearHover();
     setView();
   }
@@ -934,7 +957,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     markerLayer = draw('g', {}, svg);
     hoverFrame = drawCellFrame({ id: 'hover-cell', stroke: '#ffe4a7', visibility: 'hidden' }, svg);
     selectedLayer = draw('g', { 'pointer-events': 'none' }, svg);
-    frameMap(defaultZoom, false);
+    frameMap();
     renderCatalog();
     if (catalogHadFocus) byId('catalog').querySelector('[aria-current="page"]')?.focus({ preventScroll: true });
     renderFilters();
@@ -1002,7 +1025,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   }, { signal });
   byId('zoom-in').addEventListener('click', () => zoomAt(1));
   byId('zoom-out').addEventListener('click', () => zoomAt(-1));
-  byId('zoom-fit').addEventListener('click', () => frameMap(1, true));
+  byId('zoom-fit').addEventListener('click', () => frameMap(true));
   const resizeObserver = new ResizeObserver(() => {
     if (camera) setView();
   });
