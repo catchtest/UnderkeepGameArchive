@@ -4,11 +4,11 @@ const underkeepSiteName = document.title;
 
 function underkeepXp(value, withUnit = true) {
   const span = document.createElement('span');
-  const amount = typeof value === 'number' ? value.toLocaleString('zh-TW') : value;
+  const amount = typeof value === 'number' ? value.toLocaleString('zh-TW') : String(value);
   span.className = 'choice-xp';
   if (withUnit) {
     span.lang = 'en';
-    span.textContent = (/^[1-9]/.test(amount) ? '+' : '') + amount + ' XP';
+    span.textContent = amount.replace(/^\+/, '') + ' XP';
   } else {
     span.textContent = amount;
   }
