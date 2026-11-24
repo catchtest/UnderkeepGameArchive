@@ -3,7 +3,7 @@
   src: url("../fonts/home-heading.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
-  unicode-range: U+4E92, U+52D5, U+5730, U+5716, U+6232, U+8A0A, U+8CC7, U+904A, U+9451;
+  unicode-range: U+6232, U+8A0A, U+8CC7, U+904A;
 }
 :root {
   color-scheme: dark;
@@ -12,19 +12,18 @@
   font: 1rem/1.65 "Segoe UI", "Microsoft JhengHei UI", sans-serif;
   --gold: #efcd8e;
   --line: #534a36;
-  --serif: "Underkeep Home Titles", "PMingLiU", serif;
 }
 * { box-sizing: border-box; }
 body { margin: 0; }
 h1, h2, p, dl, dd { margin: 0; }
 a { color: var(--gold); text-underline-offset: .2em; }
 a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-.home { width: min(1280px, calc(100% - 32px)); margin: 24px auto 48px; }
+.home { width: min(1280px, calc(100% - 32px)); margin: 24px auto 0; }
 .home-hero {
   --title-art: url("../images/title-screen.webp");
   display: grid;
   align-items: center;
-  min-height: clamp(330px, 36vw, 490px);
+  min-height: clamp(300px, min(36vw, 100svh - 440px), 490px);
   padding: clamp(24px, 6vw, 84px);
   border: 1px solid #74644a;
   border-bottom: 2px solid #ab8851;
@@ -45,7 +44,7 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .store-links a:hover { background: #393526; }
 .store-links .steam-link:hover { background: #f6dba0; }
 .game-info { padding: 22px clamp(16px, 3vw, 34px); border: 1px solid var(--line); border-top: 0; background: #21241d; }
-.game-info h2 { font: 700 1.35rem/1.4 var(--serif); }
+.game-info h2 { font: 700 1.35rem/1.4 "Underkeep Home Titles", "PMingLiU", serif; }
 .game-info dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 24px; margin-top: 12px; }
 .game-info dt { color: #bdb5a4; font-size: .9rem; }
 .game-info dd { margin-top: 2px; }
@@ -56,9 +55,51 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
   background: #20241d; text-decoration: none;
 }
 .archive-links a:hover { border-color: #ab8851; background: #2c2d22; }
-.archive-links strong { font: 700 1.12rem/1.4 var(--serif); }
+.archive-links strong { font: 700 1.12rem/1.4 "Microsoft JhengHei", "Microsoft JhengHei UI", sans-serif; }
 .archive-links span:not(.link-arrow) { color: #d3cabb; }
 .link-arrow { position: absolute; inset-inline-end: 17px; top: 14px; }
+.home-footer {
+  display: flow-root;
+  width: min(48rem, calc(100% - 32px));
+  margin: 0 auto 16px;
+  color: #bdb5a4;
+  font-size: .9rem;
+  text-align: center;
+  text-wrap: balance;
+}
+.home-footer p + p { margin-top: 6px; }
+.home-divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  width: min(70%, 360px);
+  margin: 16px auto 12px;
+}
+.home-divider::before,
+.home-divider::after {
+  content: "";
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ab8851);
+}
+.home-divider::after { transform: scaleX(-1); }
+.home-divider span {
+  width: 9px;
+  height: 9px;
+  transform: rotate(45deg);
+  border: 1px solid var(--gold);
+  background: #745b35;
+  box-shadow: 0 0 8px #ab885166;
+}
+@media (min-width: 701px) {
+  .home-hero { padding-block: clamp(24px, min(6vw, 4svh), 84px); }
+}
+@media (min-width: 701px) and (max-height: 780px) {
+  .home { margin-top: 12px; }
+  .home-hero { padding-block: 18px; }
+  .game-info { padding-block: 16px; }
+  .archive-links a { padding-block: 10px 11px; }
+}
 @media (max-width: 700px) {
   .home { width: calc(100% - 24px); margin-top: 12px; }
   .home-hero {

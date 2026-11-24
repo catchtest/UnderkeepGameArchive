@@ -162,6 +162,33 @@ function underkeepXpText(text) {
     if (!signal.aborted) styles.get(sheetStyle).link.media = 'all';
   }
 
+  function mountPageScrollbar(rail, signal) {
+    const scroll = document.scrollingElement;
+    let mirroredTop;
+
+    function mirrorScroll() {
+      rail.scrollTop = scroll.scrollTop;
+      mirroredTop = rail.scrollTop;
+    }
+
+    function measure() {
+      const range = scroll.scrollHeight - scroll.clientHeight;
+      rail.hidden = range <= 0;
+      rail.firstElementChild.style.height = rail.clientHeight + range + 'px';
+      mirrorScroll();
+    }
+
+    rail.addEventListener('scroll', () => {
+      if (!rail.hidden && rail.scrollTop !== mirroredTop) scroll.scrollTop = rail.scrollTop;
+    }, { signal });
+    window.addEventListener('scroll', mirrorScroll, { signal, passive: true });
+    window.addEventListener('resize', measure, { signal });
+    const observer = new ResizeObserver(measure);
+    observer.observe(document.body);
+    signal.addEventListener('abort', () => observer.disconnect(), { once: true });
+    measure();
+  }
+
   function mount(page, signal) {
     mapLink.href = '?view=map';
     for (const [name, link] of [['home', homeLink], ['map', mapLink]]) {
@@ -173,7 +200,10 @@ function underkeepXpText(text) {
       link.removeAttribute('aria-current');
     }
     delete document.body.dataset.section;
-    return pages[page].mount?.(signal);
+    const refresh = pages[page].mount?.(signal);
+    const rail = view.querySelector('.page-scrollbar');
+    if (rail) mountPageScrollbar(rail, signal);
+    return refresh;
   }
 
   function routePage(url) {

@@ -4,15 +4,8 @@
   --heading: #e3ded2; --name: #d9d2c4; --ink: #cecdc6; --muted: #b1afa7;
   --link: #c9b694; --gold: #e2bf79; --line: #47443a;
   --serif: "Noto Serif TC","PMingLiU",serif;
-  font: 100%/1.6 "Segoe UI","Microsoft JhengHei UI",sans-serif; scrollbar-width: none;
+  font: 100%/1.6 "Segoe UI","Microsoft JhengHei UI",sans-serif;
 }
-.guide-scrollbar {
-  position: fixed; z-index: 3; inset: 0 0 0 auto; width: 10px;
-  overflow: hidden scroll; scrollbar-width: thin; scrollbar-color: #82745a transparent;
-  overscroll-behavior: contain;
-}
-.guide-scrollbar > div { width: 1px; }
-.guide-scrollbar:focus-visible { outline-offset: -2px; }
 body { margin: 0; min-height: 100vh; background: #171b19 radial-gradient(ellipse at 15% 15%,#353329 0,transparent 65%) fixed no-repeat; color: var(--ink); }
 h1,h2,h3,p,dl,dd { margin: 0; }
 a { color: var(--link); text-underline-offset: 3px; }

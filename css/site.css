@@ -1,10 +1,18 @@
 :root { color-scheme: dark; background: #161915; }
+:root.enhanced:has(.page-scrollbar) { scrollbar-width: none; }
+:root:not(.enhanced), .page-scrollbar { scrollbar-width: thin; scrollbar-color: #82745a transparent; }
 body { margin: 0; }
+.page-scrollbar {
+  position: fixed; z-index: 3; inset: 0 0 0 auto; width: 10px;
+  overflow: hidden scroll; overscroll-behavior: contain;
+}
+.page-scrollbar > div { width: 1px; }
+.page-scrollbar:focus-visible { outline-offset: -2px; }
 .choice-xp {
   color: #d6b2ff; font: 1.04em/1 Georgia, "Times New Roman", serif;
   font-variant-numeric: lining-nums tabular-nums; white-space: nowrap;
 }
-.enhanced #view:not([data-ready]) .home { visibility: hidden; }
+.enhanced #view:not([data-ready]) { visibility: hidden; }
 #view-status {
   position: fixed; z-index: 6; inset: auto auto 16px 16px; margin: 0; padding: 8px 12px;
   border: 1px solid #514938; background: #171b19; color: #e4ddd0;

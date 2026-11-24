@@ -26,36 +26,8 @@ const guideView = `
     <div class="levels-body detail-dialog-body"></div>
   </dialog>
 </template>
-<div class="guide-scrollbar" role="region" aria-label="捲動圖鑑" tabindex="0" hidden><div aria-hidden="true"></div></div>
+<div class="page-scrollbar" role="region" aria-label="捲動圖鑑" tabindex="0" hidden><div aria-hidden="true"></div></div>
 `;
-
-function mountGuideScrollbar(signal) {
-  const rail = document.querySelector('.guide-scrollbar');
-  const scroll = document.scrollingElement;
-  let mirroredTop;
-
-  function mirrorScroll() {
-    rail.scrollTop = scroll.scrollTop;
-    mirroredTop = rail.scrollTop;
-  }
-
-  function measure() {
-    const range = scroll.scrollHeight - scroll.clientHeight;
-    rail.hidden = range <= 0;
-    rail.firstElementChild.style.height = rail.clientHeight + range + 'px';
-    mirrorScroll();
-  }
-
-  rail.addEventListener('scroll', () => {
-    if (!rail.hidden && rail.scrollTop !== mirroredTop) scroll.scrollTop = rail.scrollTop;
-  });
-  window.addEventListener('scroll', mirrorScroll, { signal, passive: true });
-  window.addEventListener('resize', measure, { signal });
-  const observer = new ResizeObserver(measure);
-  observer.observe(document.body);
-  signal.addEventListener('abort', () => observer.disconnect(), { once: true });
-  measure();
-}
 
 const guideNav = [...document.querySelectorAll('#sections a[data-title]')];
 const guideSections = Object.fromEntries(guideNav.map(link => [link.hash.slice(1), link.dataset.title]));
@@ -689,6 +661,5 @@ function mountUnderkeepGuide(signal, refresh) {
   });
 
   renderRoute();
-  mountGuideScrollbar(signal);
   return renderRoute;
 }
