@@ -72,18 +72,26 @@ body[data-section="races"] article { display: grid; grid-template-columns: minma
   background: linear-gradient(to bottom,#292c26,#20231f);
 }
 .race-bio h3 { margin-top: 18px; }
+.race-bio > p, .class-summary p { margin-top: 7px; }
+.character-lore { color: var(--muted); font-style: italic; }
 .race-trait { margin-top: 14px; padding: 9px 14px; border-radius: 8px; background: #00000024; }
 .race-trait + .race-trait { margin-top: 7px; }
 .race-trait h3 { margin: 0 0 3px; }
-.levels-trigger {
+.guide-action {
   margin-inline-start: auto; align-self: flex-start; flex-shrink: 0; font: inherit; color: var(--link); background: #28291f;
   border: 1px solid #74664a; border-radius: 4px; padding: 4px 11px; cursor: pointer;
 }
-.levels-trigger:hover { background: #403b2c; border-color: var(--gold); }
+.guide-action:hover { background: #403b2c; border-color: var(--gold); }
+.race-stats header { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 14px 0 6px; }
+.race-stats header h3 { margin: 0; }
 .race-stats td { color: var(--name); }
+.attribute-link {
+  padding: 0; border: 0; background: transparent; color: var(--link); font: inherit; cursor: pointer;
+  text-decoration: underline dotted; text-underline-offset: .2em;
+}
+.attribute-link:hover { color: var(--gold); }
 .class-summary { display: flex; gap: 30px; justify-content: space-between; align-items: center; }
 .class-summary > div { max-width: 660px; }
-.class-summary p { margin-top: 7px; color: var(--ink); }
 .class-summary .facts { display: flex; flex-wrap: wrap; justify-content: center; row-gap: 14px; flex: none; max-width: 46%; border: 0; margin: 0; }
 .class-summary .facts div { padding: 2px 14px; border-left: 1px solid #605945; text-align: center; }
 .class-panels { display: grid; grid-template-columns: minmax(0,.83fr) minmax(0,1.17fr); gap: 18px; margin-top: 16px; align-items: start; }
@@ -207,6 +215,11 @@ body:has(.guide-dialog[open]) { overflow: hidden; }
 .guide-dialog header h2 { font-family: var(--serif); color: var(--heading); }
 .levels-body { overflow-y: auto; overscroll-behavior: contain; padding: 14px 20px 20px; }
 .levels table { margin-top: 12px; }
+#attribute-select {
+  display: block; width: 100%; margin: 4px 0 12px; padding: 6px 10px;
+  border: 1px solid #74664a; border-radius: 4px; background: #20251f; color: var(--ink); font: inherit;
+}
+#attribute-description p + p { margin-top: 8px; }
 .product .entry-names { justify-content: center; }
 body[data-section="enemies"] { --scene: url("../images/enemies.webp"); --scene-y: 40%; }
 body[data-section="quests"] { --scene: url("../images/quests.webp"); }

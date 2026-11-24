@@ -20,6 +20,14 @@ const guideView = `
   <header><h2 id="levels-title">角色升級</h2><form method="dialog"><button class="close-button" aria-label="關閉角色升級" autofocus>✕</button></form></header>
   <div class="levels-body"><p>角色每次升級獲得 1 點技能點。</p></div>
 </dialog>
+<dialog id="attribute-dialog" class="guide-dialog" aria-labelledby="attribute-title" closedby="any">
+  <header><h2 id="attribute-title">屬性說明</h2><form method="dialog"><button class="close-button" aria-label="關閉屬性說明">✕</button></form></header>
+  <div class="levels-body">
+    <label for="attribute-select">屬性</label>
+    <select id="attribute-select" autofocus></select>
+    <div id="attribute-description" aria-live="polite"></div>
+  </div>
+</dialog>
 <template id="guide-item-template">
   <dialog class="guide-dialog guide-item-dialog detail-dialog" closedby="any">
     <header><div class="guide-item-heading entry-heading"></div><button type="button" class="close-button" autofocus>✕</button></header>
@@ -81,6 +89,9 @@ function mountUnderkeepGuide(signal, refresh) {
   if (guide.mapIds.includes(mapId)) $('to-map').hash = mapId;
   let section;
   const article = $('detail');
+  const attributeDialog = $('attribute-dialog');
+  const attributeSelect = $('attribute-select');
+  attributeSelect.addEventListener('change', showAttributeDescription, { signal });
 
   function table(rows) {
     const wrap = node('div', undefined, 'table-scroll');
@@ -94,8 +105,9 @@ function mountUnderkeepGuide(signal, refresh) {
     const body = grid.createTBody();
     for (const values of rows.slice(1)) {
       const row = body.insertRow();
-      const th = node('th', values[0]);
+      const th = node('th');
       th.scope = 'row';
+      th.append(values[0] ?? '');
       row.append(th);
       values.slice(1).forEach(value => row.insertCell().append(value));
     }
@@ -234,11 +246,32 @@ function mountUnderkeepGuide(signal, refresh) {
     $('choices').replaceChildren(...items);
   }
 
+  function showAttributeDescription() {
+    const { intro, description } = guide.attributes[attributeSelect.value];
+    $('attribute-description').replaceChildren(node('p', intro, 'character-lore'), node('p', description, 'intro'));
+  }
+
+  function attributeTrigger(label, attribute, className = 'guide-action') {
+    const button = node('button', label, className);
+    button.type = 'button';
+    button.setAttribute('aria-haspopup', 'dialog');
+    button.setAttribute('aria-controls', attributeDialog.id);
+    button.addEventListener('click', () => {
+      if (!attributeSelect.options.length) {
+        attributeSelect.append(...Object.keys(guide.attributes).map(name => node('option', name)));
+      }
+      if (attribute) attributeSelect.value = attribute;
+      showAttributeDescription();
+      attributeDialog.showModal();
+    });
+    return button;
+  }
+
   function showRace(r) {
     characterChoices(guide.races, r, true);
     const bio = node('section', undefined, 'panel race-bio');
     const title = heading(r.name, r.english);
-    const levels = node('button', '升級經驗', 'levels-trigger');
+    const levels = node('button', '升級經驗', 'guide-action levels-trigger');
     levels.type = 'button';
     levels.setAttribute('aria-haspopup', 'dialog');
     levels.setAttribute('aria-controls', 'levels-dialog');
@@ -253,7 +286,7 @@ function mountUnderkeepGuide(signal, refresh) {
       dialog.showModal();
     });
     title.append(levels);
-    bio.append(title);
+    bio.append(title, node('p', r.lore, 'character-lore'), node('p', r.intro, 'intro'));
     for (const trait of r.traits) {
       const card = node('section', undefined, 'race-trait');
       const effect = node('p');
@@ -263,7 +296,10 @@ function mountUnderkeepGuide(signal, refresh) {
     }
     bio.append(facts(r.facts));
     const attributes = node('section', undefined, 'race-stats');
-    attributes.append(node('h3', '起始屬性'), table(r.table.map(([attribute, range]) => [attribute, range])));
+    const attributeHeader = node('header');
+    attributeHeader.append(node('h3', '起始屬性'), attributeTrigger('屬性說明'));
+    const rows = r.table.slice(1).map(([attribute, range]) => [attributeTrigger(attribute, attribute, 'attribute-link'), range]);
+    attributes.append(attributeHeader, table([r.table[0].slice(0, 2), ...rows]));
     bio.append(attributes);
     article.replaceChildren(bio, faceGallery(r));
   }
@@ -274,7 +310,9 @@ function mountUnderkeepGuide(signal, refresh) {
     const selected = skill || skills[0];
     const summary = node('section', undefined, 'panel class-summary');
     const info = node('div');
-    info.append(heading(r.name, r.english), node('p', r.intro));
+    const classTitle = heading(r.name, r.english);
+    classTitle.append(attributeTrigger('屬性說明'));
+    info.append(classTitle, node('p', r.lore, 'character-lore'), node('p', r.intro, 'intro'));
     const classFacts = r.facts.filter(([label, value]) => label !== '體力修正' || Number(value) !== 0);
     summary.append(info, facts(classFacts));
 
@@ -569,7 +607,9 @@ function mountUnderkeepGuide(signal, refresh) {
       dialog.close();
       dialog.remove();
     }
-    if ($('levels-dialog').open) $('levels-dialog').close();
+    for (const dialog of [$('levels-dialog'), attributeDialog]) {
+      if (dialog.open) dialog.close();
+    }
     const changed = section !== next;
     const focused = document.activeElement?.closest('#choices a, #item-subtypes a, #results a, .skill-grid a')?.hash;
     const choices = $('choices');

@@ -43,6 +43,9 @@ body { margin: 0; }
   #sections { width: 100%; }
   #sections a { font-size: clamp(.875rem,3.8vw,1rem); }
 }
+@media (max-width: 480px) {
+  #sections { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
 
 .close-button {
   display: inline-grid;
