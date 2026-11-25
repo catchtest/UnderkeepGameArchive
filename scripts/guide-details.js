@@ -567,5 +567,5 @@ const guideDetails = (() => {
   }
 
   return { data: guide, addData, spriteIcon, route, placeLabel, sources, entryLinks, heading, facts, attributeText, attributeElement,
-    itemsById, enemiesById, artImage, inventoryIcon, coinPrice, catalogTypes, renderDetail };
+    itemsById, enemiesById, artImage, inventoryIcon, coinPrice, itemFactRow, catalogTypes, renderDetail };
 })();

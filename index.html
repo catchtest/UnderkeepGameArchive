@@ -14,9 +14,9 @@
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 <script>document.documentElement.classList.add('enhanced');</script>
 <!-- Update the matching t values when publishing CSS or JavaScript changes. -->
-<link rel="stylesheet" href="css/site.css?t=20261125.5">
-<noscript><link rel="stylesheet" href="css/home.css?t=20261125.5"></noscript>
-<script defer src="scripts/site.js?t=20261125.5"></script>
+<link rel="stylesheet" href="css/site.css?t=20261125.8">
+<noscript><link rel="stylesheet" href="css/home.css?t=20261125.8"></noscript>
+<script defer src="scripts/site.js?t=20261125.8"></script>
 </head>
 <body data-page="home">
 <header class="masthead"><div class="mast-inner">
@@ -128,7 +128,49 @@
     <label class="guide-search"><input id="item-query" type="search" autocomplete="off" aria-keyshortcuts="/"><kbd class="search-key" aria-hidden="true">/</kbd></label>
   </div>
   <nav id="choices" aria-label="選擇條目" hidden></nav>
-  <nav id="item-subtypes" aria-label="物品細分類" hidden></nav>
+  <div class="item-controls" hidden>
+    <nav id="item-subtypes" aria-label="物品細分類" hidden></nav>
+    <label class="item-sort">
+      排序
+      <select id="item-sort">
+        <option value="">預設排序</option>
+        <optgroup label="攻擊">
+          <option>傷害</option>
+          <option>基礎傷害</option>
+          <option>鋒利度</option>
+          <option>護甲穿透</option>
+          <option>近戰暴擊機率</option>
+          <option>遠程暴擊機率</option>
+          <option>遠程命中率</option>
+        </optgroup>
+        <optgroup label="裝備需求">
+          <option>需求力量</option>
+          <option>需求敏捷</option>
+          <option>需求智慧</option>
+        </optgroup>
+        <optgroup label="防禦">
+          <option>護甲</option>
+          <option>閃避</option>
+          <option>近戰防護</option>
+          <option>遠程防護</option>
+          <option>火焰抗性</option>
+          <option>冰霜抗性</option>
+          <option>閃電抗性</option>
+          <option>毒素抗性</option>
+          <option>血魔法抗性</option>
+        </optgroup>
+        <optgroup id="item-immunity-options" label="免疫狀態"></optgroup>
+        <optgroup label="補給與價格">
+          <option>恢復生命</option>
+          <option>恢復體力</option>
+          <option>恢復法力</option>
+          <option>食物補給</option>
+          <option>買價</option>
+          <option>賣價</option>
+        </optgroup>
+      </select>
+    </label>
+  </div>
   <div id="workspace">
     <aside id="library" class="panel" aria-label="圖鑑目錄" hidden>
       <h2>配方</h2>

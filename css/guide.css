@@ -217,7 +217,10 @@ body:is([data-section="items"],[data-section="recipes"],[data-section="shops"]) 
 #item-query::placeholder { color: #cecac0; }
 body:is([data-section="items"],[data-section="enemies"],[data-section="quests"],[data-section="traits"]) .guide-search { display: block; }
 body[data-section="items"] #choices { flex-wrap: wrap; gap: 4px; }
-#item-subtypes:not([hidden]) { display: flex; flex-wrap: wrap; gap: 4px; margin: -6px 0 16px; }
+.item-controls:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-bottom: 16px; }
+.item-sort { display: flex; align-items: center; gap: 8px; margin-inline-start: auto; max-width: 100%; white-space: nowrap; color: var(--muted); }
+.item-sort select { width: 10rem; }
+#item-subtypes:not([hidden]) { display: flex; flex-wrap: wrap; gap: 4px; }
 #item-subtypes a { padding: 3px 12px; border: 1px solid transparent; color: var(--muted); text-decoration: none; }
 #item-subtypes a:hover { color: var(--ink); }
 #item-subtypes a[aria-current] { border-bottom-color: var(--link); color: var(--link); }

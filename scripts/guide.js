@@ -11,7 +11,7 @@ function underkeepGuideSection(key) {
 
 function mountUnderkeepGuide(signal, refresh) {
   const { data: guide, spriteIcon, route, placeLabel, entryLinks, heading, facts, attributeText, attributeElement,
-    itemsById, enemiesById, artImage, inventoryIcon, coinPrice, catalogTypes, renderDetail } = guideDetails;
+    itemsById, enemiesById, artImage, inventoryIcon, coinPrice, itemFactRow, catalogTypes, renderDetail } = guideDetails;
   const node = underkeepElement;
   const $ = id => document.getElementById(id);
   let allEffects;
@@ -43,6 +43,8 @@ function mountUnderkeepGuide(signal, refresh) {
   const catalogDialogs = [];
   let dismissingCatalogDialog = false;
   const catalogQuery = $('item-query');
+  const itemSort = $('item-sort');
+  const itemControls = itemSort.closest('.item-controls');
   bindUnderkeepSearch(catalogQuery, signal);
   const catalogs = {
     items: { placeholder: '搜尋物品、地點或取得方式', thumbnail: r => itemSlot(r.icon) },
@@ -428,22 +430,51 @@ function mountUnderkeepGuide(signal, refresh) {
   function renderCatalogGrid() {
     const items = section === 'items';
     const terms = queryTerms();
+    const selection = items ? itemSort.value : '';
+    const immunity = selection.startsWith('免疫');
+    const sort = immunity ? '' : selection;
     const records = items ? guide.items.filter(r => itemCategories[itemCategory].includes(r.group)
       && (!itemSubtype || subtypeOf(r) === itemSubtype)) : guide[section];
-    const grid = node('div', undefined, 'item-grid catalog-grid');
+    const entries = [];
     for (const record of records) {
+      if (immunity && !record.facts.some(([label, value]) => label === selection && value === '1')) continue;
       if (!terms.every(t => searchable(record).includes(t))) continue;
+      if (!sort) {
+        entries.push({ record, label: record.name });
+        continue;
+      }
+      const fact = record.facts.find(([label]) => label === sort);
+      const match = fact && itemFactRow(fact)[1].match(/^([+-]?\d+)(?:\s*[-–]\s*([+-]?\d+))?(%?)$/);
+      if (!match) continue;
+      const [, first, second, unit] = match;
+      const amount = Number(second) > Number(first) ? second : first;
+      entries.push({ record, label: amount + unit, amount: Number(amount) });
+    }
+    if (sort) entries.sort((a, b) => b.amount - a.amount);
+
+    const grid = node('div', undefined, 'item-grid catalog-grid');
+    for (const { record, label } of entries) {
       const tile = linkTo(section, record, 'item-tile');
       tile.setAttribute('aria-haspopup', 'dialog');
-      if (!items) tile.title = [record.name, record.english].filter(Boolean).join('\n');
+      if (!items || sort) tile.title = [record.name, record.english].filter(Boolean).join('\n');
+      if (sort) tile.setAttribute('aria-label', record.name + '，' + sort + ' ' + label);
       if (catalogs[section].thumbnail) tile.append(catalogs[section].thumbnail(record));
-      tile.append(node('span', record.name));
+      tile.append(node('span', label));
       grid.append(tile);
     }
     article.replaceChildren(grid.childElementCount ? grid : node('p', '查無符合的' + catalogTypes[section].label + '。', 'panel empty'));
   }
 
   function renderItemPage(id, group, subtype, changed) {
+    if (!itemCategory) {
+      const immunities = new Set();
+      for (const record of guide.items) {
+        for (const [label, value] of record.facts) {
+          if (label.startsWith('免疫') && value === '1') immunities.add(label);
+        }
+      }
+      $('item-immunity-options').replaceChildren(...Array.from(immunities, label => node('option', label)));
+    }
     const item = itemsById.get(id);
     const categories = Object.keys(itemCategories);
     if (group === encodeURIComponent('服飾')) group = encodeURIComponent('飾品');
@@ -490,6 +521,7 @@ function mountUnderkeepGuide(signal, refresh) {
   }
 
   catalogQuery.addEventListener('input', () => section === 'traits' ? showTraits() : renderCatalogGrid());
+  itemSort.addEventListener('change', renderCatalogGrid);
   article.addEventListener('click', event => {
     const tile = event.target.closest('a[aria-haspopup="dialog"]');
     if (!tile || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -608,7 +640,7 @@ function mountUnderkeepGuide(signal, refresh) {
       }
       window.scrollTo(0,0);
     }
-    if (section !== 'items') $('item-subtypes').hidden = true;
+    itemControls.hidden = section !== 'items';
     if (section === 'items') record = renderItemPage(id, group, subtype, changed);
     else if (Object.hasOwn(catalogs, section)) {
       if (changed) renderCatalogGrid();
