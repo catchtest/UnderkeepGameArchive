@@ -30,7 +30,7 @@ body[data-section="recipes"].forge { --scene: url("../images/forge.webp"); --sce
 .character,.chapter { text-decoration: none; color: var(--ink); }
 .character { display: flex; flex: 1 0 0; min-width: 0; align-items: center; gap: 7px; padding: 8px; border: 1px solid #514c40; background: linear-gradient(160deg,#34342a,#252922 82%); }
 
-.character:hover,.chapter:hover,.skill-tile:hover { background-color: #3a392c; border-color: #b59a63; }
+.character:hover,.chapter:hover { background-color: #3a392c; border-color: #b59a63; }
 .character[aria-current],.chapter[aria-current] { background: linear-gradient(140deg,#534933,#332f24); border-color: #bc9c5f; box-shadow: inset 0 -2px #bd985b; }
 .character-name { min-width: 0; font-size: 1.05rem; line-height: 1.3; color: var(--name); }
 /* Keep sprite sampling sharp at native size and at integer multiples. */
@@ -91,7 +91,10 @@ body:is([data-section="races"],[data-section="classes"]) #detail { display: grid
 .skill-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(76px,1fr)); gap: 5px; }
 .skill-tile { text-align: center; color: var(--ink); text-decoration: none; display: flex; align-items: center; flex-direction: column; border: 1px solid transparent; padding: 4px 1px; line-height: 1.4; font-size: 1rem; }
 .skill-tile small { color: var(--muted); font: .9rem/1.45 Georgia,serif; }
-.skill-tile[aria-current] { border-color: #b49a5e; background: #403c2f; }
+.skill-tile[aria-current] { border-color: #b49a5e; background: #403c2f; box-shadow: inset 0 -3px #bd985b; }
+@media (hover: hover) {
+  .skill-tile:hover:not([aria-current]) { border: 1px dashed #9e916c; border-radius: 6px; color: var(--gold); }
+}
 .skill-detail .entry-heading h3 { margin-bottom: 0; }
 .skill-detail .entry-heading .skill-art { zoom: 2; }
 .kind { margin-left: auto; color: var(--link); border: 1px solid #665b43; padding: 1px 8px; font-size: 1rem; }

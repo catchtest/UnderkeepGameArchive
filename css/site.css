@@ -1,6 +1,7 @@
 :root { color-scheme: dark; background: #161915; scrollbar-width: thin; scrollbar-color: #82745a transparent; }
 * { box-sizing: border-box; }
-body { margin: 0; }
+/* Keep the shared layout at viewport width when the page scrollbar appears. */
+body { margin: 0; width: 100vw; overflow-x: clip; }
 .search-key {
   display: inline-block; flex: none; min-width: 1.4em; padding: 1px 3px; border: 1px solid currentColor;
   border-radius: 3px; text-align: center; font: 600 .8rem/1.2 monospace;

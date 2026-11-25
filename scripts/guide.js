@@ -228,7 +228,7 @@ function mountUnderkeepGuide(signal, refresh) {
     const totalMin = Math.max(raceMin, minSum);
     const totalMax = Math.min(raceMax, maxSum);
     const formatRange = (min, max) => min === max ? String(min) : min + '–' + max;
-    // The other three rolls must still fit the race's total before the fixed class bonus.
+    // The game adjusts the three secondary rolls to meet the race's total before applying the class bonus.
     const ranges = stats.map(({ name, min, max }) => {
       const extra = name === bonusStat ? bonus : 0;
       return formatRange(Math.max(min, totalMin - (maxSum - max)) + extra,
@@ -249,7 +249,7 @@ function mountUnderkeepGuide(signal, refresh) {
     const panel = node('section', undefined, 'panel starting-ranges');
     panel.append(node('h3', '各' + group + '起始屬性'), table([[group, ...labels, '屬性總值', '生命加成'], ...rows]),
       node('p', '四項屬性合計須落在該列的總值範圍內。生命加成為種族與職業的生命修正合計。', 'range-note'),
-      node('p', '表中範圍依種族與職業定義推算，尚未在遊戲中驗證。', 'range-note'));
+      node('p', '範圍依遊戲 1.0.6 的角色生成規則計算，包含聖騎士的智慧 +1，排除渡鴉的變異特性。', 'range-note'));
     const side = node('div', undefined, 'character-side');
     side.append(panel, otherPanel);
     article.replaceChildren(bio, side);
@@ -444,11 +444,12 @@ function mountUnderkeepGuide(signal, refresh) {
         continue;
       }
       const fact = record.facts.find(([label]) => label === sort);
-      const match = fact && itemFactRow(fact)[1].match(/^([+-]?\d+)(?:\s*[-–]\s*([+-]?\d+))?(%?)$/);
+      const value = fact && itemFactRow(fact)[1];
+      const match = value && value.match(/^([+-]?\d+)(?:\s*[-–]\s*([+-]?\d+))?(%?)$/);
       if (!match) continue;
       const [, first, second, unit] = match;
       const amount = Number(second) > Number(first) ? second : first;
-      entries.push({ record, label: amount + unit, amount: Number(amount) });
+      entries.push({ record, label: sort.endsWith('傷害') && second !== undefined ? value : amount + unit, amount: Number(amount) });
     }
     if (sort) entries.sort((a, b) => b.amount - a.amount);
 
