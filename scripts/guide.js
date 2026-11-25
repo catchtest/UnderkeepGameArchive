@@ -158,12 +158,12 @@ function mountUnderkeepGuide(signal, refresh) {
 
   function faceGallery(r) {
     const gallery = node('section', undefined, 'panel face-gallery');
-    gallery.append(node('h2', '可用頭像'));
+    gallery.append(node('h3', '可用頭像'));
     for (const supporter of [false, true]) {
       const faces = guide.faces.map((face, index) => ({face, index}))
         .filter(({face}) => face.supporter === supporter && face.races.includes(r.id));
       if (!faces.length) continue;
-      gallery.append(node('h3', supporter ? '支持者 DLC' : '基本頭像'));
+      gallery.append(node('h4', supporter ? '支持者 DLC' : '基本頭像'));
       const grid = node('div', undefined, 'face-grid');
       faces.forEach(({index}, i) => {
         const tile = node('span', undefined, 'face-tile');
@@ -325,8 +325,9 @@ function mountUnderkeepGuide(signal, refresh) {
     const panel = node('section', undefined, 'panel race-ranges');
     const rows = guide.classes.map(job => startingRanges(r, job));
     const labels = r.table.slice(1).map(([name]) => attributeLabel(name));
-    panel.append(node('h2', '各職業起始屬性'), table([['職業', ...labels, '屬性總值', '生命加成'], ...rows]),
-      node('p', '四項屬性合計須落在該列的總值範圍內。生命加成為種族與職業的生命修正合計。', 'range-note'));
+    panel.append(node('h3', '各職業起始屬性'), table([['職業', ...labels, '屬性總值', '生命加成'], ...rows]),
+      node('p', '四項屬性合計須落在該列的總值範圍內。生命加成為種族與職業的生命修正合計。', 'range-note'),
+      node('p', '表中範圍依種族與職業定義推算，尚未在遊戲中驗證。', 'range-note'));
     return panel;
   }
 
