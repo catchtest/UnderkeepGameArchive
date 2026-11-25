@@ -145,7 +145,11 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     frame.setAttribute('y', y + .1);
   }
 
-  function symbol(type, sprite = atlas.legendIcons[type], hasSpawnCondition = false) {
+  function isInitiallyAbsent(point) {
+    return point.detail?.['初始狀態'] === '隱藏' || Boolean(point.detail?.['現身條件']);
+  }
+
+  function symbol(type, sprite = atlas.legendIcons[type], initiallyAbsent = false) {
     const [label] = atlas.types[type];
     const tag = underkeepElement('span', undefined, 'symbol');
     if (type === 'location') {
@@ -156,7 +160,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     const art = underkeepElement('img');
     if (type === 'boss') art.className = 'boss-icon';
     if (sprite === secretWallSprite) art.className = 'secret-wall';
-    if (hasSpawnCondition) art.style.opacity = '.5';
+    if (initiallyAbsent) art.style.opacity = '.5';
     art.loading = 'lazy';
     art.src = atlas.art[sprite][0];
     art.alt = '';
@@ -249,7 +253,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     const attrs = { x, y, 'pointer-events': 'none' };
     if (point.type === 'boss') attrs.class = 'boss-icon';
     if (point.sprite === secretWallSprite) attrs.class = 'secret-wall';
-    if (point.detail?.['現身條件']) attrs.opacity = .5;
+    if (isInitiallyAbsent(point)) attrs.opacity = .5;
     if (native) {
       const [, width, height, pivotX, pivotY] = atlas.nativeArt[native];
       Object.assign(attrs, { href: '#game-icon-' + native, x: x - pivotX / 10, y: y - pivotY / 10,
@@ -587,7 +591,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   function appendPointTitle(title, point) {
     const label = underkeepElement('span');
     label.append(point.enemyGuide ? mapReferenceButton('enemies', point.key, point.title) : linkedText(point.title, point.titleLinks));
-    title.append(symbol(point.type, point.sprite, Boolean(point.detail['現身條件'])), label);
+    title.append(symbol(point.type, point.sprite, isInitiallyAbsent(point)), label);
   }
 
   function paintTooltip(points) {
@@ -597,7 +601,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     for (const point of points.slice(0, limit)) {
       const card = underkeepElement('div', undefined, 'tip-card');
       const title = underkeepElement('div', undefined, 'tip-title');
-      title.append(symbol(point.type, point.sprite, Boolean(point.detail['現身條件'])), point.title);
+      title.append(symbol(point.type, point.sprite, isInitiallyAbsent(point)), point.title);
       card.append(title);
       const details = pointDetails(point);
       for (const key of hoverFields) {
@@ -1344,6 +1348,6 @@ window.UNDERKEEP_ATLAS = {
 "urn2": {"type":"treasure","title":"陶罐","detail":{"取得方式":"打破後取得"},"sprite":"urn1","rotation":0,"native":null,"nativeRotation":0,"isChest":false},
 "urn3": {"type":"treasure","title":"陶罐","detail":{"取得方式":"打破後取得"},"sprite":"urn1","rotation":0,"native":null,"nativeRotation":0,"isChest":false},
 "wizard_npc_friendly": {"type":"service","title":"大法師","sprite":"mtile_enemy_friend","rotation":0,"nativeRotation":0,"isChest":false},
-"wizard_npc_illu": {"type":"service","title":"大法師的幻影","detail":{"初始狀態":"尚未現身"},"sprite":"mtile_enemy_friend","rotation":0,"native":null,"nativeRotation":0,"isChest":false}
+"wizard_npc_illu": {"type":"service","title":"大法師的幻影","detail":{"初始狀態":"隱藏"},"sprite":"mtile_enemy_friend","rotation":0,"native":null,"nativeRotation":0,"isChest":false}
 }
 };

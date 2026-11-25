@@ -49,7 +49,7 @@ function mountUnderkeepGuide(signal, refresh) {
   const catalogs = {
     items: { placeholder: '搜尋物品、地點或取得方式', thumbnail: r => itemSlot(r.icon) },
     enemies: { placeholder: '搜尋敵人、技能、抗性或地點', thumbnail: enemyThumbnail },
-    quests: { placeholder: '搜尋任務、解法、結局或地點' }
+    quests: { placeholder: '搜尋任務、解法或地點' }
   };
   const mapId = new URLSearchParams(location.search).get('map');
   if (Object.hasOwn(underkeepMapNames, mapId)) $('to-map').hash = mapId;
@@ -80,7 +80,7 @@ function mountUnderkeepGuide(signal, refresh) {
   }
 
   function sources(article, r, title = section === 'recipes' && r.group === '研缽合成' ? '配方卷軸取得地點' : '取得方式與地點', sourceRoute = route(section, r)) {
-    guideDetails.sources(article, r, title, sourceRoute, { acquisition: section === 'recipes' });
+    guideDetails.sources(article, r, title, sourceRoute, { staticGroups: section === 'recipes' });
   }
 
   const searchIndex = new WeakMap();
@@ -88,13 +88,6 @@ function mountUnderkeepGuide(signal, refresh) {
     if (!searchIndex.has(r)) {
       const fields = [r.name, r.english, r.group, r.intro, r.notes, ...r.facts.flat(), ...(r.hiddenEffects || []),
         ...(r.steps || []), ...(r.ingredients || []).flat(), ...(r.table || []).flat()];
-      if (r.endingIds?.length) {
-        fields.push('遊戲結局', ...(r.endingNotes || []));
-        for (const id of r.endingIds) {
-          const { name, condition } = guide.endings[id];
-          fields.push(name, condition);
-        }
-      }
       if (r.attacks) {
         fields.push(...r.resist.flat(), ...r.abilities,
           ...r.immunities.map(key => '免疫' + guide.combatStatuses[key].name));

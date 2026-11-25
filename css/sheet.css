@@ -88,20 +88,26 @@ dialog .entry-heading .inventory-icon { zoom: 3; }
 .granted-skill-type { margin: 0; color: #aaa193; }
 .granted-skill-description { margin: 12px 0; color: var(--item-feature-color); }
 .granted-skill .skill-cooldown { --item-row-color: #fff; }
-.acquisition { margin-top: 10px; }
+.acquisition { --source-gap: 6px; --source-indent: 12px; margin-top: 10px; padding: 0; }
 .item-uses { margin-block: 10px; }
 .item-uses details > summary { cursor: pointer; }
 .acquisition > summary { cursor: pointer; font-weight: 600; }
-.acquisition > details { margin-inline-start: 12px; }
+.dialog-body .item-sheet .acquisition > :not(summary),
+.dialog-body .item-sheet .acquisition > details > .locations {
+  margin: 0;
+  margin-block-start: var(--source-gap);
+  margin-inline-start: var(--source-indent);
+}
+.acquisition > details { padding: 0; }
+.dialog-body .item-sheet .acquisition :is(.locations, .links) { gap: var(--source-gap); }
 
 .quest-steps { padding-inline-start: 2em; margin: 0; }
 .quest-steps li { padding: 8px 0 8px .4em; border-bottom: 1px solid var(--line, var(--border)); }
 .quest-steps li::marker { color: var(--link, var(--link-text)); font-weight: bold; }
-.quest-endings,.quest-rewards { list-style: none; margin: 0; padding: 0; }
-.quest-endings > li,.quest-rewards > li {
+.quest-rewards { list-style: none; margin: 0; padding: 0; }
+.quest-rewards > li {
   display: grid; gap: 4px; padding: 8px 0; border-bottom: 1px solid var(--line, var(--border));
 }
-.quest-ending-note + .quest-ending-note { margin-top: 8px; }
 .quest-reward-amounts { color: var(--link, var(--link-text)); }
 .quest-detail .links button { display: inline-flex; align-items: center; gap: 6px; }
 .quest-detail .links .inventory-icon { zoom: 1; }

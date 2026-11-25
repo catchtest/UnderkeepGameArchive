@@ -420,8 +420,8 @@ registerUnderkeepMap({
 "item_potion_resurrection": {"type":"item","title":"復活藥水","detail":{"可取得":"復活藥水"},"sprite":"item_potion_resurrect","rotation":0,"native":null,"nativeRotation":0,"isChest":false,"itemLinks":{"可取得":[[0,4,"item_potion_resurrection"]]},"titleLinks":[[0,4,"item_potion_resurrection"]]},
 "item_recipe_minor_healing": {"type":"item","title":"次級治療藥水（配方）","detail":{"可取得":"次級治療藥水（配方）"},"sprite":"item_recipe","rotation":0,"native":null,"nativeRotation":0,"isChest":false,"itemLinks":{"可取得":[[0,10,"item_recipe_minor_healing"]]},"titleLinks":[[0,10,"item_recipe_minor_healing"]]},
 "item_ring_of_minor_evasion": {"type":"item","title":"次級閃避戒指","detail":{"可取得":"次級閃避戒指"},"sprite":"item_ring_of_minor_evasion","rotation":0,"native":null,"nativeRotation":0,"isChest":false,"itemLinks":{"可取得":[[0,6,"item_ring_of_minor_evasion"]]},"titleLinks":[[0,6,"item_ring_of_minor_evasion"]]},
-"jacob_npc_healed": {"type":"service","title":"雅各布（治癒後）","detail":{"初始狀態":"尚未現身"},"sprite":"mtile_enemy_friend","rotation":0,"native":null,"nativeRotation":0,"isChest":false},
+"jacob_npc_healed": {"type":"service","title":"雅各布（治癒後）","detail":{"初始狀態":"隱藏"},"sprite":"mtile_enemy_friend","rotation":0,"native":null,"nativeRotation":0,"isChest":false},
 "starting_party": {"type":"service","title":"隊伍起點","sprite":"mtile_party_arrow","rotation":270,"native":"mtile_party_arrow","nativeRotation":270,"isChest":false},
-"trader2_npc": {"type":"service","title":"行商","detail":{"初始狀態":"尚未現身","事件取得":"「與商人會面」：商人鑰匙"},"sprite":"mtile_enemy_friend","rotation":0,"native":null,"nativeRotation":0,"isChest":false,"itemLinks":{"事件取得":[[8,12,"item_trader_key_iron"]]}}
+"trader2_npc": {"type":"service","title":"行商","detail":{"初始狀態":"隱藏","事件取得":"「與商人會面」：商人鑰匙"},"sprite":"mtile_enemy_friend","rotation":0,"native":null,"nativeRotation":0,"isChest":false,"itemLinks":{"事件取得":[[8,12,"item_trader_key_iron"]]}}
 }
 });

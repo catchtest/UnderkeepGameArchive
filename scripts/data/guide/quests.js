@@ -1,25 +1,5 @@
 guideDetails.addData({
 "quests": [
-{
-  "id": "endings",
-  "name": "結局攻略",
-  "group": "結局",
-  "facts": [],
-  "endingIds": ["tower_explode", "party_seals_portal", "torren_grabbed_wizard", "torren_pushed_wizard"],
-  "endingNotes": [
-    "大法師的路線取決於三名守護者：源頭、沼澤的「那個東西」和古龍。任一名死亡就會進入敵對路線。三名都存活時，仍可在塔頂選「拒絕參與」主動開戰。",
-    "源頭（The Source）位於墓園地下的永眠之室。打敗守衛後選「讓它活著。」即可保住源頭，此時「源頭之心」任務會顯示失敗。",
-    "要放走沼澤的「那個東西」（The Thing），先摧毀根墓的四條觸手根。回泥沼之心打完觸手階段，選「讓這生物離開。」即可，格爾格拉的魚可留著。",
-    "要讓古龍活下來，先答應杜洛克保全古龍，再加入科爾的遠征。沿途三次布置炸藥時都勸阻科爾，最後破壞龍巢石柱讓古龍離開。",
-    "靈魂切割者（Soulcleaver）由杜洛克贈送。完成「八鑰試煉」後深入靈魂鍛造爐，抵達創世之砧並向杜洛克回報即可取得。",
-    "想看齊四個主線結局，可在三名守護者都存活、已取得靈魂切割者時，於塔頂和大法師交談前存檔。"
-  ],
-  "itemIds": ["item_soulforge_axe"],
-  "sources": [
-    ["塔頂會面", "Tower_Level5", 3],
-    ["托倫推入傳送門", "Undertower", 160]
-  ]
-},
 {"id":"underkeep_main_quest","name":"Underkeep 的低語","english":"Whispers of Underkeep","group":"主線","steps":["從獠牙根森林前往 Underkeep 村莊。向村長奧爾登及店主打聽失蹤的矮人遠征隊，再往西尋找暮谷森林的營地。","與科爾、杜洛克交談，處理「最後的爐火」。解決古龍後回報杜洛克，進入矮人廢墟。","在靈魂鍛造爐外廳完成「八鑰試煉」，由寂靜謎廳深入熔爐。找到創世之砧後向杜洛克回報，取得靈魂切割者。","完成「高塔之印」，登上高塔五層與大法師交談。","塔底通道開啟後，回到高塔入口下樓找托倫。對話中選「夠了。去死。」或「到此為止。」開戰。"],"sources":[["接取／觸發","Starting_forest",2594],["任務地點","Tower_Level1",257],["任務地點","Tower_Level5",86],["任務地點","Tower_Level5",3],["任務地點","Underkeep_Surroundings",459],["任務地點","Undertower",158],["任務地點","Undertower",25],["任務地點","Village_of_Underkeep",529],["任務地點","Village_of_Underkeep",715],["任務地點","Village_of_Underkeep",244],["任務地點","Village_of_Underkeep",242],["任務地點","Village_of_Underkeep",831],["任務地點","Village_of_Underkeep",250],["任務地點","West_woods",1039],["任務地點","West_woods",422],["任務地點","West_woods",462],["任務地點","West_woods",464],["任務地點","West_woods",1319]],"facts":[],"itemIds":["item_soulforge_axe"],"rewards":[{"stage":"在村內向奧爾登打聽矮人遠征隊","xp":120},{"stage":"在村內向巴洛打聽矮人遠征隊","xp":120},{"stage":"在村內向酒館店主打聽矮人遠征隊","xp":120},{"stage":"在村內向羅南打聽矮人遠征隊","xp":120},{"stage":"在村內向凱勒巴打聽矮人遠征隊","xp":120},{"stage":"通過暮谷守衛的交涉","xp":"10–40","note":"交出啤酒或付 10 金幣得 10 經驗值。說出杜洛克的身分或石錘氏族得 40 經驗值。矮人辨認守衛還可先得 20 經驗值。"},{"stage":"向科爾詢問古龍","xp":100},{"stage":"向科爾詢問遠征隊","xp":100},{"stage":"向杜洛克詢問創世之砧","xp":100},{"stage":"向杜洛克詢問遠征隊","xp":100},{"stage":"抵達創世之砧並接受杜洛克的武器","items":["item_soulforge_axe"]},{"stage":"打開高塔大門","xp":400,"note":"與「高塔之印」共用；查看門鎖的額外 40 經驗值列於該任務。"},{"stage":"擊敗高塔法師","xp":4000,"note":"戰鬥經驗。"},{"stage":"擊敗托倫","xp":4000,"note":"戰鬥經驗。"}]},
 {"id":"village_guard_entry","name":"怪物過路費","english":"Monster Toll Lane","group":"支線","steps":["在獠牙根森林的村口找守衛加里克。接受委託後，清除南方小路上他指定的八隻掘地蟲。","返回村口向加里克回報，即可通行。也可在交涉時付 30 金幣通過；隊伍有盜賊可選 20 金幣的選項。"],"sources":[["接取與交付","Starting_forest",1571]],"facts":[],"itemIds":[],"rewards":[{"stage":"擊退掘地蟲後回報加里克","xp":120,"note":"可通過村口。"},{"stage":"改為付費通行","xp":160,"note":"付款時獲得 40 經驗值，完成對話再獲得 120 經驗值。需付 30 金幣，有盜賊可付 20。"}]},
 {"id":"find_khelebar","name":"小屋的麻煩","english":"Troubles at the Shack","group":"支線","steps":["調查獠牙根森林中雅各布的小屋，閱讀他留下的線索。","進入 Underkeep 村莊找凱勒巴，詢問雅各布的下落，接續「南方之影」。"],"sources":[["接取／觸發","Starting_forest",1588],["結局／回報","Village_of_Underkeep",250]],"facts":[],"itemIds":["item_jacob_scroll_02"],"rewards":[{"stage":"在雅各布的小屋使用特殊職業選項","xp":40,"items":["item_ranger_dagger","item_red_mask"],"note":"有各自的觸發條件。遊俠或盜賊的隱藏處對話可拿遊俠匕首，血法師的調查分支可拿紅面具。"},{"stage":"搜索小屋","items":["item_mortar"],"note":"可以取得研缽與杵並帶走雅各布的信。"},{"stage":"首次找凱勒巴時，雅各布已獲救","xp":1000,"items":["item_khelebar_amulet"],"note":"此分支直接結算小屋任務，與「南方之影」的正常回報獎勵互斥。"},{"stage":"一般路線向凱勒巴詢問雅各布","note":"拿到戒指後接續「南方之影」。","items":["item_ring_of_corpsebane"]}]},
@@ -48,23 +28,5 @@ guideDetails.addData({
 {"id":"grgla_creature","name":"又見格爾格拉","english":"There and Grgla Again","group":"支線","steps":["在陰沼遇見格爾格拉，擊退追到他藏身處的樹怪，再找他交談。","先抵達迷霧迷宮，再回到他的藏身處詢問霧中道路，接受他帶路。","帶他穿過濃霧，到達出口。"],"sources":[["接取／觸發","Swamp",544],["任務地點","Swamp",546],["結局／回報","Swamp",512]],"facts":[],"itemIds":[],"rewards":[{"stage":"與格爾格拉談話後收下他的禮物","items":["item_grgla_fish"]},{"stage":"跟隨格爾格拉走出迷霧","xp":400,"note":"同時完成「霧中迷宮」，兩個任務共用這筆經驗值。"}]},
 {"id":"misty_maze","name":"霧中迷宮","english":"Misty Maze","group":"支線","steps":["在陰沼走到迷霧迷宮，讓隊伍發現道路受阻。","救下格爾格拉後回去詢問迷宮，邀他同行，再與他一起前往迷宮出口。"],"sources":[["任務地點","Swamp",546],["結局／回報","Swamp",512]],"facts":[],"itemIds":["item_grgla_fish"],"rewards":[{"stage":"在格爾格拉帶領下走出迷霧","xp":400,"note":"解鎖成就。與「又見格爾格拉」共用這筆經驗值。"}]},
 {"id":"lantern_quest","name":"燃燒兩次的光","english":"The Light That Burns Twice","group":"支線","steps":["調查暮谷森林白樺林中的提燈，先保住提燈，聽取靈魂的線索。","找到燒焦十字架的孤墳，利用虛空召喚者、虛空碎片或靈魂提燈的對話選項召喚看守。","讓看守跟著隊伍返回白樺林，再觸發提燈的最後事件並解決看守。途中殺死它會失去使靈魂安息的結局。"],"sources":[["結局／回報","West_woods",1381],["接取／觸發","West_woods",1375],["任務地點","West_woods",1379],["結局／回報","West_woods",1041],["結局／回報","West_woods",1383],["結局／回報","West_woods",804]],"facts":[],"itemIds":["item_voidshard","item_lantern"],"rewards":[{"stage":"血法師在白樺林檢查提燈","xp":40},{"stage":"在無名墓用虛空喚者能力或虛空碎片召喚看守","xp":40},{"stage":"改用靈魂提燈召喚看守","xp":80,"note":"與其他召喚方式互斥。"},{"stage":"在終局擊敗靈魂看守","xp":600,"items":["item_key_lantern","item_ingredient_ectoplasm"],"note":"擊敗守衛另可獲得 250 經驗值。提燈鑰匙及靈質來自掉落。"},{"stage":"終局選擇打碎提燈、釋放雙方","xp":400,"items":["item_key_lantern"],"note":"與終局擊敗靈魂看守互斥。"}]}
-],
-"endings": {
-  "tower_explode": {
-    "name": "高塔崩塌（最壞結局）",
-    "condition": "在高塔五層打敗大法師時，隊伍未攜帶靈魂切割者。繼續戰後對話即觸發。若已取得斧頭，可在與大法師交談前先放在地上。"
-  },
-  "party_seals_portal": {
-    "name": "隊伍進入傳送門封印（普通結局 A）",
-    "condition": "帶著靈魂切割者在高塔五層打敗大法師，進入塔底。直接打敗托倫，或用「虛空脈衝」把他推入傳送門，兩種做法都會觸發此結局。"
-  },
-  "torren_grabbed_wizard": {
-    "name": "大法師進入傳送門封印（普通結局 B）",
-    "condition": "保住三名守護者，帶著靈魂切割者到高塔五層，答應協助大法師。到塔底直接打敗托倫（生命值降至 0），即使最後一擊由靈魂切割者打出，也會觸發此結局。"
-  },
-  "torren_pushed_wizard": {
-    "name": "大法師從外側封印傳送門（最佳結局）",
-    "condition": "保住三名守護者，帶著靈魂切割者到高塔五層，答應協助大法師。到塔底後，由力量至少 8 的隊員裝備斧頭，等托倫站到門前，用「虛空脈衝」把仍活著的托倫推入傳送門的感應格（-1, -12）。"
-  }
-}
+]
 });

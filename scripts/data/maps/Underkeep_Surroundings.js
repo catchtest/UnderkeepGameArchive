@@ -55,7 +55,7 @@ registerUnderkeepMap({
 {"id":1032,"key":"resurrect_shrine","xy":[10,-49],"code":"H01"},
 {"id":979,"key":"druid_npc_friendly","xy":[28,-41],"code":"H02","targets":[[674,["trigger"]]],"sources":[[674,["disable"]]]},
 {"id":478,"key":"guard2_npc","xy":[42,-41],"code":"H03","native":"mtile_enemy_friend"},
-{"id":981,"key":"torren_npc_friendly","xy":[32,-37],"code":"H04","detail":{"初始狀態":"尚未現身"},"targets":[[977,["trigger"]]],"sources":[[977,["disable"]]],"sprite":"mtile_enemy_friend","native":null},
+{"id":981,"key":"torren_npc_friendly","xy":[32,-37],"code":"H04","detail":{"初始狀態":"隱藏"},"targets":[[977,["trigger"]]],"sources":[[977,["disable"]]],"sprite":"mtile_enemy_friend","native":null},
 {"id":665,"key":"item_coins","xy":[5,-23],"code":"H06","title":"金幣","coinAmount":1},
 {"id":666,"key":"item_coins","xy":[5,-23],"code":"H07","title":"金幣","coinAmount":1},
 {"id":667,"key":"item_coins","xy":[5,-23],"code":"H08","title":"金幣 ×2","coinAmount":2},

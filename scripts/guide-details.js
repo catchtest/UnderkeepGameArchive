@@ -177,7 +177,7 @@ const guideDetails = (() => {
     return [name + ' · ' + title, '（' + xy.join(', ') + '）'];
   }
 
-  function sources(parent, r, title, sourceRoute, { guideUrl = '', mapHref, detailButton, acquisition = false } = {}) {
+  function sources(parent, r, title, sourceRoute, { guideUrl = '', mapHref, detailButton, acquisition = false, staticGroups = false } = {}) {
     const locationHref = mapHref || ((mid, id) => '?view=map&guide=' + encodeURIComponent(sourceRoute.slice(1)) + '#' + mid + '@' + id);
     const article = acquisition ? node('details', undefined, 'acquisition') : parent;
     if (acquisition) parent.append(article);
@@ -185,6 +185,13 @@ const guideDetails = (() => {
     if (!r.sources?.length && !r.enemyDrops?.length) {
       article.append(node('p', '—', 'muted'));
       return article;
+    }
+    function appendMethod(method, links, count) {
+      const group = node(staticGroups ? 'section' : 'details');
+      group.dataset.method = method;
+      if (!staticGroups) group.open = !acquisition && count <= 5;
+      group.append(node(staticGroups ? 'h4' : 'summary', method), links);
+      article.append(group);
     }
     const groups = new Map();
     for (const [how, mid, id] of r.sources) {
@@ -204,19 +211,9 @@ const guideDetails = (() => {
         locations.append(link);
       }
       if (how === title) article.append(locations);
-      else {
-        const details = node('details');
-        details.dataset.method = how;
-        details.open = !acquisition && entries.length <= 5;
-        details.append(node('summary', how), locations);
-        article.append(details);
-      }
+      else appendMethod(how, locations, entries.length);
     }
     if (r.enemyDrops?.length) {
-      const details = node('details');
-      details.dataset.method = '敵人掉落';
-      details.open = !acquisition && r.enemyDrops.length <= 5;
-      details.append(node('summary', '敵人掉落'));
       const links = node('div', undefined, 'locations');
       for (const [id, methods] of r.enemyDrops) {
         const enemy = enemiesById.get(id);
@@ -225,8 +222,7 @@ const guideDetails = (() => {
         if (methods.length > 1 || methods[0] !== '擊敗敵人') link.append(' · ' + methods.join('、'));
         links.append(link);
       }
-      details.append(links);
-      article.append(details);
+      appendMethod('敵人掉落', links, r.enemyDrops.length);
     }
     return article;
   }
@@ -417,20 +413,6 @@ const guideDetails = (() => {
       sheet.append(node('h3', '任務解法'), steps);
     }
     for (const [label, value] of r.facts) sheet.append(node('h3', label), node('p', value));
-    if (r.endingIds?.length) {
-      const endings = node('ul', undefined, 'quest-endings');
-      for (const id of r.endingIds) {
-        const { name, condition } = guide.endings[id];
-        const row = node('li');
-        row.append(node('strong', name), node('p', condition));
-        endings.append(row);
-      }
-      sheet.append(node('h3', '遊戲結局與觸發條件'), endings);
-      if (r.endingNotes?.length) {
-        sheet.append(node('h3', '路線提示'));
-        for (const note of r.endingNotes) sheet.append(node('p', note, 'quest-ending-note'));
-      }
-    }
     const itemOptions = { ...options, showIcons: true };
     if (r.rewards?.length) {
       const rewards = node('ul', undefined, 'quest-rewards');

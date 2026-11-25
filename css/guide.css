@@ -26,7 +26,11 @@ body[data-section="recipes"].forge { --scene: url("../images/forge.webp"); --sce
 .banner h1::after { content: ""; display: block; margin-top: 16px; width: 82px; height: 1px; background: linear-gradient(90deg,#e4c385,#c7aa6f55); }
 .banner h1::before { content: ""; position: absolute; width: 5px; height: 5px; left: 0; bottom: -2px; transform: rotate(45deg); background: #f2d395; }
 #choices:not([hidden]) { display: flex; }
-#choices { margin: 17px 0; overflow-x: auto; scrollbar-width: thin; }
+#choices { margin: 17px 0; padding-inline-start: 1px; padding-block-start: 1px; overflow-x: auto; scrollbar-width: thin; }
+/* Share one border between neighboring tabs, including when a row wraps. */
+#choices > a { margin-inline-start: -1px; margin-block-start: -1px; }
+#choices > a:is(:hover,[aria-current]) { z-index: 1; }
+#choices > a:focus-visible { z-index: 2; outline-offset: -3px; }
 .character,.chapter { text-decoration: none; color: var(--ink); }
 .character { display: flex; flex: 1 0 0; min-width: 0; align-items: center; gap: 7px; padding: 8px; border: 1px solid #514c40; background: linear-gradient(160deg,#34342a,#252922 82%); }
 
@@ -149,7 +153,9 @@ a.material:hover .inventory-art { filter: brightness(1.18); }
 .product .entry-heading small { color: #c4beb1; }
 .effect { color: var(--name); font-weight: 650; }
 .product-note { color: var(--ink); margin: 6px auto 7px; font-size: 1rem; }
-.recipe-info { margin-top: 13px; }
+.recipe-info { display: grid; gap: 12px; margin-top: 13px; }
+.recipe-info [data-method] { display: grid; gap: 6px; }
+.recipe-info :is(h3,h4,p,.locations) { margin: 0; }
 .recipe-info .facts { margin: 0; border-top: 0; }
 .links { display: flex; flex-wrap: wrap; gap: 5px 15px; }
 .links a:has(> :is(.icon,.inventory-icon)) { display: inline-flex; align-items: center; gap: 6px; }
@@ -209,7 +215,34 @@ body:has(.guide-dialog[open]) { overflow: hidden; }
 .levels table { margin-top: 12px; }
 .product .entry-names { justify-content: center; }
 body[data-section="enemies"] { --scene: url("../images/enemies.webp"); --scene-y: 40%; }
-body[data-section="quests"] { --scene: url("../images/quests.webp"); }
+body[data-section="quests"] { --scene: url("../images/quests.webp"); --serif: "Noto Serif TC", "Underkeep Walkthrough Titles", "PMingLiU", serif; }
+@font-face {
+  font-family: "Underkeep Walkthrough Titles";
+  src: url("../fonts/walkthrough-heading.woff2?t=20261126.1") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+body[data-page="walkthrough"] {
+  --scene: url("../images/quests.webp");
+  --serif: "Underkeep Walkthrough Titles", "Noto Serif TC", "PMingLiU", serif;
+}
+.spoiler-notice { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 20px; width: fit-content; max-width: 100%; margin: 24px auto; text-align: center; }
+.spoiler-notice strong { margin-inline-end: .6em; color: var(--gold); }
+.spoiler-notice button { padding: 8px 18px; border: 1px solid #baa071; background: #453c2c; color: #f3e6cf; font: inherit; cursor: pointer; }
+.spoiler-notice button:hover { background: #554a37; }
+.walkthrough-flow { margin-top: 20px; }
+.walkthrough-flow > p { margin: 10px 0; }
+.flow-heading { display: flex; align-items: center; justify-content: space-between; gap: 1em; margin-bottom: 12px; }
+.flow-heading h2 { font: 700 1.5rem/1.4 var(--serif); color: var(--heading); }
+.flow-size { display: inline-flex; align-items: center; gap: .4em; color: var(--muted); cursor: pointer; }
+.flow-size input { width: auto; margin: 0; accent-color: var(--gold); }
+.flow-viewport { overflow-x: auto; border: 1px solid #50646b; border-radius: 8px; background: radial-gradient(circle, #36434a 1px, transparent 1px) 0 0 / 18px 18px, #131d24; }
+.flow-viewport img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+.walkthrough-flow:has(.flow-size input:checked) .flow-viewport img { max-width: none; }
+@media (min-width: 1120px) {
+  .flow-size { display: none; }
+}
 body[data-section="shops"] { --scene: var(--shop-scene); --scene-y: 42%; }
 body:is([data-section="items"],[data-section="recipes"],[data-section="shops"]) .icon { zoom: 2; }
 .guide-search {
@@ -219,11 +252,11 @@ body:is([data-section="items"],[data-section="recipes"],[data-section="shops"]) 
 .guide-search .search-key { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: #cecac0; pointer-events: none; }
 #item-query::placeholder { color: #cecac0; }
 body:is([data-section="items"],[data-section="enemies"],[data-section="quests"],[data-section="traits"]) .guide-search { display: block; }
-body[data-section="items"] #choices { flex-wrap: wrap; gap: 4px; }
+body[data-section="items"] #choices { flex-wrap: wrap; }
 .item-controls:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-bottom: 16px; }
 .item-sort { display: flex; align-items: center; gap: 8px; margin-inline-start: auto; max-width: 100%; white-space: nowrap; color: var(--muted); }
 .item-sort select { width: 10rem; }
-#item-subtypes:not([hidden]) { display: flex; flex-wrap: wrap; gap: 4px; }
+#item-subtypes:not([hidden]) { display: flex; flex-wrap: wrap; }
 #item-subtypes a { padding: 3px 12px; border: 1px solid transparent; color: var(--muted); text-decoration: none; }
 #item-subtypes a:hover { color: var(--ink); }
 #item-subtypes a[aria-current] { border-bottom-color: var(--link); color: var(--link); }
@@ -251,6 +284,10 @@ body[data-section="quests"] .catalog-grid { grid-template-columns: repeat(auto-f
 body[data-section="quests"] .catalog-grid .item-tile {
   display: flex; flex-direction: row; justify-content: flex-start; align-items: center;
   min-height: 44px; padding: 10px 16px; font-size: 1rem; text-align: start;
+}
+body[data-section="quests"] .catalog-grid .item-tile::before {
+  content: ""; flex: 0 0 20px; height: 24px; margin-inline-end: 6px;
+  background: url("../images/quest-completed.webp") center / contain no-repeat; image-rendering: pixelated;
 }
 .guide-dialog.detail-dialog { width: min(680px,calc(100% - 24px)); }
 .guide-dialog.detail-dialog > header { gap: 10px; }

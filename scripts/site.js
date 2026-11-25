@@ -89,6 +89,19 @@ function underkeepXpText(text, formatText = String) {
       title: underkeepSiteName,
       styles: ['home.css']
     },
+    walkthrough: {
+      title: '流程攻略 | ' + underkeepSiteName,
+      styles: ['guide.css'],
+      mount(signal) {
+        const button = document.getElementById('reveal-walkthrough');
+        const content = document.getElementById('walkthrough-content');
+        button.addEventListener('click', () => {
+          content.hidden = false;
+          button.closest('.spoiler-notice').remove();
+          document.getElementById('flow-title').focus({ preventScroll: true });
+        }, { signal });
+      }
+    },
     map: {
       title: '互動地圖 | ' + underkeepSiteName,
       styles: ['map.css'],
@@ -191,7 +204,7 @@ function underkeepXpText(text, formatText = String) {
 
   function mount(page, signal) {
     mapLink.href = '?view=map';
-    for (const [name, link] of [['home', homeLink], ['map', mapLink]]) {
+    for (const [name, link] of [['home', homeLink], ['map', mapLink], ['walkthrough', document.getElementById('to-walkthrough')]]) {
       if (page === name) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
     }

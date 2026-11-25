@@ -14,9 +14,9 @@
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 <script>document.documentElement.classList.add('enhanced');</script>
 <!-- Update the matching t values when publishing CSS or JavaScript changes. -->
-<link rel="stylesheet" href="css/site.css?t=20261125.10">
-<noscript><link rel="stylesheet" href="css/home.css?t=20261125.10"></noscript>
-<script defer src="scripts/site.js?t=20261125.10"></script>
+<link rel="stylesheet" href="css/site.css?t=20261126.1">
+<noscript><link rel="stylesheet" href="css/home.css?t=20261126.1"></noscript>
+<script defer src="scripts/site.js?t=20261126.5"></script>
 </head>
 <body data-page="home">
 <header class="masthead"><div class="mast-inner">
@@ -26,9 +26,10 @@
   <nav id="sections" aria-label="圖鑑分類">
     <a id="to-map" href="?view=map">地圖</a>
     <a href="?view=guide#races" data-title="種族加成">種族</a><a href="?view=guide#classes" data-title="職業與技能">職業</a>
-    <a href="?view=guide#traits" data-title="特性與狀態效果">特性</a>
-    <a href="?view=guide#items" data-title="物品圖鑑">物品</a><a href="?view=guide#recipes" data-title="合成表">合成</a>
-    <a href="?view=guide#enemies" data-title="敵人圖鑑">敵人</a><a href="?view=guide#quests" data-title="任務攻略">任務</a><a href="?view=guide#shops" data-title="商店販賣">商店</a>
+    <a href="?view=guide#traits" data-title="特性與狀態">特性</a>
+    <a href="?view=guide#items" data-title="物品圖鑑">物品</a><a href="?view=guide#shops" data-title="商店販賣">商店</a><a href="?view=guide#recipes" data-title="合成表">合成</a>
+    <a href="?view=guide#enemies" data-title="敵人圖鑑">敵人</a><a href="?view=guide#quests" data-title="任務一覽">任務</a>
+    <a id="to-walkthrough" href="?view=walkthrough">攻略</a>
   </nav>
 </div></header>
 <p id="view-status" role="status" hidden></p>
@@ -65,6 +66,38 @@
   <p>遊戲版本：1.0.6　網站製作：蕭雲</p>
 </footer>
 </div>
+<template id="walkthrough-view">
+<main class="book" tabindex="-1">
+  <header class="banner"><h1>流程攻略</h1></header>
+  <div class="spoiler-notice">
+    <p><strong>劇透提示</strong>本頁包含主線解謎、劇情分歧與最終結局。</p>
+    <button type="button" id="reveal-walkthrough" aria-controls="walkthrough-content">顯示</button>
+  </div>
+  <div id="walkthrough-content" hidden>
+    <section class="walkthrough-flow" aria-labelledby="flow-title">
+      <div class="flow-heading">
+        <h2 id="flow-title" tabindex="-1">主線總覽</h2>
+        <label class="flow-size"><input type="checkbox" aria-controls="flow-viewport"> 原尺寸</label>
+      </div>
+      <div id="flow-viewport" class="flow-viewport" tabindex="0" role="region" aria-label="主線流程圖">
+        <img src="images/story-flow.svg?t=20261125.15" alt="從獠牙根森林經空墓隧道抵達村莊，循墓園、陰沼、龍巢與托倫四條路線收齊符文，開啟高塔入口。靈魂鍛造爐是古龍事件後的支線。">
+      </div>
+    </section>
+    <section class="walkthrough-flow" aria-labelledby="ending-title">
+      <div class="flow-heading">
+        <h2 id="ending-title">結局路線</h2>
+        <label class="flow-size"><input type="checkbox" aria-controls="ending-viewport"> 原尺寸</label>
+      </div>
+      <p>從高塔入口登上五層面見大法師，依三名守護者的生死與隊伍的選擇走向四種結局。</p>
+      <div id="ending-viewport" class="flow-viewport" tabindex="0" role="region" aria-labelledby="ending-title">
+        <img src="images/ending-flow.svg?t=20261125.16" alt="若擊敗大法師，未帶靈魂切割者會使高塔崩塌，帶著斧頭則由隊伍進入傳送門封印。若保全三名守護者並協助大法師，擊倒托倫會由大法師進入傳送門封印，用虛空脈衝將活著的托倫推入門內則由大法師從外側封印。">
+      </div>
+      <p>要將托倫推入傳送門，由力量至少 8 的隊員裝備靈魂切割者，等托倫站到門前，再用「虛空脈衝」把他推上感應格（-1, -12）。</p>
+    </section>
+  </div>
+</main>
+</template>
+
 <template id="map-view">
 <header class="top">
   <button type="button" class="drawer-toggle" id="maps-toggle" aria-controls="maps-drawer" aria-expanded="false">地點</button>
