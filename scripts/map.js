@@ -1,75 +1,10 @@
 'use strict';
 
-const atlasView = `
-<header class="top">
-  <button type="button" class="drawer-toggle" id="maps-toggle" aria-controls="maps-drawer" aria-expanded="false">地圖列表</button>
-  <div class="map-heading"><h1 id="map-title"></h1><p id="map-en" class="english"></p></div>
-  <button type="button" class="drawer-toggle" id="layers-toggle" aria-controls="layers-drawer" aria-expanded="false">
-    <span class="layers-icon" aria-hidden="true"></span>圖層
-  </button>
-</header>
-<main class="stage" id="stage" aria-labelledby="map-title" tabindex="-1">
-  <svg id="map-svg" xmlns="http://www.w3.org/2000/svg" aria-labelledby="map-title" preserveAspectRatio="none"></svg>
-  <div class="tools">
-    <div class="zoom-group" role="group" aria-label="地圖縮放">
-      <button type="button" id="zoom-in" aria-label="放大" title="放大">+</button>
-      <button type="button" id="zoom-out" aria-label="縮小" title="縮小">−</button>
-    </div>
-    <button type="button" id="zoom-fit" aria-label="適合全圖" title="適合全圖">⤢</button>
-  </div>
-  <div class="map-status"><span id="coords">X / Y</span><span id="scale"></span></div>
-  <div id="map-tip" class="map-tip" role="group" aria-label="地圖格位提示" hidden></div>
-  <nav id="maps-drawer" class="drawer drawer-start" aria-labelledby="maps-title" hidden>
-    <div class="panel-heading">
-      <h2 id="maps-title">地點一覽</h2>
-      <button type="button" class="overview-toggle" id="overview-toggle" aria-haspopup="dialog" aria-controls="map-overview">總覽 <span aria-hidden="true">↗</span></button>
-      <button type="button" class="close-button" aria-label="關閉地點一覽">✕</button>
-    </div>
-    <label class="find"><span aria-hidden="true">⌕</span><input id="map-query" type="search" placeholder="搜尋地名或英文" aria-label="搜尋地圖"></label>
-    <div id="catalog"></div>
-  </nav>
-  <section id="layers-drawer" class="drawer drawer-end" aria-labelledby="layers-title" hidden>
-    <div class="panel-heading">
-      <h2 id="layers-title">標記圖層</h2>
-      <button type="button" id="reset-types" class="text-button">還原預設</button>
-      <button type="button" class="close-button" aria-label="關閉圖層">✕</button>
-    </div>
-    <div id="filters" class="layer-list"></div>
-  </section>
-  <section id="details-drawer" class="drawer drawer-end" aria-labelledby="details-title" hidden>
-    <div class="panel-heading">
-      <h2 id="details-title" aria-live="polite"></h2>
-      <button type="button" class="text-button" id="locate-selection">定位</button>
-      <button type="button" class="close-button" aria-label="關閉座標面板">✕</button>
-    </div>
-    <div class="detail-scroll" id="selection" aria-live="polite"></div>
-  </section>
-</main>
-<dialog id="map-overview" aria-labelledby="overview-title" closedby="any">
-  <div class="overview-heading">
-    <h2 id="overview-title">地點一覽</h2>
-    <button type="button" class="close-button" aria-label="關閉地點一覽" autofocus>✕</button>
-  </div>
-  <div class="overview-scroll">
-    <svg id="overview-svg" viewBox="0 0 1140 570" aria-labelledby="overview-title"></svg>
-  </div>
-</dialog>
-<template id="map-item-template">
-  <dialog class="map-item-dialog detail-dialog" closedby="any">
-    <header>
-      <div class="map-item-heading entry-heading"></div>
-      <form method="dialog"><button type="submit" class="close-button" aria-label="關閉詳情" autofocus>✕</button></form>
-    </header>
-    <div class="map-item-info detail-dialog-body"></div>
-  </dialog>
-</template>
-`;
-
 const underkeepMaps = new Map();
 
 function underkeepMapId(hash) {
   const id = hash.slice(1).split('@', 1)[0];
-  return Object.hasOwn(window.UNDERKEEP_ATLAS.names, id) ? id : 'Starting_forest';
+  return Object.hasOwn(underkeepMapNames, id) ? id : 'Starting_forest';
 }
 
 function registerUnderkeepMap({ objects, markers, ...map }) {
@@ -132,7 +67,6 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   let wheelTime = -Infinity;
   const stage = byId('stage');
   const tooltip = byId('map-tip');
-  const mapItemTemplate = byId('map-item-template');
   const drawers = {
     maps: { panel: byId('maps-drawer'), toggle: byId('maps-toggle'), focus: byId('map-query') },
     layers: { panel: byId('layers-drawer'), toggle: byId('layers-toggle'), focus: byId('reset-types') },
@@ -193,13 +127,6 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     }
   }
 
-  function element(tag, className, text) {
-    const node = document.createElement(tag);
-    if (className) node.className = className;
-    if (text !== undefined) node.textContent = text;
-    return node;
-  }
-
   function draw(tag, props, parent, text) {
     const node = document.createElementNS(nspace, tag);
     for (const [key, value] of Object.entries(props)) node.setAttribute(key, value);
@@ -220,13 +147,13 @@ function mountUnderkeepAtlas(signal, loadDetails) {
 
   function symbol(type, sprite = atlas.legendIcons[type], hasSpawnCondition = false) {
     const [label] = atlas.types[type];
-    const tag = element('span', 'symbol');
+    const tag = underkeepElement('span', undefined, 'symbol');
     if (type === 'location') {
       tag.textContent = '文';
       tag.setAttribute('aria-hidden', 'true');
       return tag;
     }
-    const art = element('img');
+    const art = underkeepElement('img');
     if (type === 'boss') art.className = 'boss-icon';
     if (sprite === secretWallSprite) art.className = 'secret-wall';
     if (hasSpawnCondition) art.style.opacity = '.5';
@@ -351,27 +278,27 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     const children = [];
     const openDungeon = dungeonEntrance.get(current.id) || current.id;
     for (const group of atlas.groups) {
-      const section = element('section', 'group');
+      const section = underkeepElement('section', undefined, 'group');
       const maps = group.maps.filter(id => !dungeonEntrance.has(id)).flatMap(id =>
         id === openDungeon ? [id, ...(atlas.dungeons[id] || [])] : [id]);
       const matched = maps.filter(id => {
-        return [id, ...atlas.names[id], group.name].join(' ').toLocaleLowerCase().includes(needle);
+        return [id, ...underkeepMapNames[id], group.name].join(' ').toLocaleLowerCase().includes(needle);
       });
       if (!matched.length) continue;
-      section.append(element('h3', '', group.name));
+      section.append(underkeepElement('h3', group.name));
       for (const id of matched) {
-        const [name, english] = atlas.names[id];
-        const link = element('a', 'map-link', name);
+        const [name, english] = underkeepMapNames[id];
+        const link = underkeepElement('a', name, 'map-link');
         if (dungeonEntrance.has(id)) link.classList.add('submap');
         link.href = '#' + id;
         if (id === current.id) link.setAttribute('aria-current', 'page');
-        link.append(element('small', '', english));
+        link.append(underkeepElement('small', english));
         section.append(link);
       }
       children.push(section);
     }
     catalog.replaceChildren(...children);
-    if (!children.length) catalog.append(element('p', 'empty', '查無符合的地圖'));
+    if (!children.length) catalog.append(underkeepElement('p', '查無符合的地圖', 'empty'));
   }
 
   function renderFilters() {
@@ -381,7 +308,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   }
 
   function connect(label, callback, className = 'jump') {
-    const button = element('button', className, label);
+    const button = underkeepElement('button', label, className);
     button.type = 'button';
     button.addEventListener('click', callback);
     return button;
@@ -469,11 +396,8 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     '其他可取得', '事件取得', '洞口方向', '落點', '來源地坑', '區域尺寸', '活動範圍', '安全區', '劇情分支', '條件選項'];
 
   function createMapDetailDialog() {
-    const dialog = mapItemTemplate.content.firstElementChild.cloneNode(true);
+    const dialog = createUnderkeepDetailDialog();
     dialog.addEventListener('close', () => dialog.remove(), { once: true });
-    dialog.addEventListener('keydown', event => {
-      if (event.key === 'Escape') event.stopPropagation();
-    });
     dialog.addEventListener('click', event => {
       const link = event.target.closest('.locations a[href^="#"]');
       if (!link || link.hash !== window.location.hash || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -483,40 +407,27 @@ function mountUnderkeepAtlas(signal, loadDetails) {
       if (location.xy) select(location.xy, null, true);
       else if (point) select(plot(point), point.id, true);
     });
-    mapItemTemplate.before(dialog);
     return dialog;
   }
 
   function closeMapDetails() {
-    for (const dialog of [...document.querySelectorAll('.map-item-dialog[open]')].reverse()) dialog.close();
+    for (const dialog of [...document.querySelectorAll('#view .detail-dialog[open]')].reverse()) dialog.close();
   }
 
-  function renderMapDetail(record, dialog) {
-    const { catalogHeading, inventoryIcon, itemBadge, itemSheet, enemySheet, enemyTypeBadge, enemiesById,
-      itemsById, questSheet, route } = guideDetails;
-    const isItem = itemsById.get(record.id) === record;
-    const isEnemy = enemiesById.get(record.id) === record;
-    const group = isItem ? 'items' : isEnemy ? 'enemies' : 'quests';
-    const image = isItem ? inventoryIcon(record.icon) : null;
-    const badge = isItem ? itemBadge(record) : isEnemy ? enemyTypeBadge(record) : null;
-    catalogHeading(record, image, dialog.querySelector('.entry-heading'), badge);
-    dialog.setAttribute('aria-label', record.name);
-    const close = dialog.querySelector('.close-button');
-    const label = isItem ? '物品' : isEnemy ? '敵人' : '任務';
-    close.setAttribute('aria-label', '關閉' + label + '詳情');
-    const info = dialog.querySelector('.detail-dialog-body');
-    const sheet = isItem ? itemSheet : isEnemy ? enemySheet : questSheet;
-    info.replaceChildren(sheet(record, route(group, record), {
+  function renderMapDetail(dialog, group, record) {
+    guideDetails.renderDetail(dialog, group, record, guideDetails.route(group, record), {
       guideUrl: '?view=guide&map=' + encodeURIComponent(current.id),
       mapHref: (id, entry) => '#' + id + '@' + entry,
       detailButton: mapDetailButton
-    }));
+    });
   }
 
   function mapDetailButton(record, label = record.name) {
     return detailControl(label, () => {
       const dialog = createMapDetailDialog();
-      renderMapDetail(record, dialog);
+      const { itemsById, enemiesById } = guideDetails;
+      const group = itemsById.get(record.id) === record ? 'items' : enemiesById.get(record.id) === record ? 'enemies' : 'quests';
+      renderMapDetail(dialog, group, record);
       dialog.showModal();
     });
   }
@@ -534,9 +445,9 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     return detailControl(label, async () => {
       const dialog = createMapDetailDialog();
       dialog.setAttribute('aria-label', label);
-      dialog.querySelector('.entry-heading').append(element('h2', '', label));
-      const info = dialog.querySelector('.detail-dialog-body');
-      const status = element('p', '', '載入中…');
+      dialog.querySelector('.entry-heading').append(underkeepElement('h2', label));
+      const info = dialog.querySelector('.dialog-body');
+      const status = underkeepElement('p', '載入中…');
       status.setAttribute('role', 'status');
       info.replaceChildren(status);
       dialog.showModal();
@@ -547,7 +458,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
         const record = group === 'items' ? guideDetails.itemsById.get(key)
           : group === 'enemies' ? guideDetails.enemiesById.get(key)
           : guideDetails.data.quests.find(quest => quest.name === key);
-        if (record) renderMapDetail(record, dialog);
+        if (record) renderMapDetail(dialog, group, record);
         else status.textContent = '找不到這筆圖鑑資料。';
       } catch {
         status.textContent = '圖鑑資料載入失敗，請關閉後重試。';
@@ -591,7 +502,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     const [amount, condition] = Array.isArray(reward) ? reward : [reward];
     target.append(' ', underkeepXp(amount));
     if (condition) {
-      const note = element('span', 'choice-xp-condition');
+      const note = underkeepElement('span', undefined, 'choice-xp-condition');
       note.append('（', underkeepXpText(condition), '）');
       target.append(note);
     }
@@ -609,9 +520,9 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     }
     const links = point.itemLinks?.[field];
     if (field === '條件選項') {
-      const list = element('ul', 'condition-options');
+      const list = underkeepElement('ul', undefined, 'condition-options');
       for (const line of text.matchAll(/[^\r\n]+/g)) {
-        const item = element('li');
+        const item = underkeepElement('li');
         item.append(linkedText(text, links, line.index, line.index + line[0].length));
         appendChoiceXp(item, line[0], point.choiceXp);
         list.append(item);
@@ -622,20 +533,20 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   }
 
   function eventDialogue(sections, rewards) {
-    const dialogue = element('details', 'event-dialogue');
-    dialogue.append(element('summary', '', '完整對話與選項'));
+    const dialogue = underkeepElement('details', undefined, 'event-dialogue');
+    dialogue.append(underkeepElement('summary', '完整對話與選項'));
     for (const [label, lines, choices] of sections) {
-      const section = element('section');
-      section.append(element('h4', '', label));
+      const section = underkeepElement('section');
+      section.append(underkeepElement('h4', label));
       for (const line of lines) {
-        const paragraph = element('p');
+        const paragraph = underkeepElement('p');
         paragraph.append(underkeepXpText(line));
         section.append(paragraph);
       }
       if (choices.length) {
-        const list = element('ul', 'condition-options');
+        const list = underkeepElement('ul', undefined, 'condition-options');
         for (const choice of choices) {
-          const item = element('li');
+          const item = underkeepElement('li');
           item.append(underkeepXpText(choice));
           appendChoiceXp(item, choice, rewards);
           list.append(item);
@@ -648,15 +559,15 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   }
 
   function questGuide(quests) {
-    const guide = element('div', 'npc-quests');
+    const guide = underkeepElement('div', undefined, 'npc-quests');
     for (const [name, steps] of quests) {
-      const section = element('section');
-      const heading = element('h4');
+      const section = underkeepElement('section');
+      const heading = underkeepElement('h4');
       heading.append(mapReferenceButton('quests', name, name));
-      const list = element('ul', 'condition-options');
+      const list = underkeepElement('ul', undefined, 'condition-options');
       for (const [label, text] of steps) {
-        const item = element('li');
-        item.append(element('strong', '', label), ' ', underkeepXpText(text));
+        const item = underkeepElement('li');
+        item.append(underkeepElement('strong', label), ' ', underkeepXpText(text));
         list.append(item);
       }
       section.append(heading, list);
@@ -674,7 +585,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   }
 
   function appendPointTitle(title, point) {
-    const label = element('span');
+    const label = underkeepElement('span');
     label.append(point.enemyGuide ? mapReferenceButton('enemies', point.key, point.title) : linkedText(point.title, point.titleLinks));
     title.append(symbol(point.type, point.sprite, Boolean(point.detail['現身條件'])), label);
   }
@@ -684,8 +595,8 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     const limit = points[0]?.isChest ? 1 : 2;
     let overflow = points.length > limit;
     for (const point of points.slice(0, limit)) {
-      const card = element('div', 'tip-card');
-      const title = element('div', 'tip-title');
+      const card = underkeepElement('div', undefined, 'tip-card');
+      const title = underkeepElement('div', undefined, 'tip-title');
       title.append(symbol(point.type, point.sprite, Boolean(point.detail['現身條件'])), point.title);
       card.append(title);
       const details = pointDetails(point);
@@ -697,14 +608,14 @@ function mountUnderkeepAtlas(signal, loadDetails) {
           value = value.slice(0, max) + '…';
           overflow = true;
         }
-        const row = element('div', 'tip-line');
-        row.append(element('strong', 'tip-label', key + ' '), underkeepXpText(value));
+        const row = underkeepElement('div', undefined, 'tip-line');
+        row.append(underkeepElement('strong', key + ' ', 'tip-label'), underkeepXpText(value));
         card.append(row);
       }
-      if (point.directExit) card.append(element('p', 'tip-more', '點選前往 ' + point.destination.name));
+      if (point.directExit) card.append(underkeepElement('p', '點選前往 ' + point.destination.name, 'tip-more'));
       tooltip.append(card);
     }
-    if (overflow) tooltip.append(element('p', 'tip-more', '點選格位可查看完整內容'));
+    if (overflow) tooltip.append(underkeepElement('p', '點選格位可查看完整內容', 'tip-more'));
   }
 
   function updateHover(event, location) {
@@ -770,8 +681,8 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   }
 
   function relationshipTable(title, rows) {
-    const group = element('details');
-    group.append(element('summary', '', title));
+    const group = underkeepElement('details');
+    group.append(underkeepElement('summary', title));
     for (const target of rows) {
       group.append(connect(target.title, () => select(target.xy, target.id, true), 'target'));
     }
@@ -792,20 +703,20 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     cell.sort((a, b) => Number(b.id === selected.id) - Number(a.id === selected.id));
     heading.textContent = '座標 ' + selected.xy.join(', ') + (cell.length ? '' : ' · 落點');
     for (const point of cell) {
-      const card = element('article', 'selection-card');
-      const title = element('h3');
+      const card = underkeepElement('article', undefined, 'selection-card');
+      const title = underkeepElement('h3');
       appendPointTitle(title, point);
       card.append(title);
-      const facts = element('dl');
+      const facts = underkeepElement('dl');
       for (const [key, value] of Object.entries(pointDetails(point))) {
         if (!value) continue;
-        const description = element('dd');
+        const description = underkeepElement('dd');
         description.append(detailContent(point, key, value));
-        facts.append(element('dt', '', key), description);
+        facts.append(underkeepElement('dt', key), description);
       }
       if (facts.childNodes.length) card.append(facts);
       if (point.shopId) {
-        const shop = element('a', 'jump', '查看可購買物品 ↗');
+        const shop = underkeepElement('a', '查看可購買物品 ↗', 'jump');
         shop.href = '?view=guide&map=' + encodeURIComponent(current.id) + '#shops/' + encodeURIComponent(point.shopId);
         card.append(shop);
       }
@@ -817,8 +728,8 @@ function mountUnderkeepAtlas(signal, loadDetails) {
         card.append(connect((dest.map === current.id ? '標出落點' : '跳到 ' + dest.name) + ' ↗', action));
       }
       if (point.key === 'fast_travel_portal') {
-        const links = element('section', 'travel-stops');
-        links.append(element('h4', '', '快速旅行站點'));
+        const links = underkeepElement('section', undefined, 'travel-stops');
+        links.append(underkeepElement('h4', '快速旅行站點'));
         for (const dest of atlas.travelStops) {
           if (dest.map === current.id && dest.id === point.id) continue;
           links.append(connect(dest.name + ' ↗', () => openMap(dest.map, dest)));
@@ -940,11 +851,12 @@ function mountUnderkeepAtlas(signal, loadDetails) {
       byId('map-query').value = '';
     }
     selected = null;
-    byId('map-title').textContent = current.name[0];
-    byId('map-title').title = current.name[0];
-    byId('map-en').textContent = current.name[1];
+    const [name, english] = underkeepMapNames[current.id];
+    byId('map-title').textContent = name;
+    byId('map-title').title = name;
+    byId('map-en').textContent = english;
     byId('coords').textContent = 'X / Y';
-    document.title = current.name[0] + ' | ' + underkeepSiteName;
+    document.title = name + ' | ' + underkeepSiteName;
     svg.replaceChildren();
     addSvgSprites();
     const definition = svg.querySelector('defs');
@@ -953,7 +865,8 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     const mat = draw('pattern', { id: 'atlas-paper', patternUnits: 'userSpaceOnUse', ...paperSize }, definition);
     draw('image', { href: paper, ...paperSize, style: 'image-rendering:pixelated' }, mat);
     paperFill = draw('rect', { fill: 'url(#atlas-paper)', 'pointer-events': 'all' }, svg);
-    svg.insertAdjacentHTML('beforeend', current.terrain);
+    const [x, y, width, height] = current.bounds;
+    draw('image', { href: 'images/maps/' + current.id + '.webp', x, y, width, height }, svg);
     markerLayer = draw('g', {}, svg);
     hoverFrame = drawCellFrame({ id: 'hover-cell', stroke: '#ffe4a7', visibility: 'hidden' }, svg);
     selectedLayer = draw('g', { 'pointer-events': 'none' }, svg);
@@ -991,7 +904,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
       renderSelection();
     }, 'layer-button');
     button.id = 'filter-' + key;
-    button.append(symbol(key), element('span', '', atlas.types[key][0]));
+    button.append(symbol(key), underkeepElement('span', atlas.types[key][0]));
     byId('filters').append(button);
   }
   byId('reset-types').addEventListener('click', () => {
@@ -1018,7 +931,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   }
   stage.addEventListener('contextmenu', event => event.preventDefault());
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && openDrawer) {
+    if (event.key === 'Escape' && openDrawer && !document.querySelector('#view dialog[open]')) {
       event.preventDefault();
       setDrawer(null, true);
     }
@@ -1128,7 +1041,7 @@ function mountUnderkeepOverview({ byId, atlas, dungeonEntrance, draw, setDrawer 
     }
 
     for (const [id, [x, y]] of Object.entries(positions)) {
-      const [name, english] = atlas.names[id];
+      const [name, english] = underkeepMapNames[id];
       const hub = neighbors.get(id).size >= 3;
       const link = draw('a', { href: '#' + id, transform: 'translate(' + x + ' ' + y + ')',
         class: 'overview-node' + (hub ? ' hub' : ''),
@@ -1160,10 +1073,6 @@ function mountUnderkeepOverview({ byId, atlas, dungeonEntrance, draw, setDrawer 
     if (!links.size) drawRoutes();
     showCurrentRegion();
   });
-  dialog.querySelector('.close-button').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('keydown', event => {
-    if (event.key === 'Escape') event.stopPropagation();
-  });
   chart.addEventListener('click', event => {
     if (!event.target.closest('a') || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     dialog.close();
@@ -1179,6 +1088,21 @@ function mountUnderkeepOverview({ byId, atlas, dungeonEntrance, draw, setDrawer 
 }
 
 // Shared map data. Individual maps register their markers on demand.
+const underkeepLockedChestLootRule = "以下為初始機率。上鎖寶箱共用裝備池，抽出的裝備會從池中移除。";
+
+const underkeepUrnLoot = {
+  materials: {
+    detail: {"戰利品":"30% · 金幣 ×1–3\n10% · 斷裂的骨頭、琥珀玫瑰、緋峰漿果、月瓣花、日輝花、靈質、蟲顎"},
+    detailOrder: ["戰利品","取得方式"],
+    itemLinks: {"戰利品":[[6,8,"item_coins"],[20,25,"item_bones01"],[26,30,"item_flower_amberrose"],[31,35,"item_flower_crimsonspire_berries"],[36,39,"item_flower_moonpetal"],[40,43,"item_flower_solarbloom"],[44,46,"item_ingredient_ectoplasm"],[47,49,"item_ingredient_mandibles"]]}
+  },
+  ashes: {
+    detail: {"戰利品":"40% · 灰燼\n30% · 金幣 ×1–3\n20% · 斷裂的骨頭\n10% · 骨頭"},
+    detailOrder: ["戰利品","取得方式"],
+    itemLinks: {"戰利品":[[6,8,"item_generic_ash"],[15,17,"item_coins"],[29,34,"item_bones01"],[41,43,"item_bones03"]]}
+  }
+};
+
 window.UNDERKEEP_ATLAS = {
 "groups": [{"name":"獠牙根森林與礦洞","maps":["Starting_forest","Mines_under_forest","Rat_nest","Small_spider_cave","Abandoned_Mines_Cave","Under_Abandoned_Cave"]},{"name":"村莊、墓園與陵墓","maps":["Village_of_Underkeep","Forgotten_Vein","Underkeep_Cemetery","Mausoleum","Mausoleum_2","Mausoleum_3","Mausoleum_3_2"]},{"name":"凱爾林森林與陰沼","maps":["Caerlin_Woods","Caerlin_West_Dungeon","Basilisk_Den","Wolf_den","Swamp","Swamp_Dungeon1","Swamp_Dungeon2","Swamp_Lost_City","Swamp_Spider_Nest"]},{"name":"暮谷森林與靈魂鍛造爐","maps":["West_woods","Dragon_den","East_Garden","West_Garden","West_Dungeon_1","West_Dungeon_2","West_Dungeon_3"]},{"name":"高塔、外圍與塔底","maps":["Underkeep_Surroundings","Surroundings_Cave","Tower_Level1","Tower_Level2","Tower_Level2_Corrupted","Tower_Level3","Tower_Level4","Tower_Level5","Undertower"]}],
 "types": {"passage":["出入口","A","#7bd8ff",true],"travel":["傳送","W","#73e1c0",true],"event":["劇情／任務","E","#fbd487",true],"boss":["首領／精英","B","#ff8fa0",true],"secret":["祕密","S","#d7baff",true],"trap":["陷阱","T","#ffaa76",true],"mechanism":["門／機關","M","#a6bdf5",true],"treasure":["容器／戰利品","L","#f2c078",true],"service":["設施／人物","H","#a9e2a2",true],"item":["地面物品","I","#b6e6a4",true],"junk":["低價雜物","I","#b6e6a4",false],"enemy":["敵人","F","#ffa9ab",false],"trigger":["觸發／生成","X","#b7b7c9",false],"note":["地標／提示","N","#d2dbe4",false],"gather":["可採集","G","#b6e6a4",false],"acquire":["事件取得","R","#f2d391",true],"location":["地點名稱","文","#e6d3ac",true],"rubble":["普通塌方","K","#bec9cd",true],"hard-rubble":["堅硬塌方","Q","#c8b0ed",true],"gold-vein":["含金岩壁","V","#f2c078",true]},
@@ -1189,7 +1113,6 @@ window.UNDERKEEP_ATLAS = {
 "nativeArt": {"mtile_alcove":["data:image/webp;base64,UklGRkQAAABXRUJQVlA4TDgAAAAvBgABEA5UkawEtZBJDEP/T0Pce8CMQIAYEuNAjW+FbCPAofucjmT9D3jdBg67yhY5X44laYxtGw==",7,5,-2,-9],"mtile_altar":["data:image/webp;base64,UklGRkYAAABXRUJQVlA4TDoAAAAvB4ABELUoiiTFIRhCCSLw74ILFtAxfMSCaYhhBr0pZBsByvnLHcRv0f8JKDpGnE3vcPLxgw9gO8MZ",8,7,-2,-2],"mtile_chest":["data:image/webp;base64,UklGRjIAAABXRUJQVlA4TCYAAAAvBkABEDUoCIAEQT3J/yvWBSDItg3RbPsXuf97oLomk61uI917Yg==",7,6,-2,-3],"mtile_door":["data:image/webp;base64,UklGRkAAAABXRUJQVlA4TDMAAAAvCgABEA4FiSBFPoVMYv8+px0cYUEgkIaEgtlgAgHKVOGT/k/ANF5dEULq/gdJXOqHVwEA",11,5,0,-3],"mtile_door_opened":["data:image/webp;base64,UklGRjwAAABXRUJQVlA4TDAAAAAvCgABEDUoaCOFYRhCCf79TAucWDANMWSwN4FssvvLpZFF/yfAB19D+AgN2QsuDAA=",11,5,0,-3],"mtile_enemy_friend":["data:image/webp;base64,UklGRlAAAABXRUJQVlA4TEMAAAAvCEACEFUwaBvJ0Reqx+WgPNBKYeYsECB6jBvQ4EtMQ0z/XwMplOv/BCQ5gdxdumZ56PjeUMRas+7QFonxreTm3z0BAA==",9,10,-1,-1],"mtile_enemy_neutral":["data:image/webp;base64,UklGRkgAAABXRUJQVlA4TDsAAAAvCAACELW4aSRJkvYheCiOxeE/ClVOeYMgHIFswpM/X9/69z/yBoiPv2/bYc7Xo4xSumor1rYSVX8CEgA=",9,9,-1,-1],"mtile_exit":["data:image/webp;base64,UklGRkYAAABXRUJQVlA4TDkAAAAvCUACEHUwiiRJCocsDOFfAz8M1HBkCAQSjRRG31Igm+wO+RMF9er/qD1B5fD3PPO+yjs116qboAAA",10,10,0,0],"mtile_fast_travel_portal":["data:image/webp;base64,UklGRlYAAABXRUJQVlA4TEkAAAAvCAACEBpGkSRJWcAQGhCJBJyeDqr/9RkFK2EsEGTb5jjmMIFR/AoCEEDUH5tscbz/AWxG9wPAa6+ywTqoKcEyP3LL2eaMaAOtAA==",9,9,-1,-1],"mtile_god_ray2":["data:image/webp;base64,UklGRjAAAABXRUJQVlA4TCMAAAAvBoABEFWYaduGayGM/z8KifKIiY+T9z9gFtClkap9pAZUAAA=",7,7,-2,-2],"mtile_mud":["data:image/webp;base64,UklGRkIAAABXRUJQVlA4TDUAAAAvB8ABEA6GbdtGau8Wuklu/9HYR4BAIA0JBbPBBAKUqcIn/Q++SKXXsCoALaIV+f9O0aIVBQA=",8,8,-1,-2],"mtile_party_arrow":["data:image/webp;base64,UklGRlgAAABXRUJQVlA4TEsAAAAvDYADEApGbSNJQjVUlsfyf84JoZISCCRWaY64ikK2EWBsM4l7+z8BWQ4np/wjz/BLlUfYtvIEu5Qk2K0E1UmVeQWQZJfl3XK3TQIA",14,15,2,2],"mtile_passage":["data:image/webp;base64,UklGRlAAAABXRUJQVlA4TEQAAAAvCMABELWwCdg2TLcRGpIhGX8CCQj7Mgf5EQumIYYZ9KaQbQQo85c7idei/xPwps8JITxDJv25JKF2maNAl9XyYkmeEg==",9,8,-1,0],"mtile_pit":["data:image/webp;base64,UklGRiQAAABXRUJQVlA4TBgAAAAvBoABEDUgaNs2286f+BHETcn+Zw/yQSA=",7,7,-2,-2],"mtile_pressure_plate":["data:image/webp;base64,UklGRkoAAABXRUJQVlA4TD0AAAAvBoABEA4FbdtI9xA6JAfi+OM4DGmrSgIRRGiYDYbYvxSyjQCndo/TGVz/A460QN9PNqXJbbYaf5FtAZIAAA==",7,7,-2,-2],"mtile_riddle_grave":["data:image/webp;base64,UklGRjoAAABXRUJQVlA4TC4AAAAvCMABEDUwaBvJ0RVEh+j506gYnEmZgP6TDVAUVn+wr0IX0OsAyiHd/I/qd74G",9,8,-1,-2],"mtile_sarcophagus":["data:image/webp;base64,UklGRkwAAABXRUJQVlA4TEAAAAAvB4ABEA4GbRtJ2ofQIjkQx5/FLog+iiQQQYSG2WCI/Ush2whwavc4ncH1fwL+/zyifi0lUALZlIb0Ig0GfCPe",8,7,-2,-2],"mtile_shrine":["data:image/webp;base64,UklGRkYAAABXRUJQVlA4TDkAAAAvCEACENUwiiS7Ch+D+D/jJAkahpjqq0AgxXlMsEAghe1x/yeguo9G3qZi703FphF9wwPiH/HPfQQA",9,10,-1,0],"mtile_statue":["data:image/webp;base64,UklGRkwAAABXRUJQVlA4TEAAAAAvB8ABELUwiiRJCochlCAC/zIQ0b/2kP0RC6Yhhhn0ppBtBCjnL3cQv0X/I0/E64mP1krsHjPR2c82ahtSIEkA",8,8,-2,-2],"mtile_symbol_default":["data:image/webp;base64,UklGRmoAAABXRUJQVlA4TF0AAAAvCQADEFUwiGyrCmojwhDAGkYz3vtkOHDIAkwYMtg7+UBCiIYg2yYjOcEt7j+Jg/RfYdo2jLp7yiNKDieWBd/8kW/9O808e2t2YknWY27rsXkLGTmc2LBgIlCSkgAA",10,13,-2,3],"mtile_teleport":["data:image/webp;base64,UklGRlYAAABXRUJQVlA4TEkAAAAvBsABEBJGkSS3USAkJKJkFhmuSLRz+pBJ2wapl54TMBlV0LYN00e5QMegTNb/xMJDx6mvld7Z/axuK9bVTQm9K8EvL3/b7e0HAA==",7,8,-2,-1],"mtile_tree":["data:image/webp;base64,UklGRkgAAABXRUJQVlA4TDwAAAAvCMABEFUwaNtG0N0/p8NwJMafyOsxJMoFUsQ0xPRv6PRp0f+AN1VAV0P1DTnU8k2qQz/HVx4bpRZABX8=",9,8,-1,-2],"mtile_well":["data:image/webp;base64,UklGRk4AAABXRUJQVlA4TEIAAAAvB8ABEA4GjSRJOcAQNrCBfxefhulMOiumIWOFhPHKQSHbCHBq9xidw/V/AnLKQcFE7t9iKFD8cbW283iizAwmAiY=",8,8,-2,-2],"mtile_enemy":["data:image/webp;base64,UklGRkoAAABXRUJQVlA4TD4AAAAvCAACELWwiSRbCocEYhzg3yIW/vkMbNiJQIDoESXEg+gJ6H+0m0Dz6FtV1absN1soQkhFEk0lidZE/DTQGg==",9,9,-1,-1],"mtile_boulder":["data:image/webp;base64,UklGRkQAAABXRUJQVlA4TDgAAAAvCEABEDUoaCMp4vGEBkzg38dxIroXSCHStkn9Oxw8u4v+CwkIkuQHuy9y7Qm7PkjsQqFxvEplFw==",9,6,-1,-3],"mtile_collapsed_rocks":["data:image/webp;base64,UklGRloAAABXRUJQVlA4TE0AAAAvCkACEA4HjSQJygOGUIII/Auams0kAhFEaJgNhti/FLKNAKd2j9MZXP8jH0pA/P+v0VaFO19xRK/ocTqd0XHtJLgOca25G+1GN4FAAAA=",11,10,0,0],"secret_wall_tile":["data:image/webp;base64,UklGRm4AAABXRUJQVlA4TGEAAAAvCoACENWwiWzbCcEQOhCAAGoq/Hc/aEgqbv8t3HdaNY2kwDkN90JJi4K2bRiVP7lyOLsk+j8BrbXzAVxH42Z+KfvCGEVWoKh4UMp9CHiVvAoLFHMmgpBmKgy6920pMXkDAA==",11,11,0,0]},
 "paperTexture": ["data:image/webp;base64,UklGRrgAAABXRUJQVlA4TKwAAAAvbsAMADW4kSQpbP7q2JH/n3GIE9yp5GzmERMCgcSfs/fo/wR8FH/t3cTGmMzUuxnvWgZSWmdC2MAqnRDWx9xgrC1mubyLgFYHKgRt4rbEx+3LcnnjTBWoh1yr5uKvsTyS/bNDM0qYRVhMCEkCVs9le23n6TJ20ivQiwK9vMo8LOiE+U5ynpvDQYfCTqzOSAMSzCLZm8nM+DsS9/HOM6axWEQ619yd6VYnA3YI",111,52],
 "dungeons": {"Mines_under_forest":["Abandoned_Mines_Cave","Under_Abandoned_Cave"],"Mausoleum":["Mausoleum_2","Mausoleum_3","Mausoleum_3_2"],"Swamp_Dungeon1":["Swamp_Dungeon2"],"West_Dungeon_1":["East_Garden","West_Garden","West_Dungeon_2","West_Dungeon_3"],"Tower_Level1":["Tower_Level2","Tower_Level2_Corrupted","Tower_Level3","Tower_Level4","Tower_Level5","Undertower"]},
-"names": {"Abandoned_Mines_Cave":["廢棄洞窟","Abandoned Caves"],"Basilisk_Den":["石化蜥巢穴","Basilisk's Den"],"Blackwood":["黑森林","Blackwoods"],"Caerlin_West_Dungeon":["墓木地穴","Gravewood Crypt"],"Caerlin_Woods":["凱爾林森林","Caerlin Woods"],"Dragon_den":["最後之焰聖所","Sanctum of the Last Flame"],"East_Garden":["靈魂鍛造爐 - 東園","Soulforge - East Garden"],"Forgotten_Vein":["枯萎礦脈","Blightvein Mine"],"Mausoleum":["陵墓入口","Mausoleum Entrance"],"Mausoleum_2":["被遺忘者的牢房","Cells of the Forgotten"],"Mausoleum_3":["寂靜之室","The Silent Chambers"],"Mausoleum_3_2":["永眠之室","Chambers of Endless Sleep"],"Mines_under_forest":["空墓隧道","Hollowgrave Tunnels"],"Rat_nest":["鼠巢","Rat Nest"],"Small_spider_cave":["蜘蛛洞窟","Spider Cave"],"Starting_forest":["獠牙根森林","Fangroot Forest"],"Surroundings_Cave":["破碎封印深處","Depths of the Broken Seal"],"Swamp":["陰沼","Grimfen"],"Swamp_Dungeon1":["泥沼之心","The Mireheart"],"Swamp_Dungeon2":["根墓","The Rootgrave"],"Swamp_Lost_City":["古沼廢墟","Ruins of Elderfen"],"Swamp_Spider_Nest":["奧布拉之巢","Obula's Hollow"],"Tower_Level1":["高塔入口","Tower Entrance"],"Tower_Level2":["高塔二層","Tower Level 2"],"Tower_Level2_Corrupted":["高塔二層（腐化）","Tower Level 2 (Corrupted)"],"Tower_Level3":["高塔三層","Tower Level 3"],"Tower_Level4":["高塔四層","Tower Level 4"],"Tower_Level5":["高塔五層","Tower Level 5"],"Under_Abandoned_Cave":["廢棄洞窟（下層）","Abandoned Cave"],"Underkeep_Cemetery":["Underkeep 墓園","Underkeep Cemetery"],"Underkeep_Surroundings":["Underkeep 之根","Roots of Underkeep"],"Undertower":["Underkeep","Underkeep"],"Village_of_Underkeep":["Underkeep 村莊","Village of Underkeep"],"West_Dungeon_1":["靈魂鍛造爐 - 外廳","Soulforge - Outer Halls"],"West_Dungeon_2":["寂靜謎廳","The Silent Riddles"],"West_Dungeon_3":["熔爐","The Furnace"],"West_Garden":["靈魂鍛造爐 - 西園","Soulforge - West Garden"],"West_woods":["暮谷森林","Duskhollow Woods"],"Wolf_den":["狼穴","Wolf Lair"]},
 "connections": [["Abandoned_Mines_Cave","Mines_under_forest"],["Abandoned_Mines_Cave","Under_Abandoned_Cave"],["Abandoned_Mines_Cave","Mines_under_forest"],["Abandoned_Mines_Cave","Under_Abandoned_Cave"],["Abandoned_Mines_Cave","Under_Abandoned_Cave"],["Abandoned_Mines_Cave","Under_Abandoned_Cave"],["Abandoned_Mines_Cave","Under_Abandoned_Cave"],["Basilisk_Den","Caerlin_Woods"],["Caerlin_West_Dungeon","Caerlin_Woods"],["Caerlin_Woods","West_woods"],["Caerlin_Woods","Swamp"],["Caerlin_Woods","Wolf_den"],["Caerlin_Woods","Basilisk_Den"],["Caerlin_Woods","Swamp"],["Caerlin_Woods","Caerlin_West_Dungeon"],["Caerlin_Woods","Forgotten_Vein"],["Caerlin_Woods","Village_of_Underkeep"],["Caerlin_Woods","Wolf_den"],["Caerlin_Woods","Wolf_den"],["Caerlin_Woods","Wolf_den"],["Caerlin_Woods","Wolf_den"],["Caerlin_Woods","Wolf_den"],["Caerlin_Woods","Wolf_den"],["Caerlin_Woods","Wolf_den"],["Caerlin_Woods","Wolf_den"],["Caerlin_Woods","Wolf_den"],["Caerlin_Woods","Wolf_den"],["Dragon_den","West_woods"],["Dragon_den","West_woods"],["East_Garden","West_Dungeon_1"],["East_Garden","West_Dungeon_1"],["Forgotten_Vein","Caerlin_Woods"],["Mausoleum","Underkeep_Cemetery"],["Mausoleum","Mausoleum_2"],["Mausoleum","Underkeep_Cemetery"],["Mausoleum","Mausoleum_3_2"],["Mausoleum","Mausoleum_2"],["Mausoleum_2","Mausoleum_3"],["Mausoleum_2","Mausoleum"],["Mausoleum_2","Mausoleum_3_2"],["Mausoleum_2","Mausoleum"],["Mausoleum_3","Mausoleum_2"],["Mausoleum_3_2","Mausoleum_2"],["Mausoleum_3_2","Mausoleum"],["Mines_under_forest","Starting_forest"],["Mines_under_forest","Abandoned_Mines_Cave"],["Mines_under_forest","Rat_nest"],["Mines_under_forest","Abandoned_Mines_Cave"],["Mines_under_forest","Starting_forest"],["Mines_under_forest","Abandoned_Mines_Cave"],["Mines_under_forest","Abandoned_Mines_Cave"],["Mines_under_forest","Abandoned_Mines_Cave"],["Mines_under_forest","Abandoned_Mines_Cave"],["Mines_under_forest","Abandoned_Mines_Cave"],["Rat_nest","Starting_forest"],["Rat_nest","Mines_under_forest"],["Small_spider_cave","Starting_forest"],["Starting_forest","Rat_nest"],["Starting_forest","Small_spider_cave"],["Starting_forest","Village_of_Underkeep"],["Starting_forest","Mines_under_forest"],["Starting_forest","Underkeep_Cemetery"],["Starting_forest","Mines_under_forest"],["Starting_forest","Mines_under_forest"],["Starting_forest","Mines_under_forest"],["Surroundings_Cave","Underkeep_Surroundings"],["Swamp","Swamp_Spider_Nest"],["Swamp","Swamp_Dungeon1"],["Swamp","Caerlin_Woods"],["Swamp","Caerlin_Woods"],["Swamp","Swamp_Lost_City"],["Swamp","Swamp_Dungeon1"],["Swamp_Dungeon1","Swamp"],["Swamp_Dungeon1","Swamp"],["Swamp_Dungeon1","Swamp_Dungeon2"],["Swamp_Dungeon2","Swamp_Dungeon1"],["Swamp_Lost_City","Swamp"],["Swamp_Spider_Nest","Swamp"],["Tower_Level1","Tower_Level2"],["Tower_Level1","Undertower"],["Tower_Level1","Underkeep_Surroundings"],["Tower_Level2","Tower_Level1"],["Tower_Level2","Tower_Level2_Corrupted"],["Tower_Level2","Tower_Level2_Corrupted"],["Tower_Level2","Tower_Level3"],["Tower_Level2","Tower_Level2_Corrupted"],["Tower_Level2_Corrupted","Tower_Level2"],["Tower_Level2_Corrupted","Tower_Level2"],["Tower_Level2_Corrupted","Tower_Level2"],["Tower_Level3","Tower_Level4"],["Tower_Level3","Tower_Level2"],["Tower_Level4","Tower_Level5"],["Tower_Level4","Tower_Level3"],["Tower_Level4","Tower_Level4"],["Tower_Level4","Tower_Level4"],["Tower_Level4","Tower_Level4"],["Tower_Level4","Tower_Level4"],["Tower_Level4","Tower_Level4"],["Tower_Level5","Tower_Level4"],["Tower_Level5","Tower_Level5"],["Tower_Level5","Tower_Level5"],["Under_Abandoned_Cave","Abandoned_Mines_Cave"],["Underkeep_Cemetery","Village_of_Underkeep"],["Underkeep_Cemetery","Starting_forest"],["Underkeep_Cemetery","Mausoleum"],["Underkeep_Cemetery","Mausoleum"],["Underkeep_Surroundings","Surroundings_Cave"],["Underkeep_Surroundings","Village_of_Underkeep"],["Underkeep_Surroundings","Tower_Level1"],["Underkeep_Surroundings","West_woods"],["Village_of_Underkeep","Caerlin_Woods"],["Village_of_Underkeep","Underkeep_Surroundings"],["Village_of_Underkeep","Starting_forest"],["Village_of_Underkeep","Underkeep_Cemetery"],["West_Dungeon_1","West_woods"],["West_Dungeon_1","West_Dungeon_2"],["West_Dungeon_1","East_Garden"],["West_Dungeon_1","West_Garden"],["West_Dungeon_1","East_Garden"],["West_Dungeon_1","West_Garden"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_2","West_Dungeon_1"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_2","West_Dungeon_3"],["West_Dungeon_3","West_Dungeon_2"],["West_Dungeon_3","West_Dungeon_2"],["West_Dungeon_3","West_Dungeon_3"],["West_Dungeon_3","West_Dungeon_3"],["West_Dungeon_3","West_woods"],["West_Dungeon_3","West_Dungeon_2"],["West_Garden","West_Dungeon_1"],["West_Garden","West_Dungeon_1"],["West_Garden","West_Garden"],["West_Garden","West_Garden"],["West_Garden","West_Garden"],["West_Garden","West_Garden"],["West_Garden","West_Garden"],["West_woods","Caerlin_Woods"],["West_woods","Dragon_den"],["West_woods","Dragon_den"],["West_woods","Underkeep_Surroundings"],["West_woods","West_Dungeon_1"],["Wolf_den","Caerlin_Woods"]],
 "travelStops": [{"map":"Caerlin_Woods","id":1241,"xy":[20,-35],"name":"凱爾林森林"},{"map":"East_Garden","id":925,"xy":[8,0],"name":"靈魂鍛造爐 - 東園"},{"map":"Starting_forest","id":2767,"xy":[7,-34],"name":"獠牙根森林"},{"map":"Swamp","id":518,"xy":[42,36],"name":"陰沼"},{"map":"Underkeep_Surroundings","id":1073,"xy":[4,-19],"name":"Underkeep 高塔外圍"},{"map":"Village_of_Underkeep","id":1072,"xy":[7,-9],"name":"Underkeep 村莊"},{"map":"West_woods","id":1403,"xy":[-13,-29],"name":"暮谷北部"},{"map":"West_woods","id":1402,"xy":[-1,15],"name":"暮谷矮人營地"}],
 "objects": {

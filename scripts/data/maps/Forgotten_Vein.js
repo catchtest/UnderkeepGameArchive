@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Forgotten_Vein",
-"name": ["枯萎礦脈","Blightvein Mine"],
 "bounds": [-10,-67,41,33],
-"terrain": "<image x=\"-10\" y=\"-67\" width=\"41\" height=\"33\" href=\"images/maps/Forgotten_Vein.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 578,
 "sourceCount": 432,
 "zone": "mine_env",

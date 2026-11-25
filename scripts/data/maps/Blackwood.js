@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Blackwood",
-"name": ["黑森林","Blackwoods"],
 "bounds": [-23,-26,46,42],
-"terrain": "<image x=\"-23\" y=\"-26\" width=\"46\" height=\"42\" href=\"images/maps/Blackwood.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 970,
 "sourceCount": 137,
 "zone": "blackwood_env",

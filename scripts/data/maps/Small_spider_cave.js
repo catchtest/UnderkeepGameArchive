@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Small_spider_cave",
-"name": ["蜘蛛洞窟","Spider Cave"],
 "bounds": [-5,-68,16,16],
-"terrain": "<image x=\"-5\" y=\"-68\" width=\"16\" height=\"16\" href=\"images/maps/Small_spider_cave.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 156,
 "sourceCount": 109,
 "zone": "cave_env",
@@ -34,7 +32,7 @@ registerUnderkeepMap({
 {"id":12,"key":"garbage1","xy":[7,-65],"code":"L02","detail":{"翻不到東西":"0%（首次翻找）","戰利品":"斷裂的骨頭 ×2、塵土與碎骨、空瓶"},"itemLinks":{"戰利品":[[0,5,"item_bones01"],[9,14,"item_bones02"],[15,17,"item_empty_flask"]]}},
 {"id":14,"key":"garbage1","xy":[7,-65],"code":"L03","detail":{"翻不到東西":"0%（首次翻找）","戰利品":"簡易蘑菇燉菜（配方）"},"itemLinks":{"戰利品":[[0,10,"item_recipe_minor_mushrom_stew"]]}},
 {"id":26,"key":"chest1_moss","xy":[5,-63],"code":"L04","detail":{"戰利品":"金幣 ×5、紫水晶、長弓"},"itemLinks":{"戰利品":[[0,2,"item_coins"],[6,9,"item_diamond_purple"],[10,12,"item_longbow"]]}},
-{"id":24,"key":"chest1_locked","xy":[-2,-61],"code":"L05","detail":{"戰利品":"100% · 凱爾林藍花、藍蘑菇、凱爾林精華（配方）\n10% · 蠻牛腰帶、奧術回覆斗篷、虛空斗篷、燼跡便鞋、幸運遠視頭盔、皮鑲甲、神射手護腕、僧侶長袍、偵察風靴、雷鳴彈弓","所需物品":"開鎖工具","掉落規則":"以下為初始機率。上鎖寶箱共用裝備池，抽出的裝備會從池中移除。"},"itemLinks":{"戰利品":[[7,12,"item_caerlin_blue_flowers"],[13,16,"item_mushroom_blue"],[17,26,"item_recipe_perma_mana"],[33,37,"item_belt_of_bull"],[38,44,"item_cloak_of_arcane_restoration"],[45,49,"item_cloak_of_emptiness"],[50,54,"item_embertrail_slippers"],[55,61,"item_helmet_of_lucky_farsight"],[62,65,"item_leather_brigandine"],[66,71,"item_marksman_bracers"],[72,76,"item_monk_tunic"],[77,81,"item_scoutwind_boots"],[82,86,"item_sling_splintered_aim"]],"所需物品":[[0,4,"item_key_lockpick"]]}},
+{"id":24,"key":"chest1_locked","xy":[-2,-61],"code":"L05","detail":{"戰利品":"100% · 凱爾林藍花、藍蘑菇、凱爾林精華（配方）\n10% · 蠻牛腰帶、奧術回覆斗篷、虛空斗篷、燼跡便鞋、幸運遠視頭盔、皮鑲甲、神射手護腕、僧侶長袍、偵察風靴、雷鳴彈弓","所需物品":"開鎖工具","掉落規則":underkeepLockedChestLootRule},"itemLinks":{"戰利品":[[7,12,"item_caerlin_blue_flowers"],[13,16,"item_mushroom_blue"],[17,26,"item_recipe_perma_mana"],[33,37,"item_belt_of_bull"],[38,44,"item_cloak_of_arcane_restoration"],[45,49,"item_cloak_of_emptiness"],[50,54,"item_embertrail_slippers"],[55,61,"item_helmet_of_lucky_farsight"],[62,65,"item_leather_brigandine"],[66,71,"item_marksman_bracers"],[72,76,"item_monk_tunic"],[77,81,"item_scoutwind_boots"],[82,86,"item_sling_splintered_aim"]],"所需物品":[[0,4,"item_key_lockpick"]]}},
 {"id":15,"key":"garbage1","xy":[5,-61],"code":"L06","detail":{"翻不到東西":"0%（首次翻找）","戰利品":"銅戒指、蘑菇 ×2"},"itemLinks":{"戰利品":[[0,3,"item_generic_copper_ring"],[4,6,"item_mushroom1"]]}},
 {"id":16,"key":"garbage1","xy":[7,-60],"code":"L07","detail":{"翻不到東西":"0%（首次翻找）","戰利品":"出現怒紡蛛、骨頭"},"itemLinks":{"戰利品":[[6,8,"item_bones03"]]}},
 {"id":44,"key":"item_mushroom1","xy":[6,-65],"code":"I01"},

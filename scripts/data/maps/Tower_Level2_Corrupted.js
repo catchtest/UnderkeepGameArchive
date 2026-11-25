@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Tower_Level2_Corrupted",
-"name": ["高塔二層（腐化）","Tower Level 2 (Corrupted)"],
 "bounds": [-5,-14,19,18],
-"terrain": "<image x=\"-5\" y=\"-14\" width=\"19\" height=\"18\" href=\"images/maps/Tower_Level2_Corrupted.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 147,
 "sourceCount": 120,
 "zone": "red_mausoleum_env",

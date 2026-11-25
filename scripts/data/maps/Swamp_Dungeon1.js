@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Swamp_Dungeon1",
-"name": ["泥沼之心","The Mireheart"],
 "bounds": [-30,-21,41,40],
-"terrain": "<image x=\"-30\" y=\"-21\" width=\"41\" height=\"40\" href=\"images/maps/Swamp_Dungeon1.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 601,
 "sourceCount": 184,
 "zone": "dung_swamp_env",

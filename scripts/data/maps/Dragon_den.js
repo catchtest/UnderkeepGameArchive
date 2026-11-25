@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Dragon_den",
-"name": ["最後之焰聖所","Sanctum of the Last Flame"],
 "bounds": [-38,-71,68,26],
-"terrain": "<image x=\"-38\" y=\"-71\" width=\"68\" height=\"26\" href=\"images/maps/Dragon_den.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 720,
 "sourceCount": 389,
 "zone": "cave_env",
@@ -68,7 +66,7 @@ registerUnderkeepMap({
 {"id":177,"key":"chest1_moss","xy":[0,-53],"code":"L10","detail":{"戰利品":"心步涼鞋"},"itemLinks":{"戰利品":[[0,4,"item_mindstep_sandals"]]}},
 {"id":26,"key":"cave_alcove","xy":[7,-52],"code":"L11","detail":{"戰利品":"金礦石 ×2"},"nativeRotation":0,"itemLinks":{"戰利品":[[0,3,"item_golden_ore"]]}},
 {"id":47,"key":"garbage1","xy":[8,-52],"code":"L12","detail":{"翻不到東西":"0%（首次翻找）","戰利品":"紅寶石"},"itemLinks":{"戰利品":[[0,3,"item_diamond_red"]]}},
-{"id":421,"key":"chest1_locked","xy":[5,-51],"code":"L13","detail":{"戰利品":"10% · 蠻牛腰帶、奧術回覆斗篷、虛空斗篷、燼跡便鞋、幸運遠視頭盔、皮鑲甲、神射手護腕、僧侶長袍、偵察風靴、雷鳴彈弓","所需物品":"開鎖工具","掉落規則":"以下為初始機率。上鎖寶箱共用裝備池，抽出的裝備會從池中移除。"},"itemLinks":{"所需物品":[[0,4,"item_key_lockpick"]],"戰利品":[[6,10,"item_belt_of_bull"],[11,17,"item_cloak_of_arcane_restoration"],[18,22,"item_cloak_of_emptiness"],[23,27,"item_embertrail_slippers"],[28,34,"item_helmet_of_lucky_farsight"],[35,38,"item_leather_brigandine"],[39,44,"item_marksman_bracers"],[45,49,"item_monk_tunic"],[50,54,"item_scoutwind_boots"],[55,59,"item_sling_splintered_aim"]]}},
+{"id":421,"key":"chest1_locked","xy":[5,-51],"code":"L13","detail":{"戰利品":"10% · 蠻牛腰帶、奧術回覆斗篷、虛空斗篷、燼跡便鞋、幸運遠視頭盔、皮鑲甲、神射手護腕、僧侶長袍、偵察風靴、雷鳴彈弓","所需物品":"開鎖工具","掉落規則":underkeepLockedChestLootRule},"itemLinks":{"所需物品":[[0,4,"item_key_lockpick"]],"戰利品":[[6,10,"item_belt_of_bull"],[11,17,"item_cloak_of_arcane_restoration"],[18,22,"item_cloak_of_emptiness"],[23,27,"item_embertrail_slippers"],[28,34,"item_helmet_of_lucky_farsight"],[35,38,"item_leather_brigandine"],[39,44,"item_marksman_bracers"],[45,49,"item_monk_tunic"],[50,54,"item_scoutwind_boots"],[55,59,"item_sling_splintered_aim"]]}},
 {"id":422,"key":"item_coins","xy":[1,-58],"code":"H01","title":"金幣","coinAmount":1},
 {"id":423,"key":"item_coins","xy":[5,-58],"code":"H02","title":"金幣","coinAmount":1},
 {"id":447,"key":"item_coins","xy":[5,-58],"code":"H03","title":"金幣","coinAmount":1},

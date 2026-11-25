@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Caerlin_Woods",
-"name": ["凱爾林森林","Caerlin Woods"],
 "bounds": [-17,-54,58,44],
-"terrain": "<image x=\"-17\" y=\"-54\" width=\"58\" height=\"44\" href=\"images/maps/Caerlin_Woods.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 1312,
 "sourceCount": 1174,
 "zone": "caerlin_env",
@@ -78,7 +76,7 @@ registerUnderkeepMap({
 {"id":80,"key":"shallow_grave_dirt","xy":[-7,-36],"code":"L03"},
 {"id":1370,"key":"tree_stump_large1_hide","xy":[22,-32],"code":"L04","detail":{"戰利品":"金幣 ×9"}},
 {"id":1032,"key":"chest1","xy":[17,-31],"code":"L05","detail":{"戰利品":"雷霆護符"},"itemLinks":{"戰利品":[[0,4,"item_amulet_of_thunder"]]}},
-{"id":1088,"key":"chest1_moss_locked","xy":[13,-29],"code":"L06","detail":{"戰利品":"100% · 金幣 ×9、守禦藥劑（配方）\n10% · 蠻牛腰帶、奧術回覆斗篷、虛空斗篷、燼跡便鞋、幸運遠視頭盔、皮鑲甲、神射手護腕、僧侶長袍、偵察風靴、雷鳴彈弓","所需物品":"開鎖工具","掉落規則":"以下為初始機率。上鎖寶箱共用裝備池，抽出的裝備會從池中移除。"},"itemLinks":{"戰利品":[[7,9,"item_coins"],[13,21,"item_recipe_ele_resist"],[28,32,"item_belt_of_bull"],[33,39,"item_cloak_of_arcane_restoration"],[40,44,"item_cloak_of_emptiness"],[45,49,"item_embertrail_slippers"],[50,56,"item_helmet_of_lucky_farsight"],[57,60,"item_leather_brigandine"],[61,66,"item_marksman_bracers"],[67,71,"item_monk_tunic"],[72,76,"item_scoutwind_boots"],[77,81,"item_sling_splintered_aim"]],"所需物品":[[0,4,"item_key_lockpick"]]}},
+{"id":1088,"key":"chest1_moss_locked","xy":[13,-29],"code":"L06","detail":{"戰利品":"100% · 金幣 ×9、守禦藥劑（配方）\n10% · 蠻牛腰帶、奧術回覆斗篷、虛空斗篷、燼跡便鞋、幸運遠視頭盔、皮鑲甲、神射手護腕、僧侶長袍、偵察風靴、雷鳴彈弓","所需物品":"開鎖工具","掉落規則":underkeepLockedChestLootRule},"itemLinks":{"戰利品":[[7,9,"item_coins"],[13,21,"item_recipe_ele_resist"],[28,32,"item_belt_of_bull"],[33,39,"item_cloak_of_arcane_restoration"],[40,44,"item_cloak_of_emptiness"],[45,49,"item_embertrail_slippers"],[50,56,"item_helmet_of_lucky_farsight"],[57,60,"item_leather_brigandine"],[61,66,"item_marksman_bracers"],[67,71,"item_monk_tunic"],[72,76,"item_scoutwind_boots"],[77,81,"item_sling_splintered_aim"]],"所需物品":[[0,4,"item_key_lockpick"]]}},
 {"id":64,"key":"barrel1_moss","xy":[-3,-23],"code":"L07","detail":{"戰利品":"空瓶、蘋果、發霉的麵包、次級體力藥水、解毒藥水（配方）"},"detailOrder":["戰利品","取得方式"],"itemLinks":{"戰利品":[[0,2,"item_empty_flask"],[3,5,"item_food_apple"],[6,11,"item_food_bread_mold"],[12,18,"item_minor_endurance_potion"],[19,27,"item_recipe_cure_poison_dvojka"]]}},
 {"id":942,"key":"item_coins","xy":[13,-43],"code":"H01","title":"金幣","coinAmount":1},
 {"id":943,"key":"item_coins","xy":[13,-43],"code":"H02","title":"金幣","coinAmount":1},

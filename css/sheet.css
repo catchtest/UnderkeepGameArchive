@@ -10,7 +10,7 @@
 .detail-dialog:has(.item-sheet) header h2 { color: #dddd77; min-width: 0; }
 .detail-dialog:has(.item-sheet) .entry-heading { flex: 1; }
 .detail-dialog:has(.item-sheet) .entry-names {
-  display: flex; flex: 1; min-width: 0; flex-direction: column; align-items: center;
+  flex: 1; align-items: center;
   gap: 2px; text-align: center; overflow-wrap: anywhere;
 }
 .quest-item-badge {
@@ -73,7 +73,7 @@ dialog .entry-heading .inventory-icon { zoom: 3; }
   display: grid; grid-template-columns: 56px minmax(0, 1fr) 56px; align-items: center; text-align: center;
 }
 .granted-skill-heading .staff-icon { zoom: 2; }
-.detail-dialog-body .granted-skill-heading h3 { margin: 0; color: #dddd77; font-size: 20px; line-height: 1.2; }
+.detail-dialog .granted-skill-heading h3 { margin: 0; color: #dddd77; font-size: 20px; line-height: 1.2; }
 .granted-skill-type { margin: 0; color: #aaa193; }
 .granted-skill-description { margin: 12px 0; color: var(--item-feature-color); }
 .granted-skill .skill-cooldown { --item-row-color: #fff; }
@@ -125,10 +125,7 @@ dialog .entry-heading .inventory-icon { zoom: 3; }
 .detail-dialog:has(.enemy-detail) > header {
   gap: 10px; padding: 14px 20px; border-bottom: 1px solid var(--line);
 }
-.detail-dialog:has(.enemy-detail) .entry-names {
-  display: flex; flex-direction: column; align-items: flex-start; gap: .2em .65em; min-width: 0;
-}
-.detail-dialog:has(.enemy-detail) .item-title-row {
+.item-title-row {
   display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px;
 }
 .detail-dialog:has(.enemy-detail) .entry-heading h2 {
@@ -137,41 +134,39 @@ dialog .entry-heading .inventory-icon { zoom: 3; }
 .detail-dialog:has(.enemy-detail) .entry-heading small {
   color: var(--muted); font: italic 1rem/1.4 Georgia, serif;
 }
-.detail-dialog-body:has(.enemy-detail) {
-  overflow: auto; overscroll-behavior: contain; overflow-wrap: anywhere; padding: 14px 20px 20px;
-}
+.detail-dialog:has(.enemy-detail) > .dialog-body { padding: 14px 20px 20px; overflow-wrap: anywhere; }
 .detail-dialog:has(.enemy-detail) .icon {
   display: inline-block; flex: none; background: url("../images/guide-icons.webp") no-repeat; image-rendering: pixelated;
 }
 .detail-dialog:has(.enemy-detail) .effect-icon {
   background-image: url("../images/effect-icons.webp"); zoom: 2;
 }
-.detail-dialog-body .enemy-detail { --source-accent: #a7baca; }
-.detail-dialog-body .enemy-detail h3 { color: var(--name); font-size: 1.03rem; margin: 17px 0 7px; }
-.detail-dialog-body .enemy-detail .intro { white-space: pre-line; }
-.detail-dialog-body .enemy-detail .facts {
+.dialog-body .enemy-detail { --source-accent: #a7baca; }
+.dialog-body .enemy-detail h3 { color: var(--name); font-size: 1.03rem; margin: 17px 0 7px; }
+.dialog-body .enemy-detail .intro { white-space: pre-line; }
+.dialog-body .enemy-detail .facts {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
   border-block: 1px solid var(--line); margin: 16px 0 4px;
 }
-.detail-dialog-body .enemy-detail .facts > div { padding: 9px 12px 10px 0; }
-.detail-dialog-body .enemy-detail > .facts:first-of-type {
+.dialog-body .enemy-detail .facts > div { padding: 9px 12px 10px 0; }
+.dialog-body .enemy-detail > .facts:first-of-type {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
-.detail-dialog-body .enemy-detail :is(dt, .muted) { color: var(--muted); }
-.detail-dialog-body .enemy-detail dd { color: var(--name); margin: 0; font-weight: 600; }
-.detail-dialog-body .enemy-detail dd.stat-positive { color: #a2c0a5; }
-.detail-dialog-body .enemy-detail dd.stat-negative { color: #d3a7a1; }
-.detail-dialog-body .enemy-detail summary { color: var(--source-accent); font-weight: 600; cursor: pointer; }
-.detail-dialog-body .enemy-detail .locations { display: flex; flex-wrap: wrap; gap: 7px; margin: 8px 0; }
-.detail-dialog-body .enemy-detail .links { display: flex; flex-wrap: wrap; gap: 5px 15px; margin: 0; }
-.detail-dialog-body .enemy-detail :is(.locations, .links) :is(a, button) {
+.dialog-body .enemy-detail :is(dt, .muted) { color: var(--muted); }
+.dialog-body .enemy-detail dd { color: var(--name); margin: 0; font-weight: 600; }
+.dialog-body .enemy-detail dd.stat-positive { color: #a2c0a5; }
+.dialog-body .enemy-detail dd.stat-negative { color: #d3a7a1; }
+.dialog-body .enemy-detail summary { color: var(--source-accent); font-weight: 600; cursor: pointer; }
+.dialog-body .enemy-detail .locations { display: flex; flex-wrap: wrap; gap: 7px; margin: 8px 0; }
+.dialog-body .enemy-detail .links { display: flex; flex-wrap: wrap; gap: 5px 15px; margin: 0; }
+.dialog-body .enemy-detail :is(.locations, .links) :is(a, button) {
   color: var(--ink); background: #20251f; padding: 4px 9px; border: 1px solid #484e43;
   border-inline-start: 2px solid var(--source-accent); border-radius: 3px; text-decoration: none;
 }
-.detail-dialog-body .enemy-detail :is(.locations, .links) :is(a, button):is(:hover, :focus-visible) {
+.dialog-body .enemy-detail :is(.locations, .links) :is(a, button):is(:hover, :focus-visible) {
   color: var(--heading); border-color: var(--source-accent); background: #30362e;
 }
-.detail-dialog-body .enemy-detail .links :is(a, button) { display: inline-flex; align-items: center; gap: 6px; }
+.dialog-body .enemy-detail .links :is(a, button) { display: inline-flex; align-items: center; gap: 6px; }
 .enemy-detail .links .inventory-icon { zoom: 1; }
 .enemy-type-badge { padding: 2px 7px 2px 3px; border: 1px solid; border-radius: 4px; font-size: 1rem; line-height: 1.4; white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; }
 .enemy-type-badge[data-type="animal"] { border-color: #708453; background: #293322; color: #c1cbb2; }
@@ -190,5 +185,5 @@ dialog .entry-heading .inventory-icon { zoom: 3; }
 .attack-heading { justify-content: space-between; }
 .attack-heading h4 { color: var(--ink); margin: 0; }
 .attack-level { color: var(--link); }
-.detail-dialog-body .enemy-detail .enemy-attack .facts { margin: 8px 0 0; border-bottom: 0; }
+.dialog-body .enemy-detail .enemy-attack .facts { margin: 8px 0 0; border-bottom: 0; }
 .enemy-attack .status-badges { margin-top: 6px; }

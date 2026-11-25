@@ -1,35 +1,5 @@
 'use strict';
 
-const guideView = `
-<main class="book" tabindex="-1">
-  <div class="banner">
-    <h1 id="page-title">種族加成</h1>
-    <input id="item-query" type="search" aria-label="搜尋此分類物品" placeholder="搜尋物品、地點或取得方式" autocomplete="off">
-  </div>
-  <nav id="choices" aria-label="選擇條目" hidden></nav>
-  <nav id="item-subtypes" aria-label="物品細分類" hidden></nav>
-  <div id="workspace">
-    <aside id="library" class="panel" aria-label="圖鑑目錄" hidden>
-      <h2 id="list-title">配方</h2>
-      <div id="results" aria-label="查詢結果"></div>
-    </aside>
-    <article id="detail" aria-label="條目詳情"></article>
-  </div>
-</main>
-<dialog id="levels-dialog" class="levels guide-dialog" aria-labelledby="levels-title" closedby="any">
-  <header><h2 id="levels-title">角色升級</h2><form method="dialog"><button class="close-button" aria-label="關閉角色升級" autofocus>✕</button></form></header>
-  <div class="levels-body"><p>角色每次升級獲得 1 點技能點。</p></div>
-</dialog>
-<div id="attribute-tooltip" role="tooltip" hidden></div>
-<template id="guide-item-template">
-  <dialog class="guide-dialog guide-item-dialog detail-dialog" closedby="any">
-    <header><div class="guide-item-heading entry-heading"></div><button type="button" class="close-button" autofocus>✕</button></header>
-    <div class="levels-body detail-dialog-body"></div>
-  </dialog>
-</template>
-<div class="page-scrollbar" role="region" aria-label="捲動圖鑑" tabindex="0" hidden><div aria-hidden="true"></div></div>
-`;
-
 const guideNav = [...document.querySelectorAll('#sections a[data-title]')];
 const guideSections = Object.fromEntries(guideNav.map(link => [link.hash.slice(1), link.dataset.title]));
 
@@ -40,8 +10,9 @@ function underkeepGuideSection(key) {
 }
 
 function mountUnderkeepGuide(signal, refresh) {
-  const { data: guide, node, spriteIcon, route, placeLabel, entryLinks, heading, facts, catalogHeading,
-    itemsById, enemiesById, artImage, enemySheet, enemyTypeBadge, itemSheet, itemBadge, inventoryIcon, coinPrice, questSheet } = guideDetails;
+  const { data: guide, spriteIcon, route, placeLabel, entryLinks, heading, facts,
+    itemsById, enemiesById, artImage, inventoryIcon, coinPrice, catalogTypes, renderDetail } = guideDetails;
+  const node = underkeepElement;
   const $ = id => document.getElementById(id);
   let allEffects;
   let weaponSubtypes;
@@ -69,17 +40,16 @@ function mountUnderkeepGuide(signal, refresh) {
     護甲: itemCategories.護甲,
     飾品: itemCategories.飾品
   };
-  const catalogTemplate = $('guide-item-template');
   const catalogDialogs = [];
   let dismissingCatalogDialog = false;
   const catalogQuery = $('item-query');
   const catalogs = {
-    items: { label: '物品', placeholder: '搜尋物品、地點或取得方式', thumbnail: r => itemSlot(r.icon) },
-    enemies: { label: '敵人', placeholder: '搜尋敵人、技能、抗性或地點', thumbnail: enemyThumbnail },
-    quests: { label: '任務', placeholder: '搜尋任務、解法、結局或地點' }
+    items: { placeholder: '搜尋物品、地點或取得方式', thumbnail: r => itemSlot(r.icon) },
+    enemies: { placeholder: '搜尋敵人、技能、抗性或地點', thumbnail: enemyThumbnail },
+    quests: { placeholder: '搜尋任務、解法、結局或地點' }
   };
   const mapId = new URLSearchParams(location.search).get('map');
-  if (guide.mapIds.includes(mapId)) $('to-map').hash = mapId;
+  if (Object.hasOwn(underkeepMapNames, mapId)) $('to-map').hash = mapId;
   let section;
   const article = $('detail');
   const attributeTip = $('attribute-tooltip');
@@ -341,7 +311,7 @@ function mountUnderkeepGuide(signal, refresh) {
     levels.setAttribute('aria-controls', 'levels-dialog');
     levels.addEventListener('click', () => {
       const dialog = $('levels-dialog');
-      const body = dialog.querySelector('.levels-body');
+      const body = dialog.querySelector('.dialog-body');
       if (!body.querySelector('table')) {
         const rows = guide.xp.map((total, i) => [i + 1,
           underkeepXp(i ? total - guide.xp[i - 1] : 0, false), underkeepXp(total, false)]);
@@ -484,17 +454,14 @@ function mountUnderkeepGuide(signal, refresh) {
   }
 
   function showCatalogDialog(r, group, detailRoute) {
-    const dialog = catalogTemplate.content.firstElementChild.cloneNode(true);
-    const isItem = group === 'items';
-    const badge = isItem ? itemBadge(r) : group === 'enemies' ? enemyTypeBadge(r) : null;
-    const sheet = isItem ? itemSheet : group === 'enemies' ? enemySheet : questSheet;
-    const close = dialog.querySelector('.close-button');
-    catalogHeading(r, isItem ? inventoryIcon(r.icon) : null, dialog.querySelector('.entry-heading'), badge);
-    dialog.setAttribute('aria-label', r.name);
-    close.setAttribute('aria-label', '關閉' + catalogs[group].label + '詳情');
-    dialog.querySelector('.detail-dialog-body').append(sheet(r, detailRoute));
+    const dialog = createUnderkeepDetailDialog();
+    dialog.classList.add('guide-dialog');
+    renderDetail(dialog, group, r, detailRoute);
     dialog.dataset.route = detailRoute;
-    close.addEventListener('click', dismissCatalogDialog);
+    dialog.querySelector('form').addEventListener('submit', event => {
+      event.preventDefault();
+      dismissCatalogDialog();
+    });
     dialog.addEventListener('cancel', event => {
       event.preventDefault();
       dismissCatalogDialog();
@@ -510,7 +477,6 @@ function mountUnderkeepGuide(signal, refresh) {
       history.pushState({ catalogParents: catalogDialogs.map(parent => parent.dataset.route) }, '', link.hash);
       refresh();
     });
-    catalogTemplate.before(dialog);
     dialog.showModal();
     catalogDialogs.push(dialog);
   }
@@ -538,7 +504,7 @@ function mountUnderkeepGuide(signal, refresh) {
       tile.append(node('span', record.name));
       grid.append(tile);
     }
-    article.replaceChildren(grid.childElementCount ? grid : node('p', '查無符合的' + catalogs[section].label + '。', 'panel empty'));
+    article.replaceChildren(grid.childElementCount ? grid : node('p', '查無符合的' + catalogTypes[section].label + '。', 'panel empty'));
   }
 
   function renderItemPage(id, group, subtype, changed) {
@@ -703,7 +669,7 @@ function mountUnderkeepGuide(signal, refresh) {
       } else if (Object.hasOwn(catalogs, section)) {
         catalogQuery.value = '';
         catalogQuery.placeholder = catalogs[section].placeholder;
-        catalogQuery.setAttribute('aria-label', section === 'items' ? '搜尋此分類物品' : '搜尋' + catalogs[section].label);
+        catalogQuery.setAttribute('aria-label', section === 'items' ? '搜尋此分類物品' : '搜尋' + catalogTypes[section].label);
       }
       window.scrollTo(0,0);
     }

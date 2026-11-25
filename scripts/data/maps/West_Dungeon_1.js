@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "West_Dungeon_1",
-"name": ["靈魂鍛造爐 - 外廳","Soulforge - Outer Halls"],
 "bounds": [-40,-80,48,34],
-"terrain": "<image x=\"-40\" y=\"-80\" width=\"48\" height=\"34\" href=\"images/maps/West_Dungeon_1.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 897,
 "sourceCount": 183,
 "zone": "dung_metal_stone_env",

@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Underkeep_Surroundings",
-"name": ["Underkeep 之根","Roots of Underkeep"],
 "bounds": [-9,-54,61,52],
-"terrain": "<image x=\"-9\" y=\"-54\" width=\"61\" height=\"52\" href=\"images/maps/Underkeep_Surroundings.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 1424,
 "sourceCount": 1093,
 "zone": "tower_surroundings_env",

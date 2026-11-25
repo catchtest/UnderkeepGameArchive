@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Wolf_den",
-"name": ["狼穴","Wolf Lair"],
 "bounds": [7,-51,25,17],
-"terrain": "<image x=\"7\" y=\"-51\" width=\"25\" height=\"17\" href=\"images/maps/Wolf_den.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 234,
 "sourceCount": 269,
 "zone": "cave_env",

@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Swamp_Dungeon2",
-"name": ["根墓","The Rootgrave"],
 "bounds": [-20,-15,24,25],
-"terrain": "<image x=\"-20\" y=\"-15\" width=\"24\" height=\"25\" href=\"images/maps/Swamp_Dungeon2.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 363,
 "sourceCount": 95,
 "zone": "dung_swamp_env",

@@ -1,13 +1,6 @@
-:root { color-scheme: dark; background: #161915; }
-:root.enhanced:has(.page-scrollbar) { scrollbar-width: none; }
-:root:not(.enhanced), .page-scrollbar { scrollbar-width: thin; scrollbar-color: #82745a transparent; }
+:root { color-scheme: dark; background: #161915; scrollbar-width: thin; scrollbar-color: #82745a transparent; }
+* { box-sizing: border-box; }
 body { margin: 0; }
-.page-scrollbar {
-  position: fixed; z-index: 3; inset: 0 0 0 auto; width: 10px;
-  overflow: hidden scroll; overscroll-behavior: contain;
-}
-.page-scrollbar > div { width: 1px; }
-.page-scrollbar:focus-visible { outline-offset: -2px; }
 .choice-xp {
   color: #d6b2ff; font: 1.04em/1 Georgia, "Times New Roman", serif;
   font-variant-numeric: lining-nums tabular-nums; white-space: nowrap;
@@ -64,8 +57,11 @@ body { margin: 0; }
 .close-button:hover,
 .close-button:active { background: rgb(255 255 255 / 14%); }
 
-dialog > :is(header, .overview-heading) > :is(.close-button, form:has(> .close-button)) {
-  align-self: flex-start;
-  flex: none;
-  margin-inline-start: auto;
-}
+dialog { padding: 0; }
+dialog[open] { display: flex; flex-direction: column; }
+dialog > header { display: flex; align-items: center; }
+dialog > header > form { align-self: flex-start; flex: none; margin-inline-start: auto; }
+.dialog-body { overflow: auto; overscroll-behavior: contain; }
+.entry-heading { display: flex; align-items: center; gap: 12px; }
+.detail-dialog .entry-heading { min-width: 0; overflow-wrap: anywhere; }
+.detail-dialog .entry-names { display: flex; flex-direction: column; align-items: flex-start; gap: .2em .65em; min-width: 0; }

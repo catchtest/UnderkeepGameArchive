@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Caerlin_West_Dungeon",
-"name": ["墓木地穴","Gravewood Crypt"],
 "bounds": [0,-62,26,30],
-"terrain": "<image x=\"0\" y=\"-62\" width=\"26\" height=\"30\" href=\"images/maps/Caerlin_West_Dungeon.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 322,
 "sourceCount": 177,
 "zone": "dung_moss_env",

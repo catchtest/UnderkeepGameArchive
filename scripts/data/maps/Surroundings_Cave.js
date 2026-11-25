@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Surroundings_Cave",
-"name": ["破碎封印深處","Depths of the Broken Seal"],
 "bounds": [-23,-10,36,30],
-"terrain": "<image x=\"-23\" y=\"-10\" width=\"36\" height=\"30\" href=\"images/maps/Surroundings_Cave.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 613,
 "sourceCount": 674,
 "zone": "cave_env",
@@ -46,7 +44,7 @@ registerUnderkeepMap({
 {"id":704,"key":"god_ray_2","xy":[-13,12],"code":"M24","sources":[[692,["trigger_event"]]]},
 {"id":705,"key":"god_ray_2","xy":[-12,12],"code":"M25","sources":[[692,["trigger_event"]]]},
 {"id":768,"key":"pedestal","xy":[-15,-2],"code":"L01","detail":{"戰利品":"古書：最後的守護者"},"itemLinks":{"戰利品":[[0,9,"item_book_guardian_6"]]}},
-{"id":730,"key":"chest1_moss_locked","xy":[-2,4],"code":"L02","detail":{"戰利品":"100% · 毒藥水、復活藥水、解毒藥水（配方）\n10% · 蠻牛腰帶、奧術回覆斗篷、虛空斗篷、燼跡便鞋、幸運遠視頭盔、皮鑲甲、神射手護腕、僧侶長袍、偵察風靴、雷鳴彈弓","所需物品":"開鎖工具","掉落規則":"以下為初始機率。上鎖寶箱共用裝備池，抽出的裝備會從池中移除。"},"itemLinks":{"戰利品":[[7,10,"item_potion_poison"],[11,15,"item_potion_resurrection"],[16,24,"item_recipe_cure_poison_dvojka"],[31,35,"item_belt_of_bull"],[36,42,"item_cloak_of_arcane_restoration"],[43,47,"item_cloak_of_emptiness"],[48,52,"item_embertrail_slippers"],[53,59,"item_helmet_of_lucky_farsight"],[60,63,"item_leather_brigandine"],[64,69,"item_marksman_bracers"],[70,74,"item_monk_tunic"],[75,79,"item_scoutwind_boots"],[80,84,"item_sling_splintered_aim"]],"所需物品":[[0,4,"item_key_lockpick"]]}},
+{"id":730,"key":"chest1_moss_locked","xy":[-2,4],"code":"L02","detail":{"戰利品":"100% · 毒藥水、復活藥水、解毒藥水（配方）\n10% · 蠻牛腰帶、奧術回覆斗篷、虛空斗篷、燼跡便鞋、幸運遠視頭盔、皮鑲甲、神射手護腕、僧侶長袍、偵察風靴、雷鳴彈弓","所需物品":"開鎖工具","掉落規則":underkeepLockedChestLootRule},"itemLinks":{"戰利品":[[7,10,"item_potion_poison"],[11,15,"item_potion_resurrection"],[16,24,"item_recipe_cure_poison_dvojka"],[31,35,"item_belt_of_bull"],[36,42,"item_cloak_of_arcane_restoration"],[43,47,"item_cloak_of_emptiness"],[48,52,"item_embertrail_slippers"],[53,59,"item_helmet_of_lucky_farsight"],[60,63,"item_leather_brigandine"],[64,69,"item_marksman_bracers"],[70,74,"item_monk_tunic"],[75,79,"item_scoutwind_boots"],[80,84,"item_sling_splintered_aim"]],"所需物品":[[0,4,"item_key_lockpick"]]}},
 {"id":656,"key":"chest1","xy":[-18,9],"code":"L03","detail":{"戰利品":"祖母綠、霜噬之刃"},"itemLinks":{"戰利品":[[0,3,"item_diamond_green"],[4,8,"item_frostbite_edge"]]}},
 {"id":574,"key":"item_coins","xy":[2,-7],"code":"H01","title":"金幣 ×2","coinAmount":2},
 {"id":575,"key":"item_coins","xy":[2,-7],"code":"H02","title":"金幣 ×4","coinAmount":4},

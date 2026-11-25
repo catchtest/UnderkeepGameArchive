@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "West_Dungeon_3",
-"name": ["熔爐","The Furnace"],
 "bounds": [-18,-89,31,35],
-"terrain": "<image x=\"-18\" y=\"-89\" width=\"31\" height=\"35\" href=\"images/maps/West_Dungeon_3.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 316,
 "sourceCount": 151,
 "zone": "dung_metal_stone_env",

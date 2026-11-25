@@ -2,6 +2,19 @@
 
 const underkeepSiteName = document.title;
 
+function underkeepElement(tag, text, className) {
+  const element = document.createElement(tag);
+  if (text !== undefined) element.textContent = text;
+  if (className) element.className = className;
+  return element;
+}
+
+function createUnderkeepDetailDialog() {
+  const dialog = document.getElementById('detail-dialog-template').content.firstElementChild.cloneNode(true);
+  document.getElementById('view').append(dialog);
+  return dialog;
+}
+
 function underkeepXp(value, withUnit = true) {
   const span = document.createElement('span');
   const amount = typeof value === 'number' ? value.toLocaleString('zh-TW') : String(value);
@@ -41,10 +54,11 @@ function underkeepXpText(text) {
   const mapLink = document.getElementById('to-map');
   const homeLink = document.querySelector('.brand a');
   const guideLinks = document.querySelectorAll('#sections a[data-title]');
-  const homeMarkup = view.innerHTML;
+  const homeContent = [...view.children];
+  const mapNames = 'data/map-names.js';
   const sheetStyle = 'sheet.css';
   const styleOrder = ['home.css', 'map.css', 'guide.css', sheetStyle];
-  const guideDataKeys = { characters: 'races', catalog: 'places', items: 'items', enemies: 'enemies', quests: 'quests' };
+  const guideDataKeys = { characters: 'races', catalog: 'mapPoints', items: 'items', enemies: 'enemies', quests: 'quests' };
   const scripts = new Map();
   const styles = new Map();
   let activePage;
@@ -57,26 +71,23 @@ function underkeepXpText(text) {
   const pages = {
     home: {
       title: underkeepSiteName,
-      styles: ['home.css'],
-      markup: () => homeMarkup
+      styles: ['home.css']
     },
     map: {
       title: '互動地圖 | ' + underkeepSiteName,
       styles: ['map.css'],
-      load: () => loadScript('map.js'),
+      load: () => Promise.all([loadScript(mapNames), loadScript('map.js')]),
       loadRoute: url => {
         const id = underkeepMapId(url.hash);
         if (!underkeepMaps.has(id)) return loadScript('data/maps/' + id + '.js');
       },
-      markup: () => atlasView,
       mount: signal => mountUnderkeepAtlas(signal, group => loadMapDetails(signal, group))
     },
     guide: {
       title: underkeepSiteName,
       styles: ['guide.css', sheetStyle],
-      load: () => Promise.all([loadScript('guide-details.js'), loadScript('guide.js')]),
+      load: () => Promise.all([loadScript(mapNames), loadScript('guide-details.js'), loadScript('guide.js')]),
       loadRoute: loadGuideSection,
-      markup: () => guideView,
       mount: signal => mountUnderkeepGuide(signal, () => navigate(new URL(location.href), 'guide'))
     }
   };
@@ -162,33 +173,6 @@ function underkeepXpText(text) {
     if (!signal.aborted) styles.get(sheetStyle).link.media = 'all';
   }
 
-  function mountPageScrollbar(rail, signal) {
-    const scroll = document.scrollingElement;
-    let mirroredTop;
-
-    function mirrorScroll() {
-      rail.scrollTop = scroll.scrollTop;
-      mirroredTop = rail.scrollTop;
-    }
-
-    function measure() {
-      const range = scroll.scrollHeight - scroll.clientHeight;
-      rail.hidden = range <= 0;
-      rail.firstElementChild.style.height = rail.clientHeight + range + 'px';
-      mirrorScroll();
-    }
-
-    rail.addEventListener('scroll', () => {
-      if (!rail.hidden && rail.scrollTop !== mirroredTop) scroll.scrollTop = rail.scrollTop;
-    }, { signal });
-    window.addEventListener('scroll', mirrorScroll, { signal, passive: true });
-    window.addEventListener('resize', measure, { signal });
-    const observer = new ResizeObserver(measure);
-    observer.observe(document.body);
-    signal.addEventListener('abort', () => observer.disconnect(), { once: true });
-    measure();
-  }
-
   function mount(page, signal) {
     mapLink.href = '?view=map';
     for (const [name, link] of [['home', homeLink], ['map', mapLink]]) {
@@ -200,10 +184,7 @@ function underkeepXpText(text) {
       link.removeAttribute('aria-current');
     }
     delete document.body.dataset.section;
-    const refresh = pages[page].mount?.(signal);
-    const rail = view.querySelector('.page-scrollbar');
-    if (rail) mountPageScrollbar(rail, signal);
-    return refresh;
+    return pages[page].mount?.(signal);
   }
 
   function routePage(url) {
@@ -259,7 +240,8 @@ function underkeepXpText(text) {
       activeUrl = url;
       document.body.dataset.page = page;
       document.title = next.title;
-      if (page !== 'home' || hasPreviousView) view.innerHTML = next.markup();
+      if (page === 'home') view.replaceChildren(...homeContent);
+      else view.replaceChildren(document.getElementById(page + '-view').content.cloneNode(true));
       view.dataset.ready = '';
       window.scrollTo(0, 0);
       refreshView = mount(page, lifecycle.signal);

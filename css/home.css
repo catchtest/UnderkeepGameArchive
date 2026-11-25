@@ -6,15 +6,11 @@
   unicode-range: U+6232, U+8A0A, U+8CC7, U+904A;
 }
 :root {
-  color-scheme: dark;
-  background: #161915;
   color: #e4ddd0;
   font: 1rem/1.65 "Segoe UI", "Microsoft JhengHei UI", sans-serif;
   --gold: #efcd8e;
   --line: #534a36;
 }
-* { box-sizing: border-box; }
-body { margin: 0; }
 h1, h2, p, dl, dd { margin: 0; }
 a { color: var(--gold); text-underline-offset: .2em; }
 a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }

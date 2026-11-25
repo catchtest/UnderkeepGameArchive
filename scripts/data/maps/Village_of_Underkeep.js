@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Village_of_Underkeep",
-"name": ["Underkeep 村莊","Village of Underkeep"],
 "bounds": [-19,-26,54,46],
-"terrain": "<image x=\"-19\" y=\"-26\" width=\"54\" height=\"46\" href=\"images/maps/Village_of_Underkeep.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 879,
 "sourceCount": 951,
 "zone": "village_env",

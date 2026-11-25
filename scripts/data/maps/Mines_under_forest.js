@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Mines_under_forest",
-"name": ["空墓隧道","Hollowgrave Tunnels"],
 "bounds": [-18,-54,64,42],
-"terrain": "<image x=\"-18\" y=\"-54\" width=\"64\" height=\"42\" href=\"images/maps/Mines_under_forest.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 1184,
 "sourceCount": 561,
 "zone": "mine_env",

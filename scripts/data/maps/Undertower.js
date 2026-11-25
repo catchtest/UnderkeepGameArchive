@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Undertower",
-"name": ["Underkeep","Underkeep"],
 "bounds": [-9,-20,25,24],
-"terrain": "<image x=\"-9\" y=\"-20\" width=\"25\" height=\"24\" href=\"images/maps/Undertower.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 116,
 "sourceCount": 91,
 "zone": "hall_env",

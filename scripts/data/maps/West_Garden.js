@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "West_Garden",
-"name": ["靈魂鍛造爐 - 西園","Soulforge - West Garden"],
 "bounds": [-5,-17,31,32],
-"terrain": "<image x=\"-5\" y=\"-17\" width=\"31\" height=\"32\" href=\"images/maps/West_Garden.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 596,
 "sourceCount": 606,
 "zone": "dungeon_garden_env",

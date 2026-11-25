@@ -14,9 +14,9 @@
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 <script>document.documentElement.classList.add('enhanced');</script>
 <!-- Update the matching t values when publishing CSS or JavaScript changes. -->
-<link rel="stylesheet" href="css/site.css?t=20261125.2">
-<noscript><link rel="stylesheet" href="css/home.css?t=20261125.2"></noscript>
-<script defer src="scripts/site.js?t=20261125.2"></script>
+<link rel="stylesheet" href="css/site.css?t=20261125.3">
+<noscript><link rel="stylesheet" href="css/home.css?t=20261125.3"></noscript>
+<script defer src="scripts/site.js?t=20261125.3"></script>
 </head>
 <body data-page="home">
 <header class="masthead"><div class="mast-inner">
@@ -64,7 +64,94 @@
   <p>本站為粉絲自製非官方資料站，版權歸原公司所有。中文非官方翻譯，取自於<a href="https://www.bilibili.com/video/BV1tS4n6CET2/" lang="zh-Hans">星鸣s</a>的翻譯進行繁體化。</p>
   <p>遊戲版本：1.0.6　網站製作：蕭雲</p>
 </footer>
-<div class="page-scrollbar" role="region" aria-label="捲動首頁" tabindex="0" hidden><div aria-hidden="true"></div></div>
 </div>
+<template id="map-view">
+<header class="top">
+  <button type="button" class="drawer-toggle" id="maps-toggle" aria-controls="maps-drawer" aria-expanded="false">地圖列表</button>
+  <div class="map-heading"><h1 id="map-title"></h1><p id="map-en" class="english"></p></div>
+  <button type="button" class="drawer-toggle" id="layers-toggle" aria-controls="layers-drawer" aria-expanded="false">
+    <span class="layers-icon" aria-hidden="true"></span>圖層
+  </button>
+</header>
+<main class="stage" id="stage" aria-labelledby="map-title" tabindex="-1">
+  <svg id="map-svg" xmlns="http://www.w3.org/2000/svg" aria-labelledby="map-title" preserveAspectRatio="none"></svg>
+  <div class="tools">
+    <div class="zoom-group" role="group" aria-label="地圖縮放">
+      <button type="button" id="zoom-in" aria-label="放大" title="放大">+</button>
+      <button type="button" id="zoom-out" aria-label="縮小" title="縮小">−</button>
+    </div>
+    <button type="button" id="zoom-fit" aria-label="適合全圖" title="適合全圖">⤢</button>
+  </div>
+  <div class="map-status"><span id="coords"></span><span id="scale"></span></div>
+  <div id="map-tip" class="map-tip" role="group" aria-label="地圖格位提示" hidden></div>
+  <nav id="maps-drawer" class="drawer drawer-start" aria-labelledby="maps-title" hidden>
+    <div class="panel-heading">
+      <h2 id="maps-title">地點一覽</h2>
+      <button type="button" class="overview-toggle" id="overview-toggle" aria-haspopup="dialog" aria-controls="map-overview">總覽 <span aria-hidden="true">↗</span></button>
+      <button type="button" class="close-button" aria-label="關閉地點一覽">✕</button>
+    </div>
+    <label class="find"><span aria-hidden="true">⌕</span><input id="map-query" type="search" placeholder="搜尋地名或英文" aria-label="搜尋地圖"></label>
+    <div id="catalog"></div>
+  </nav>
+  <section id="layers-drawer" class="drawer drawer-end" aria-labelledby="layers-title" hidden>
+    <div class="panel-heading">
+      <h2 id="layers-title">標記圖層</h2>
+      <button type="button" id="reset-types" class="text-button">還原預設</button>
+      <button type="button" class="close-button" aria-label="關閉圖層">✕</button>
+    </div>
+    <div id="filters" class="layer-list"></div>
+  </section>
+  <section id="details-drawer" class="drawer drawer-end" aria-labelledby="details-title" hidden>
+    <div class="panel-heading">
+      <h2 id="details-title" aria-live="polite"></h2>
+      <button type="button" class="text-button" id="locate-selection">定位</button>
+      <button type="button" class="close-button" aria-label="關閉座標面板">✕</button>
+    </div>
+    <div class="detail-scroll" id="selection" aria-live="polite"></div>
+  </section>
+</main>
+<dialog id="map-overview" aria-labelledby="overview-title" closedby="any">
+  <header>
+    <h2 id="overview-title">地點一覽</h2>
+    <form method="dialog"><button class="close-button" aria-label="關閉地點一覽" autofocus>✕</button></form>
+  </header>
+  <div class="dialog-body overview-scroll">
+    <svg id="overview-svg" viewBox="0 0 1140 570" aria-labelledby="overview-title"></svg>
+  </div>
+</dialog>
+</template>
+
+<template id="guide-view">
+<main class="book" tabindex="-1">
+  <div class="banner">
+    <h1 id="page-title"></h1>
+    <input id="item-query" type="search" autocomplete="off">
+  </div>
+  <nav id="choices" aria-label="選擇條目" hidden></nav>
+  <nav id="item-subtypes" aria-label="物品細分類" hidden></nav>
+  <div id="workspace">
+    <aside id="library" class="panel" aria-label="圖鑑目錄" hidden>
+      <h2>配方</h2>
+      <div id="results" aria-label="查詢結果"></div>
+    </aside>
+    <article id="detail" aria-label="條目詳情"></article>
+  </div>
+</main>
+<dialog id="levels-dialog" class="levels guide-dialog" aria-labelledby="levels-title" closedby="any">
+  <header><h2 id="levels-title">角色升級</h2><form method="dialog"><button class="close-button" aria-label="關閉角色升級" autofocus>✕</button></form></header>
+  <div class="dialog-body"><p>角色每次升級獲得 1 點技能點。</p></div>
+</dialog>
+<div id="attribute-tooltip" role="tooltip" hidden></div>
+</template>
+
+<template id="detail-dialog-template">
+<dialog class="detail-dialog" closedby="any">
+  <header>
+    <div class="entry-heading"></div>
+    <form method="dialog"><button class="close-button" aria-label="關閉詳情" autofocus>✕</button></form>
+  </header>
+  <div class="dialog-body"></div>
+</dialog>
+</template>
 </body>
 </html>

@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Swamp_Lost_City",
-"name": ["古沼廢墟","Ruins of Elderfen"],
 "bounds": [-6,-28,22,26],
-"terrain": "<image x=\"-6\" y=\"-28\" width=\"22\" height=\"26\" href=\"images/maps/Swamp_Lost_City.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 325,
 "sourceCount": 157,
 "zone": "dung_grass_natural_env",

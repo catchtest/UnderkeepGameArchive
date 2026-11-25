@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "West_Dungeon_2",
-"name": ["寂靜謎廳","The Silent Riddles"],
 "bounds": [-37,-96,40,37],
-"terrain": "<image x=\"-37\" y=\"-96\" width=\"40\" height=\"37\" href=\"images/maps/West_Dungeon_2.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 898,
 "sourceCount": 250,
 "zone": "dung_metal_stone_env",

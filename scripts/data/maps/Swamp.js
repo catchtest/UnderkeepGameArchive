@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Swamp",
-"name": ["陰沼","Grimfen"],
 "bounds": [8,8,52,38],
-"terrain": "<image x=\"8\" y=\"8\" width=\"52\" height=\"38\" href=\"images/maps/Swamp.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 1029,
 "sourceCount": 468,
 "zone": "swamp_env",

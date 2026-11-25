@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Basilisk_Den",
-"name": ["石化蜥巢穴","Basilisk's Den"],
 "bounds": [7,-59,19,26],
-"terrain": "<image x=\"7\" y=\"-59\" width=\"19\" height=\"26\" href=\"images/maps/Basilisk_Den.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 256,
 "sourceCount": 161,
 "zone": "cave2_env",

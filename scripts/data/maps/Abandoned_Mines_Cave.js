@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Abandoned_Mines_Cave",
-"name": ["廢棄洞窟","Abandoned Caves"],
 "bounds": [3,-41,30,24],
-"terrain": "<image x=\"3\" y=\"-41\" width=\"30\" height=\"24\" href=\"images/maps/Abandoned_Mines_Cave.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 476,
 "sourceCount": 229,
 "zone": "cave_env",

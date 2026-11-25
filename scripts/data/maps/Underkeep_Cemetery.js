@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Underkeep_Cemetery",
-"name": ["Underkeep 墓園","Underkeep Cemetery"],
 "bounds": [-12,-15,43,34],
-"terrain": "<image x=\"-12\" y=\"-15\" width=\"43\" height=\"34\" href=\"images/maps/Underkeep_Cemetery.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 767,
 "sourceCount": 693,
 "zone": "cemetery_env",

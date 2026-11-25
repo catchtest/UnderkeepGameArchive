@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Tower_Level2",
-"name": ["高塔二層","Tower Level 2"],
 "bounds": [-5,-14,19,18],
-"terrain": "<image x=\"-5\" y=\"-14\" width=\"19\" height=\"18\" href=\"images/maps/Tower_Level2.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 147,
 "sourceCount": 61,
 "zone": "tower_env",

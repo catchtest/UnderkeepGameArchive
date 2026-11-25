@@ -1,8 +1,6 @@
 registerUnderkeepMap({
 "id": "Rat_nest",
-"name": ["鼠巢","Rat Nest"],
 "bounds": [18,-68,28,37],
-"terrain": "<image x=\"18\" y=\"-68\" width=\"28\" height=\"37\" href=\"images/maps/Rat_nest.webp\" style=\"image-rendering:pixelated\"/>",
 "tileCount": 687,
 "sourceCount": 297,
 "zone": "cave_env",
