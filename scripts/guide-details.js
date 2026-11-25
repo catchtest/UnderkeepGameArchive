@@ -2,6 +2,25 @@
 
 const guideDetails = (() => {
   const guide = {
+"attributes": {
+"力量":{"intro":"你純粹的肉體力量。也是決定誰能擰開泡菜罐的屬性。","description":"提高按力量縮放的近戰武器傷害，並增加每級獲得的生命。\n\n許多武器和護甲需要最低力量。部分武器按敏捷縮放，但仍需力量才能裝備。"},
+"敏捷":{"intro":"不絆倒自己、還假裝一切盡在計劃中的藝術。","description":"提高遠程命中、按敏捷縮放的武器傷害、閃避和暴擊。\n\n某些武器、護甲和飾品需要最低敏捷。\n\n遠程命中率 = 敏捷×9 - 敵方閃避\n閃避 = 敏捷×2\n暴擊機率 = 敏捷/10\n遠程暴擊機率 = 敏捷/7"},
+"耐力":{"intro":"你的持久力。決定你是筋疲力盡，還是依然能撐下去。","description":"提高每級獲得的生命和體力，改善休息時的體力恢復，提高血魔法抗性，並縮短中毒等負面效果的持續時間。\n\n與其他屬性不同，耐力不影響裝備需求。"},
+"智慧":{"intro":"內心的聲音會提醒你：“別去舔那塊發光的晶體。”","description":"提高每級獲得的法力和休息時恢復的法力。增強元素與毒素抗性。\n\n許多魔法武器和飾品需要智慧。\n\n法力獲取 = 2 + 智慧×1\n元素抗性 = 智慧×2"},
+"等級":{"intro":"每前進一步，你都會變得更強。","description":"每升一級獲得 1 點技能點、+1 基礎傷害，並提高生命和法力或體力。\n\n基礎屬性不會隨升級提高，裝備和其他加成才能提升它們。"},
+"經驗（XP）":{"intro":"這種神奇的貨幣，能把拿木劍的新手變成敢欺負巨龍的人。","description":"通過擊敗敵人、完成任務和遊戲中的各種抉擇獲得。"},
+"熱忱":{"intro":"聖騎士獨有的資源。","description":"每次基礎攻擊都會積攢熱忱。\n\n在戰鬥中積攢，再消耗它釋放毀滅性的正義之力。"},
+"物理傷害":{"intro":"數值越高，敵人越後悔擋你的路！","description":"每件武器按力量或敏捷縮放。基礎傷害還取決於武器傷害、等級和其他加成。\n\n護甲穿透在計算傷害前降低敵人護甲。鋒利度只會在攻擊穿透護甲時提供額外傷害。\n\n基礎近戰命中率 = 100% - 敵方閃避"},
+"暴擊機率":{"intro":"你像傳奇英雄那樣出手的頻率。","description":"成功的近戰攻擊有機率造成 175% 傷害。部分敵人免疫暴擊傷害。\n\n暴擊機率 = 敏捷/10 + 加成"},
+"遠程暴擊機率":{"intro":"那一箭完美到讓敵人重新思考人生。","description":"成功的遠程攻擊有機率造成 175% 傷害。部分敵人免疫暴擊傷害。\n\n遠程暴擊機率 = 敏捷/7 + 加成"},
+"護甲":{"intro":"你的第一道也是最後一道防線。","description":"降低受到的物理傷害。護甲越高，保護越強。\n\n護甲降低傷害，但不影響被擊中的機率。"},
+"閃避":{"intro":"避免被擊中的能力。越高，敵人越多地打在空氣上，而你只管大笑！","description":"降低被近戰和遠程攻擊擊中的機率。對法術無效。\n\n基礎閃避 = 敏捷×2%\n閃避上限 = 60%"},
+"火焰抗性":{"intro":"降低火焰傷害。避免你被烤成五分熟。","description":"基礎值由角色的智慧×2決定。"},
+"冰霜抗性":{"intro":"在壓力下保持冷靜的能力。","description":"基礎值由角色的智慧×2決定。"},
+"閃電抗性":{"intro":"每五秒被電一次，可不是什麼有趣的冒險方式。","description":"基礎值由角色的智慧×2決定。"},
+"毒素抗性":{"intro":"有時比中毒更糟的，是發現自己忘了買解毒劑。","description":"基礎值由角色的智慧×2決定。"},
+"血魔法抗性":{"intro":"幫你把血留在體內，留在它該在的地方。","description":"基礎值由角色的耐力×2決定。"}
+},
 "combatStatuses": {
   poison: { name: "中毒", icon: 'hud_symbol_poison' },
   bleed: { name: "流血", icon: 'hud_symbol_bleed' },
@@ -30,6 +49,81 @@ const guideDetails = (() => {
   }
 
   const node = underkeepElement;
+
+  const attributeAliases = { 經驗: '經驗（XP）', 經驗值: '經驗（XP）', XP: '經驗（XP）', 近戰暴擊機率: '暴擊機率' };
+  const terms = [...Object.keys(guide.attributes), ...Object.keys(attributeAliases)].sort((a, b) => b.length - a.length);
+  const attributePattern = new RegExp(terms.map(name => name === '護甲' ? '護甲(?!穿透)' : name).join('|'), 'g');
+  const tip = node('div', undefined, 'attribute-tooltip');
+  tip.id = 'attribute-tooltip';
+  tip.popover = 'manual';
+  tip.setAttribute('role', 'tooltip');
+
+  function positionTip() {
+    if (!tip.matches(':popover-open')) return;
+    const { left, top, bottom } = tip.parentElement.getBoundingClientRect();
+    const gap = 8;
+    const { clientWidth, clientHeight } = document.documentElement;
+    tip.style.left = Math.max(gap, Math.min(left, clientWidth - tip.offsetWidth - gap)) + 'px';
+    const y = bottom + gap + tip.offsetHeight <= clientHeight ? bottom + gap : top - tip.offsetHeight - gap;
+    tip.style.top = Math.max(gap, y) + 'px';
+  }
+
+  function hideTip() {
+    tip.parentElement?.removeAttribute('aria-describedby');
+    if (tip.matches(':popover-open')) tip.hidePopover();
+    tip.remove();
+  }
+
+  function showTip(event) {
+    const label = event.currentTarget;
+    if (tip.parentElement === label && tip.matches(':popover-open')) return;
+    hideTip();
+    const { intro, description } = guide.attributes[label.dataset.attribute];
+    tip.replaceChildren(node('p', intro), node('p', description));
+    label.append(tip);
+    label.setAttribute('aria-describedby', tip.id);
+    tip.showPopover();
+    positionTip();
+  }
+  window.addEventListener('resize', positionTip);
+  document.addEventListener('scroll', positionTip, true);
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !tip.matches(':popover-open')) return;
+    event.preventDefault();
+    hideTip();
+  }, true);
+
+  function attributeText(value) {
+    if (typeof value !== 'string') return value;
+    let fragment;
+    let start = 0;
+    for (const match of value.matchAll(attributePattern)) {
+      fragment ??= document.createDocumentFragment();
+      const name = match[0];
+      const label = node('span', name, 'attribute-label');
+      label.dataset.attribute = attributeAliases[name] ?? name;
+      label.tabIndex = 0;
+      label.addEventListener('mouseenter', showTip);
+      label.addEventListener('focus', showTip);
+      label.addEventListener('mouseleave', () => {
+        if (tip.parentElement === label && document.activeElement !== label) hideTip();
+      });
+      label.addEventListener('blur', () => {
+        if (tip.parentElement === label) hideTip();
+      });
+      fragment.append(value.slice(start, match.index), label);
+      start = match.index + name.length;
+    }
+    if (!fragment) return value;
+    fragment.append(value.slice(start));
+    return fragment;
+  }
+
+  function attributeElement(tag, value, className) {
+    const element = node(tag, undefined, className);
+    element.append(attributeText(value));
+    return element;
+  }
 
   function spriteIcon([x, y, width, height], className) {
     const el = node('span', '', className);
@@ -151,9 +245,9 @@ const guideDetails = (() => {
     article.append(links);
   }
 
-  function heading(title, english, image, head = node('div', undefined, 'entry-heading')) {
+  function heading(title, english, image, head = node('div', undefined, 'entry-heading'), tag = 'h2') {
     const names = node('div', undefined, 'entry-names');
-    names.append(node('h2', title), node('small', english));
+    names.append(node(tag, title), node('small', english));
     head.replaceChildren(names);
     if (image) head.prepend(image);
     return head;
@@ -164,10 +258,10 @@ const guideDetails = (() => {
     for (const [key, value, valueClass, rowClass] of rows) {
       const pair = node('div', undefined, rowClass);
       const description = node('dd', undefined, valueClass);
-      description.append(value ?? '');
+      description.append(attributeText(value ?? ''));
       if (key === '經驗值') description.replaceChildren(underkeepXp(Number(value)));
       if (key === '經驗') description.replaceChildren(underkeepXp(value, false));
-      pair.append(node('dt', key), description);
+      pair.append(attributeElement('dt', key), description);
       dl.append(pair);
     }
     return dl;
@@ -191,7 +285,6 @@ const guideDetails = (() => {
         symbol.setAttribute('aria-label', label);
         badges.append(symbol);
       }
-      if (badge) badges.append(badge);
       if (badges.childElementCount) category.append(badges);
       head.querySelector('.entry-names').append(category);
     } else if (badge) {
@@ -222,7 +315,7 @@ const guideDetails = (() => {
     header.append(icon, names);
     const rows = skill.facts.map(([label, value]) =>
       label === '冷卻' ? [label, value, 'skill-cooldown'] : itemFactRow([label, value]));
-    section.append(header, node('p', skill.description, 'granted-skill-description'), facts(rows, 'item-attributes'));
+    section.append(header, attributeElement('p', skill.description, 'granted-skill-description'), facts(rows, 'item-attributes'));
     return section;
   }
 
@@ -251,16 +344,21 @@ const guideDetails = (() => {
     const immunities = node('ul', undefined, 'item-effects');
     const effects = node('ul', undefined, 'item-effects');
     let salePrice;
+    let questItem = false;
     let skill;
     for (const [label, value, effectStyle] of r.facts) {
-      if (label === '任務物品' || label === '武器類型' || (label === '持用方式' && value === '雙手') ||
+      if (label === '任務物品') {
+        questItem = value === '1';
+        continue;
+      }
+      if (label === '武器類型' || (label === '持用方式' && value === '雙手') ||
         (label === '攻擊距離' && value === '長柄攻擊')) continue;
       if (label === '附帶技能' && r.grantedSkill) {
         skill = itemSkill(value, r.grantedSkill);
       } else if (label.startsWith('免疫') && (value === '1' || value === '0')) {
         if (value === '1') immunities.append(node('li', label));
       } else if (label === '特殊效果' || label === '效果') {
-        effects.append(node('li', value, effectStyle));
+        effects.append(attributeElement('li', value, effectStyle));
       } else if (label.startsWith('需求') || label === '限定職業') {
         requirements.push([label, value]);
       } else if (label === '賣價') {
@@ -281,18 +379,19 @@ const guideDetails = (() => {
       list.setAttribute('aria-label', '額外效果');
       for (const text of r.hiddenEffects) {
         const effect = node('li');
-        effect.append(underkeepXpText(text));
+        effect.append(underkeepXpText(text, attributeText));
         list.append(effect);
       }
       sheet.append(list);
     }
-    if (r.intro) sheet.append(node('p', r.intro, 'intro'));
+    if (r.intro) sheet.append(attributeElement('p', r.intro, 'intro'));
     if (skill) sheet.append(skill);
     if (salePrice !== undefined) {
       const footer = node('div', undefined, 'item-sale-price');
       footer.append(coinPrice(salePrice));
       sheet.append(footer);
     }
+    if (questItem) sheet.append(node('div', '任務物品', 'item-quest-status'));
     const materialRecipes = guide.recipes.filter(recipe => recipe.ingredients.some(([name]) => guide.ingredientIds[name] === r.id));
     if (r.uses?.length || materialRecipes.length) {
       const usage = node('section', undefined, 'item-uses');
@@ -308,11 +407,6 @@ const guideDetails = (() => {
       ...options, price: shop => shop.stock.find(([id]) => id === r.id)[1]
     });
     return sheet;
-  }
-
-  function itemBadge(r) {
-    const isQuestItem = r.facts.some(([label, value]) => label === '任務物品' && value === '1');
-    return isQuestItem ? node('span', '任務物品', 'quest-item-badge') : null;
   }
 
   function questSheet(r, detailRoute, options) {
@@ -458,7 +552,7 @@ const guideDetails = (() => {
   }
 
   const catalogTypes = {
-    items: { label: '物品', badge: itemBadge, sheet: itemSheet },
+    items: { label: '物品', sheet: itemSheet },
     enemies: { label: '敵人', badge: enemyTypeBadge, sheet: enemySheet },
     quests: { label: '任務', sheet: questSheet }
   };
@@ -472,6 +566,6 @@ const guideDetails = (() => {
     dialog.querySelector('.dialog-body').replaceChildren(sheet(record, detailRoute, options));
   }
 
-  return { data: guide, addData, spriteIcon, route, placeLabel, sources, entryLinks, heading, facts,
+  return { data: guide, addData, spriteIcon, route, placeLabel, sources, entryLinks, heading, facts, attributeText, attributeElement,
     itemsById, enemiesById, artImage, inventoryIcon, coinPrice, catalogTypes, renderDetail };
 })();

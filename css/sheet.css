@@ -6,16 +6,12 @@
   box-shadow: inset 0 0 0 2px #0f0f1b, inset 0 0 0 4px #252634, 0 14px 44px #0007;
 }
 .detail-dialog:has(.item-sheet) > header { border-bottom-color: var(--item-divider); }
-.detail-dialog:has(.quest-item-badge) { width: min(600px, calc(100% - 24px)); }
+.detail-dialog:has(.item-quest-status) { width: min(600px, calc(100% - 24px)); }
 .detail-dialog:has(.item-sheet) header h2 { color: #dddd77; min-width: 0; }
 .detail-dialog:has(.item-sheet) .entry-heading { flex: 1; }
 .detail-dialog:has(.item-sheet) .entry-names {
   flex: 1; align-items: center;
   gap: 2px; text-align: center; overflow-wrap: anywhere;
-}
-.quest-item-badge {
-  padding: 2px 7px; border: 1px solid #786486; border-radius: 4px;
-  background: #342c39; color: #cbbbce; font-size: 1rem; line-height: 1.4; white-space: nowrap;
 }
 .item-category { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; color: #807769; }
 .item-category-badges { display: inline-flex; align-items: center; gap: 4px; }
@@ -51,10 +47,25 @@
   white-space: pre-line; color: #666;
 }
 .item-sheet .intro:first-child { margin: 0; border: 0; padding: 0; }
-.item-sale-price {
-  display: flex; justify-content: flex-end;
+.item-sale-price,.item-quest-status {
+  display: flex;
   margin: 10px 0 0; padding: 8px 0; border-block: 1px solid var(--item-divider);
 }
+.item-sale-price { justify-content: flex-end; }
+.item-quest-status { justify-content: center; color: #cd9dea; }
+.item-sale-price + .item-quest-status { margin-top: 0; border-top: 0; }
+.attribute-label { cursor: help; }
+#attribute-tooltip {
+  position: fixed; inset: auto; margin: 0; box-sizing: border-box; width: max-content;
+  max-width: min(24rem,calc(100vw - 16px)); max-height: calc(100dvh - 16px); overflow: auto;
+  padding: 10px 14px; border: 1px solid #847454; border-radius: 5px;
+  background: #22251f; color: #cecdc6; box-shadow: 0 4px 14px #0008;
+  font: normal .95rem/1.5 "Segoe UI","Microsoft JhengHei UI",sans-serif;
+  text-align: start; white-space: pre-line; letter-spacing: normal; pointer-events: none;
+}
+#attribute-tooltip p { margin: 0; }
+#attribute-tooltip p:first-child { color: #b1afa7; font-style: italic; }
+#attribute-tooltip p + p { margin-top: 6px; }
 .coin-price { display: flex; align-items: center; gap: 6px; }
 .item-sheet .links a:has(> .coin-price) { display: inline-flex; align-items: center; gap: 8px; }
 .item-sheet .coin-price { color: #ffe93d; font-variant-numeric: tabular-nums; }

@@ -15,6 +15,20 @@ function createUnderkeepDetailDialog() {
   return dialog;
 }
 
+function bindUnderkeepSearch(input, signal, reveal) {
+  document.addEventListener('keydown', event => {
+    if (event.key !== '/' || event.defaultPrevented || event.isComposing ||
+        event.ctrlKey || event.altKey || event.metaKey) return;
+    const target = event.target;
+    if (target.isContentEditable || target.closest?.('textarea,select,input:not([type="checkbox"]):not([type="radio"])') ||
+        document.querySelector('dialog[open]')) return;
+    reveal?.();
+    if (!input.getClientRects().length) return;
+    event.preventDefault();
+    input.focus();
+  }, { signal });
+}
+
 function underkeepXp(value, withUnit = true) {
   const span = document.createElement('span');
   const amount = typeof value === 'number' ? value.toLocaleString('zh-TW') : String(value);
@@ -28,18 +42,20 @@ function underkeepXp(value, withUnit = true) {
   return span;
 }
 
-function underkeepXpText(text) {
+function underkeepXpText(text, formatText = String) {
   let fragment;
   let start = 0;
   for (const match of text.matchAll(/([+-]?\d+(?:,\d{3})*(?:–\d+(?:,\d{3})*)?(%?))([ \t]*(?:經驗值?|XP\b))/gi)) {
     fragment ??= document.createDocumentFragment();
     const [label, amount, percent, unit] = match;
-    fragment.append(text.slice(start, match.index), underkeepXp(amount, !percent));
-    if (percent) fragment.append(unit);
+    const xp = underkeepXp(amount, !percent);
+    xp.replaceChildren(formatText(xp.textContent));
+    fragment.append(formatText(text.slice(start, match.index)), xp);
+    if (percent) fragment.append(formatText(unit));
     start = match.index + label.length;
   }
-  if (!fragment) return text;
-  fragment.append(text.slice(start));
+  if (!fragment) return formatText(text);
+  fragment.append(formatText(text.slice(start)));
   return fragment;
 }
 

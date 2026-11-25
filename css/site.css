@@ -1,6 +1,10 @@
 :root { color-scheme: dark; background: #161915; scrollbar-width: thin; scrollbar-color: #82745a transparent; }
 * { box-sizing: border-box; }
 body { margin: 0; }
+.search-key {
+  display: inline-block; flex: none; min-width: 1.4em; padding: 1px 3px; border: 1px solid currentColor;
+  border-radius: 3px; text-align: center; font: 600 .8rem/1.2 monospace;
+}
 .choice-xp {
   color: #d6b2ff; font: 1.04em/1 Georgia, "Times New Roman", serif;
   font-variant-numeric: lining-nums tabular-nums; white-space: nowrap;

@@ -919,6 +919,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     renderSelection();
   });
   byId('map-query').addEventListener('input', renderCatalog);
+  bindUnderkeepSearch(byId('map-query'), signal, () => setDrawer('maps'));
   byId('locate-selection').addEventListener('click', () => {
     setDrawer(null, true);
     selected.highlight = true;

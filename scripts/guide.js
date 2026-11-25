@@ -10,7 +10,7 @@ function underkeepGuideSection(key) {
 }
 
 function mountUnderkeepGuide(signal, refresh) {
-  const { data: guide, spriteIcon, route, placeLabel, entryLinks, heading, facts,
+  const { data: guide, spriteIcon, route, placeLabel, entryLinks, heading, facts, attributeText, attributeElement,
     itemsById, enemiesById, artImage, inventoryIcon, coinPrice, catalogTypes, renderDetail } = guideDetails;
   const node = underkeepElement;
   const $ = id => document.getElementById(id);
@@ -43,6 +43,7 @@ function mountUnderkeepGuide(signal, refresh) {
   const catalogDialogs = [];
   let dismissingCatalogDialog = false;
   const catalogQuery = $('item-query');
+  bindUnderkeepSearch(catalogQuery, signal);
   const catalogs = {
     items: { placeholder: '搜尋物品、地點或取得方式', thumbnail: r => itemSlot(r.icon) },
     enemies: { placeholder: '搜尋敵人、技能、抗性或地點', thumbnail: enemyThumbnail },
@@ -52,7 +53,6 @@ function mountUnderkeepGuide(signal, refresh) {
   if (Object.hasOwn(underkeepMapNames, mapId)) $('to-map').hash = mapId;
   let section;
   const article = $('detail');
-  const attributeTip = $('attribute-tooltip');
 
   function table(rows) {
     const wrap = node('div', undefined, 'table-scroll');
@@ -60,7 +60,7 @@ function mountUnderkeepGuide(signal, refresh) {
     const head = grid.createTHead().insertRow();
     rows[0].forEach(value => {
       const th = node('th');
-      th.append(value);
+      th.append(attributeText(value));
       th.scope = 'col';
       head.append(th);
     });
@@ -69,9 +69,9 @@ function mountUnderkeepGuide(signal, refresh) {
       const row = body.insertRow();
       const th = node('th');
       th.scope = 'row';
-      th.append(values[0] ?? '');
+      th.append(attributeText(values[0] ?? ''));
       row.append(th);
-      values.slice(1).forEach(value => row.insertCell().append(value));
+      values.slice(1).forEach(value => row.insertCell().append(attributeText(value)));
     }
     wrap.append(grid);
     return wrap;
@@ -191,7 +191,7 @@ function mountUnderkeepGuide(signal, refresh) {
         title.append(link);
       }
       if (effect.rare) title.append(node('span', '稀有', 'rarity'));
-      card.append(title, ...effect.effects.map(line => node('p', line)));
+      card.append(title, ...effect.effects.map(line => attributeElement('p', line)));
       grids.get(group).append(card);
     }
     article.replaceChildren(grids.size ? panels : node('p', '查無符合的效果。', 'panel empty'));
@@ -206,61 +206,6 @@ function mountUnderkeepGuide(signal, refresh) {
       return a;
     });
     $('choices').replaceChildren(...items);
-  }
-
-  let tipAnchor;
-  function hideAttributeTip() {
-    tipAnchor?.removeAttribute('aria-describedby');
-    tipAnchor = null;
-    attributeTip.hidden = true;
-  }
-
-  function positionAttributeTip() {
-    if (!tipAnchor) return;
-    const { left, top, bottom } = tipAnchor.getBoundingClientRect();
-    const gap = 8;
-    const { clientWidth, clientHeight } = document.documentElement;
-    const width = attributeTip.offsetWidth;
-    const height = attributeTip.offsetHeight;
-    attributeTip.style.left = Math.max(gap, Math.min(left, clientWidth - width - gap)) + 'px';
-    const y = bottom + gap + height <= clientHeight ? bottom + gap : top - height - gap;
-    attributeTip.style.top = Math.max(gap, y) + 'px';
-  }
-  window.addEventListener('resize', positionAttributeTip, { signal });
-  document.addEventListener('scroll', positionAttributeTip, { signal, capture: true });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') hideAttributeTip();
-  }, { signal });
-
-  function attributeLabel(name) {
-    const label = node('span', name, 'attribute-label');
-    label.tabIndex = 0;
-    function show() {
-      hideAttributeTip();
-      tipAnchor = label;
-      const { intro, description } = guide.attributes[name];
-      attributeTip.replaceChildren(node('p', intro, 'character-lore'), node('p', description, 'intro'));
-      label.setAttribute('aria-describedby', attributeTip.id);
-      attributeTip.hidden = false;
-      positionAttributeTip();
-    }
-    label.addEventListener('mouseenter', show);
-    label.addEventListener('focus', show);
-    label.addEventListener('mouseleave', () => {
-      if (tipAnchor === label && document.activeElement !== label) hideAttributeTip();
-    });
-    label.addEventListener('blur', () => {
-      if (tipAnchor === label) hideAttributeTip();
-    });
-    return label;
-  }
-
-  function attributeGlossary(names = Object.keys(guide.attributes)) {
-    const glossary = node('section', undefined, 'attribute-glossary');
-    const labels = node('div');
-    labels.append(...names.map(attributeLabel));
-    glossary.append(node('h3', '屬性說明'), labels);
-    return glossary;
   }
 
   function startingRanges(race, job) {
@@ -288,17 +233,24 @@ function mountUnderkeepGuide(signal, refresh) {
         Math.min(max, totalMax - (minSum - min)) + extra);
     });
     const hp = Number(raceFacts['生命加成']) + Number(jobFacts['生命修正']);
-    return [job.name, ...ranges, formatRange(totalMin + bonus, totalMax + bonus), hp > 0 ? '+' + hp : String(hp)];
+    return [...ranges, formatRange(totalMin + bonus, totalMax + bonus), hp > 0 ? '+' + hp : String(hp)];
   }
 
-  function classStartingRanges(r) {
-    const panel = node('section', undefined, 'panel race-ranges');
-    const rows = guide.classes.map(job => startingRanges(r, job));
-    const labels = r.table.slice(1).map(([name]) => attributeLabel(name));
-    panel.append(node('h3', '各職業起始屬性'), table([['職業', ...labels, '屬性總值', '生命加成'], ...rows]),
+  function showCharacterPanels(bio, r, otherPanel) {
+    const isJob = section === 'classes';
+    const group = isJob ? '種族' : '職業';
+    const race = isJob ? guide.races[0] : r;
+    const labels = race.table.slice(1).map(([name]) => name);
+    const rows = isJob
+      ? guide.races.map(race => [race.name, ...startingRanges(race, r)])
+      : guide.classes.map(job => [job.name, ...startingRanges(r, job)]);
+    const panel = node('section', undefined, 'panel starting-ranges');
+    panel.append(node('h3', '各' + group + '起始屬性'), table([[group, ...labels, '屬性總值', '生命加成'], ...rows]),
       node('p', '四項屬性合計須落在該列的總值範圍內。生命加成為種族與職業的生命修正合計。', 'range-note'),
       node('p', '表中範圍依種族與職業定義推算，尚未在遊戲中驗證。', 'range-note'));
-    return panel;
+    const side = node('div', undefined, 'character-side');
+    side.append(panel, otherPanel);
+    article.replaceChildren(bio, side);
   }
 
   function showRace(r) {
@@ -320,24 +272,19 @@ function mountUnderkeepGuide(signal, refresh) {
       dialog.showModal();
     });
     title.append(levels);
-    bio.append(title, node('p', r.lore, 'character-lore'), node('p', r.intro, 'intro'));
+    bio.append(title, node('p', r.lore, 'character-lore'), attributeElement('p', r.intro, 'intro'));
     for (const trait of r.traits) {
       const card = node('section', undefined, 'race-trait');
       const effect = node('p');
-      effect.append(underkeepXpText(trait.effect));
+      effect.append(underkeepXpText(trait.effect, attributeText));
       card.append(traitNames(trait, 'h3'), effect);
       bio.append(card);
     }
     bio.append(facts(r.facts));
     const attributes = node('section', undefined, 'race-stats');
-    const rows = r.table.slice(1).map(([attribute, range]) => [attributeLabel(attribute), range]);
-    const startingAttributes = new Set(r.table.slice(1).map(([name]) => name));
-    const otherAttributes = Object.keys(guide.attributes).filter(name => !startingAttributes.has(name));
-    attributes.append(node('h3', '起始屬性'), table([r.table[0].slice(0, 2), ...rows]), attributeGlossary(otherAttributes));
+    attributes.append(node('h3', '起始屬性'), table(r.table.map(row => row.slice(0, 2))));
     bio.append(attributes);
-    const side = node('div', undefined, 'race-side');
-    side.append(classStartingRanges(r), faceGallery(r));
-    article.replaceChildren(bio, side);
+    showCharacterPanels(bio, r, faceGallery(r));
   }
 
   function showClass(r, skill) {
@@ -345,19 +292,11 @@ function mountUnderkeepGuide(signal, refresh) {
     const skills = guide.skills.filter(s => s.group === r.name);
     const selected = skill || skills[0];
     const summary = node('section', undefined, 'panel class-summary');
-    const info = node('div');
-    const classTitle = heading(r.name, r.english);
-    info.append(classTitle, node('p', r.lore, 'character-lore'), node('p', r.intro, 'intro'), attributeGlossary());
-    const classFacts = r.facts.filter(([label, value]) => label !== '體力修正' || Number(value) !== 0).map(([label, value]) => {
-      const [name, range] = value.split(' ');
-      if (!Object.hasOwn(guide.attributes, name)) return [label, value];
-      const stat = node('span');
-      stat.append(attributeLabel(name), ' ' + range);
-      return [label, stat];
-    });
-    summary.append(info, facts(classFacts));
+    const classFacts = r.facts.filter(([label, value]) => label !== '體力修正' || Number(value) !== 0);
+    summary.append(heading(r.name, r.english), node('p', r.lore, 'character-lore'),
+      attributeElement('p', r.intro, 'intro'), facts(classFacts));
 
-    const board = node('section', undefined, 'panel skill-board');
+    const board = node('nav', undefined, 'skill-board');
     board.setAttribute('aria-label', r.name + '技能');
     for (const kind of ['主動','光環','被動']) {
       const members = skills.filter(s => s.kind === kind);
@@ -373,18 +312,15 @@ function mountUnderkeepGuide(signal, refresh) {
       group.append(tiles);
       board.append(group);
     }
+    summary.append(board);
     const detail = node('section', undefined, 'panel skill-detail');
-    const title = heading(selected.name, selected.english, framedSkill(selected));
+    const title = heading(selected.name, selected.english, framedSkill(selected), undefined, 'h3');
     title.append(node('span', selected.kind, 'kind'));
-    detail.append(title, node('p', selected.intro, 'intro'),
+    detail.append(title, attributeElement('p', selected.intro, 'intro'),
       facts(selected.facts.filter(([label]) => !['類型', '技能上限', '升級條件'].includes(label))),
-      node('h3', '各級效果'), table(selected.table));
-    if (selected.notes) detail.append(node('p', selected.notes, 'notes'));
-
-
-    const panels = node('div', undefined, 'class-panels');
-    panels.append(board, detail);
-    article.replaceChildren(summary, panels);
+      node('h4', '各級效果'), table(selected.table));
+    if (selected.notes) detail.append(attributeElement('p', selected.notes, 'notes'));
+    showCharacterPanels(summary, r, detail);
   }
 
   function recipeChoices(selected) {
@@ -645,7 +581,6 @@ function mountUnderkeepGuide(signal, refresh) {
       dialog.remove();
     }
     $('levels-dialog').close();
-    hideAttributeTip();
     const changed = section !== next;
     const focused = document.activeElement?.closest('#choices a, #item-subtypes a, #results a, .skill-grid a')?.hash;
     const choices = $('choices');
