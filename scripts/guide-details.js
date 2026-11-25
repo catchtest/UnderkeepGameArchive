@@ -157,7 +157,8 @@ const guideDetails = (() => {
     const dl = node('dl', undefined, className);
     for (const [key, value, valueClass, rowClass] of rows) {
       const pair = node('div', undefined, rowClass);
-      const description = node('dd', value, valueClass);
+      const description = node('dd', undefined, valueClass);
+      description.append(value ?? '');
       if (key === '經驗值') description.replaceChildren(underkeepXp(Number(value)));
       if (key === '經驗') description.replaceChildren(underkeepXp(value, false));
       pair.append(node('dt', key), description);

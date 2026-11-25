@@ -20,14 +20,7 @@ const guideView = `
   <header><h2 id="levels-title">角色升級</h2><form method="dialog"><button class="close-button" aria-label="關閉角色升級" autofocus>✕</button></form></header>
   <div class="levels-body"><p>角色每次升級獲得 1 點技能點。</p></div>
 </dialog>
-<dialog id="attribute-dialog" class="guide-dialog" aria-labelledby="attribute-title" closedby="any">
-  <header><h2 id="attribute-title">屬性說明</h2><form method="dialog"><button class="close-button" aria-label="關閉屬性說明">✕</button></form></header>
-  <div class="levels-body">
-    <label for="attribute-select">屬性</label>
-    <select id="attribute-select" autofocus></select>
-    <div id="attribute-description" aria-live="polite"></div>
-  </div>
-</dialog>
+<div id="attribute-tooltip" role="tooltip" hidden></div>
 <template id="guide-item-template">
   <dialog class="guide-dialog guide-item-dialog detail-dialog" closedby="any">
     <header><div class="guide-item-heading entry-heading"></div><button type="button" class="close-button" autofocus>✕</button></header>
@@ -89,16 +82,15 @@ function mountUnderkeepGuide(signal, refresh) {
   if (guide.mapIds.includes(mapId)) $('to-map').hash = mapId;
   let section;
   const article = $('detail');
-  const attributeDialog = $('attribute-dialog');
-  const attributeSelect = $('attribute-select');
-  attributeSelect.addEventListener('change', showAttributeDescription, { signal });
+  const attributeTip = $('attribute-tooltip');
 
   function table(rows) {
     const wrap = node('div', undefined, 'table-scroll');
     const grid = node('table');
     const head = grid.createTHead().insertRow();
     rows[0].forEach(value => {
-      const th = node('th', value);
+      const th = node('th');
+      th.append(value);
       th.scope = 'col';
       head.append(th);
     });
@@ -246,25 +238,96 @@ function mountUnderkeepGuide(signal, refresh) {
     $('choices').replaceChildren(...items);
   }
 
-  function showAttributeDescription() {
-    const { intro, description } = guide.attributes[attributeSelect.value];
-    $('attribute-description').replaceChildren(node('p', intro, 'character-lore'), node('p', description, 'intro'));
+  let tipAnchor;
+  function hideAttributeTip() {
+    tipAnchor?.removeAttribute('aria-describedby');
+    tipAnchor = null;
+    attributeTip.hidden = true;
   }
 
-  function attributeTrigger(label, attribute, className = 'guide-action') {
-    const button = node('button', label, className);
-    button.type = 'button';
-    button.setAttribute('aria-haspopup', 'dialog');
-    button.setAttribute('aria-controls', attributeDialog.id);
-    button.addEventListener('click', () => {
-      if (!attributeSelect.options.length) {
-        attributeSelect.append(...Object.keys(guide.attributes).map(name => node('option', name)));
-      }
-      if (attribute) attributeSelect.value = attribute;
-      showAttributeDescription();
-      attributeDialog.showModal();
+  function positionAttributeTip() {
+    if (!tipAnchor) return;
+    const { left, top, bottom } = tipAnchor.getBoundingClientRect();
+    const gap = 8;
+    const { clientWidth, clientHeight } = document.documentElement;
+    const width = attributeTip.offsetWidth;
+    const height = attributeTip.offsetHeight;
+    attributeTip.style.left = Math.max(gap, Math.min(left, clientWidth - width - gap)) + 'px';
+    const y = bottom + gap + height <= clientHeight ? bottom + gap : top - height - gap;
+    attributeTip.style.top = Math.max(gap, y) + 'px';
+  }
+  window.addEventListener('resize', positionAttributeTip, { signal });
+  document.addEventListener('scroll', positionAttributeTip, { signal, capture: true });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') hideAttributeTip();
+  }, { signal });
+
+  function attributeLabel(name) {
+    const label = node('span', name, 'attribute-label');
+    label.tabIndex = 0;
+    function show() {
+      hideAttributeTip();
+      tipAnchor = label;
+      const { intro, description } = guide.attributes[name];
+      attributeTip.replaceChildren(node('p', intro, 'character-lore'), node('p', description, 'intro'));
+      label.setAttribute('aria-describedby', attributeTip.id);
+      attributeTip.hidden = false;
+      positionAttributeTip();
+    }
+    label.addEventListener('mouseenter', show);
+    label.addEventListener('focus', show);
+    label.addEventListener('mouseleave', () => {
+      if (tipAnchor === label && document.activeElement !== label) hideAttributeTip();
     });
-    return button;
+    label.addEventListener('blur', () => {
+      if (tipAnchor === label) hideAttributeTip();
+    });
+    return label;
+  }
+
+  function attributeGlossary(names = Object.keys(guide.attributes)) {
+    const glossary = node('section', undefined, 'attribute-glossary');
+    const labels = node('div');
+    labels.append(...names.map(attributeLabel));
+    glossary.append(node('h3', '屬性說明'), labels);
+    return glossary;
+  }
+
+  function startingRanges(race, job) {
+    const raceFacts = Object.fromEntries(race.facts);
+    const jobFacts = Object.fromEntries(job.facts);
+    const [primary, primaryRange] = jobFacts['主屬性起始範圍'].split(' ');
+    const [bonusStat, bonusValue] = (jobFacts['額外加成'] || '').split(' ');
+    const bonus = Number(bonusValue || 0);
+    const stats = race.table.slice(1).map(([name, range, modifier]) => {
+      const isPrimary = name === primary;
+      const [min, max] = (isPrimary ? primaryRange : range).split('–').map(Number);
+      const offset = isPrimary ? Number(modifier) : 0;
+      return { name, min: min + offset, max: max + offset };
+    });
+    const [raceMin, raceMax] = raceFacts['屬性總值範圍'].split('–').map(Number);
+    const minSum = stats.reduce((sum, stat) => sum + stat.min, 0);
+    const maxSum = stats.reduce((sum, stat) => sum + stat.max, 0);
+    const totalMin = Math.max(raceMin, minSum);
+    const totalMax = Math.min(raceMax, maxSum);
+    const formatRange = (min, max) => min === max ? String(min) : min + '–' + max;
+    // The other three rolls must still fit the race's total before the fixed class bonus.
+    const ranges = stats.map(({ name, min, max }) => {
+      const extra = name === bonusStat ? bonus : 0;
+      return formatRange(Math.max(min, totalMin - (maxSum - max)) + extra,
+        Math.min(max, totalMax - (minSum - min)) + extra);
+    });
+    const hp = Number(raceFacts['生命加成']) + Number(jobFacts['生命修正']);
+    return [job.name, ...ranges, formatRange(totalMin + bonus, totalMax + bonus), hp > 0 ? '+' + hp : String(hp)];
+  }
+
+  function classStartingRanges(r) {
+    const panel = node('section', undefined, 'panel race-ranges');
+    const rows = guide.classes.map(job => startingRanges(r, job));
+    const labels = r.table.slice(1).map(([name]) => attributeLabel(name));
+    panel.append(node('h2', '各職業起始屬性'), table([['職業', ...labels, '屬性總值', '生命加成'], ...rows]),
+      node('p', '四項屬性合計須落在該列的總值範圍內。生命加成為種族與職業的生命修正合計。', 'range-note'));
+    return panel;
   }
 
   function showRace(r) {
@@ -296,12 +359,14 @@ function mountUnderkeepGuide(signal, refresh) {
     }
     bio.append(facts(r.facts));
     const attributes = node('section', undefined, 'race-stats');
-    const attributeHeader = node('header');
-    attributeHeader.append(node('h3', '起始屬性'), attributeTrigger('屬性說明'));
-    const rows = r.table.slice(1).map(([attribute, range]) => [attributeTrigger(attribute, attribute, 'attribute-link'), range]);
-    attributes.append(attributeHeader, table([r.table[0].slice(0, 2), ...rows]));
+    const rows = r.table.slice(1).map(([attribute, range]) => [attributeLabel(attribute), range]);
+    const startingAttributes = new Set(r.table.slice(1).map(([name]) => name));
+    const otherAttributes = Object.keys(guide.attributes).filter(name => !startingAttributes.has(name));
+    attributes.append(node('h3', '起始屬性'), table([r.table[0].slice(0, 2), ...rows]), attributeGlossary(otherAttributes));
     bio.append(attributes);
-    article.replaceChildren(bio, faceGallery(r));
+    const side = node('div', undefined, 'race-side');
+    side.append(classStartingRanges(r), faceGallery(r));
+    article.replaceChildren(bio, side);
   }
 
   function showClass(r, skill) {
@@ -311,9 +376,14 @@ function mountUnderkeepGuide(signal, refresh) {
     const summary = node('section', undefined, 'panel class-summary');
     const info = node('div');
     const classTitle = heading(r.name, r.english);
-    classTitle.append(attributeTrigger('屬性說明'));
-    info.append(classTitle, node('p', r.lore, 'character-lore'), node('p', r.intro, 'intro'));
-    const classFacts = r.facts.filter(([label, value]) => label !== '體力修正' || Number(value) !== 0);
+    info.append(classTitle, node('p', r.lore, 'character-lore'), node('p', r.intro, 'intro'), attributeGlossary());
+    const classFacts = r.facts.filter(([label, value]) => label !== '體力修正' || Number(value) !== 0).map(([label, value]) => {
+      const [name, range] = value.split(' ');
+      if (!Object.hasOwn(guide.attributes, name)) return [label, value];
+      const stat = node('span');
+      stat.append(attributeLabel(name), ' ' + range);
+      return [label, stat];
+    });
     summary.append(info, facts(classFacts));
 
     const board = node('section', undefined, 'panel skill-board');
@@ -607,9 +677,8 @@ function mountUnderkeepGuide(signal, refresh) {
       dialog.close();
       dialog.remove();
     }
-    for (const dialog of [$('levels-dialog'), attributeDialog]) {
-      if (dialog.open) dialog.close();
-    }
+    $('levels-dialog').close();
+    hideAttributeTip();
     const changed = section !== next;
     const focused = document.activeElement?.closest('#choices a, #item-subtypes a, #results a, .skill-grid a')?.hash;
     const choices = $('choices');
