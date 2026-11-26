@@ -1,9 +1,6 @@
 {
   "maps.points.mausoleum_3_2.detail": "La piedra estaba goteando de una luz roja. El aire se detuvo, cargando el olor de oxidación; era pesada y amarga.",
-  "maps.points.mausoleum_3_2.detail-10": "La casilla en (1, 0) se activa cuando el grupo la pisa o un objeto la mantiene presionada.",
-  "maps.points.mausoleum_3_2.detail-2": "La casilla en (-8, -4) se activa cuando el grupo la pisa o un objeto la mantiene presionada.",
   "maps.points.mausoleum_3_2.detail-3": "Al acercarte al final del pasillo, Ixarion se retuerce en el aire sobre ti.",
-  "maps.points.mausoleum_3_2.detail-4": "El grupo pisa la casilla en (-1, 0).\nEl grupo pisa la casilla en (-1, 0) en compañía de Ixarion.",
   "maps.points.mausoleum_3_2.detail-5": "ixarion está conmigo\nixarion no está conmigo",
   "maps.points.mausoleum_3_2.detail-6": "MATARRRRRRR.....",
   "maps.points.mausoleum_3_2.detail-7": "Controles “¿La Fuente?” (5, 0)",
@@ -55,7 +52,7 @@
   "maps.points.mausoleum_3_2.dialogue-8": "Has regresado. La marea roja permanece inmóvil, las raíces se agitan levemente, arrastrando susurros sobre la piedra.",
   "maps.points.mausoleum_3_2.dialogue-9": "En el centro, la cáscara se estremece. Costillas rotas atrapadas entre los tendones, un rostro hundido a medio formar, que se contrae como en un sueño. Su miseria te invade una vez más.",
   "maps.points.mausoleum_3_2.f04.detail": "Buscando el ataúd de piedra roja en (-7, -12).",
-  "maps.points.mausoleum_3_2.f07.detail": "Pase en el sensor en (1, 0) (también puede ser presionado por objetos); avance el \"Evenimiento de Fuente\" hasta el inicio de la batalla.",
+  "maps.points.mausoleum_3_2.f07.detail": "Pase en el sensor en (1, 0); avance el \"Evenimiento de Fuente\" hasta el inicio de la batalla.",
   "maps.points.mausoleum_3_2.l08.detail": "Herramientas de ganzuado, Maza del golpe aturdidor",
   "maps.points.mausoleum_3_2.l08.detail.item-links": "[[0,24,\"item_key_lockpick\"],[26,50,\"item_mace_stagger\"]]",
   "maps.points.mausoleum_3_2.l10.detail": "Yelmo de dominación, Primer segmento rúnico",

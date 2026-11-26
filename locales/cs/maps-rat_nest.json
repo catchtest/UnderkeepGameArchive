@@ -1,6 +1,5 @@
 {
   "maps.points.rat_nest.detail": "Vstoupíte do kamenného komora, plného nepříjemného zápachu: moči, hnícího masa a mokrých vlasů.",
-  "maps.points.rat_nest.detail-2": "Pole (39, -48) se aktivuje, když na něj vstoupí družina nebo ho zatíží předmět.",
   "maps.points.rat_nest.detail-3": "Připrav se k boji. (Vyžaduje: Válečník)",
   "maps.points.rat_nest.dialogue": "Jakmile vstoupíte do podzemní komnaty, udeří vás vlna těžkého, vlhkého zápachu moči, hniloby a mokré srsti.",
   "maps.points.rat_nest.dialogue-10": "Vybrat “Obdivuj krysí kolonii.”",
@@ -29,7 +28,7 @@
   "maps.points.rat_nest.dialogue-7": "Připrav se k boji. (Vyžaduje: Válečník)",
   "maps.points.rat_nest.dialogue-8": "Vystřelíš královně na hlavu. (Vyžaduje: Hraničář)",
   "maps.points.rat_nest.dialogue-9": "Obdivuj krysí kolonii. (Vyžaduje: Slimák)",
-  "maps.points.rat_nest.f21.detail": "Stiskněte senzor na (39, -48) (mohou být stisknuty i předměty), abyste pokračovali v dialogu až do začátku bitvy v události \"Rat Nest Leader\".",
+  "maps.points.rat_nest.f21.detail": "Stiskněte senzor na (39, -48), abyste pokračovali v dialogu až do začátku bitvy v události \"Rat Nest Leader\".",
   "maps.points.rat_nest.f32.detail": "\"Setkání vůdce krysího hnízda\" se týká tohoto jednotlivce, ale informace o kontrolním bodě neomezují jeho podmínky vzhledu.",
   "maps.points.rat_nest.l01.detail": "Kost, Prach a kosti, Chleba",
   "maps.points.rat_nest.l01.detail.item-links": "[[0,4,\"item_bones03\"],[6,19,\"item_bones06\"],[21,27,\"item_food_bread\"]]",

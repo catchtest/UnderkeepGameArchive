@@ -1,11 +1,9 @@
 {
   "maps.points.surroundings_cave.a01.title": "Jdi nahoru. → Okolí věže Underkeep",
   "maps.points.surroundings_cave.detail": "Jeskyně se před vámi rozevírá. Její dno pokrývají hromady roztříštěného kamene a zvýřený prach. Jako by tu nějaká nesmírná síla záměrně rozervala samotnou skálu.",
-  "maps.points.surroundings_cave.detail-2": "Pole (0, -2) se aktivuje, když na něj vstoupí družina nebo ho zatíží předmět.",
   "maps.points.surroundings_cave.detail-4": "Před vámi leží padlý monolit, rozbitý a z poloviny pohřbený v zemi. Na jeho povrchu jsou stále patrné zbytky run.",
   "maps.points.surroundings_cave.detail-5": "Ovládání “Mechanismus” (-17, -4)\nOvládání “Mechanismus” (-10, -2)",
   "maps.points.surroundings_cave.detail-6": "Poslední krunýř praskne pod vaší botou a škrábání utichne. Skála ustupuje duté komoře, v níž leží padlý obelisk.",
-  "maps.points.surroundings_cave.detail-7": "Pole (-10, 1) se aktivuje, když na něj vstoupí družina nebo ho zatíží předmět.",
   "maps.points.surroundings_cave.dialogue": "Jeskyně se před vámi rozevírá. Její dno pokrývají hromady roztříštěného kamene a zvýřený prach. Jako by tu nějaká nesmírná síla záměrně rozervala samotnou skálu.",
   "maps.points.surroundings_cave.dialogue-10": "Něco jako obrovští brouci... Za celý život jsi takové stopy neviděl.",
   "maps.points.surroundings_cave.dialogue-11": "Vybrat “Počkejte. Zkusím vycítit, zda se tohoto místa dotkli mrtví.”",

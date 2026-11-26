@@ -528,5 +528,11 @@
   "maps.ui.zoom": "Karte vergrößern",
   "maps.ui.zoom-fit": "Passend für die Karte",
   "maps.ui.zoom-in": "Zoom-in",
-  "maps.ui.zoom-out": "Zoom-out"
+  "maps.ui.zoom-out": "Zoom-out",
+  "maps.trigger.once": "Wird nur einmal ausgelöst.",
+  "maps.trigger.requires-ranger": "Ein Waldläufer muss in der Gruppe sein.",
+  "maps.trigger.requires-ixarion": "Ixarion muss die Gruppe begleiten.",
+  "maps.trigger.requires-soulforge": "Die Seelenschmiede muss bereits entdeckt sein.",
+  "maps.trigger.requires-grgla": "Grgla muss die Gruppe begleiten.",
+  "maps.trigger.active-without-grgla": "Der Auslöser muss aktiv sein und Grgla darf die Gruppe nicht begleiten."
 }

@@ -1,8 +1,6 @@
 {
   "maps.points.small_spider_cave.detail": "Každý krok odráží v vlhké a studené temnotě, s mřížemi visícími jako závěsy.",
-  "maps.points.small_spider_cave.detail-2": "Pole (3, -59) se aktivuje, když na něj vstoupí družina nebo ho zatíží předmět.",
   "maps.points.small_spider_cave.detail-4": "Něco se pohne ve tmě. Pavučiny se zachvějí a ze stínů vyklouznou dlouhé nohy.",
-  "maps.points.small_spider_cave.detail-5": "Pole (4, -59) se aktivuje, když na něj vstoupí družina nebo ho zatíží předmět.",
   "maps.points.small_spider_cave.detail-6": "Pavoučí oko (80%), Jedový váček (25%)",
   "maps.points.small_spider_cave.detail-6.item-links": "[[0,11,\"item_spider_eye\"],[19,31,\"item_venom_sac\"]]",
   "maps.points.small_spider_cave.dialogue": "Každý váš krok se rozléhá vlhkou temnotou, kde pavučiny visí ze stropu jako závěsy. Máte pocit, že vás ze tmy sledují desítky očí.",

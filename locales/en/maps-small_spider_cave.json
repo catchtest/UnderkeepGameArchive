@@ -1,8 +1,6 @@
 {
   "maps.points.small_spider_cave.detail": "Every step echoes in the damp and cold darkness, with webs hanging like curtains. You feel eyes watching you. Many eyes.",
-  "maps.points.small_spider_cave.detail-2": "The tile at (3, -59) activates when the party steps on it or an object holds it down.",
   "maps.points.small_spider_cave.detail-4": "Something moves in the dark. The webs tremble as long legs slide from the shadows.",
-  "maps.points.small_spider_cave.detail-5": "The tile at (4, -59) activates when the party steps on it or an object holds it down.",
   "maps.points.small_spider_cave.detail-6": "Spider Eye (80%), Venom Sac (25%)",
   "maps.points.small_spider_cave.detail-6.item-links": "[[0,10,\"item_spider_eye\"],[18,27,\"item_venom_sac\"]]",
   "maps.points.small_spider_cave.dialogue": "Every step echoes through the clammy dark, where webs hang like curtains. You feel eyes on you. Many eyes.",

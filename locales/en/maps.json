@@ -528,5 +528,11 @@
   "maps.ui.zoom": "Map zooming in",
   "maps.ui.zoom-fit": "Fit to map",
   "maps.ui.zoom-in": "Zoom in",
-  "maps.ui.zoom-out": "Zoom out"
+  "maps.ui.zoom-out": "Zoom out",
+  "maps.trigger.once": "Triggers only once.",
+  "maps.trigger.requires-ranger": "A Ranger must be in the party.",
+  "maps.trigger.requires-ixarion": "Ixarion must be in the party.",
+  "maps.trigger.requires-soulforge": "The Soulforge must already have been discovered.",
+  "maps.trigger.requires-grgla": "Grgla must be in the party.",
+  "maps.trigger.active-without-grgla": "The trigger must be enabled and Grgla must be absent."
 }

@@ -1,9 +1,6 @@
 {
   "maps.points.mausoleum_3_2.detail": "Kamenná kapka byla červeným světlem a vzduch se zastavil, nesl vůni rýže, byla těžká a kyslá.",
-  "maps.points.mausoleum_3_2.detail-10": "Pole (1, 0) se aktivuje, když na něj vstoupí družina nebo ho zatíží předmět.",
-  "maps.points.mausoleum_3_2.detail-2": "Pole (-8, -4) se aktivuje, když na něj vstoupí družina nebo ho zatíží předmět.",
   "maps.points.mausoleum_3_2.detail-3": "Když se přiblížíte ke konci chodby, Ixarion se nad vámi ve vzduchu zavlní.",
-  "maps.points.mausoleum_3_2.detail-4": "Družina vstoupí na pole (-1, 0).\nDružina vstoupí na pole (-1, 0) v doprovodu Ixariona.",
   "maps.points.mausoleum_3_2.detail-5": "ixarion je se mnou\nixarion není se mnou",
   "maps.points.mausoleum_3_2.detail-6": "ZABIIIIIIIIIIIIJ...",
   "maps.points.mausoleum_3_2.detail-7": "Ovládání “Zdroj?” (5, 0)",
@@ -55,7 +52,7 @@
   "maps.points.mausoleum_3_2.dialogue-8": "Vrátili jste se. Rudá hmota zůstává nehybná, kořeny se jen nepatrně chvějí a po kameni se rozléhá tiché šeptání.",
   "maps.points.mausoleum_3_2.dialogue-9": "Uprostřed se chvěje znetvořená schránka. Polámaná žebra obepínají šlachy. Z beztvaré hmoty vystupuje napůl zformovaná propadlá tvář a škube sebou jako ve zlém snu. Její utrpení vás znovu prostoupí.",
   "maps.points.mausoleum_3_2.f04.detail": "Hledáme červený kamenný rakve na (-7, -12).",
-  "maps.points.mausoleum_3_2.f07.detail": "Stáhněte na senzor na (1, 0) (mohou být stisknuty i objekty); postupujte \"Obecnost zdroje\" na začátek bitvy.",
+  "maps.points.mausoleum_3_2.f07.detail": "Stáhněte na senzor na (1, 0); postupujte \"Obecnost zdroje\" na začátek bitvy.",
   "maps.points.mausoleum_3_2.l08.detail": "Paklíče, Rázový palcát",
   "maps.points.mausoleum_3_2.l08.detail.item-links": "[[0,7,\"item_key_lockpick\"],[9,22,\"item_mace_stagger\"]]",
   "maps.points.mausoleum_3_2.l10.detail": "Přilba nadvlády, První fragment runového klíče",

@@ -28,7 +28,6 @@
   "site.load-failed": "Error al cargar.",
   "site.loading": "Cargando…",
   "site.map-query.aria-label": "Buscar mapas",
-  "site.map-query.placeholder": "Buscar por nombre del mapa",
   "site.map.layers-title": "Capas del mapa",
   "site.map.locate-selection": "Ver en el mapa",
   "site.map.reset-types": "Restablecer selección predeterminada",

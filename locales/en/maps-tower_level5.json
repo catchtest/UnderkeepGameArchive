@@ -1,7 +1,6 @@
 {
   "maps.points.tower_level5.a01.title": "Go downstairs → Tower Level 4",
   "maps.points.tower_level5.detail": "You sense your journey is nearing its end. Whatever happens next, there will be no turning back.",
-  "maps.points.tower_level5.detail-2": "The party steps on the tile at (3, 0).\nTriggers only once.",
   "maps.points.tower_level5.detail-3": "The wizard lies broken upon the stone. His breathing is shallow.",
   "maps.points.tower_level5.detail-4": "Defeat “Archmage of the Underkeep” (3, -9)",
   "maps.points.tower_level5.detail-5": "Step on the sensor at (3, -7) to begin talking with the Archmage. Choose \"Draw Weapons\" or \"Decline Participation\", or continue the confrontation in the Judgment branch (you can also throw out Grgla's Fish or the Unknown Tincture).",
@@ -28,7 +27,6 @@
   "maps.points.tower_level5.dialogue-7": "His hand rises weakly toward the weapon.",
   "maps.points.tower_level5.dialogue-8": "YOU HAVE... POWER...",
   "maps.points.tower_level5.dialogue-9": "THEN ALL... IS NOT LOST...",
-  "maps.points.tower_level5.e02.detail": "At (3, -7) Stepped on by the party",
   "maps.points.tower_level5.n01.detail": "(-6, -3) to (-2, 1)",
   "maps.points.tower_level5.title": "Defeat the Wizard",
   "maps.points.tower_level5.title-2": "Approach the tower and reach the end"

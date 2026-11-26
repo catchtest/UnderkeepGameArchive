@@ -70,15 +70,15 @@
 .item-sheet .links a:has(> .coin-price) { display: inline-flex; align-items: center; gap: 8px; }
 .item-sheet .coin-price { color: #ffe93d; font-variant-numeric: tabular-nums; }
 .price-coin {
-  display: inline-block; flex: none; zoom: 2; background: url("{{site:assets}}../images/guide-icons.webp") no-repeat; image-rendering: pixelated;
+  display: inline-block; flex: none; zoom: 2; background: url("{{site:assets}}../images/guide-icons.webp?v={{rev:images/guide-icons.webp}}") no-repeat; image-rendering: pixelated;
 }
 .inventory-icon { display: inline-block; position: relative; overflow: hidden; width: 26px; height: 26px; flex: none; zoom: 2; }
-.inventory-art { position: absolute; transform-origin: top left; background: url("{{site:assets}}../images/guide-icons.webp") no-repeat; image-rendering: pixelated; }
+.inventory-art { position: absolute; transform-origin: top left; background: url("{{site:assets}}../images/guide-icons.webp?v={{rev:images/guide-icons.webp}}") no-repeat; image-rendering: pixelated; }
 dialog .entry-heading .inventory-icon { zoom: 3; }
 @media (max-width: 360px) {
   dialog .entry-heading .inventory-icon { zoom: 2; }
 }
-.staff-icon { display: inline-block; flex: none; width: 28px; height: 28px; background: url("{{site:assets}}../images/staff-icons.webp") no-repeat; image-rendering: pixelated; }
+.staff-icon { display: inline-block; flex: none; width: 28px; height: 28px; background: url("{{site:assets}}../images/staff-icons.webp?v={{rev:images/staff-icons.webp}}") no-repeat; image-rendering: pixelated; }
 .granted-skill { border-block-start: 1px solid var(--item-divider); margin-top: 10px; padding-top: 8px; }
 .granted-skill-heading {
   display: grid; grid-template-columns: 56px minmax(0, 1fr) 56px; align-items: center; text-align: center;
@@ -142,10 +142,10 @@ dialog .entry-heading .inventory-icon { zoom: 3; }
 }
 .detail-dialog:has(.enemy-detail) > .dialog-body { padding: 14px 20px 20px; overflow-wrap: anywhere; }
 .detail-dialog:has(.enemy-detail) .icon {
-  display: inline-block; flex: none; background: url("{{site:assets}}../images/guide-icons.webp") no-repeat; image-rendering: pixelated;
+  display: inline-block; flex: none; background: url("{{site:assets}}../images/guide-icons.webp?v={{rev:images/guide-icons.webp}}") no-repeat; image-rendering: pixelated;
 }
 .detail-dialog:has(.enemy-detail) .effect-icon {
-  background-image: url("{{site:assets}}../images/effect-icons.webp"); zoom: 2;
+  background-image: url("{{site:assets}}../images/effect-icons.webp?v={{rev:images/effect-icons.webp}}"); zoom: 2;
 }
 .dialog-body .enemy-detail { --source-accent: #a7baca; }
 .dialog-body .enemy-detail h3 { color: var(--name); font-size: 1.03rem; margin: 17px 0 7px; }

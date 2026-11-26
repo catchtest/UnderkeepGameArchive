@@ -1,6 +1,5 @@
 {
   "maps.points.rat_nest.detail": "你走进石室，恶臭扑面而来：尿骚、腐肉和湿毛。地面 上覆满污秽。",
-  "maps.points.rat_nest.detail-2": "在（39, -48）队伍踩踏、物件压住",
   "maps.points.rat_nest.detail-3": "准备战斗。（队伍有战士）",
   "maps.points.rat_nest.dialogue": "你走进石室，恶臭扑面而来：尿骚、腐肉和湿毛。地面上覆满污秽。",
   "maps.points.rat_nest.dialogue-10": "选择「欣赏这个鼠群。」",
@@ -29,7 +28,7 @@
   "maps.points.rat_nest.dialogue-7": "准备战斗。（队伍有战士）",
   "maps.points.rat_nest.dialogue-8": "朝女王头部射一箭。（队伍有游侠）",
   "maps.points.rat_nest.dialogue-9": "欣赏这个鼠群。（队伍有蛞蝓人）",
-  "maps.points.rat_nest.f21.detail": "踩上（39, -48）的感应板（也可用物件压住），在鼠巢首领事件中推进对话至战斗开始。",
+  "maps.points.rat_nest.f21.detail": "踩上（39, -48）的感应板，在鼠巢首领事件中推进对话至战斗开始。",
   "maps.points.rat_nest.f32.detail": "「鼠巢首领遭遇」有引用此个体，关卡资料未指定它的现身条件。",
   "maps.points.rat_nest.l01.detail": "骨头、尘土与碎骨、面包",
   "maps.points.rat_nest.l01.detail.item-links": "[[0,2,\"item_bones03\"],[3,8,\"item_bones06\"],[9,11,\"item_food_bread\"]]",

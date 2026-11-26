@@ -1,9 +1,7 @@
 {
   "maps.points.mausoleum_3.a01.title": "Jdi nahoru. → Cely zapomenutých",
   "maps.points.mausoleum_3.detail": "Schodiště ústí do sálu zalitého rudým světlem. Kámen se nezdravě leskne a spáry pulzují jako žíly ukryté pod podlahou.",
-  "maps.points.mausoleum_3.detail-2": "Pole (10, -15) se aktivuje, když na něj vstoupí družina nebo ho zatíží předmět.",
   "maps.points.mausoleum_3.detail-3": "Komnata za dveřmi má jen pramálo společného s kryptou.",
-  "maps.points.mausoleum_3.detail-4": "At (10, -4) Našli jsme se na párty ",
   "maps.points.mausoleum_3.detail-5": "Zerethicův zlatý klíč, Hůl z ohnivého dřeva, Karmínový prsten",
   "maps.points.mausoleum_3.detail-5.item-links": "[[0,21,\"item_key_hc3_gold\"],[23,43,\"item_staff_of_fireball\"],[45,61,\"item_crimson_ring\"]]",
   "maps.points.mausoleum_3.detail-6": "Stáhněte senzor na (10, -4) a spustíte Zerickovou událost.",

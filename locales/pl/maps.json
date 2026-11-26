@@ -528,5 +528,11 @@
   "maps.ui.zoom": "Skrót mapy",
   "maps.ui.zoom-fit": "Pasuje do mapy",
   "maps.ui.zoom-in": "Przybliżenie",
-  "maps.ui.zoom-out": "Wycofanie"
+  "maps.ui.zoom-out": "Wycofanie",
+  "maps.trigger.once": "Aktywuje się tylko raz.",
+  "maps.trigger.requires-ranger": "W drużynie musi być łowca.",
+  "maps.trigger.requires-ixarion": "Ixarion musi towarzyszyć drużynie.",
+  "maps.trigger.requires-soulforge": "Kuźnia Dusz musi już być odkryta.",
+  "maps.trigger.requires-grgla": "Grgla musi towarzyszyć drużynie.",
+  "maps.trigger.active-without-grgla": "Wyzwalacz musi być aktywny, a Grgla nie może towarzyszyć drużynie."
 }

@@ -50,9 +50,15 @@ const guideDetails = (() => {
 
   const node = underkeepElement;
 
-  const attributeAliases = { {{t:common.xp|key}}: '{{t:common.xp-with-abbreviation|sq}}', {{t:common.xp-value|key}}: '{{t:common.xp-with-abbreviation|sq}}', XP: '{{t:common.xp-with-abbreviation|sq}}', {{t:common.melee-critical-chance|key}}: '{{t:common.critical-chance|sq}}' };
+  const experience = '{{t:common.xp-with-abbreviation|sq}}';
+  const attributeAliases = new Map([
+    ['{{t:common.xp|sq}}', experience],
+    ['{{t:common.xp-value|sq}}', experience],
+    ['XP', experience],
+    ['{{t:common.melee-critical-chance|sq}}', '{{t:common.critical-chance|sq}}']
+  ]);
   const armorPenetration = '{{t:common.armor-penetration|sq}}';
-  const terms = [armorPenetration, ...Object.keys(guide.attributes), ...Object.keys(attributeAliases)].sort((a, b) => b.length - a.length);
+  const terms = [armorPenetration, ...Object.keys(guide.attributes), ...attributeAliases.keys()].sort((a, b) => b.length - a.length);
   const attributePattern = new RegExp(terms.map(name => name.replace(/[.*+?^$(){}|[\]\\]/g, '\\$&')).join('|'), 'g');
   const tip = node('div', undefined, 'attribute-tooltip');
   tip.id = 'attribute-tooltip';
@@ -104,7 +110,7 @@ const guideDetails = (() => {
       fragment ??= document.createDocumentFragment();
       const name = match[0];
       const label = node('span', name, 'attribute-label');
-      label.dataset.attribute = attributeAliases[name] ?? name;
+      label.dataset.attribute = attributeAliases.get(name) ?? name;
       label.tabIndex = 0;
       label.addEventListener('mouseenter', showTip);
       label.addEventListener('focus', showTip);
@@ -448,6 +454,7 @@ const guideDetails = (() => {
   function artImage(src, className, loading = 'eager') {
     const img = node('img', undefined, className);
     img.loading = loading;
+    img.decoding = 'async';
     img.src = underkeepSharedAssets + src;
     img.alt = '';
     return img;

@@ -1,9 +1,7 @@
 {
   "maps.points.mausoleum_3.a01.title": "Idź na górę. → Cele Zapomnianych",
   "maps.points.mausoleum_3.detail": "Schody kierują się w dół, do korytarza tonącego w czerwieni. Kamień jarzy się obrzydliwym blaskiem, a szczeliny pod stopami pulsują jak żyły.",
-  "maps.points.mausoleum_3.detail-2": "Pole (10, -15) aktywuje się, gdy drużyna na nim stanie lub gdy zostanie obciążone przedmiotem.",
   "maps.points.mausoleum_3.detail-3": "Komnata przed tobą zupełnie nie wygląda jak krypta.",
-  "maps.points.mausoleum_3.detail-4": "Na (10, -4) Zespół na to wstał",
   "maps.points.mausoleum_3.detail-5": "Złoty Klucz Zerethica, Kostur Kuli Ognia, Szkarłatny Pierścień",
   "maps.points.mausoleum_3.detail-5.item-links": "[[0,21,\"item_key_hc3_gold\"],[23,40,\"item_staff_of_fireball\"],[42,62,\"item_crimson_ring\"]]",
   "maps.points.mausoleum_3.detail-6": "Pośpiesz czujnik na poziomie (10, -4) aby wywołać wydarzenie pojawienia się Zerics.",

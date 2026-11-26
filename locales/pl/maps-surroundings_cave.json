@@ -1,11 +1,9 @@
 {
   "maps.points.surroundings_cave.a01.title": "Idź na górę. → Okolice Wieży Underkeep",
   "maps.points.surroundings_cave.detail": "Jaskinia otwiera się szeroko, a jej dno zamieniło się w rumowisko poszarpanych skał i wirującego pyłu. Wygląda to tak, jakby coś niezwykle potężnego celowo rozerwało całą tą przestrzeń.",
-  "maps.points.surroundings_cave.detail-2": "Pole (0, -2) aktywuje się, gdy drużyna na nim stanie lub gdy zostanie obciążone przedmiotem.",
   "maps.points.surroundings_cave.detail-4": "Powalony monolit, pęknięty i na wpół pogrzebany, lecz strzępy run wciąż trzymają się jego powierzchni.",
   "maps.points.surroundings_cave.detail-5": "Ustawienia Kontrolera “Mechanizm” (-17, -4)\nUstawienia Kontrolera “Mechanizm” (-10, -2)",
   "maps.points.surroundings_cave.detail-6": "Ostatnia skorupka pęka pod twoim butem i chrobotanie cichnie. Skała zapada się, odsłaniając pustą komnatę, w której spoczywa powalony obelisk.",
-  "maps.points.surroundings_cave.detail-7": "Pole (-10, 1) aktywuje się, gdy drużyna na nim stanie lub gdy zostanie obciążone przedmiotem.",
   "maps.points.surroundings_cave.dialogue": "Jaskinia otwiera się szeroko, a jej dno zamieniło się w rumowisko poszarpanych skał i wirującego pyłu. Wygląda to tak, jakby coś niezwykle potężnego celowo rozerwało całą tą przestrzeń.",
   "maps.points.surroundings_cave.dialogue-10": "Coś jak gigantyczne chrząszcze... Nigdy wcześniej nie widziałeś podobnych odcisków.",
   "maps.points.surroundings_cave.dialogue-11": "Wybierz “Chwila. Pozwólcie mi wyczuć, czy zmarli mieli z tym miejscem coś wspólnego.”",

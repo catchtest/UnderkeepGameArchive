@@ -30,7 +30,6 @@
   "site.load-failed": "加载失败。",
   "site.loading": "加载中…",
   "site.map-query.aria-label": "搜索地图",
-  "site.map-query.placeholder": "搜索地名或英文",
   "site.map.layers-title": "标记图层",
   "site.map.locate-selection": "定位",
   "site.map.reset-types": "还原预设",

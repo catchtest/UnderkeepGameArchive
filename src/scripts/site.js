@@ -75,6 +75,7 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
   const assetVersion = scriptUrl.searchParams.get('t');
   const scriptsBase = new URL('.', scriptUrl);
   const bundle = new URL('../', scriptsBase);
+  const sharedStyles = { 'home.css': '{{rev:css/home.css}}', 'map.css': '{{rev:css/map.css}}' };
   const base = new URL('.', location.href);
   const entry = new URL('index.html', base);
   const view = document.getElementById('view');
@@ -126,6 +127,12 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
     });
   }
 
+  navigator.serviceWorker?.register(new URL('shared-cache.js', underkeepSharedAssets), {
+    updateViaCache: 'none'
+  }).catch(() => {
+    // The site can load normally if the browser disallows service workers.
+  });
+
   const pages = {
     home: {
       title: underkeepSiteName,
@@ -163,7 +170,15 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
     map: {
       title: '{{t:maps.ui.title|sq}} | ' + underkeepSiteName,
       styles: ['map.css'],
-      load: () => Promise.all([loadScript(mapNames), loadScript('map.js'), loadScript('data/map-puzzles.js')]),
+      load: async () => {
+        await Promise.all([
+          loadScript(mapNames),
+          loadScript('map.js'),
+          loadScript('data/map-puzzles.js'),
+          loadScript('map-art.js', underkeepSharedAssets + 'scripts/map-art.js?v={{rev:scripts/map-art.js}}')
+        ]);
+        Object.assign(window.UNDERKEEP_ATLAS, underkeepMapArt);
+      },
       loadRoute: url => {
         const id = underkeepMapId(url.hash);
         if (!underkeepMaps.has(id)) return loadScript('data/maps/' + id + '.js');
@@ -196,10 +211,10 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
     return url;
   }
 
-  function loadScript(file) {
+  function loadScript(file, url = assetUrl(file, scriptsBase)) {
     if (!scripts.has(file)) {
       const script = document.createElement('script');
-      script.src = assetUrl(file, scriptsBase);
+      script.src = url;
       scripts.set(file, appendResource(script).catch(error => {
         scripts.delete(file);
         throw error;
@@ -212,7 +227,9 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
     if (!styles.has(file)) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = assetUrl('css/' + file, bundle);
+      link.href = Object.hasOwn(sharedStyles, file)
+        ? underkeepSharedAssets + 'css/' + file + '?v=' + sharedStyles[file]
+        : assetUrl('css/' + file, bundle);
       link.media = 'not all';
       const next = styleOrder.slice(styleOrder.indexOf(file) + 1).find(name => styles.has(name));
       const ready = appendResource(link, styles.get(next)?.link).catch(error => {

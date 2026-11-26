@@ -528,5 +528,11 @@
   "maps.ui.zoom": "Уменьшение масштаба карты",
   "maps.ui.zoom-fit": "Подходящий для карты",
   "maps.ui.zoom-in": "Увеличить масштаб",
-  "maps.ui.zoom-out": "Уменьшить масштаб"
+  "maps.ui.zoom-out": "Уменьшить масштаб",
+  "maps.trigger.once": "Срабатывает только один раз.",
+  "maps.trigger.requires-ranger": "В отряде должен быть следопыт.",
+  "maps.trigger.requires-ixarion": "Иксарион должен быть в отряде.",
+  "maps.trigger.requires-soulforge": "Кузница душ уже должна быть обнаружена.",
+  "maps.trigger.requires-grgla": "Гргла должен быть в отряде.",
+  "maps.trigger.active-without-grgla": "Триггер должен быть включён, а Грглы не должно быть в отряде."
 }

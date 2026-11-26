@@ -1,6 +1,5 @@
 {
   "maps.points.rat_nest.detail": "Wchodzisz do kamiennej komory, pełnej niezwykłego zapachu: moczu, gnijącego mięsa i mokrych włosów.",
-  "maps.points.rat_nest.detail-2": "Pole (39, -48) aktywuje się, gdy drużyna na nim stanie lub gdy zostanie obciążone przedmiotem.",
   "maps.points.rat_nest.detail-3": "Szykuj się do walki. (Wymaga: Wojownik)",
   "maps.points.rat_nest.dialogue": "Gdy drużyna wkracza do podziemnej komnaty, uderza w nią fala odoru. Obrzydliwego, wilgotnego smrodu moczu, zgnilizny i mokrego futra. Powietrze jest ciężkie i duszne, a każdy wdech niesie ze sobą woń rozkładu.",
   "maps.points.rat_nest.dialogue-10": "Wybierz “Podziwiaj kolonię.”",
@@ -29,7 +28,7 @@
   "maps.points.rat_nest.dialogue-7": "Szykuj się do walki. (Wymaga: Wojownik)",
   "maps.points.rat_nest.dialogue-8": "Strzel Królowej prosto w głowę. (Wymaga: Łowca)",
   "maps.points.rat_nest.dialogue-9": "Podziwiaj kolonię. (Wymaga: Ślimak)",
-  "maps.points.rat_nest.f21.detail": "Naciśnij czujnik na (39, -48) (można być również naciśnięta przez obiekty), aby postąpić w dialogu do rozpoczęcia bitwy w wydarzeniu \"Rat Nest Leader\".",
+  "maps.points.rat_nest.f21.detail": "Naciśnij czujnik na (39, -48), aby postąpić w dialogu do rozpoczęcia bitwy w wydarzeniu \"Rat Nest Leader\".",
   "maps.points.rat_nest.f32.detail": "\"Rat Nest Leader Encounter\" odnosi się do tej osoby, ale informacje o punkcie kontrolnym nie określają jej warunków wyglądu.",
   "maps.points.rat_nest.l01.detail": "Kość, Pył i Kości, Chleb",
   "maps.points.rat_nest.l01.detail.item-links": "[[0,4,\"item_bones03\"],[6,17,\"item_bones06\"],[19,24,\"item_food_bread\"]]",

@@ -1,9 +1,6 @@
 {
   "maps.points.mausoleum_3_2.detail": "La pierre est humide et brille d’un rouge lumineux. L’air est immobile, chargé d’une odeur de rouille ; l’atmosphère est lourde et acide.",
-  "maps.points.mausoleum_3_2.detail-10": "La case en (1, 0) s’active lorsque le groupe marche dessus ou qu’un objet la maintient enfoncée.",
-  "maps.points.mausoleum_3_2.detail-2": "La case en (-8, -4) s’active lorsque le groupe marche dessus ou qu’un objet la maintient enfoncée.",
   "maps.points.mausoleum_3_2.detail-3": "Alors que vous approchez de la fin du couloir, Ixarion se tord dans l'air au-dessus de vous.",
-  "maps.points.mausoleum_3_2.detail-4": "Le groupe marche sur la case en (-1, 0).\nLe groupe marche sur la case en (-1, 0) en compagnie d’Ixarion.",
   "maps.points.mausoleum_3_2.detail-5": "ixarion est présent\nixarion n’est pas présent",
   "maps.points.mausoleum_3_2.detail-6": "TUERRRRRRR.....",
   "maps.points.mausoleum_3_2.detail-7": "Contrôles “La Source ?” (5, 0)",
@@ -55,7 +52,7 @@
   "maps.points.mausoleum_3_2.dialogue-8": "Vous êtes revenus. La marée rouge repose immobile, les racines tressaillant faiblement, traînant des murmures sur la pierre.",
   "maps.points.mausoleum_3_2.dialogue-9": "Au centre, la coque frissonne. Des côtes brisées prises dans des tendons, un visage affaissé à moitié formé, tressaillant comme en plein rêve. Sa misère s'infiltre à nouveau en vous.",
   "maps.points.mausoleum_3_2.f04.detail": "Recherche du sarcophage rouge situé à (-7, -12).",
-  "maps.points.mausoleum_3_2.f07.detail": "Marcher sur la plaque de détection située à (1, 0) (elle peut également être pressée par des objets) ; avancer l’événement source jusqu’au début du combat.",
+  "maps.points.mausoleum_3_2.f07.detail": "Marcher sur la plaque de détection située à (1, 0) ; avancer l’événement source jusqu’au début du combat.",
   "maps.points.mausoleum_3_2.l08.detail": "Outils de crochetage, Masse du coup sutpéfiant",
   "maps.points.mausoleum_3_2.l08.detail.item-links": "[[0,20,\"item_key_lockpick\"],[22,46,\"item_mace_stagger\"]]",
   "maps.points.mausoleum_3_2.l10.detail": "Heaume de Domination, Premier segment runique",

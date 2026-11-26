@@ -12,18 +12,18 @@
 <meta property="og:description" content="{{t:site.description|attr}}">
 {{site:alternate-links}}
 <title>{{t:site.name}}</title>
-<link rel="icon" type="image/x-icon" href="{{site:assets}}images/favicon.ico">
+<link rel="icon" type="image/x-icon" href="{{site:assets}}images/favicon.ico?v={{rev:images/favicon.ico}}">
 <script>document.documentElement.classList.add('enhanced');</script>
 <!-- Update the matching t values when publishing CSS or JavaScript changes. -->
 <link rel="stylesheet" href="{{site:assets}}fonts/headings.css?t=20261126.1">
-<link rel="stylesheet" href="{{site:bundle}}css/site.css?t=20261127.1">
-<noscript><link rel="stylesheet" href="{{site:bundle}}css/home.css?t=20261126.5"></noscript>
-<script defer src="{{site:bundle}}scripts/site.js?t=20261127.4"></script>
+<link rel="stylesheet" href="{{site:assets}}css/site.css?v={{rev:css/site.css}}">
+<noscript><link rel="stylesheet" href="{{site:assets}}css/home.css?v={{rev:css/home.css}}"></noscript>
+<script defer src="{{site:bundle}}scripts/site.js?t=20261127.6"></script>
 </head>
 <body data-page="home">
 <header class="masthead"><div class="mast-inner">
   <div class="brand">
-    <a href="index.html" aria-current="page"><img src="{{site:assets}}images/logo.webp" alt="{{t:site.home-link|attr}}"></a>
+    <a href="index.html" aria-current="page"><img src="{{site:assets}}images/logo.webp?v={{rev:images/logo.webp}}" alt="{{t:site.home-link|attr}}"></a>
   </div>
   <nav id="sections" aria-label="{{t:site.navigation|attr}}">
     <a id="to-map" href="?view=map">{{t:common.map}}</a>
@@ -39,7 +39,7 @@
 <main class="home" tabindex="-1">
   <section class="home-hero" aria-labelledby="game-title">
     <div class="hero-copy">
-      <h1 id="game-title"><img src="{{site:assets}}images/logo.webp" alt="{{t:site.name|attr}}" width="334" height="74"></h1>
+      <h1 id="game-title"><img src="{{site:assets}}images/logo.webp?v={{rev:images/logo.webp}}" alt="{{t:site.name|attr}}" width="334" height="74"></h1>
       <p>{{t:site.home.summary}}</p>
       <div class="store-links">
         <a class="steam-link" href="https://store.steampowered.com/app/2411200/Underkeep/" target="_blank" rel="noopener noreferrer">{{t:site.home.steam}} <span aria-hidden="true">↗</span></a>
@@ -86,7 +86,7 @@
         <label class="flow-size"><input type="checkbox" checked aria-controls="flow-viewport"> {{t:walkthrough.actual-size}}</label>
       </div>
       <div id="flow-viewport" class="flow-viewport" tabindex="0" role="region" aria-label="{{t:walkthrough.story-flow.title|attr}}">
-        <img src="{{site:bundle}}images/story-flow.svg" alt="{{t:walkthrough.story-flow.title|attr}}">
+        <img loading="lazy" decoding="async" src="{{site:bundle}}images/story-flow.svg?v={{rev:images/story-flow.svg}}" alt="{{t:walkthrough.story-flow.title|attr}}">
       </div>
     </section>
     <section class="walkthrough-flow" aria-labelledby="ending-title">
@@ -96,7 +96,7 @@
       </div>
       <p>{{t:walkthrough.ending-flow.summary}}</p>
       <div id="ending-viewport" class="flow-viewport" tabindex="0" role="region" aria-labelledby="ending-title">
-        <img src="{{site:bundle}}images/ending-flow.svg" alt="{{t:walkthrough.ending-flow.alt|attr}}">
+        <img loading="lazy" decoding="async" src="{{site:bundle}}images/ending-flow.svg?v={{rev:images/ending-flow.svg}}" alt="{{t:walkthrough.ending-flow.alt|attr}}">
       </div>
       <p>{{t:walkthrough.ending-flow.replay}}</p>
       <p>{{t:walkthrough.ending-flow.portal}}</p>
@@ -109,23 +109,23 @@
       <div id="side-quest-charts">
         <h3 id="mayor-title">{{t:walkthrough.side-quest-mayor.title}}</h3>
         <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="mayor-title">
-          <img src="{{site:bundle}}images/side-quest-mayor.svg" alt="{{t:walkthrough.side-quest-mayor.alt|attr}}">
+          <img loading="lazy" decoding="async" src="{{site:bundle}}images/side-quest-mayor.svg?v={{rev:images/side-quest-mayor.svg}}" alt="{{t:walkthrough.side-quest-mayor.alt|attr}}">
         </div>
         <h3 id="mushrooms-title">{{t:walkthrough.side-quest-mushrooms.title}}</h3>
         <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="mushrooms-title">
-          <img src="{{site:bundle}}images/side-quest-mushrooms.svg" alt="{{t:walkthrough.side-quest-mushrooms.alt|attr}}">
+          <img loading="lazy" decoding="async" src="{{site:bundle}}images/side-quest-mushrooms.svg?v={{rev:images/side-quest-mushrooms.svg}}" alt="{{t:walkthrough.side-quest-mushrooms.alt|attr}}">
         </div>
         <h3 id="jacob-title">{{t:walkthrough.side-quest-jacob.title}}</h3>
         <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="jacob-title">
-          <img src="{{site:bundle}}images/side-quest-jacob.svg" alt="{{t:walkthrough.side-quest-jacob.alt|attr}}">
+          <img loading="lazy" decoding="async" src="{{site:bundle}}images/side-quest-jacob.svg?v={{rev:images/side-quest-jacob.svg}}" alt="{{t:walkthrough.side-quest-jacob.alt|attr}}">
         </div>
         <h3 id="wards-title">{{t:walkthrough.side-quest-wards.title}}</h3>
         <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="wards-title">
-          <img src="{{site:bundle}}images/side-quest-wards.svg" alt="{{t:walkthrough.side-quest-wards.alt|attr}}">
+          <img loading="lazy" decoding="async" src="{{site:bundle}}images/side-quest-wards.svg?v={{rev:images/side-quest-wards.svg}}" alt="{{t:walkthrough.side-quest-wards.alt|attr}}">
         </div>
         <h3 id="dwarves-title">{{t:walkthrough.side-quest-dwarves.title}}</h3>
         <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="dwarves-title">
-          <img src="{{site:bundle}}images/side-quest-dwarves.svg" alt="{{t:walkthrough.side-quest-dwarves.alt|attr}}">
+          <img loading="lazy" decoding="async" src="{{site:bundle}}images/side-quest-dwarves.svg?v={{rev:images/side-quest-dwarves.svg}}" alt="{{t:walkthrough.side-quest-dwarves.alt|attr}}">
         </div>
       </div>
     </section>
@@ -158,7 +158,7 @@
       <button type="button" class="overview-toggle" id="overview-toggle" aria-haspopup="dialog" aria-controls="map-overview">{{t:common.overview}} <span aria-hidden="true">↗</span></button>
       <button type="button" class="close-button" aria-label="{{t:maps.ui.close-locations|attr}}">✕</button>
     </div>
-    <label class="find"><span aria-hidden="true">⌕</span><input id="map-query" type="search" placeholder="{{t:site.map-query.placeholder|attr}}" aria-label="{{t:site.map-query.aria-label|attr}}" aria-keyshortcuts="/"><kbd class="search-key" aria-hidden="true">/</kbd></label>
+    <label class="find"><span aria-hidden="true">⌕</span><input id="map-query" type="search" placeholder="{{t:site.map-query.aria-label|attr}}" aria-label="{{t:site.map-query.aria-label|attr}}" aria-keyshortcuts="/"><kbd class="search-key" aria-hidden="true">/</kbd></label>
     <div id="catalog"></div>
   </nav>
   <section id="layers-drawer" class="drawer drawer-end" aria-labelledby="layers-title" hidden>

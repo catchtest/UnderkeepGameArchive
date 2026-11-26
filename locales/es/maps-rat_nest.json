@@ -1,6 +1,5 @@
 {
   "maps.points.rat_nest.detail": "Entras en la cámara de piedra, llena de un olor abrumador: orina, carne podrida y pelo mojado.",
-  "maps.points.rat_nest.detail-2": "La casilla en (39, -48) se activa cuando el grupo la pisa o un objeto la mantiene presionada.",
   "maps.points.rat_nest.detail-3": "Prepárate para la lucha. (Requiere: Guerrero)",
   "maps.points.rat_nest.dialogue": "Al entrar en la cámara subterránea, una oleada de hedor los invade. Un hedor fétido y húmedo, con olor a orina, putrefacción y pelo mojado. El aire es denso, difícil de respirar, cada bocanada impregnada de descomposición.",
   "maps.points.rat_nest.dialogue-10": "Elige “Admira la colonia.”",
@@ -29,7 +28,7 @@
   "maps.points.rat_nest.dialogue-7": "Prepárate para la lucha. (Requiere: Guerrero)",
   "maps.points.rat_nest.dialogue-8": "Dispara a la Reina en la cabeza. (Requiere: Explorador)",
   "maps.points.rat_nest.dialogue-9": "Admira la colonia. (Requiere: Hombre babosa)",
-  "maps.points.rat_nest.f21.detail": "Presione el sensor en (39, -48) (también puede ser presionado por objetos), para avanzar en el diálogo hasta el inicio de la batalla en el evento \"Rat Nest Leader\".",
+  "maps.points.rat_nest.f21.detail": "Presione el sensor en (39, -48), para avanzar en el diálogo hasta el inicio de la batalla en el evento \"Rat Nest Leader\".",
   "maps.points.rat_nest.f32.detail": "El \"Encuentro con el líder del nido de ratas\" se refiere a este individuo, pero la información del puesto de control no especifica sus condiciones de apariencia.",
   "maps.points.rat_nest.l01.detail": "Hueso, Polvo y huesos, Pan",
   "maps.points.rat_nest.l01.detail.item-links": "[[0,5,\"item_bones03\"],[7,21,\"item_bones06\"],[23,26,\"item_food_bread\"]]",

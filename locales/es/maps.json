@@ -528,5 +528,11 @@
   "maps.ui.zoom": "Ajuste de escala del mapa",
   "maps.ui.zoom-fit": "Ajuste al mapa",
   "maps.ui.zoom-in": "Acercar la imagen",
-  "maps.ui.zoom-out": "Alejar la imagen"
+  "maps.ui.zoom-out": "Alejar la imagen",
+  "maps.trigger.once": "Solo se activa una vez.",
+  "maps.trigger.requires-ranger": "Debe haber un explorador en el grupo.",
+  "maps.trigger.requires-ixarion": "Ixarion debe acompañar al grupo.",
+  "maps.trigger.requires-soulforge": "La Forja de Almas ya debe haberse descubierto.",
+  "maps.trigger.requires-grgla": "Grgla debe acompañar al grupo.",
+  "maps.trigger.active-without-grgla": "El activador debe estar habilitado y Grgla no debe acompañar al grupo."
 }

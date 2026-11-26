@@ -1,7 +1,6 @@
 {
   "maps.points.tower_level5.a01.title": "Baja abajo . → Nivel 4 de la Torre",
   "maps.points.tower_level5.detail": "Sientes que tu viaje se acerca a su fin. Pase lo que pase a continuación, ya no habrá vuelta atrás.",
-  "maps.points.tower_level5.detail-2": "El grupo pisa la casilla en (3, 0).\nSolo se activa una vez.",
   "maps.points.tower_level5.detail-3": "El mago yace destrozado sobre la piedra. Su respiración es superficial.",
   "maps.points.tower_level5.detail-4": "La derrota “Archimago de Underkeep” (3, -9)",
   "maps.points.tower_level5.detail-5": "Ponga el sensor en (3, -7) para comenzar a hablar con el gran mago. Elige \"Drawing Weapons\" o \"Decline Participation\", o continúe la confrontación en la rama del juicio (también puede tirar el pez de Grgla o la tintura desconocida).",
@@ -28,7 +27,6 @@
   "maps.points.tower_level5.dialogue-7": "Su mano se alza débilmente hacia el arma.",
   "maps.points.tower_level5.dialogue-8": "TIENES... PODER...",
   "maps.points.tower_level5.dialogue-9": "ENTONCES NO TODO... ESTÁ PERDIDO...",
-  "maps.points.tower_level5.e02.detail": "At (3, -7) El partido lo ha golpeado",
   "maps.points.tower_level5.n01.detail": "De (-6, -3) a (-2, 1)",
   "maps.points.tower_level5.title": "Vencer al mago",
   "maps.points.tower_level5.title-2": "Aproxima la torre y llega al final"

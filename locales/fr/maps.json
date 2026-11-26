@@ -528,5 +528,11 @@
   "maps.ui.zoom": "Échelle de la carte",
   "maps.ui.zoom-fit": "Préparer la carte",
   "maps.ui.zoom-in": "Zoomer",
-  "maps.ui.zoom-out": "Dézoomer"
+  "maps.ui.zoom-out": "Dézoomer",
+  "maps.trigger.once": "Ne se déclenche qu’une fois.",
+  "maps.trigger.requires-ranger": "Un rôdeur doit faire partie du groupe.",
+  "maps.trigger.requires-ixarion": "Ixarion doit accompagner le groupe.",
+  "maps.trigger.requires-soulforge": "La Forge des âmes doit déjà avoir été découverte.",
+  "maps.trigger.requires-grgla": "Grgla doit accompagner le groupe.",
+  "maps.trigger.active-without-grgla": "Le déclencheur doit être actif et Grgla ne doit pas accompagner le groupe."
 }

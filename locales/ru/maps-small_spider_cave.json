@@ -1,8 +1,6 @@
 {
   "maps.points.small_spider_cave.detail": "Каждый шаг отражается в влажной и холодной темноте, с сетками, висящими как шторы.",
-  "maps.points.small_spider_cave.detail-2": "Клетка (3, -59) срабатывает, когда на неё наступает отряд или её придавливает предмет.",
   "maps.points.small_spider_cave.detail-4": "Во тьме что-то движется. Паутина дрожит, и из теней появляются длинные ноги.",
-  "maps.points.small_spider_cave.detail-5": "Клетка (4, -59) срабатывает, когда на неё наступает отряд или её придавливает предмет.",
   "maps.points.small_spider_cave.detail-6": "Паучий глаз (80%), Ядовитая железа (25%)",
   "maps.points.small_spider_cave.detail-6.item-links": "[[0,11,\"item_spider_eye\"],[19,34,\"item_venom_sac\"]]",
   "maps.points.small_spider_cave.dialogue": "Каждый шаг эхом разносится по сырой темноте, где паутина висит словно занавес. Ты чувствуешь на себе взгляды. Очень много взглядов.",

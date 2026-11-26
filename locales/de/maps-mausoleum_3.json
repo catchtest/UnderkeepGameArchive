@@ -1,9 +1,7 @@
 {
   "maps.points.mausoleum_3.a01.title": "Geh nach oben . → Die Zellen der Vergessenen",
   "maps.points.mausoleum_3.detail": "Das Treppenhaus fällt in eine Halle ab, die in Rot ertrinkt. Das Gestein schwitzt in einem kränklichen Glühen, während Fugen wie Adern unter dem Boden pulsieren.",
-  "maps.points.mausoleum_3.detail-2": "Das Feld bei (10, -15) wird ausgelöst, wenn die Gruppe es betritt oder ein Gegenstand es beschwert.",
   "maps.points.mausoleum_3.detail-3": "Die Kammer hinter der Tür hat kaum noch Ähnlichkeit mit einer Krypta.",
-  "maps.points.mausoleum_3.detail-4": "At (10, -4) Von der Party betreten",
   "maps.points.mausoleum_3.detail-5": "Goldener Schlüssel von Zerethic, Stab des Feuerballs, Karmesin-Ring",
   "maps.points.mausoleum_3.detail-5.item-links": "[[0,31,\"item_key_hc3_gold\"],[33,52,\"item_staff_of_fireball\"],[54,67,\"item_crimson_ring\"]]",
   "maps.points.mausoleum_3.detail-6": "Steigen Sie auf den Sensor auf (10, -4) um Zerics Auftritt zu auslösen.",

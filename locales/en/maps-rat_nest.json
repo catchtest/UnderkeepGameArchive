@@ -1,6 +1,5 @@
 {
   "maps.points.rat_nest.detail": "You enter the stone chamber, filled with overwhelming stench: urine, rotting flesh, and wet hair. The ground is covered in filth.",
-  "maps.points.rat_nest.detail-2": "The tile at (39, -48) activates when the party steps on it or an object holds it down.",
   "maps.points.rat_nest.detail-3": "Prepare for the fight. (Requires Warrior)",
   "maps.points.rat_nest.dialogue": "The stench hits you as you enter the chamber: urine, rotting flesh, and wet fur. The floor is covered in filth.",
   "maps.points.rat_nest.dialogue-10": "Choose “Admire the colony.”",
@@ -29,7 +28,7 @@
   "maps.points.rat_nest.dialogue-7": "Prepare for the fight. (Requires Warrior)",
   "maps.points.rat_nest.dialogue-8": "Take a headshot at the Queen. (Requires Ranger)",
   "maps.points.rat_nest.dialogue-9": "Admire the colony. (Requires Slugman)",
-  "maps.points.rat_nest.f21.detail": "Press the sensor at (39, -48) (can also be pressed by objects), to progress the dialogue to the start of the battle in the \"Rat Nest Leader\" event.",
+  "maps.points.rat_nest.f21.detail": "Press the sensor at (39, -48), to progress the dialogue to the start of the battle in the \"Rat Nest Leader\" event.",
   "maps.points.rat_nest.f32.detail": "The \"Rat Nest Leader Encounter\" refers to this individual, but the checkpoint information does not specify its appearance conditions.",
   "maps.points.rat_nest.l01.detail": "Bone, Dust and Bones, Bread",
   "maps.points.rat_nest.l01.detail.item-links": "[[0,4,\"item_bones03\"],[6,20,\"item_bones06\"],[22,27,\"item_food_bread\"]]",

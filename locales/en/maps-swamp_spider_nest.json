@@ -1,6 +1,5 @@
 {
   "maps.points.swamp_spider_nest.detail": "Thick webs covered the stone chamber. Pale green egg sacs clustered on the damp ground.",
-  "maps.points.swamp_spider_nest.detail-2": "At (13, -19) Stepped on by the party",
   "maps.points.swamp_spider_nest.detail-3": "Are you trying to help us?",
   "maps.points.swamp_spider_nest.detail-4": "Step on the sensor at (13, -19) for the first time, and start the event \"Encounter the Spider Obula\".",
   "maps.points.swamp_spider_nest.dialogue": "Choose “Try talking to the spider.” (Depends on story progress)",

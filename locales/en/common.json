@@ -133,6 +133,7 @@
   "common.other-available-items": "Other available items",
   "common.overview": "Overview",
   "common.party": "Party",
+  "common.party-enters-tile": "The party enters this tile",
   "common.party-or-mechanism-object": "Party or mechanism object",
   "common.passive": "(Passive)",
   "common.physical-attack": "Physical attack",

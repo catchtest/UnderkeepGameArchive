@@ -1,8 +1,6 @@
 {
   "maps.points.small_spider_cave.detail": "Cada paso hace eco en la oscuridad húmeda y fría, con redes colgando como cortinas.",
-  "maps.points.small_spider_cave.detail-2": "La casilla en (3, -59) se activa cuando el grupo la pisa o un objeto la mantiene presionada.",
   "maps.points.small_spider_cave.detail-4": "Algo se mueve en la oscuridad. Las telarañas tiemblan mientras largas piernas se deslizan desde las sombras.",
-  "maps.points.small_spider_cave.detail-5": "La casilla en (4, -59) se activa cuando el grupo la pisa o un objeto la mantiene presionada.",
   "maps.points.small_spider_cave.detail-6": "Ojo de araña (80%), Saco de veneno (25%)",
   "maps.points.small_spider_cave.detail-6.item-links": "[[0,12,\"item_spider_eye\"],[20,34,\"item_venom_sac\"]]",
   "maps.points.small_spider_cave.dialogue": "Cada paso resuena en la oscuridad húmeda, donde las telarañas cuelgan como cortinas. Sientes que te observan. Muchas miradas.",

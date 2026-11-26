@@ -9,7 +9,7 @@ a { color: var(--gold); text-underline-offset: .2em; }
 a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .home { width: min(1280px, calc(100% - 32px)); margin: 24px auto 0; }
 .home-hero {
-  --title-art: url("{{site:assets}}../images/title-screen.webp");
+  --title-art: url("{{site:assets}}../images/title-screen.webp?v={{rev:images/title-screen.webp}}");
   display: grid;
   align-items: center;
   min-height: clamp(300px, min(36vw, 100svh - 440px), 490px);

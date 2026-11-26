@@ -16,11 +16,11 @@ a,button,input,select,summary { outline-offset: 3px; }
 }
 .banner::before { content: ""; position: absolute; inset: 0; z-index: -2; background: var(--scene) 70% var(--scene-y,45%) / cover; }
 .banner::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,rgba(12,18,15,.94) 0%,rgba(16,19,14,.68) 24%,rgba(22,22,16,.06) 64%),linear-gradient(0deg,#201e1b55,transparent 60%); }
-body:is([data-section="races"],[data-section="traits"]) { --scene: url("{{site:assets}}../images/races.webp"); --scene-y: 37%; }
-body[data-section="classes"] { --scene: url("{{site:assets}}../images/classes.webp"); --scene-y: 35%; }
-body[data-section="items"] { --scene: url("{{site:assets}}../images/equipment.webp"); --scene-y: 40%; }
-body[data-section="recipes"] { --scene: url("{{site:assets}}../images/recipes.webp"); --scene-y: 57%; }
-body[data-section="recipes"].forge { --scene: url("{{site:assets}}../images/forge.webp"); --scene-y: 49%; }
+body:is([data-section="races"],[data-section="traits"]) { --scene: url("{{site:assets}}../images/races.webp?v={{rev:images/races.webp}}"); --scene-y: 37%; }
+body[data-section="classes"] { --scene: url("{{site:assets}}../images/classes.webp?v={{rev:images/classes.webp}}"); --scene-y: 35%; }
+body[data-section="items"] { --scene: url("{{site:assets}}../images/equipment.webp?v={{rev:images/equipment.webp}}"); --scene-y: 40%; }
+body[data-section="recipes"] { --scene: url("{{site:assets}}../images/recipes.webp?v={{rev:images/recipes.webp}}"); --scene-y: 57%; }
+body[data-section="recipes"].forge { --scene: url("{{site:assets}}../images/forge.webp?v={{rev:images/forge.webp}}"); --scene-y: 49%; }
 .banner h1 { position: relative; font: 700 clamp(2.1rem,4.2vw,3.75rem)/1.25 var(--serif); color: var(--heading); text-shadow: 0 3px 12px #17150f; }
 .banner h1:is(:lang(zh-Hant), :lang(zh-Hans)) { letter-spacing: .09em; }
 .banner h1::after { content: ""; display: block; margin-top: 16px; width: 82px; height: 1px; background: linear-gradient(90deg,#e4c385,#c7aa6f55); }
@@ -39,11 +39,11 @@ body[data-section="recipes"].forge { --scene: url("{{site:assets}}../images/forg
 .character-name { min-width: 0; max-width: 100%; overflow-wrap: anywhere; font-size: 1.05rem; line-height: 1.3; color: var(--name); }
 /* Keep sprite sampling sharp at native size and at integer multiples. */
 .portrait,.skill-art,.icon { display: inline-block; flex: none; background-repeat: no-repeat; image-rendering: pixelated; }
-.portrait { width: 60px; height: 70px; background-image: url("{{site:assets}}../images/hero-faces.webp"); }
+.portrait { width: 60px; height: 70px; background-image: url("{{site:assets}}../images/hero-faces.webp?v={{rev:images/hero-faces.webp}}"); }
 .character .portrait,.face-tile .portrait { position: relative; isolation: isolate; margin: 9px 10px 11px; }
-.character .portrait::before,.face-tile .portrait::before { content: ""; position: absolute; z-index: -1; inset: -9px -10px -11px; border: solid transparent; border-width: 9px 10px 11px; border-image: url("{{site:assets}}../images/face-frame.webp") 9 10 11; }
-.skill-art { width: 40px; height: 40px; background-image: url("{{site:assets}}../images/skill-buttons.webp"); background-position: calc(var(--col) * -40px) calc(var(--row) * -40px); }
-.icon { background-image: url("{{site:assets}}../images/guide-icons.webp"); }
+.character .portrait::before,.face-tile .portrait::before { content: ""; position: absolute; z-index: -1; inset: -9px -10px -11px; border: solid transparent; border-width: 9px 10px 11px; border-image: url("{{site:assets}}../images/face-frame.webp?v={{rev:images/face-frame.webp}}") 9 10 11; }
+.skill-art { width: 40px; height: 40px; background-image: url("{{site:assets}}../images/skill-buttons.webp?v={{rev:images/skill-buttons.webp}}"); background-position: calc(var(--col) * -40px) calc(var(--row) * -40px); }
+.icon { background-image: url("{{site:assets}}../images/guide-icons.webp?v={{rev:images/guide-icons.webp}}"); }
 #workspace { display: grid; grid-template-columns: minmax(0,1fr); gap: 18px; align-items: start; }
 article,.panel { min-width: 0; }
 .panel { position: relative; background: linear-gradient(130deg,#292c26,#20231f 85%); border: 1px solid var(--line); padding: clamp(16px,2vw,28px); box-shadow: inset 0 1px #79705c26,0 5px 13px #0002; }
@@ -131,7 +131,7 @@ body[data-section="recipes"] #results {
 }
 .recipe-tile { display: grid; color: inherit; text-decoration: none; }
 .item-slot { display: inline-grid; place-items: center; position: relative; min-width: 48px; min-height: 48px; padding: 6px; flex: none; isolation: isolate; }
-.item-slot::before { content: ""; position: absolute; inset: 0; border: 4px solid transparent; border-image: url("{{site:assets}}../images/slot.webp") 4 fill / 4px; image-rendering: pixelated; z-index: -1; }
+.item-slot::before { content: ""; position: absolute; inset: 0; border: 4px solid transparent; border-image: url("{{site:assets}}../images/slot.webp?v={{rev:images/slot.webp}}") 4 fill / 4px; image-rendering: pixelated; z-index: -1; }
 .recipe-tile .item-slot { width: 100%; min-width: 0; min-height: 0; aspect-ratio: 1; padding: 0; }
 :is(.recipe-tile, .bench) .item-slot {
   border: 1px solid #b7a98145; border-radius: 4px;
@@ -144,7 +144,7 @@ body[data-section="recipes"] #results {
 .recipe-tile:hover .icon { filter: brightness(1.18); }
 .bench {
   isolation: isolate; text-align: center; padding: 20px; color: var(--ink); border-color: #847455;
-  background: linear-gradient(90deg,#342b21af,#5e5039c7,#372f22bb),url("{{site:assets}}../images/parchment.webp") repeat;
+  background: linear-gradient(90deg,#342b21af,#5e5039c7,#372f22bb),url("{{site:assets}}../images/parchment.webp?v={{rev:images/parchment.webp}}") repeat;
 }
 .bench::before { content: ""; position: absolute; inset: 7px; border: 1px solid #ccb78255; z-index: -1; }
 .bench h2 { color: var(--heading); }
@@ -157,7 +157,7 @@ a.material:hover .inventory-art { filter: brightness(1.18); }
 .product { position: relative; padding: 40px 7px 24px; isolation: isolate; }
 .recipe-product-link { display: inline-flex; flex-direction: column; align-items: center; gap: 11px; text-decoration: none; }
 .recipe-product-link:hover .inventory-art { filter: brightness(1.18); }
-.bench:not(.smithy) .product::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url("{{site:assets}}../images/mortar.webp") center 0 / auto no-repeat; opacity: .8; image-rendering: pixelated; }
+.bench:not(.smithy) .product::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url("{{site:assets}}../images/mortar.webp?v={{rev:images/mortar.webp}}") center 0 / auto no-repeat; opacity: .8; image-rendering: pixelated; }
 .product .item-slot { min-width: 54px; min-height: 54px; }
 .product .entry-heading h2 { font-size: 1.65rem; }
 .effect { color: var(--name); font-weight: 650; }
@@ -169,7 +169,7 @@ a.material:hover .inventory-art { filter: brightness(1.18); }
 .links { display: flex; flex-wrap: wrap; gap: 5px 15px; }
 .links a:has(> :is(.icon,.inventory-icon)) { display: inline-flex; align-items: center; gap: 6px; }
 .links .inventory-icon { zoom: 1; }
-.effect-icon { background-image: url("{{site:assets}}../images/effect-icons.webp"); zoom: 2; }
+.effect-icon { background-image: url("{{site:assets}}../images/effect-icons.webp?v={{rev:images/effect-icons.webp}}"); zoom: 2; }
 body[data-section="traits"] article { display: grid; gap: 18px; margin-top: 17px; }
 body[data-section="traits"] h2 + .mutation-grid { margin-top: 12px; }
 .trait-names { display: grid; line-height: 1.4; }
@@ -222,8 +222,8 @@ body:has(.guide-dialog[open]) { overflow: hidden; }
 .guide-dialog > .dialog-body { padding: 14px 20px 20px; }
 .levels table { margin-top: 12px; }
 .product .entry-names { justify-content: center; }
-body[data-section="enemies"] { --scene: url("{{site:assets}}../images/enemies.webp"); --scene-y: 40%; }
-body[data-section="quests"],body[data-page="walkthrough"] { --scene: url("{{site:assets}}../images/quests.webp"); }
+body[data-section="enemies"] { --scene: url("{{site:assets}}../images/enemies.webp?v={{rev:images/enemies.webp}}"); --scene-y: 40%; }
+body[data-section="quests"],body[data-page="walkthrough"] { --scene: url("{{site:assets}}../images/quests.webp?v={{rev:images/quests.webp}}"); }
 #spoiler-notice { width: min(26rem, 100%); margin: 2rem auto; text-align: center; }
 #spoiler-title { font-size: 1.5rem; line-height: 1.4; }
 #spoiler-notice p { margin: .5rem 0 1rem; }
@@ -267,7 +267,7 @@ body[data-section="items"] .catalog-grid .item-tile:is(:hover,:focus-visible) { 
 .catalog-grid .item-slot {
   /* The inset pocket sits one source pixel left and below the frame center. */
   width: 70px; height: 74px; padding: 4px 4px 0 0;
-  background: url("{{site:assets}}../images/recessed-slot.webp") center / 100% 100% no-repeat;
+  background: url("{{site:assets}}../images/recessed-slot.webp?v={{rev:images/recessed-slot.webp}}") center / 100% 100% no-repeat;
   image-rendering: pixelated;
 }
 /* Match the flat interior color over the scratches in the 2× frame. */
@@ -285,7 +285,7 @@ body[data-section="quests"] .catalog-grid .item-tile {
 }
 body[data-section="quests"] .catalog-grid .item-tile::before {
   content: ""; flex: 0 0 20px; height: 24px; margin-inline-end: 6px;
-  background: url("{{site:assets}}../images/quest-completed.webp") center / contain no-repeat; image-rendering: pixelated;
+  background: url("{{site:assets}}../images/quest-completed.webp?v={{rev:images/quest-completed.webp}}") center / contain no-repeat; image-rendering: pixelated;
 }
 .guide-dialog.detail-dialog { width: min(680px,calc(100% - 24px)); }
 .guide-dialog.detail-dialog > header { gap: 10px; }

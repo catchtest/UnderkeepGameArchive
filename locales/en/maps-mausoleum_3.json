@@ -1,9 +1,7 @@
 {
   "maps.points.mausoleum_3.a01.title": "Go upstairs → Cells of the Forgotten",
   "maps.points.mausoleum_3.detail": "The stairwell drops into a hall drowned in red. The stone sweats with a sickly glow, seams pulsing like veins beneath the floor.",
-  "maps.points.mausoleum_3.detail-2": "The tile at (10, -15) activates when the party steps on it or an object holds it down.",
   "maps.points.mausoleum_3.detail-3": "The chamber beyond the door bears little resemblance to a crypt.",
-  "maps.points.mausoleum_3.detail-4": "At (10, -4) Stepped on by the party",
   "maps.points.mausoleum_3.detail-5": "Golden Key of Zerethic, Staff of Fireball, Crimson Ring",
   "maps.points.mausoleum_3.detail-5.item-links": "[[0,22,\"item_key_hc3_gold\"],[24,41,\"item_staff_of_fireball\"],[43,55,\"item_crimson_ring\"]]",
   "maps.points.mausoleum_3.detail-6": "Step on the sensor at (10, -4) to trigger Zerics' appearance event.",

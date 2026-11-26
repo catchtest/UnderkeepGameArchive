@@ -1,9 +1,7 @@
 {
   "maps.points.mausoleum_3.a01.title": "Иди наверх. → Камеры Забытых",
   "maps.points.mausoleum_3.detail": "Лестница спускается в зал, утопающий в красном. Камень будто потеет болезненным свечением, швы в полу пульсируют словно вены.",
-  "maps.points.mausoleum_3.detail-2": "Клетка (10, -15) срабатывает, когда на неё наступает отряд или её придавливает предмет.",
   "maps.points.mausoleum_3.detail-3": "Комната за дверью совсем не похожа на склеп.",
-  "maps.points.mausoleum_3.detail-4": "На (10, -4) Команда наступила ",
   "maps.points.mausoleum_3.detail-5": "Золотой ключ Зеретика, Посох Огненного Шара, Багровое кольцо",
   "maps.points.mausoleum_3.detail-5.item-links": "[[0,21,\"item_key_hc3_gold\"],[23,43,\"item_staff_of_fireball\"],[45,60,\"item_crimson_ring\"]]",
   "maps.points.mausoleum_3.detail-6": "Нажмите на датчик на (10, -4) чтобы вызвать появление Zerics.",

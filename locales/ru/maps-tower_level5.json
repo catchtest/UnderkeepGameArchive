@@ -1,7 +1,6 @@
 {
   "maps.points.tower_level5.a01.title": "Иди вниз. → Башня - уровень 4",
   "maps.points.tower_level5.detail": "Ты чувствуешь, что твое путешествие близится к концу. Что бы ни случилось дальше, пути назад уже не будет.",
-  "maps.points.tower_level5.detail-2": "Отряд наступает на клетку (3, 0).\nСрабатывает только один раз.",
   "maps.points.tower_level5.detail-3": "На камне неподвижно лежит маг. Его дыхание едва уловимо.",
   "maps.points.tower_level5.detail-4": "Победа “Архимаг Underkeep” (3, -9)",
   "maps.points.tower_level5.detail-5": "Нажмите на датчик на (3, -7) и начните разговаривать с великим волшебником. Выберите \"Вытягивать оружие\" или \"Отказаться от участия\", или продолжите конфронтацию в ветви Суда (вы также можете выбрать Рыбу Гргла или Неизвестную Тинктуру).",
@@ -28,7 +27,6 @@
   "maps.points.tower_level5.dialogue-7": "Он бессильно тянет руку к оружию.",
   "maps.points.tower_level5.dialogue-8": "ВАМ ДАНА... СИЛА...",
   "maps.points.tower_level5.dialogue-9": "ТОГДА... ЕЩЁ НЕ ВСЁ ПОТЕРЯНО...",
-  "maps.points.tower_level5.e02.detail": "На (3, -7) Команда наступила ",
   "maps.points.tower_level5.n01.detail": "От (-6, -3) до (-2, 1)",
   "maps.points.tower_level5.title": "Победите волшебника",
   "maps.points.tower_level5.title-2": "Приближайся к башне и достигай конца "

@@ -1,9 +1,6 @@
 {
   "maps.points.mausoleum_3_2.detail": "Der Stein war von rotem Licht gedropft, und die Luft stand still und trug den Geruch von Rost; er war schwer und sauer.",
-  "maps.points.mausoleum_3_2.detail-10": "Das Feld bei (1, 0) wird ausgelöst, wenn die Gruppe es betritt oder ein Gegenstand es beschwert.",
-  "maps.points.mausoleum_3_2.detail-2": "Das Feld bei (-8, -4) wird ausgelöst, wenn die Gruppe es betritt oder ein Gegenstand es beschwert.",
   "maps.points.mausoleum_3_2.detail-3": "Als ihr euch dem Ende des Korridors nähert, windet sich Ixarion in der Luft über euch.",
-  "maps.points.mausoleum_3_2.detail-4": "Die Gruppe betritt das Feld bei (-1, 0).\nDie Gruppe betritt das Feld bei (-1, 0) in Begleitung von Ixarion.",
   "maps.points.mausoleum_3_2.detail-5": "ixarion ist bei mir\nixarion ist nicht bei mir",
   "maps.points.mausoleum_3_2.detail-6": "TÖÖÖÖÖÖÖÖÖÖÖTET......",
   "maps.points.mausoleum_3_2.detail-7": "Steuerung “Die Quelle?” (5, 0)",
@@ -55,7 +52,7 @@
   "maps.points.mausoleum_3_2.dialogue-8": "Ihr seid zurückgekehrt. Die rote Flut liegt still, Wurzeln zucken schwach und zerren Geflüster über das Gestein.",
   "maps.points.mausoleum_3_2.dialogue-9": "In der Mitte schaudert die Hülle. Zerbrochene Rippen, gefangen in Sehnen; ein eingefallenes Gesicht, halb geformt, das wie im Traum zuckt. Ihr Elend sickert abermals in euch hinein.",
   "maps.points.mausoleum_3_2.f04.detail": "Auf der Suche nach dem roten Stein Sarg bei (-7, -12).",
-  "maps.points.mausoleum_3_2.f07.detail": "Treten Sie auf den Sensor bei (1, 0) (kann auch von Objekten gedrückt werden); führen Sie das \"Quellereignis\" zum Beginn der Schlacht voran.",
+  "maps.points.mausoleum_3_2.f07.detail": "Treten Sie auf den Sensor bei (1, 0); führen Sie das \"Quellereignis\" zum Beginn der Schlacht voran.",
   "maps.points.mausoleum_3_2.l08.detail": "Dietrich-Set, Streitkolben des Erschütternden Hiebs",
   "maps.points.mausoleum_3_2.l08.detail.item-links": "[[0,12,\"item_key_lockpick\"],[14,51,\"item_mace_stagger\"]]",
   "maps.points.mausoleum_3_2.l10.detail": "Helm der Dominanz, Erstes Runenschlüssel-Fragment",

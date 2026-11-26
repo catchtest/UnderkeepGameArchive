@@ -1,11 +1,9 @@
 {
   "maps.points.surroundings_cave.a01.title": "Monter à l'étage supérieur → Racines d'Underkeep",
   "maps.points.surroundings_cave.detail": "La caverne s'élargit grandement, son sol brisé en amas de pierre déchiquetée et de poussière flottante. Vous avez l'impression que quelque chose de puissant a déchiré la chambre avec intention.",
-  "maps.points.surroundings_cave.detail-2": "La case en (0, -2) s’active lorsque le groupe marche dessus ou qu’un objet la maintient enfoncée.",
   "maps.points.surroundings_cave.detail-4": "Monolithe effondré, brisé et à demi enseveli, mais des lambeaux de runes s'accrochent encore à sa pierre.",
   "maps.points.surroundings_cave.detail-5": "Contrôles “Mécanisme” (-17, -4)\nContrôles “Mécanisme” (-10, -2)",
   "maps.points.surroundings_cave.detail-6": "La dernière carapace craque sous votre botte, le cliquetis s'est tu. La roche s'ouvre sur une chambre creuse où repose l'obélisque effondré.",
-  "maps.points.surroundings_cave.detail-7": "La case en (-10, 1) s’active lorsque le groupe marche dessus ou qu’un objet la maintient enfoncée.",
   "maps.points.surroundings_cave.dialogue": "La caverne s'élargit grandement, son sol brisé en amas de pierre déchiquetée et de poussière flottante. Vous avez l'impression que quelque chose de puissant a déchiré la chambre avec intention.",
   "maps.points.surroundings_cave.dialogue-10": "Quelque chose comme d'énormes scarabées... Vous n'avez jamais vu de traces semblables de votre vie.",
   "maps.points.surroundings_cave.dialogue-11": "Choisir “Un instant. Laissez-moi sentir si les morts ont touché cet endroit.”",

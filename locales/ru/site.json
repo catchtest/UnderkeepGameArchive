@@ -28,7 +28,6 @@
   "site.load-failed": "Не удалось загрузить.",
   "site.loading": "Загрузка…",
   "site.map-query.aria-label": "Поиск карт",
-  "site.map-query.placeholder": "Искать по названию карты",
   "site.map.layers-title": "Слои карты",
   "site.map.locate-selection": "Показать на карте",
   "site.map.reset-types": "Восстановить настройки по умолчанию",

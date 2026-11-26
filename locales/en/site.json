@@ -28,7 +28,6 @@
   "site.load-failed": "Failed to load.",
   "site.loading": "Loading…",
   "site.map-query.aria-label": "Search maps",
-  "site.map-query.placeholder": "Search map names",
   "site.map.layers-title": "Map layers",
   "site.map.locate-selection": "Locate",
   "site.map.reset-types": "Restore defaults",

@@ -1,8 +1,6 @@
 {
   "maps.points.small_spider_cave.detail": "每一步都在湿冷的黑暗中回响，蛛网像帘幕般垂着。 你感觉有眼睛在看你。很多眼睛。",
-  "maps.points.small_spider_cave.detail-2": "在（3, -59）队伍踩踏、物件压住",
   "maps.points.small_spider_cave.detail-4": "黑暗中有东西在动。蛛网颤抖，长腿从阴影中滑出。",
-  "maps.points.small_spider_cave.detail-5": "在（4, -59）队伍踩踏、物件压住",
   "maps.points.small_spider_cave.detail-6": "蜘蛛眼（80%）、毒囊（25%）",
   "maps.points.small_spider_cave.detail-6.item-links": "[[0,3,\"item_spider_eye\"],[9,11,\"item_venom_sac\"]]",
   "maps.points.small_spider_cave.dialogue": "每一步都在湿冷的黑暗中回响，蛛网像帘幕般垂着。\n你感觉有眼睛在看你。很多眼睛。",

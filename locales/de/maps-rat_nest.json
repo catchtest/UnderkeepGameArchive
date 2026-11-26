@@ -1,6 +1,5 @@
 {
   "maps.points.rat_nest.detail": "Sie betreten die Steinkammer, gefüllt mit überwältigendem Gestank: Urin, verrottetes Fleisch und nasses Haar.",
-  "maps.points.rat_nest.detail-2": "Das Feld bei (39, -48) wird ausgelöst, wenn die Gruppe es betritt oder ein Gegenstand es beschwert.",
   "maps.points.rat_nest.detail-3": "Auf den Kampf vorbereiten. (Benötigt: Krieger)",
   "maps.points.rat_nest.dialogue": "Als die Gruppe die unterirdische Kammer betritt, schlägt euch eine Welle von Gestank entgegen. Faulig und feucht, stinkend nach Urin, Fäulnis und nassem Fell. Die Luft ist dick, schwer zu atmen, jeder Atemzug von Verfall durchdrungen.",
   "maps.points.rat_nest.dialogue-10": "Wähle “Die Kolonie bewundern.”",
@@ -29,7 +28,7 @@
   "maps.points.rat_nest.dialogue-7": "Auf den Kampf vorbereiten. (Benötigt: Krieger)",
   "maps.points.rat_nest.dialogue-8": "Einen Kopfschuss auf die Königin abgeben. (Benötigt: Waldläufer)",
   "maps.points.rat_nest.dialogue-9": "Die Kolonie bewundern. (Benötigt: Schneckenmensch)",
-  "maps.points.rat_nest.f21.detail": "Drücken Sie den Sensor auf (39, -48) (kann auch von Objekten gedrückt werden), um den Dialog bis zum Beginn der Schlacht in der Veranstaltung \"Rat Nest Leader\" voranzutreiben.",
+  "maps.points.rat_nest.f21.detail": "Drücken Sie den Sensor auf (39, -48), um den Dialog bis zum Beginn der Schlacht in der Veranstaltung \"Rat Nest Leader\" voranzutreiben.",
   "maps.points.rat_nest.f32.detail": "Die \"Rat Nest Leader Encounter\" bezieht sich auf dieses Individuum, aber die Checkpoint-Informationen geben nicht die Auftrittsbedingungen an.",
   "maps.points.rat_nest.l01.detail": "Knochen, Staub und Knochen, Brot",
   "maps.points.rat_nest.l01.detail.item-links": "[[0,7,\"item_bones03\"],[9,26,\"item_bones06\"],[28,32,\"item_food_bread\"]]",

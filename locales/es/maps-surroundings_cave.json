@@ -1,11 +1,9 @@
 {
   "maps.points.surroundings_cave.a01.title": "- ¿Por qué no subes? → Raices de Underkeep",
   "maps.points.surroundings_cave.detail": "La caverna se abre de golpe, su suelo se ha convertido en montones de piedras irregulares y polvo suspendido en el aire. Da la sensación de que algo poderoso la hubiera destrozado con toda intención.",
-  "maps.points.surroundings_cave.detail-2": "La casilla en (0, -2) se activa cuando el grupo la pisa o un objeto la mantiene presionada.",
   "maps.points.surroundings_cave.detail-4": "Monolito caído, roto y medio enterrado, pero aún quedan fragmentos de runas adheridos a su piedra.",
   "maps.points.surroundings_cave.detail-5": "Controles “Mecanismo” (-17, -4)\nControles “Mecanismo” (-10, -2)",
   "maps.points.surroundings_cave.detail-6": "La última concha se quiebra bajo tu bota, el escurridizo crujido desaparece. La roca cede, dejando al descubierto una cámara hueca donde yace el obelisco caído.",
-  "maps.points.surroundings_cave.detail-7": "La casilla en (-10, 1) se activa cuando el grupo la pisa o un objeto la mantiene presionada.",
   "maps.points.surroundings_cave.dialogue": "La caverna se abre de golpe, su suelo se ha convertido en montones de piedras irregulares y polvo suspendido en el aire. Da la sensación de que algo poderoso la hubiera destrozado con toda intención.",
   "maps.points.surroundings_cave.dialogue-10": "Algo parecido a escarabajos gigantes... Nunca has visto huellas como estas en tu vida.",
   "maps.points.surroundings_cave.dialogue-11": "Elige “Espera. Déjame sentir si los muertos han tocado este lugar.”",

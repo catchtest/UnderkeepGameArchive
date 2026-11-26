@@ -1,11 +1,9 @@
 {
   "maps.points.surroundings_cave.a01.title": "Geh nach oben . → Umland von Underkeep",
   "maps.points.surroundings_cave.detail": "Die Höhle gähnt offen vor euch, ihr Boden in Haufen aus gezacktem Stein und treibendem Staub aufgebrochen. Es fühlt sich an, als hätte etwas Mächtiges das Gewölbe voller Absicht in Stücke gerissen.",
-  "maps.points.surroundings_cave.detail-2": "Das Feld bei (0, -2) wird ausgelöst, wenn die Gruppe es betritt oder ein Gegenstand es beschwert.",
   "maps.points.surroundings_cave.detail-4": "Ein gestürzter Monolith, zerbrochen und halb vergraben, doch noch immer klammern sich Runenreste an sein Gestein.",
   "maps.points.surroundings_cave.detail-5": "Steuerung “Mechanismus” (-17, -4)\nSteuerung “Mechanismus” (-10, -2)",
   "maps.points.surroundings_cave.detail-6": "Der letzte Panzer bricht unter eurem Stiefel, das Huschen ist verstummt. Der Fels gibt den Weg in ein hohles Gewölbe frei, in dem der gestürzte Monolith liegt.",
-  "maps.points.surroundings_cave.detail-7": "Das Feld bei (-10, 1) wird ausgelöst, wenn die Gruppe es betritt oder ein Gegenstand es beschwert.",
   "maps.points.surroundings_cave.dialogue": "Die Höhle gähnt offen vor euch, ihr Boden in Haufen aus gezacktem Stein und treibendem Staub aufgebrochen. Es fühlt sich an, als hätte etwas Mächtiges das Gewölbe voller Absicht in Stücke gerissen.",
   "maps.points.surroundings_cave.dialogue-10": "Etwas Ähnliches wie riesige Käfer ... Solche Spuren hast du in deinem ganzen Leben noch nicht gesehen.",
   "maps.points.surroundings_cave.dialogue-11": "Wähle “Wartet. Ich erspüre, ob die Toten diesen Ort berührt haben.”",

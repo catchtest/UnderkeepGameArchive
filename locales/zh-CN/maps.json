@@ -528,5 +528,11 @@
   "maps.ui.zoom": "地图缩放",
   "maps.ui.zoom-fit": "适合全图",
   "maps.ui.zoom-in": "放大",
-  "maps.ui.zoom-out": "缩小"
+  "maps.ui.zoom-out": "缩小",
+  "maps.trigger.once": "限首次触发",
+  "maps.trigger.requires-ranger": "队伍中须有游侠",
+  "maps.trigger.requires-ixarion": "须有伊克萨里昂同行",
+  "maps.trigger.requires-soulforge": "须已发现灵魂锻造炉",
+  "maps.trigger.requires-grgla": "须有格尔格拉同行",
+  "maps.trigger.active-without-grgla": "提示点须已启用，且格尔格拉未同行"
 }

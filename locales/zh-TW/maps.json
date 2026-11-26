@@ -528,5 +528,11 @@
   "maps.ui.zoom": "地圖縮放",
   "maps.ui.zoom-fit": "適合全圖",
   "maps.ui.zoom-in": "放大",
-  "maps.ui.zoom-out": "縮小"
+  "maps.ui.zoom-out": "縮小",
+  "maps.trigger.once": "限首次觸發",
+  "maps.trigger.requires-ranger": "隊伍中須有遊俠",
+  "maps.trigger.requires-ixarion": "須有伊克薩里昂同行",
+  "maps.trigger.requires-soulforge": "須已發現靈魂鍛造爐",
+  "maps.trigger.requires-grgla": "須有格爾格拉同行",
+  "maps.trigger.active-without-grgla": "提示點須已啟用，且格爾格拉未同行"
 }

@@ -528,5 +528,11 @@
   "maps.ui.zoom": "Zvětšování mapy",
   "maps.ui.zoom-fit": "Podle mapy",
   "maps.ui.zoom-in": "Zvětšování",
-  "maps.ui.zoom-out": "Zmenšování"
+  "maps.ui.zoom-out": "Zmenšování",
+  "maps.trigger.once": "Spustí se pouze jednou.",
+  "maps.trigger.requires-ranger": "V družině musí být hraničář.",
+  "maps.trigger.requires-ixarion": "Ixarion musí být s družinou.",
+  "maps.trigger.requires-soulforge": "Kovárna duší už musí být objevena.",
+  "maps.trigger.requires-grgla": "Grgla musí být s družinou.",
+  "maps.trigger.active-without-grgla": "Spouštěč musí být aktivní a Grgla nesmí být s družinou."
 }

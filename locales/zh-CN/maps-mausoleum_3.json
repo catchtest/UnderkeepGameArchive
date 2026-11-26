@@ -1,9 +1,7 @@
 {
   "maps.points.mausoleum_3.a01.title": "上楼 → 被遗忘者的牢房",
   "maps.points.mausoleum_3.detail": "楼梯井向下落入一座被红色淹没的大厅。石头渗出病态的 光，接缝像地板下的血管般搏动。",
-  "maps.points.mausoleum_3.detail-2": "在（10, -15）队伍踩踏、物件压住",
   "maps.points.mausoleum_3.detail-3": "门后的石室几乎不像墓穴。",
-  "maps.points.mausoleum_3.detail-4": "在（10, -4）队伍踩踏",
   "maps.points.mausoleum_3.detail-5": "泽瑞西克的金钥匙、火球法杖、猩红戒指",
   "maps.points.mausoleum_3.detail-5.item-links": "[[0,8,\"item_key_hc3_gold\"],[9,13,\"item_staff_of_fireball\"],[14,18,\"item_crimson_ring\"]]",
   "maps.points.mausoleum_3.detail-6": "踩上（10, -4）的感应板，触发泽瑞西克的登场事件。",

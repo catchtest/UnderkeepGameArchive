@@ -133,6 +133,7 @@
   "common.other-available-items": "Weitere verfügbare Gegenstände",
   "common.overview": "Übersicht",
   "common.party": "Partei",
+  "common.party-enters-tile": "Die Gruppe betritt dieses Feld",
   "common.party-or-mechanism-object": "Parteiorganisation oder mechanisches Objekt",
   "common.passive": "(Passiv)",
   "common.physical-attack": "Körperliche Attacke",

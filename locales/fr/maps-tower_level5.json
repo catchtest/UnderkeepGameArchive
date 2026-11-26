@@ -1,7 +1,6 @@
 {
   "maps.points.tower_level5.a01.title": "Montez les escaliers → Niveau 4 de la Tour",
   "maps.points.tower_level5.detail": "Vous sentez que votre voyage arrive à sa fin. Quoi qu'il arrive par la suite, il n'y aura plus de retour possible.",
-  "maps.points.tower_level5.detail-2": "Le groupe marche sur la case en (3, 0).\nNe se déclenche qu’une fois.",
   "maps.points.tower_level5.detail-3": "Le sorcier gît brisé sur la pierre. Sa respiration est faible.",
   "maps.points.tower_level5.detail-4": "Défaite “Archimage d'Underkeep” (3, -9)",
   "maps.points.tower_level5.detail-5": "Montez sur la plaque de détection située à (3, -7) pour commencer une conversation avec le grand sorcier. Choisis soit « Arracher l’arme » ou « Refuser de participer », soit continuez la confrontation dans la branche du jugement (vous pouvez également jeter le poisson de Grgla ou la teinture inconnue).",
@@ -28,7 +27,6 @@
   "maps.points.tower_level5.dialogue-7": "Sa main se lève faiblement vers l'arme.",
   "maps.points.tower_level5.dialogue-8": "VOUS AVEZ... DU POUVOIR...",
   "maps.points.tower_level5.dialogue-9": "ALORS TOUT... N'EST PAS PERDU...",
-  "maps.points.tower_level5.e02.detail": "À (3, -7) La troupe piétine",
   "maps.points.tower_level5.n01.detail": "De (-6, -3) à (-2, 1)",
   "maps.points.tower_level5.title": "Battre le sorcier",
   "maps.points.tower_level5.title-2": "Approche de la fin de la tour haute"

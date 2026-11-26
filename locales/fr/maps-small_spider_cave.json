@@ -1,8 +1,6 @@
 {
   "maps.points.small_spider_cave.detail": "Chaque pas résonne dans l’obscurité froide ; les toiles de araignées pendent comme des rideaux. Tu as l’impression qu’il y a des yeux qui te regardent… Beaucoup d’yeux.",
-  "maps.points.small_spider_cave.detail-2": "La case en (3, -59) s’active lorsque le groupe marche dessus ou qu’un objet la maintient enfoncée.",
   "maps.points.small_spider_cave.detail-4": "Quelque chose bouge dans le noir. Les toiles frémissent tandis que de longues pattes glissent hors des ombres.",
-  "maps.points.small_spider_cave.detail-5": "La case en (4, -59) s’active lorsque le groupe marche dessus ou qu’un objet la maintient enfoncée.",
   "maps.points.small_spider_cave.detail-6": "Œil d'araignée (80%), Sac de venin (25%)",
   "maps.points.small_spider_cave.detail-6.item-links": "[[0,14,\"item_spider_eye\"],[22,34,\"item_venom_sac\"]]",
   "maps.points.small_spider_cave.dialogue": "Chaque pas résonne dans l'obscurité moite, où les toiles pendent comme des rideaux. Vous sentez des yeux sur vous. Beaucoup d'yeux.",

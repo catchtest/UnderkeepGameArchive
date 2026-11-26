@@ -1,6 +1,5 @@
 {
   "maps.points.rat_nest.detail": "Vous entrez dans la chambre de pierre, une odeur nauséabonde vous assaille : urine, chair en décomposition et poils humides. Le sol est couvert de saleté.",
-  "maps.points.rat_nest.detail-2": "La case en (39, -48) s’active lorsque le groupe marche dessus ou qu’un objet la maintient enfoncée.",
   "maps.points.rat_nest.detail-3": "Préparer le combat. (Nécessite : Guerrier)",
   "maps.points.rat_nest.dialogue": "Lorsque le groupe entre dans la chambre souterraine, une vague de puanteur les frappe. Fétide et humide, empestant l'urine, la pourriture et la fourrure mouillée. L'air est épais, difficile à respirer, chaque inspiration chargée de décomposition.",
   "maps.points.rat_nest.dialogue-10": "Choisir “Admirer la colonie.”",
@@ -29,7 +28,7 @@
   "maps.points.rat_nest.dialogue-7": "Préparer le combat. (Nécessite : Guerrier)",
   "maps.points.rat_nest.dialogue-8": "Viser la tête de la Reine. (Nécessite : Rôdeur)",
   "maps.points.rat_nest.dialogue-9": "Admirer la colonie. (Nécessite : Limacien)",
-  "maps.points.rat_nest.f21.detail": "Appuyez sur la plaque de réception située à (39, -48) (elle peut également être pressée par des objets). Pour avancer la conversation jusqu’à l’arrivée de la bataille, utilisez le événement “Roi des rats”.",
+  "maps.points.rat_nest.f21.detail": "Appuyez sur la plaque de réception située à (39, -48). Pour avancer la conversation jusqu’à l’arrivée de la bataille, utilisez le événement “Roi des rats”.",
   "maps.points.rat_nest.f32.detail": "L’événement “Roi des rats” mentionne cet individu, mais les informations concernant son apparition ne sont pas spécifiées.",
   "maps.points.rat_nest.l01.detail": "Os, Poussière et ossements, Pain",
   "maps.points.rat_nest.l01.detail.item-links": "[[0,2,\"item_bones03\"],[4,26,\"item_bones06\"],[28,32,\"item_food_bread\"]]",

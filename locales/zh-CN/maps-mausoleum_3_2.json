@@ -1,9 +1,6 @@
 {
   "maps.points.mausoleum_3_2.detail": "石头湿漉漉地泛着红光。空气停滞，带着铁锈的味道， 沉重而发酸。",
-  "maps.points.mausoleum_3_2.detail-10": "在（1, 0）队伍踩踏、物件压住",
-  "maps.points.mausoleum_3_2.detail-2": "在（-8, -4）队伍踩踏、物件压住",
   "maps.points.mausoleum_3_2.detail-3": "你们接近走廊尽头时，伊克萨里昂在你上方扭曲。",
-  "maps.points.mausoleum_3_2.detail-4": "在（-1, 0）队伍踩踏\n在（-1, 0）队伍踩踏，需伊克萨里昂同行",
   "maps.points.mausoleum_3_2.detail-5": "伊克萨里昂同行\n伊克萨里昂未同行",
   "maps.points.mausoleum_3_2.detail-6": "杀杀杀杀……",
   "maps.points.mausoleum_3_2.detail-7": "操作「源头」（5, 0）",
@@ -55,7 +52,7 @@
   "maps.points.mausoleum_3_2.dialogue-8": "石室和你离开时一样。红色液体静止不动，但源头周围的根须仍在微微抽动。",
   "maps.points.mausoleum_3_2.dialogue-9": "中央的扭曲身影动了动。它半成形的脸转向你。",
   "maps.points.mausoleum_3_2.f04.detail": "搜索（-7, -12）的红色石棺。",
-  "maps.points.mausoleum_3_2.f07.detail": "踩上（1, 0）的感应板（也可用物件压住），推进源头事件至战斗开始。",
+  "maps.points.mausoleum_3_2.f07.detail": "踩上（1, 0）的感应板，推进源头事件至战斗开始。",
   "maps.points.mausoleum_3_2.l08.detail": "开锁工具、蹒跚钉锤",
   "maps.points.mausoleum_3_2.l08.detail.item-links": "[[0,4,\"item_key_lockpick\"],[5,9,\"item_mace_stagger\"]]",
   "maps.points.mausoleum_3_2.l10.detail": "统御头盔、第一符文片段",

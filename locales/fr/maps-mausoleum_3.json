@@ -1,9 +1,7 @@
 {
   "maps.points.mausoleum_3.a01.title": "Monter à l'étage supérieur → Cellules des Oubliés",
   "maps.points.mausoleum_3.detail": "L'escalier plonge dans une salle noyée de rouge. La pierre suinte d'une lueur malsaine, les joints pulsant comme des veines sous le sol.",
-  "maps.points.mausoleum_3.detail-2": "La case en (10, -15) s’active lorsque le groupe marche dessus ou qu’un objet la maintient enfoncée.",
   "maps.points.mausoleum_3.detail-3": "La chambre au-delà de la porte ne ressemble en rien à une crypte.",
-  "maps.points.mausoleum_3.detail-4": "À (10, -4) La troupe piétine",
   "maps.points.mausoleum_3.detail-5": "Clé dorée de Zerethic, Bâton de boule de feu, Anneau cramoisi",
   "maps.points.mausoleum_3.detail-5.item-links": "[[0,21,\"item_key_hc3_gold\"],[23,44,\"item_staff_of_fireball\"],[46,61,\"item_crimson_ring\"]]",
   "maps.points.mausoleum_3.detail-6": "Surmontez le panneau situé à (10, -4), pour déclencher l’événement d’apparition de Zericks.",

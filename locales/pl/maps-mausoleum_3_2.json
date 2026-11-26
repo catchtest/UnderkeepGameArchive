@@ -1,9 +1,6 @@
 {
   "maps.points.mausoleum_3_2.detail": "Kamień kroplił się z czerwonego światła, a powietrze zatrzymało się, nosząc zapach roży, był ciężki i kwasny.",
-  "maps.points.mausoleum_3_2.detail-10": "Pole (1, 0) aktywuje się, gdy drużyna na nim stanie lub gdy zostanie obciążone przedmiotem.",
-  "maps.points.mausoleum_3_2.detail-2": "Pole (-8, -4) aktywuje się, gdy drużyna na nim stanie lub gdy zostanie obciążone przedmiotem.",
   "maps.points.mausoleum_3_2.detail-3": "Gdy zbliżasz się do końca korytarza, Ixarion zaczyna wić się w powietrzu nad waszymi głowami.",
-  "maps.points.mausoleum_3_2.detail-4": "Drużyna staje na polu (-1, 0).\nDrużyna staje na polu (-1, 0) w towarzystwie Ixariona.",
   "maps.points.mausoleum_3_2.detail-5": "ixarion jest ze mną\nixarion nie jest ze mną",
   "maps.points.mausoleum_3_2.detail-6": "ZABIIIIIIIIJ.....",
   "maps.points.mausoleum_3_2.detail-7": "Ustawienia Kontrolera “Źródło?” (5, 0)",
@@ -55,7 +52,7 @@
   "maps.points.mausoleum_3_2.dialogue-8": "Wróciliście. Czerwona maź znów leży spokojnie, korzenie drgają ledwie dostrzegalnie..",
   "maps.points.mausoleum_3_2.dialogue-9": "Istota trzęsie się w centrum. Połamane żebra tkwią w ścięgnach, zapadnięta twarz dopiero nabiera kształtu i drga jak w koszmarze. Jej cierpienie znów przenika do ciebie.",
   "maps.points.mausoleum_3_2.f04.detail": "Szukam czerwonego trumny kamienia na (-7, -12).",
-  "maps.points.mausoleum_3_2.f07.detail": "Krąż na czujniku przy (1, 0) (można być również naciśnięta przez obiekty); wprowadź \"Wydarzenie źródłowe\" do początku bitwy.",
+  "maps.points.mausoleum_3_2.f07.detail": "Krąż na czujniku przy (1, 0); wprowadź \"Wydarzenie źródłowe\" do początku bitwy.",
   "maps.points.mausoleum_3_2.l08.detail": "Zestaw Wytrychów, Młot Zachwiania",
   "maps.points.mausoleum_3_2.l08.detail.item-links": "[[0,16,\"item_key_lockpick\"],[18,33,\"item_mace_stagger\"]]",
   "maps.points.mausoleum_3_2.l10.detail": "Hełm Dominacji, Pierwszy Fragment Runiczny",

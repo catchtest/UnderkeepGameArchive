@@ -1,7 +1,6 @@
 {
   "maps.points.tower_level5.a01.title": "Geh nach unten . → Turm - Ebene 4",
   "maps.points.tower_level5.detail": "Ihr spürt, dass sich eure Reise ihrem Ende nähert. Was auch immer als Nächstes geschieht, es wird kein Zurück mehr geben.",
-  "maps.points.tower_level5.detail-2": "Die Gruppe betritt das Feld bei (3, 0).\nWird nur einmal ausgelöst.",
   "maps.points.tower_level5.detail-3": "Der Magier liegt gebrochen auf dem Stein. Sein Atem ist flach.",
   "maps.points.tower_level5.detail-4": "Niederlage “Erzmagier von Underkeep” (3, -9)",
   "maps.points.tower_level5.detail-5": "Steigen Sie auf den Sensor auf (3, -7) und beginnen Sie mit dem großen Zauberer zu sprechen. Wählen Sie \"Schieben Sie Waffen\" oder \"Verweigern Sie die Teilnahme\" oder setzen Sie die Konfrontation im Zweig des Urteils fort (Sie können auch Grglas Fisch oder die Unbekannte Tinktur werfen).",
@@ -28,7 +27,6 @@
   "maps.points.tower_level5.dialogue-7": "Schwach hebt er eine Hand in Richtung der Waffe.",
   "maps.points.tower_level5.dialogue-8": "IHR BESITZT... MACHT...",
   "maps.points.tower_level5.dialogue-9": "DANN IST... NOCH NICHT ALLES VERLOREN...",
-  "maps.points.tower_level5.e02.detail": "At (3, -7) Von der Party betreten",
   "maps.points.tower_level5.n01.detail": "(-6, -3) bis (-2, 1)",
   "maps.points.tower_level5.title": "Den Zauberer besiegen",
   "maps.points.tower_level5.title-2": "Näher zum Turm und am Ende"

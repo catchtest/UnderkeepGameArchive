@@ -1,7 +1,6 @@
 {
   "maps.points.tower_level5.a01.title": "下樓 → 高塔四層",
   "maps.points.tower_level5.detail": "你感覺到旅程已接近終點。無論接下來發生什麼，都無法回頭。",
-  "maps.points.tower_level5.detail-2": "在（3, 0）隊伍踩踏\n限首次觸發",
   "maps.points.tower_level5.detail-3": "法師倒在石頭上，呼吸微弱。",
   "maps.points.tower_level5.detail-4": "擊敗「Underkeep 大法師」（3, -9）",
   "maps.points.tower_level5.detail-5": "踩上（3, -7）的感應板開始與大法師對話。選「拔出武器」或「拒絕參與」，或在審判分支繼續對峙（也可扔出格爾格拉的魚或不明酊劑）。",
@@ -28,7 +27,6 @@
   "maps.points.tower_level5.dialogue-7": "他的手無力地朝那武器抬起。",
   "maps.points.tower_level5.dialogue-8": "你擁有……力量……",
   "maps.points.tower_level5.dialogue-9": "那麼一切……尚未失去……",
-  "maps.points.tower_level5.e02.detail": "在（3, -7）隊伍踩踏",
   "maps.points.tower_level5.n01.detail": "(-6, -3) 至 (-2, 1)",
   "maps.points.tower_level5.title": "擊敗法師",
   "maps.points.tower_level5.title-2": "接近高塔結局"

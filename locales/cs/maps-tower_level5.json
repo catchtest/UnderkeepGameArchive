@@ -1,7 +1,6 @@
 {
   "maps.points.tower_level5.a01.title": "Jdi dolů. → Underkeep - Čtvrté patro",
   "maps.points.tower_level5.detail": "Cítíš, že se tvé dobdrodružství chýlí ke konci. Ať už se stane cokoli, brzy už nebude návratu.",
-  "maps.points.tower_level5.detail-2": "Družina vstoupí na pole (3, 0).\nSpustí se pouze jednou.",
   "maps.points.tower_level5.detail-3": "Čaroděj leží bezvládně na kamenné podlaze. Dýchá mělce.",
   "maps.points.tower_level5.detail-4": "Porážka “Pán Věže” (3, -9)",
   "maps.points.tower_level5.detail-5": "Nasednout na senzorovou desku na (3, -7) a začít konverzaci s velkým čarodějem. Vybrat „Vytáhnout zbraň“ nebo „Odmítnout účast“, nebo pokračovat v konverzaci v odvětvu soudního procesu (lze také hodit Grglovu rybu nebo neznámou tinkturu).",
@@ -28,7 +27,6 @@
   "maps.points.tower_level5.dialogue-7": "Slabě pozvedne ruku směrem ke zbrani.",
   "maps.points.tower_level5.dialogue-8": "MÁTE... MOC...",
   "maps.points.tower_level5.dialogue-9": "PAK JEŠTĚ... NENÍ VŠE ZTRACENO...",
-  "maps.points.tower_level5.e02.detail": "At (3, -7) Našli jsme se na párty ",
   "maps.points.tower_level5.n01.detail": "(-6, -3) až (-2, 1)",
   "maps.points.tower_level5.title": "Porazit kouzelníka",
   "maps.points.tower_level5.title-2": "Přibližujte se k věži a dosáhněte konce"

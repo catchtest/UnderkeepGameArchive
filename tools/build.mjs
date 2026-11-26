@@ -1,4 +1,5 @@
 import { lstat, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { dirname, extname, join, posix, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
@@ -54,6 +55,21 @@ locales.sort((a, b) => languageOrder(a.code) - languageOrder(b.code));
 const alternateLinks = [...locales.map(({ code }) =>
   `<link rel="alternate" hreflang="${code}" href="${publicRoot}${code}/">`),
   `<link rel="alternate" hreflang="x-default" href="${publicRoot}">`].join('\n');
+
+const cachedAssets = new Map();
+const assetRevisions = new Map();
+function addCachedAsset(file, content) {
+  cachedAssets.set(file, content);
+  assetRevisions.set(file.split(sep).join('/'), createHash('sha256').update(content).digest('hex').slice(0, 16));
+}
+
+const sharedTemplates = new Set(['css/site.css', 'css/home.css', 'css/map.css', 'scripts/map-art.js']);
+for (const entry of await readdir(join(root, 'images'), { recursive: true, withFileTypes: true })) {
+  if (!entry.isFile()) continue;
+  const file = join(entry.parentPath, entry.name);
+  addCachedAsset(relative(root, file), await readFile(file));
+}
+const mapImageRevisions = Object.fromEntries([...assetRevisions].filter(([file]) => file.startsWith('images/maps/')));
 
 const jsString = value => JSON.stringify(value).slice(1, -1);
 const singleQuoted = value => jsString(value).replace(/\\"|'/g, match => match === "'" ? "\\'" : '"');
@@ -128,16 +144,33 @@ function render(text, file, locale, menu, directory = locale.code) {
     .replaceAll('{{site:bundle}}', directory ? '' : locale.code + '/')
     .replace('{{site:alternate-links}}', alternateLinks)
     .replace('{{site:language-menu}}', () => menu)
-    .replace('{{site:translation-credit}}', () => translationCredit(locale));
+    .replace('{{site:translation-credit}}', () => translationCredit(locale))
+    .replace('{{site:map-image-revisions}}', () => JSON.stringify(mapImageRevisions))
+    .replace(/\{\{rev:([\w./-]+)\}\}/g, (_, asset) => {
+      const revision = assetRevisions.get(asset) ?? assetRevisions.get(locale.code + '/' + asset);
+      if (!revision) throw new Error(`Unknown cached asset ${asset} in ${file}`);
+      return revision;
+    });
   return extname(file) === '.svg' && content.includes('class="paths"') ? layoutFlowchart(content) : content;
 }
 
 const templates = [];
+let cacheWorker;
 for (const entry of await readdir(source, { recursive: true, withFileTypes: true })) {
   if (!entry.isFile()) continue;
   const file = join(entry.parentPath, entry.name);
   const relativePath = relative(source, file);
-  templates.push([relativePath, await readFile(file, 'utf8')]);
+  const text = await readFile(file, 'utf8');
+  if (relativePath === 'shared-cache.js') cacheWorker = text;
+  else if (sharedTemplates.has(relativePath.split(sep).join('/'))) {
+    if (text.includes('{{t:')) throw new Error('Shared asset contains a translation: ' + relativePath);
+    addCachedAsset(relativePath, Buffer.from(render(text, relativePath, rootLocale, '', '')));
+  } else if (extname(relativePath) === '.svg') {
+    for (const locale of locales) {
+      const file = join(locale.code, relativePath);
+      addCachedAsset(file, Buffer.from(render(text, relativePath, locale, '')));
+    }
+  } else templates.push([relativePath, text]);
 }
 
 const renderedFiles = locales.flatMap(locale => {
@@ -153,11 +186,12 @@ const previousOutput = await lstat(output).catch(error => {
 if (previousOutput && !previousOutput.isDirectory()) throw new Error('Expected dist/ to be a directory');
 await mkdir(output, { recursive: true });
 const files = new Map(renderedFiles.map(([file, text]) => [file, Buffer.from(text)]));
+for (const [file, content] of cachedAssets) files.set(file, content);
+files.set('shared-cache.js', Buffer.from(cacheWorker.replace('{{site:asset-revisions}}', () =>
+  JSON.stringify(Object.fromEntries([...assetRevisions].sort(([a], [b]) => a.localeCompare(b)))))));
 const assets = ['google2bb38367b58a7b42.html'];
-for (const folder of ['fonts', 'images']) {
-  for (const entry of await readdir(join(root, folder), { recursive: true, withFileTypes: true })) {
-    if (entry.isFile()) assets.push(relative(root, join(entry.parentPath, entry.name)));
-  }
+for (const entry of await readdir(fontDir, { recursive: true, withFileTypes: true })) {
+  if (entry.isFile()) assets.push(relative(root, join(entry.parentPath, entry.name)));
 }
 for (let i = 0; i < assets.length; i += 32) {
   await Promise.all(assets.slice(i, i + 32).map(async file => files.set(file, await readFile(join(root, file)))));
@@ -190,4 +224,4 @@ for (let i = 0; i < entries.length; i += 32) {
   }));
 }
 
-console.log(`Built ${locales.map(locale => locale.code).join(', ')} in dist/ (${renderedFiles.length} site files).`);
+console.log(`Built ${locales.map(locale => locale.code).join(', ')} in dist/ (${files.size} files).`);

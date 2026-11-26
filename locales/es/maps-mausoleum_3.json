@@ -1,9 +1,7 @@
 {
   "maps.points.mausoleum_3.a01.title": "- ¿Por qué no subes? → Celdas de los olvidados",
   "maps.points.mausoleum_3.detail": "La escalera desemboca en un vestíbulo bañado en rojo. La piedra rezuma con un brillo enfermizo, y las juntas palpitan como venas bajo el suelo.",
-  "maps.points.mausoleum_3.detail-2": "La casilla en (10, -15) se activa cuando el grupo la pisa o un objeto la mantiene presionada.",
   "maps.points.mausoleum_3.detail-3": "La estancia que se encuentra tras la puerta apenas se parece a una cripta.",
-  "maps.points.mausoleum_3.detail-4": "At (10, -4) El partido lo ha golpeado",
   "maps.points.mausoleum_3.detail-5": "Llave dorada de Zerethic, Báculo de bolas de fuego, Anillo carmesí",
   "maps.points.mausoleum_3.detail-5.item-links": "[[0,24,\"item_key_hc3_gold\"],[26,50,\"item_staff_of_fireball\"],[52,66,\"item_crimson_ring\"]]",
   "maps.points.mausoleum_3.detail-6": "Ponga el sensor en (10, -4) para activar el evento de aparición de Zerics.",

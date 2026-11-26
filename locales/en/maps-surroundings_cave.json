@@ -1,11 +1,9 @@
 {
   "maps.points.surroundings_cave.a01.title": "Go upstairs → Roots of Underkeep",
   "maps.points.surroundings_cave.detail": "The cavern yawns open, its floor broken into heaps of jagged stone and drifting dust. It feels as though something powerful tore the chamber apart with intent.",
-  "maps.points.surroundings_cave.detail-2": "The tile at (0, -2) activates when the party steps on it or an object holds it down.",
   "maps.points.surroundings_cave.detail-4": "Fallen monolith, broken and half-buried, yet scraps of runes still cling to its stone.",
   "maps.points.surroundings_cave.detail-5": "Controls “Mechanism” (-17, -4)\nControls “Mechanism” (-10, -2)",
   "maps.points.surroundings_cave.detail-6": "The last shell cracks under your boot, the skittering gone. The rock gives way to a hollow chamber where the fallen obelisk lies.",
-  "maps.points.surroundings_cave.detail-7": "The tile at (-10, 1) activates when the party steps on it or an object holds it down.",
   "maps.points.surroundings_cave.dialogue": "The cavern yawns open, its floor broken into heaps of jagged stone and drifting dust. It feels as though something powerful tore the chamber apart with intent.",
   "maps.points.surroundings_cave.dialogue-10": "Something like huge beetles... You've never seen prints like these in your life.",
   "maps.points.surroundings_cave.dialogue-11": "Choose “Wait. Let me sense whether the dead have touched this place.”",

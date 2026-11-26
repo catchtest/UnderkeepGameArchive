@@ -1,8 +1,6 @@
 {
   "maps.points.small_spider_cave.detail": "Jeder Schritt hört sich in der feuchten und kalten Dunkelheit an, mit Netzwerken wie Vorhängen hängen.",
-  "maps.points.small_spider_cave.detail-2": "Das Feld bei (3, -59) wird ausgelöst, wenn die Gruppe es betritt oder ein Gegenstand es beschwert.",
   "maps.points.small_spider_cave.detail-4": "Etwas bewegt sich in der Dunkelheit. Die Netze erzittern, als lange Beine aus den Schatten gleiten.",
-  "maps.points.small_spider_cave.detail-5": "Das Feld bei (4, -59) wird ausgelöst, wenn die Gruppe es betritt oder ein Gegenstand es beschwert.",
   "maps.points.small_spider_cave.detail-6": "Spinnenauge (80%), Giftsack (25%)",
   "maps.points.small_spider_cave.detail-6.item-links": "[[0,11,\"item_spider_eye\"],[19,27,\"item_venom_sac\"]]",
   "maps.points.small_spider_cave.dialogue": "Jeder Schritt hallt durch die klamme Dunkelheit, in der Spinnweben wie Vorhänge herabhängen. Ihr spürt Augen auf euch gerichtet. Viele Augen.",

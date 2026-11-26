@@ -133,6 +133,7 @@
   "common.other-available-items": "Autres objets disponibles",
   "common.overview": "Aperçu général",
   "common.party": "Partie adverse",
+  "common.party-enters-tile": "Le groupe entre dans cette case",
   "common.party-or-mechanism-object": "Objets liés à la partie adverse ou au mécanisme",
   "common.passive": "(Passif)",
   "common.physical-attack": "Attaque physique",

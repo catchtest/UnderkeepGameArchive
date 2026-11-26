@@ -1,7 +1,6 @@
 {
   "maps.points.tower_level5.a01.title": "Idź na dół. → Wieża Piętro 4",
   "maps.points.tower_level5.detail": "Czujesz, że twoja podróż zbliża się ku końcowi. Cokolwiek wydarzy się dalej, powrotu już nie będzie.",
-  "maps.points.tower_level5.detail-2": "Drużyna staje na polu (3, 0).\nAktywuje się tylko raz.",
   "maps.points.tower_level5.detail-3": "Czarodziej leży pokonany na kamiennej posadzce. Oddycha płytko.",
   "maps.points.tower_level5.detail-4": "Pokona “Arcymag z Underkeep” (3, -9)",
   "maps.points.tower_level5.detail-5": "Kliknij na czujnik na (3, -7) i zacznij rozmawiać z wielkim czarodziejem. Wybierz \"Wyciągnij broń\" lub \"Odmówić udziału\" lub kontynuuj konfrontację w gałęzi Sądu (możesz również wyrzucić Grgla's Fish lub Nieznaną Tincture).",
@@ -28,7 +27,6 @@
   "maps.points.tower_level5.dialogue-7": "Jego dłoń z wysiłkiem unosi się w stronę broni.",
   "maps.points.tower_level5.dialogue-8": "MASZ... W SOBIE MOC...",
   "maps.points.tower_level5.dialogue-9": "WIĘC... JESZCZE NIE WSZYSTKO STRACONE...",
-  "maps.points.tower_level5.e02.detail": "Na (3, -7) Zespół na to wstał",
   "maps.points.tower_level5.n01.detail": "Od (-6, -3) do (-2, 1)",
   "maps.points.tower_level5.title": "Pokonać czarownika",
   "maps.points.tower_level5.title-2": "Przybliż się do wieży i dotarć do końca"

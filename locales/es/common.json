@@ -133,6 +133,7 @@
   "common.other-available-items": "Otros objetos disponibles.",
   "common.overview": "Descripción general.",
   "common.party": "Grupo.",
+  "common.party-enters-tile": "El grupo entra en esta casilla",
   "common.party-or-mechanism-object": "Objeto del grupo o del mecanismo.",
   "common.passive": "(Pasiva)",
   "common.physical-attack": "Ataque físico.",

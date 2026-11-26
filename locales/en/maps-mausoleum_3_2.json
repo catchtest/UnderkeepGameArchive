@@ -1,9 +1,6 @@
 {
   "maps.points.mausoleum_3_2.detail": "The stone was dripping with red light. The air stood still, carrying a smell of rust; it was heavy and sour.",
-  "maps.points.mausoleum_3_2.detail-10": "The tile at (1, 0) activates when the party steps on it or an object holds it down.",
-  "maps.points.mausoleum_3_2.detail-2": "The tile at (-8, -4) activates when the party steps on it or an object holds it down.",
   "maps.points.mausoleum_3_2.detail-3": "As you approach the end of the corridor, Ixarion twists in the air above you.",
-  "maps.points.mausoleum_3_2.detail-4": "The party steps on the tile at (-1, 0).\nThe party steps on the tile at (-1, 0) with Ixarion as a companion.",
   "maps.points.mausoleum_3_2.detail-5": "ixarion is with me\nixarion is not with me",
   "maps.points.mausoleum_3_2.detail-6": "KILLLLLLLLLL.....",
   "maps.points.mausoleum_3_2.detail-7": "Controls “The Source? ” (5, 0)",
@@ -55,7 +52,7 @@
   "maps.points.mausoleum_3_2.dialogue-8": "The chamber is as you left it. The red liquid lies still, but the roots surrounding the Source continue to twitch.",
   "maps.points.mausoleum_3_2.dialogue-9": "The twisted figure at the center stirs. Its half-formed face turns toward you.",
   "maps.points.mausoleum_3_2.f04.detail": "Searching for the red stone coffin at (-7, -12).",
-  "maps.points.mausoleum_3_2.f07.detail": "Step on the sensor at (1, 0) (can also be pressed by objects); advance the \"Source Event\" to the start of the battle.",
+  "maps.points.mausoleum_3_2.f07.detail": "Step on the sensor at (1, 0); advance the \"Source Event\" to the start of the battle.",
   "maps.points.mausoleum_3_2.l08.detail": "Lockpick Tools, Mace of Staggering Blow",
   "maps.points.mausoleum_3_2.l08.detail.item-links": "[[0,14,\"item_key_lockpick\"],[16,39,\"item_mace_stagger\"]]",
   "maps.points.mausoleum_3_2.l10.detail": "Helm of Dominance, First Runic Segment",

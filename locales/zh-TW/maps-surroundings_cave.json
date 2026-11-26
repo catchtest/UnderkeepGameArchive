@@ -1,11 +1,9 @@
 {
   "maps.points.surroundings_cave.a01.title": "上樓 → Underkeep 之根",
   "maps.points.surroundings_cave.detail": "洞窟張開，地面碎成參差的石堆與飄浮的塵土。感覺像 某種強大的東西有意把石室撕開。",
-  "maps.points.surroundings_cave.detail-2": "在（0, -2）隊伍踩踏、物件壓住",
   "maps.points.surroundings_cave.detail-4": "倒下的方尖碑，斷裂半埋，可石頭上仍附著零星的符文。",
   "maps.points.surroundings_cave.detail-5": "操作「機關」（-17, -4）\n操作「機關」（-10, -2）",
   "maps.points.surroundings_cave.detail-6": "最後一隻甲殼在你靴下裂開，窸窣聲消失了。岩石讓開， 露出一間中空石室，倒下的方尖碑躺在那裡。",
-  "maps.points.surroundings_cave.detail-7": "在（-10, 1）隊伍踩踏、物件壓住",
   "maps.points.surroundings_cave.dialogue": "洞窟張開，地面碎成參差的石堆與飄浮的塵土。感覺像某種強大的東西有意把石室撕開。",
   "maps.points.surroundings_cave.dialogue-10": "像是巨大的甲蟲……你這輩子從沒見過這樣的足跡。",
   "maps.points.surroundings_cave.dialogue-11": "選擇「「等等。讓我感知死者是否碰過這裡。」」",
