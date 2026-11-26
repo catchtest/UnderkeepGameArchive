@@ -1,9 +1,5 @@
 {
   "maps.points.abandoned_mines_cave.a01.title": "上樓 → 空墓隧道",
-  "maps.points.abandoned_mines_cave.choice-xp": "讓我檢查一下這物質",
-  "maps.points.abandoned_mines_cave.choice-xp-2": "讓我試試它摸起來什麼感覺",
-  "maps.points.abandoned_mines_cave.choice-xp-3": "檢查水中的魔法痕跡",
-  "maps.points.abandoned_mines_cave.choice-xp-4": "檢查動物足跡",
   "maps.points.abandoned_mines_cave.detail": "你繼續向地下深入。腳下碎石嘎吱作響，黑暗中有水滴落……前方某處，有什麼在蹣跚而行。",
   "maps.points.abandoned_mines_cave.detail-11": "尚未喝過水潭的水\n已喝過水潭的水",
   "maps.points.abandoned_mines_cave.detail-2": "在（12, -35）隊伍踩踏",
@@ -52,6 +48,7 @@
   "maps.points.abandoned_mines_cave.dialogue-9": "陷阱如今斷裂地掛著，力量已經耗盡。",
   "maps.points.abandoned_mines_cave.l01.detail": "0%（首次翻找）",
   "maps.points.abandoned_mines_cave.l04.detail": "回氣腰帶、眼鏡蛇、閃電箭戒指",
+  "maps.points.abandoned_mines_cave.l04.detail.item-links": "[[0,4,\"item_belt_of_second_wind\"],[5,8,\"item_cobra_shortsword\"],[9,14,\"item_ring_of_lightning_bolt\"]]",
   "maps.points.abandoned_mines_cave.m01.detail": "隊伍、物品",
   "maps.points.abandoned_mines_cave.n01.detail": "從來源地坑落下後會抵達這一格。",
   "maps.points.abandoned_mines_cave.n01.detail-2": "空墓隧道 (27, -28)",

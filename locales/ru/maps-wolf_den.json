@@ -1,0 +1,14 @@
+{
+  "maps.points.wolf_den.l01.detail": "Зелье выносливости, Зелье лечения, Шлем Быка",
+  "maps.points.wolf_den.l01.loot-links": "[[0,18,\"item_endurance_potion\"],[20,33,\"item_heal_potion\"],[35,44,\"item_helm_of_bull\"]]",
+  "maps.points.wolf_den.n01.detail": "Леса Кэрлина (23, -45)",
+  "maps.points.wolf_den.n02.detail": "Леса Кэрлина (16, -44)",
+  "maps.points.wolf_den.n03.detail": "Леса Кэрлина (12, -43)",
+  "maps.points.wolf_den.n04.detail": "Леса Кэрлина (14, -42)",
+  "maps.points.wolf_den.n05.detail": "Леса Кэрлина (18, -42)",
+  "maps.points.wolf_den.n06.detail": "Леса Кэрлина (11, -41)",
+  "maps.points.wolf_den.n07.detail": "Леса Кэрлина (12, -41)",
+  "maps.points.wolf_den.n09.detail": "Леса Кэрлина (13, -40)",
+  "maps.points.wolf_den.n10.detail": "Леса Кэрлина (11, -39)",
+  "maps.points.wolf_den.n11.detail": "Леса Кэрлина (9, -38)"
+}

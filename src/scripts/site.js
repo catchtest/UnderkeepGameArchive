@@ -1,14 +1,14 @@
 'use strict';
 
 const underkeepSiteName = document.title;
-const underkeepSharedAssets = '{{site:assets}}';
+const underkeepSharedAssets = new URL('../{{site:assets}}', document.currentScript.src).href;
 
 function underkeepCoordinates([x, y]) {
   return '(' + x + ', ' + y + ')';
 }
 
 function underkeepCoordinateText(text) {
-  return text.replace(/(\p{Script=Han})?[（(][ \t]*(-?\d+)[ \t]*[,，][ \t]*(-?\d+)[ \t]*[）)](?=(\p{Script=Han})?)/gu,
+  return text.replace(/([\p{L}\p{M}\p{N}])?[（(][ \t]*(-?\d+)[ \t]*[,，][ \t]*(-?\d+)[ \t]*[）)](?=([\p{L}\p{M}\p{N}])?)/gu,
     (_, previous, x, y, next) =>
       (previous ? previous + ' ' : '') + underkeepCoordinates([x, y]) + (next ? ' ' : ''));
 }
@@ -74,7 +74,8 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
   const scriptUrl = new URL(document.currentScript.src);
   const assetVersion = scriptUrl.searchParams.get('t');
   const scriptsBase = new URL('.', scriptUrl);
-  const base = new URL('../', scriptsBase);
+  const bundle = new URL('../', scriptsBase);
+  const base = new URL('.', location.href);
   const entry = new URL('index.html', base);
   const view = document.getElementById('view');
   const status = document.getElementById('view-status');
@@ -99,9 +100,24 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
   let pendingUrl;
 
   if (language) {
+    const url = new URL(location.href);
+    const requested = url.searchParams.get('lang');
+    const option = Array.from(language.options).find(item => item.lang.toLowerCase() === requested?.toLowerCase());
+    if (option) {
+      url.searchParams.delete('lang');
+      const target = new URL(option.value, base);
+      if (!option.defaultSelected) {
+        target.search = url.search;
+        target.hash = url.hash;
+        location.replace(target);
+        return;
+      }
+      history.replaceState(history.state, '', url);
+    }
     language.addEventListener('change', () => {
       const target = new URL(language.value, base);
       target.search = location.search;
+      target.searchParams.delete('lang');
       target.hash = location.hash;
       location.assign(target);
     });
@@ -196,7 +212,7 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
     if (!styles.has(file)) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = assetUrl('css/' + file, base);
+      link.href = assetUrl('css/' + file, bundle);
       link.media = 'not all';
       const next = styleOrder.slice(styleOrder.indexOf(file) + 1).find(name => styles.has(name));
       const ready = appendResource(link, styles.get(next)?.link).catch(error => {

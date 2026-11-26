@@ -1,0 +1,10 @@
+{
+  "maps.points.basilisk_den.l01.detail": "Maza de las estrellas, Tónico de sangre guerrera (Receta)",
+  "maps.points.basilisk_den.l01.detail.item-links": "[[0,21,\"item_mace_of_stars\"],[23,57,\"item_recipe_potion_heal_and_endurance\"]]",
+  "maps.points.basilisk_den.l02.detail": "Botas de malla oxidadas, Yelmo de escamas oxidado",
+  "maps.points.basilisk_den.l02.detail.item-links": "[[0,23,\"item_rusty_chain_boots\"],[25,49,\"item_rusty_scale_helmet\"]]",
+  "maps.points.basilisk_den.l03.detail": "Brebaje del despertar atronador, Frasco vacío, Poción de curación",
+  "maps.points.basilisk_den.l03.detail.item-links": "[[0,31,\"item_drakkan_potion_unstun\"],[33,45,\"item_empty_flask\"],[47,65,\"item_heal_potion\"]]",
+  "maps.points.basilisk_den.x01.detail": "Determinado por el mecanismo o el estado del juego",
+  "maps.points.basilisk_den.x01.title": "En el pozo"
+}

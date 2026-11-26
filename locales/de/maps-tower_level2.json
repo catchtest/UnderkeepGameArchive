@@ -1,0 +1,10 @@
+{
+  "maps.points.tower_level2.a01.title": "Geh nach unten . → Turmeingang",
+  "maps.points.tower_level2.a02.title": "Übergangsszene → Turm - Ebene 2 (Korruption)",
+  "maps.points.tower_level2.a04.title": "Geh nach oben . → Turm - Ebene 3",
+  "maps.points.tower_level2.detail": "Dungeon-Toast, Trank der Auferstehung",
+  "maps.points.tower_level2.detail.item-links": "[[0,13,\"item_food_toast\"],[15,37,\"item_potion_resurrection\"]]",
+  "maps.points.tower_level2.wall-sign.tower2_1": "Nur die auf der Außenseite sollten aufwachen.",
+  "maps.points.tower_level2.wall-sign.tower2_n1": "Freunde und Gefährten des Turmmeisters",
+  "maps.points.tower_level2.wall-sign.tower2_n2": "Er nimmt die Schlüssel an und schwört, den Untermeister zu bewachen"
+}

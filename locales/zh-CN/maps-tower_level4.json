@@ -1,0 +1,22 @@
+{
+  "maps.points.tower_level4.a02.title": "下楼 → 高塔三层",
+  "maps.points.tower_level4.detail": "熟悉的幻影在你面前成形。",
+  "maps.points.tower_level4.detail-2": "在（2, -3）队伍踩踏",
+  "maps.points.tower_level4.dialogue": "在我所有的同伴中，没有人比他更忠诚。",
+  "maps.points.tower_level4.dialogue-2": "我从蛋中将他养大。",
+  "maps.points.tower_level4.dialogue-3": "许多年来，他一直伴我左右。",
+  "maps.points.tower_level4.dialogue-4": "但即便是我的魔法，也无法驯服一条龙的本性。",
+  "maps.points.tower_level4.dialogue-5": "于是我放他归于群山。",
+  "maps.points.tower_level4.dialogue-6": "在那里，他将守护最后一把钥匙。",
+  "maps.points.tower_level4.dialogue-7": "我曾希望他能找到安宁……希望无人打扰他。",
+  "maps.points.tower_level4.l01.detail": "凯尔林蓝花、琥珀玫瑰 ×3、绯峰浆果、月瓣花、日辉花 ×2、拟态怪之心",
+  "maps.points.tower_level4.l01.detail.item-links": "[[0,5,\"item_caerlin_blue_flowers\"],[6,10,\"item_flower_amberrose\"],[14,18,\"item_flower_crimsonspire_berries\"],[19,22,\"item_flower_moonpetal\"],[23,26,\"item_flower_solarbloom\"],[30,35,\"item_ingredient_mimic_heart\"]]",
+  "maps.points.tower_level4.l02.detail": "慈悲之羽、巴尔杜兰勋章、强效治疗药水、遗忘药水",
+  "maps.points.tower_level4.l02.detail.item-links": "[[0,4,\"item_feather_of_mercy\"],[5,11,\"item_generic_balduran_medail\"],[12,18,\"item_mega_heal_potion\"],[19,23,\"item_respec_potion\"]]",
+  "maps.points.tower_level4.n01.detail": "1 × 1 格",
+  "maps.points.tower_level4.name": "地图内落点",
+  "maps.points.tower_level4.title": "巨龙的回忆",
+  "maps.points.tower_level4.title-2": "上楼 → 高塔五层",
+  "maps.points.tower_level4.w01.detail": "落地朝向",
+  "maps.points.tower_level4.wall-sign.tower4_1": "有时要往前走，得先退一步。"
+}

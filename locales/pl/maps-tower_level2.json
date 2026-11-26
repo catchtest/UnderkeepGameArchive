@@ -1,0 +1,10 @@
+{
+  "maps.points.tower_level2.a01.title": "Idź na dół. → Wejscie do Wieży",
+  "maps.points.tower_level2.a02.title": "Scena przejściowa → Wieża Piętro 2 (Korupcja)",
+  "maps.points.tower_level2.a04.title": "Idź na górę. → Wieża Piętro 3",
+  "maps.points.tower_level2.detail": "Jaskiniowa Kanapka, Mikstura Wskrzeszenia",
+  "maps.points.tower_level2.detail.item-links": "[[0,18,\"item_food_toast\"],[20,41,\"item_potion_resurrection\"]]",
+  "maps.points.tower_level2.wall-sign.tower2_1": "Tylko ci z zewnętrznej strony powinni się obudzić.",
+  "maps.points.tower_level2.wall-sign.tower2_n1": "Przyjaciele i towarzysze Mistrza Wieży",
+  "maps.points.tower_level2.wall-sign.tower2_n2": "Przyjmuje klucze, obiecając, że będzie strzeżał Underkeep"
+}

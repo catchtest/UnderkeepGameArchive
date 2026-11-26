@@ -5,6 +5,7 @@
   "maps.points.blackwood.detail-12": "一名女子站在早已熄滅的火堆旁，披風被霧氣浸透。",
   "maps.points.blackwood.detail-13": "踩上（-5, -20）的感應板（也可用物件壓住），觸發黑森林的破屋事件。小屋裡的軟泥須尚未被擊敗。",
   "maps.points.blackwood.detail-2": "直接獲得 浸濕的筆記本",
+  "maps.points.blackwood.detail-2.item-links": "[[5,11,\"item_book_blackwood_1\"]]",
   "maps.points.blackwood.detail-3": "史萊姆癱進泥裡，一件硬物從牠體內滑了出來。",
   "maps.points.blackwood.detail-4": "在（1, -12）隊伍踩踏",
   "maps.points.blackwood.detail-5": "冰冷的泥巴壓在靴底。",

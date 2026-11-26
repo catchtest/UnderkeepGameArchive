@@ -1,0 +1,22 @@
+{
+  "maps.points.tower_level4.a02.title": "Idź na dół. → Wieża Piętro 3",
+  "maps.points.tower_level4.detail": "Znajome widmo pojawia się przed tobą.",
+  "maps.points.tower_level4.detail-2": "Na (2, -3) Zespół na to wstał",
+  "maps.points.tower_level4.dialogue": "\"Z CAŁEJ MOJEJ DRUŻYNY NIE BYŁO NIKOGO WIERNIEJSZEGO.\"",
+  "maps.points.tower_level4.dialogue-2": "\"WYCHOWAŁEM GO OD JAJKA.\"",
+  "maps.points.tower_level4.dialogue-3": "\"PRZEZ WIELE LAT BYŁ U MEGO BOKU.\"",
+  "maps.points.tower_level4.dialogue-4": "\"ALE NAWET MOJA MAGIA NIE POTRAFIŁA POSKROMIĆ NATURY SMOKA.\"",
+  "maps.points.tower_level4.dialogue-5": "\"WIĘC WYPUŚCIŁEM GO W GÓRACH.\"",
+  "maps.points.tower_level4.dialogue-6": "\"TAM MIAŁ STRZEC OSTATNIEGO KLUCZA.\"",
+  "maps.points.tower_level4.dialogue-7": "\"MIAŁEM NADZIEJĘ, ŻE ODNAJDZIE SPOKÓJ... I ŻE NIKT NIE BĘDZIE SPRAWIAŁ MU KŁOPOTÓW.\"",
+  "maps.points.tower_level4.l01.detail": "Błękitny Kwiat z Caerlin, Bursztynowa Róża ×3, Szkarłatne Kwiaty, Księżycowy Kwiat, Kwiat Wiecznego Lata ×2, Serce Mimika",
+  "maps.points.tower_level4.l01.detail.item-links": "[[0,24,\"item_caerlin_blue_flowers\"],[26,42,\"item_flower_amberrose\"],[47,64,\"item_flower_crimsonspire_berries\"],[66,82,\"item_flower_moonpetal\"],[84,104,\"item_flower_solarbloom\"],[109,121,\"item_ingredient_mimic_heart\"]]",
+  "maps.points.tower_level4.l02.detail": "Pióro Łaski, Medal Baldurana, Duża Mikstura Leczenia, Mikstura zapomnienia",
+  "maps.points.tower_level4.l02.detail.item-links": "[[0,11,\"item_feather_of_mercy\"],[13,28,\"item_generic_balduran_medail\"],[30,52,\"item_mega_heal_potion\"],[54,74,\"item_respec_potion\"]]",
+  "maps.points.tower_level4.n01.detail": "1 × 1 siatka",
+  "maps.points.tower_level4.name": "Punkty spadkowe na mapie",
+  "maps.points.tower_level4.title": "Wspomnienia o olbrzymim smoku",
+  "maps.points.tower_level4.title-2": "Idź na górę. → Wieża Piętro 5",
+  "maps.points.tower_level4.w01.detail": "Kierowanie w kierunku lądowania",
+  "maps.points.tower_level4.wall-sign.tower4_1": "Czasami musisz iść naprzód, więc musisz zrobić krok wstecz."
+}

@@ -1,0 +1,9 @@
+{
+  "maps.points.swamp_dungeon2.a01.title": "Geh nach oben . → Das Herz des Moores",
+  "maps.points.swamp_dungeon2.detail": "Mit der Zerstörung der letzten Wurzel spürt ihr, dass eine dunkle Macht gewichen ist.",
+  "maps.points.swamp_dungeon2.detail-2": "At (-7, -14) Auslöser",
+  "maps.points.swamp_dungeon2.f10.detail": "Die Tentakelwurzel, die bei (-7, 5) angreift.",
+  "maps.points.swamp_dungeon2.l02.detail": "Gegengift-Trank ×2, Elixier des Wohlbefindens, Trank der Auferstehung",
+  "maps.points.swamp_dungeon2.l02.detail.item-links": "[[0,15,\"item_potion_cure_poison\"],[20,45,\"item_potion_heal_and_mana\"],[47,69,\"item_potion_resurrection\"]]",
+  "maps.points.swamp_dungeon2.title": "Entfernen Sie die Sumpf-Tentacle-Wurzel"
+}

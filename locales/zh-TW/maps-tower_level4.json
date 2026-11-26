@@ -1,5 +1,4 @@
 {
-  "maps.points.tower_level4.wall-sign.tower4_1": "有時要往前走，得先退一步。",
   "maps.points.tower_level4.a02.title": "下樓 → 高塔三層",
   "maps.points.tower_level4.detail": "熟悉的幻影在你面前成形。",
   "maps.points.tower_level4.detail-2": "在（2, -3）隊伍踩踏",
@@ -11,10 +10,13 @@
   "maps.points.tower_level4.dialogue-6": "在那裡，他將守護最後一把鑰匙。",
   "maps.points.tower_level4.dialogue-7": "我曾希望他能找到安寧……希望無人打擾他。",
   "maps.points.tower_level4.l01.detail": "凱爾林藍花、琥珀玫瑰 ×3、緋峰漿果、月瓣花、日輝花 ×2、擬態怪之心",
+  "maps.points.tower_level4.l01.detail.item-links": "[[0,5,\"item_caerlin_blue_flowers\"],[6,10,\"item_flower_amberrose\"],[14,18,\"item_flower_crimsonspire_berries\"],[19,22,\"item_flower_moonpetal\"],[23,26,\"item_flower_solarbloom\"],[30,35,\"item_ingredient_mimic_heart\"]]",
   "maps.points.tower_level4.l02.detail": "慈悲之羽、巴爾杜蘭勳章、強效治療藥水、遺忘藥水",
+  "maps.points.tower_level4.l02.detail.item-links": "[[0,4,\"item_feather_of_mercy\"],[5,11,\"item_generic_balduran_medail\"],[12,18,\"item_mega_heal_potion\"],[19,23,\"item_respec_potion\"]]",
   "maps.points.tower_level4.n01.detail": "1 × 1 格",
   "maps.points.tower_level4.name": "地圖內落點",
   "maps.points.tower_level4.title": "巨龍的回憶",
   "maps.points.tower_level4.title-2": "上樓 → 高塔五層",
-  "maps.points.tower_level4.w01.detail": "落地朝向"
+  "maps.points.tower_level4.w01.detail": "落地朝向",
+  "maps.points.tower_level4.wall-sign.tower4_1": "有時要往前走，得先退一步。"
 }

@@ -1,0 +1,11 @@
+{
+  "maps.points.swamp_lost_city.detail": "Lebka, Sluneční květ, Jedový váček",
+  "maps.points.swamp_lost_city.detail-2": "Zjeví se Wrathspinner",
+  "maps.points.swamp_lost_city.detail.item-links": "[[0,5,\"item_bones05\"],[7,20,\"item_flower_solarbloom\"],[22,34,\"item_venom_sac\"]]",
+  "maps.points.swamp_lost_city.l01.detail": "Železná kůže ×2, Šeptající prsten",
+  "maps.points.swamp_lost_city.l01.detail.item-links": "[[0,12,\"item_armor_potion\"],[17,33,\"item_ring_of_whisper\"]]",
+  "maps.points.swamp_lost_city.l03.detail": "Popel ×2, Zrezivělá dýka",
+  "maps.points.swamp_lost_city.l03.detail.item-links": "[[0,5,\"item_generic_ash\"],[10,24,\"item_rusty_dagger\"]]",
+  "maps.points.swamp_lost_city.l14.detail": "Zlomená kost, Žárové rukavice, Popel",
+  "maps.points.swamp_lost_city.l14.detail.item-links": "[[0,12,\"item_bones01\"],[14,29,\"item_ember_gloves\"],[31,36,\"item_generic_ash\"]]"
+}

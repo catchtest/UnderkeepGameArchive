@@ -1,0 +1,22 @@
+{
+  "maps.points.tower_level4.a02.title": "Jdi dolů. → Underkeep - Třetí patro",
+  "maps.points.tower_level4.detail": "Před vámi se zformuje známý přízrak.",
+  "maps.points.tower_level4.detail-2": "At (2, -3) Našli jsme se na párty ",
+  "maps.points.tower_level4.dialogue": "\"ZE VŠECH MÝCH SPOLEČNÍKŮ MI NEBYL NIKDO ODDANĚJŠÍ.\"",
+  "maps.points.tower_level4.dialogue-2": "\"VYCHOVAL JSEM HO OD VEJCE.\"",
+  "maps.points.tower_level4.dialogue-3": "\"DLOUHÁ LÉTA ZŮSTÁVAL PO MÉM BOKU.\"",
+  "maps.points.tower_level4.dialogue-4": "\"ANI MÁ MAGIE VŠAK NEDOKÁZALA ZKROTIT DRAČÍ PŘIROZENOST.\"",
+  "maps.points.tower_level4.dialogue-5": "\"PROTO JSEM HO V HORÁCH PUSTIL NA SVOBODU.\"",
+  "maps.points.tower_level4.dialogue-6": "\"TAM MĚL STŘEŽIT POSLEDNÍ KLÍČ.\"",
+  "maps.points.tower_level4.dialogue-7": "\"DOUFAL JSEM, ŽE TAM NAJDE KLID... A ŽE HO NIKDO NEBUDE RUŠIT.\"",
+  "maps.points.tower_level4.l01.detail": "Caerlinský modrokvět, Jantarová růže ×3, Rudotrnky, Měsíční lístek, Sluneční květ ×2, Srdce mimika",
+  "maps.points.tower_level4.l01.detail.item-links": "[[0,20,\"item_caerlin_blue_flowers\"],[22,36,\"item_flower_amberrose\"],[41,50,\"item_flower_crimsonspire_berries\"],[52,66,\"item_flower_moonpetal\"],[68,81,\"item_flower_solarbloom\"],[86,98,\"item_ingredient_mimic_heart\"]]",
+  "maps.points.tower_level4.l02.detail": "Pírko milosti, Balduranova medaile, Velký léčivý lektvar, Lektvar zapomnění",
+  "maps.points.tower_level4.l02.detail.item-links": "[[0,13,\"item_feather_of_mercy\"],[15,34,\"item_generic_balduran_medail\"],[36,56,\"item_mega_heal_potion\"],[58,75,\"item_respec_potion\"]]",
+  "maps.points.tower_level4.n01.detail": "1 × 1 mřížka",
+  "maps.points.tower_level4.name": "Poklesné body na mapě",
+  "maps.points.tower_level4.title": "Vzpomínky na obrovského draka",
+  "maps.points.tower_level4.title-2": "Jdi nahoru. → Underkeep - Vrchol věže",
+  "maps.points.tower_level4.w01.detail": "Směřující směrem při přistání",
+  "maps.points.tower_level4.wall-sign.tower4_1": "Někdy musíš jít vpřed, takže musíš udělat krok zpět."
+}

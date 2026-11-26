@@ -44,6 +44,6 @@ registerUnderkeepMap({
 {"id":125,"key":"item_bones06","xy":[-1,-8],"code":"J03"}
 ],
 "objects": {
-"enemy_mimic": {"enemyGuide":true,"type":"enemy","title":"{{t:guide.enemy_mimic}}","detail":{"{{t:common.loot}}":"{{t:maps.points.tower_level2_corrupted.detail}}","{{t:common.xp-value}}":"220","{{t:common.acquire-method}}":"{{t:common.enemy-or-interaction-drop}}"},"sprite":"mtile_enemy","rotation":0,"native":null,"nativeRotation":0,"isChest":false,"itemLinks":{"{{t:common.loot}}":[[0,5,"item_ingredient_mimic_heart"]]}}
+"enemy_mimic": {"enemyGuide":true,"type":"enemy","title":"{{t:guide.enemy_mimic}}","detail":{"{{t:common.loot}}":"{{t:maps.points.tower_level2_corrupted.detail}}","{{t:common.xp-value}}":"220","{{t:common.acquire-method}}":"{{t:common.enemy-or-interaction-drop}}"},"sprite":"mtile_enemy","rotation":0,"native":null,"nativeRotation":0,"isChest":false,"itemLinks":{"{{t:common.loot}}":{{t:maps.points.tower_level2_corrupted.detail.item-links|json}}}}
 }
 });

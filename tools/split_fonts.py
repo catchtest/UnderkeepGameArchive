@@ -32,7 +32,7 @@ def write_subset(filename, codepoints, options):
 
 
 def main():
-    sheets = list(DIST.glob('css/sheet.css')) + sorted(DIST.glob('languages/*/css/sheet.css'))
+    sheets = sorted(DIST.glob('*/css/sheet.css'))
     if not sheets:
         raise RuntimeError('Build the website before splitting its fonts.')
     styles = []

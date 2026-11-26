@@ -43,6 +43,6 @@ registerUnderkeepMap({
 ],
 "objects": {
 "sarcophagus_port": {"type":"mechanism","title":"{{t:common.mechanism}}","sprite":"mtile_sarcophagus","rotation":0,"native":"mtile_sarcophagus","nativeRotation":0,"isChest":false},
-"tower_alcove": {"type":"treasure","title":"{{t:common.wall-niche}}","detail":{"{{t:common.loot}}":"{{t:maps.points.tower_level2.detail}}"},"sprite":"mtile_alcove","rotation":0,"native":"mtile_alcove","nativeRotation":270,"isChest":false,"itemLinks":{"{{t:common.loot}}":[[0,4,"item_food_toast"],[5,9,"item_potion_resurrection"]]}}
+"tower_alcove": {"type":"treasure","title":"{{t:common.wall-niche}}","detail":{"{{t:common.loot}}":"{{t:maps.points.tower_level2.detail}}"},"sprite":"mtile_alcove","rotation":0,"native":"mtile_alcove","nativeRotation":270,"isChest":false,"itemLinks":{"{{t:common.loot}}":{{t:maps.points.tower_level2.detail.item-links|json}}}}
 }
 });

@@ -1,0 +1,14 @@
+{
+  "maps.points.caerlin_west_dungeon.f02.detail": "Recherche du cercueil sur le autel, à l'emplacement (14, -59).",
+  "maps.points.caerlin_west_dungeon.f06.detail": "Manipuler le sarcophage situé à (3, -53).",
+  "maps.points.caerlin_west_dungeon.h01.title": "Pièces d'or ×12",
+  "maps.points.caerlin_west_dungeon.l01.detail": "Couronne de Foudre, Améthyste, Masse du coup sutpéfiant",
+  "maps.points.caerlin_west_dungeon.l01.detail.item-links": "[[0,18,\"item_crown_of_lightning\"],[20,29,\"item_diamond_purple\"],[31,55,\"item_mace_stagger\"]]",
+  "maps.points.caerlin_west_dungeon.l02.detail": "Épéiste déchu apparaît",
+  "maps.points.caerlin_west_dungeon.l03.detail": "La Colère givrée apparaît, Chapeau d'hiver",
+  "maps.points.caerlin_west_dungeon.l03.detail.item-links": "[[27,42,\"item_hat_of_winter\"]]",
+  "maps.points.caerlin_west_dungeon.l04.detail": "Poussière et ossements, Crâne",
+  "maps.points.caerlin_west_dungeon.l04.detail.item-links": "[[0,22,\"item_bones02\"],[24,29,\"item_bones05\"]]",
+  "maps.points.caerlin_west_dungeon.wall-sign.ac_wall_sign_01": "La couronne brisée, La flamme s'est éteinte.\nIl ne reste que des poils.",
+  "maps.points.caerlin_west_dungeon.x11.detail": "Vous avez résolu l'énigme."
+}

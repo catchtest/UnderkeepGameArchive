@@ -1,8 +1,4 @@
 {
-  "maps.points.mausoleum_3_2.wall-sign.maus_riddle_source_01": "在岩石與星辰出現之前，我獨自佇立。\n點亮那一簇孤獨的火焰。",
-  "maps.points.mausoleum_3_2.wall-sign.maus_riddle_source_02": "四名沉默的守衛守住門檻。\n點亮那四簇火焰。",
-  "maps.points.mausoleum_3_2.choice-xp": "了結它",
-  "maps.points.mausoleum_3_2.choice-xp-2": "還不是時候不是你的死期",
   "maps.points.mausoleum_3_2.detail": "石頭濕漉漉地泛著紅光。空氣停滯，帶著鐵銹的味道， 沉重而發酸。",
   "maps.points.mausoleum_3_2.detail-10": "在（1, 0）隊伍踩踏、物件壓住",
   "maps.points.mausoleum_3_2.detail-2": "在（-8, -4）隊伍踩踏、物件壓住",
@@ -61,12 +57,17 @@
   "maps.points.mausoleum_3_2.f04.detail": "搜尋（-7, -12）的紅色石棺。",
   "maps.points.mausoleum_3_2.f07.detail": "踩上（1, 0）的感應板（也可用物件壓住），推進源頭事件至戰鬥開始。",
   "maps.points.mausoleum_3_2.l08.detail": "開鎖工具、蹣跚釘錘",
+  "maps.points.mausoleum_3_2.l08.detail.item-links": "[[0,4,\"item_key_lockpick\"],[5,9,\"item_mace_stagger\"]]",
   "maps.points.mausoleum_3_2.l10.detail": "統御頭盔、第一符文片段",
+  "maps.points.mausoleum_3_2.l10.detail.item-links": "[[0,4,\"item_helm_of_dominance\"],[5,11,\"item_underkeep_key_1\"]]",
   "maps.points.mausoleum_3_2.l13.detail": "100% · 第五回聲卷軸\n40% · 灰燼\n30% · 金幣 ×1–3\n20% · 斷裂的骨頭\n10% · 骨頭",
+  "maps.points.mausoleum_3_2.l13.detail.item-links": "[[7,13,\"item_scroll_riddle_hint2\"],[20,22,\"item_generic_ash\"],[29,31,\"item_coins\"],[43,48,\"item_bones01\"],[55,57,\"item_bones03\"]]",
   "maps.points.mausoleum_3_2.n01.detail": "這個佈局也許值得標在地圖上。",
   "maps.points.mausoleum_3_2.n01.detail-2": "由格位內容下方的相關來源啟用。",
   "maps.points.mausoleum_3_2.title": "源頭事件結局",
   "maps.points.mausoleum_3_2.title-2": "源頭戰後",
   "maps.points.mausoleum_3_2.title-3": "伊克薩里昂離隊",
-  "maps.points.mausoleum_3_2.title-4": "進入陵墓最深處"
+  "maps.points.mausoleum_3_2.title-4": "進入陵墓最深處",
+  "maps.points.mausoleum_3_2.wall-sign.maus_riddle_source_01": "在岩石與星辰出現之前，我獨自佇立。\n點亮那一簇孤獨的火焰。",
+  "maps.points.mausoleum_3_2.wall-sign.maus_riddle_source_02": "四名沉默的守衛守住門檻。\n點亮那四簇火焰。"
 }

@@ -1,0 +1,11 @@
+{
+  "maps.points.swamp_lost_city.detail": "头骨、日辉花、毒囊",
+  "maps.points.swamp_lost_city.detail-2": "出现怒纺蛛",
+  "maps.points.swamp_lost_city.detail.item-links": "[[0,2,\"item_bones05\"],[3,6,\"item_flower_solarbloom\"],[7,9,\"item_venom_sac\"]]",
+  "maps.points.swamp_lost_city.l01.detail": "铁皮药水 ×2、低语之戒",
+  "maps.points.swamp_lost_city.l01.detail.item-links": "[[0,4,\"item_armor_potion\"],[8,12,\"item_ring_of_whisper\"]]",
+  "maps.points.swamp_lost_city.l03.detail": "灰烬 ×2、生锈的匕首",
+  "maps.points.swamp_lost_city.l03.detail.item-links": "[[0,2,\"item_generic_ash\"],[6,11,\"item_rusty_dagger\"]]",
+  "maps.points.swamp_lost_city.l14.detail": "断裂的骨头、烬钢手套、灰烬",
+  "maps.points.swamp_lost_city.l14.detail.item-links": "[[0,5,\"item_bones01\"],[6,10,\"item_ember_gloves\"],[11,13,\"item_generic_ash\"]]"
+}

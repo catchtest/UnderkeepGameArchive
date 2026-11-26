@@ -1,0 +1,9 @@
+{
+  "maps.points.swamp_dungeon2.a01.title": "Иди наверх. → Сердце Трясины",
+  "maps.points.swamp_dungeon2.detail": "С гибелью последнего корня вы чувствуете, что власть тьмы ослабла.",
+  "maps.points.swamp_dungeon2.detail-2": "На (-7, -14) Триггер",
+  "maps.points.swamp_dungeon2.f10.detail": "Корень Тентакля, который атакует на (-7, 5).",
+  "maps.points.swamp_dungeon2.l02.detail": "Зелье противоядия ×2, Эликсир Ясного Разума, Зелье воскрешения",
+  "maps.points.swamp_dungeon2.l02.detail.item-links": "[[0,17,\"item_potion_cure_poison\"],[22,43,\"item_potion_heal_and_mana\"],[45,62,\"item_potion_resurrection\"]]",
+  "maps.points.swamp_dungeon2.title": "Устранить корень очагов болота"
+}

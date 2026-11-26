@@ -1,11 +1,4 @@
 {
-  "maps.points.west_dungeon_1.wall-sign.blind_corridor": "盲廊",
-  "maps.points.west_dungeon_1.wall-sign.east_garden": "東園",
-  "maps.points.west_dungeon_1.wall-sign.seal_of_purple": "紫印",
-  "maps.points.west_dungeon_1.wall-sign.seal_of_yellow": "黃印",
-  "maps.points.west_dungeon_1.wall-sign.stone_yields_to_bones": "石頭向白骨讓路，血肉卻無法使它讓步。",
-  "maps.points.west_dungeon_1.wall-sign.west_dungeon_1_sign_do_not_press": "不要按按鈕！",
-  "maps.points.west_dungeon_1.wall-sign.west_garden": "西園",
   "maps.points.west_dungeon_1.a02.title": "下樓 → 寂靜謎廳",
   "maps.points.west_dungeon_1.a03.title": "上樓 → 靈魂鍛造爐 - 東園",
   "maps.points.west_dungeon_1.a04.title": "上樓 → 靈魂鍛造爐 - 西園",
@@ -18,8 +11,18 @@
   "maps.points.west_dungeon_1.dialogue-5": "你還缺幾把鑰匙。廢墟不會這麼輕易交出秘密。",
   "maps.points.west_dungeon_1.f01.detail": "史萊姆隨機掉落、史萊姆隨機掉落、史萊姆隨機掉落、史萊姆隨機掉落",
   "maps.points.west_dungeon_1.f01.detail-2": "史萊姆隨機掉落候選：手斧、戰斧、生鏽的手斧、生鏽的鎖甲靴、生鏽的長劍、生鏽大斧、金幣 ×3、金幣 ×4、金幣 ×2、金幣 ×5、治療藥水、體力藥水",
+  "maps.points.west_dungeon_1.f01.detail-2.item-links": "[[10,12,\"item_hand_axe\"],[13,15,\"item_battle_axe\"],[16,21,\"item_rusty_hand_axe\"],[22,28,\"item_rusty_chain_boots\"],[29,34,\"item_rusty_longsword\"],[35,39,\"item_rusty_great_axe\"],[40,42,\"item_coins\"],[46,48,\"item_coins\"],[52,54,\"item_coins\"],[58,60,\"item_coins\"],[64,68,\"item_heal_potion\"],[69,73,\"item_endurance_potion\"]]",
   "maps.points.west_dungeon_1.l01.detail": "冰矛、守護之盾",
+  "maps.points.west_dungeon_1.l01.detail.item-links": "[[0,2,\"item_ice_spear\"],[3,7,\"item_shield_of_protection\"]]",
   "maps.points.west_dungeon_1.l03.detail": "月鋼礦石、強擊之戒",
+  "maps.points.west_dungeon_1.l03.detail.item-links": "[[0,4,\"item_ancient_ore\"],[5,9,\"item_ring_of_striking\"]]",
   "maps.points.west_dungeon_1.n01.detail": "6 × 10 格",
-  "maps.points.west_dungeon_1.title": "八把鑰匙"
+  "maps.points.west_dungeon_1.title": "八把鑰匙",
+  "maps.points.west_dungeon_1.wall-sign.blind_corridor": "盲廊",
+  "maps.points.west_dungeon_1.wall-sign.east_garden": "東園",
+  "maps.points.west_dungeon_1.wall-sign.seal_of_purple": "紫印",
+  "maps.points.west_dungeon_1.wall-sign.seal_of_yellow": "黃印",
+  "maps.points.west_dungeon_1.wall-sign.stone_yields_to_bones": "石頭向白骨讓路，血肉卻無法使它讓步。",
+  "maps.points.west_dungeon_1.wall-sign.west_dungeon_1_sign_do_not_press": "不要按按鈕！",
+  "maps.points.west_dungeon_1.wall-sign.west_garden": "西園"
 }

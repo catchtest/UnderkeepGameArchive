@@ -1,0 +1,22 @@
+{
+  "maps.points.tower_level4.a02.title": "Montez les escaliers → Niveau 3 de la Tour",
+  "maps.points.tower_level4.detail": "L'apparition familière prend forme devant vous.",
+  "maps.points.tower_level4.detail-2": "À (2, -3) La troupe piétine",
+  "maps.points.tower_level4.dialogue": "\"DE TOUS MES COMPAGNONS, AUCUN N'ÉTAIT PLUS FIDÈLE.\"",
+  "maps.points.tower_level4.dialogue-2": "\"JE L'AI ÉLEVÉ DÈS L'ŒUF.\"",
+  "maps.points.tower_level4.dialogue-3": "\"PENDANT DE NOMBREUSES ANNÉES, IL EST RESTÉ À MES CÔTÉS.\"",
+  "maps.points.tower_level4.dialogue-4": "\"MAIS MÊME MA MAGIE NE POUVAIT DOMPTER LA NATURE D'UN DRAGON.\"",
+  "maps.points.tower_level4.dialogue-5": "\"ALORS JE L'AI LIBÉRÉ DANS LES MONTAGNES.\"",
+  "maps.points.tower_level4.dialogue-6": "\"LÀ, IL GARDERAIT LA DERNIÈRE CLÉ.\"",
+  "maps.points.tower_level4.dialogue-7": "\"J'ESPÉRAIS QU'IL TROUVERAIT LA PAIX... ET QUE NUL NE VIENDRAIT LE TROUBLER.\"",
+  "maps.points.tower_level4.l01.detail": "Fleur bleue de Caerlin, Rose d'ambre ×3, Baies de crimsolance, Pétale de lune, Fleur solaire ×2, Cœur de mimique",
+  "maps.points.tower_level4.l01.detail.item-links": "[[0,22,\"item_caerlin_blue_flowers\"],[24,36,\"item_flower_amberrose\"],[41,61,\"item_flower_crimsonspire_berries\"],[63,77,\"item_flower_moonpetal\"],[79,92,\"item_flower_solarbloom\"],[97,112,\"item_ingredient_mimic_heart\"]]",
+  "maps.points.tower_level4.l02.detail": "Plume de miséricorde, Médaille de Balduran, Potion de méga guérison, Potion d’oubli",
+  "maps.points.tower_level4.l02.detail.item-links": "[[0,20,\"item_feather_of_mercy\"],[22,42,\"item_generic_balduran_medail\"],[44,67,\"item_mega_heal_potion\"],[69,83,\"item_respec_potion\"]]",
+  "maps.points.tower_level4.n01.detail": "1 × 1 carré",
+  "maps.points.tower_level4.name": "Lieu de chute sur la carte",
+  "maps.points.tower_level4.title": "Souvenirs du dragon géant",
+  "maps.points.tower_level4.title-2": "Monter à l'étage supérieur → Niveau 5 de la Tour",
+  "maps.points.tower_level4.w01.detail": "Orientation de la chute",
+  "maps.points.tower_level4.wall-sign.tower4_1": "Parfois, il faut avancer, mais d'abord reculer d'un pas."
+}

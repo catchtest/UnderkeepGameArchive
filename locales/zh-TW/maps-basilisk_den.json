@@ -1,7 +1,10 @@
 {
   "maps.points.basilisk_den.l01.detail": "星辰釘錘、戰血補劑（配方）",
+  "maps.points.basilisk_den.l01.detail.item-links": "[[0,4,\"item_mace_of_stars\"],[5,13,\"item_recipe_potion_heal_and_endurance\"]]",
   "maps.points.basilisk_den.l02.detail": "生鏽的鎖甲靴、生鏽的鱗片頭盔",
+  "maps.points.basilisk_den.l02.detail.item-links": "[[0,6,\"item_rusty_chain_boots\"],[7,14,\"item_rusty_scale_helmet\"]]",
   "maps.points.basilisk_den.l03.detail": "雷鳴藥劑、空瓶、治療藥水",
+  "maps.points.basilisk_den.l03.detail.item-links": "[[0,4,\"item_drakkan_potion_unstun\"],[5,7,\"item_empty_flask\"],[8,12,\"item_heal_potion\"]]",
   "maps.points.basilisk_den.x01.detail": "依機關或遊戲狀態判定",
   "maps.points.basilisk_den.x01.title": "地坑"
 }

@@ -1,0 +1,10 @@
+{
+  "maps.points.tower_level2.a01.title": "Иди вниз. → Вход в башню",
+  "maps.points.tower_level2.a02.title": "Сцена перехода → Башня - уровень 2 (Коррупция)",
+  "maps.points.tower_level2.a04.title": "Иди наверх. → Башня - уровень 3",
+  "maps.points.tower_level2.detail": "Подземельный тост, Зелье воскрешения",
+  "maps.points.tower_level2.detail.item-links": "[[0,17,\"item_food_toast\"],[19,36,\"item_potion_resurrection\"]]",
+  "maps.points.tower_level2.wall-sign.tower2_1": "Только те, кто на внешней стороне, должны проснуться.",
+  "maps.points.tower_level2.wall-sign.tower2_n1": "Друзья и спутники Мастера Башни",
+  "maps.points.tower_level2.wall-sign.tower2_n2": "Он принимает ключи, клянусь охранять подполье"
+}

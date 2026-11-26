@@ -1,0 +1,22 @@
+{
+  "maps.points.tower_level4.a02.title": "Baja abajo . → Nivel 3 de la Torre",
+  "maps.points.tower_level4.detail": "La aparición familiar toma forma ante ti.",
+  "maps.points.tower_level4.detail-2": "At (2, -3) El partido lo ha golpeado",
+  "maps.points.tower_level4.dialogue": "\"DE TODOS MIS COMPAÑEROS, NINGUNO FUE MÁS FIEL.\"",
+  "maps.points.tower_level4.dialogue-2": "\"LO CRIÉ DESDE EL HUEVO.\"",
+  "maps.points.tower_level4.dialogue-3": "\"DURANTE MUCHOS AÑOS, PERMANECIÓ A MI LADO.\"",
+  "maps.points.tower_level4.dialogue-4": "\"PERO NI SIQUIERA MI MAGIA PODÍA DOMAR LA NATURALEZA DE UN DRAGÓN.\"",
+  "maps.points.tower_level4.dialogue-5": "\"ASÍ QUE LO LIBERÉ EN LAS MONTAÑAS.\"",
+  "maps.points.tower_level4.dialogue-6": "\"ALLÍ GUARDARÍA LA ÚLTIMA LLAVE.\"",
+  "maps.points.tower_level4.dialogue-7": "\"ESPERABA QUE ENCONTRARA LA PAZ... Y QUE NADIE LO MOLESTARA.\"",
+  "maps.points.tower_level4.l01.detail": "Flor azul de Caerlin, Rosa ámbar ×3, Bayas de la Aguja Carmesí, Pétalo lunar, Flor solar ×2, Corazón de mímico",
+  "maps.points.tower_level4.l01.detail.item-links": "[[0,20,\"item_caerlin_blue_flowers\"],[22,32,\"item_flower_amberrose\"],[37,62,\"item_flower_crimsonspire_berries\"],[64,76,\"item_flower_moonpetal\"],[78,88,\"item_flower_solarbloom\"],[93,110,\"item_ingredient_mimic_heart\"]]",
+  "maps.points.tower_level4.l02.detail": "Pluma de la misericordia, Medalla de Balduran, Poción de curación superior, Poción del olvido",
+  "maps.points.tower_level4.l02.detail.item-links": "[[0,24,\"item_feather_of_mercy\"],[26,45,\"item_generic_balduran_medail\"],[47,74,\"item_mega_heal_potion\"],[76,93,\"item_respec_potion\"]]",
+  "maps.points.tower_level4.n01.detail": "1 × 1 cuadrícula",
+  "maps.points.tower_level4.name": "Puntos de caída en el mapa",
+  "maps.points.tower_level4.title": "Los recuerdos del dragón gigante",
+  "maps.points.tower_level4.title-2": "- ¿Por qué no subes? → Nivel 5 de la Torre",
+  "maps.points.tower_level4.w01.detail": "Dirección hacia el aterrizaje",
+  "maps.points.tower_level4.wall-sign.tower4_1": "A veces tienes que avanzar, así que tienes que dar un paso atrás primero."
+}

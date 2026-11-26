@@ -1,0 +1,11 @@
+{
+  "maps.points.swamp_lost_city.detail": "Schädel, Sonnenblüte, Giftsack",
+  "maps.points.swamp_lost_city.detail-2": "Der Wrathspinner erscheint",
+  "maps.points.swamp_lost_city.detail.item-links": "[[0,7,\"item_bones05\"],[9,20,\"item_flower_solarbloom\"],[22,30,\"item_venom_sac\"]]",
+  "maps.points.swamp_lost_city.l01.detail": "Eisenhaut-Trank ×2, Flüsternder Ring",
+  "maps.points.swamp_lost_city.l01.detail.item-links": "[[0,15,\"item_armor_potion\"],[20,36,\"item_ring_of_whisper\"]]",
+  "maps.points.swamp_lost_city.l03.detail": "Asche ×2, Rostiger Dolch",
+  "maps.points.swamp_lost_city.l03.detail.item-links": "[[0,5,\"item_generic_ash\"],[10,24,\"item_rusty_dagger\"]]",
+  "maps.points.swamp_lost_city.l14.detail": "Gebrochener Knochen, Glutstahl-Panzerhandschuhe, Asche",
+  "maps.points.swamp_lost_city.l14.detail.item-links": "[[0,19,\"item_bones01\"],[21,47,\"item_ember_gloves\"],[49,54,\"item_generic_ash\"]]"
+}

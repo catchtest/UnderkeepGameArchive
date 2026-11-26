@@ -31,9 +31,8 @@ h1, h2, h3, p { margin: 0; }
   border-bottom: 1px solid var(--border); background: #151f28;
 }
 .map-heading { display: flex; align-items: baseline; gap: 9px; min-width: 0; flex: 1; }
-.map-heading h1, .english { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.map-heading h1 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .map-heading h1 { color: #dce0dc; font-size: 21px; line-height: 1.25; }
-.english { color: var(--soft); font-size: 14px; }
 .drawer-toggle, .text-button {
   flex: none; white-space: nowrap; color: var(--text); border: 1px solid var(--border);
   border-radius: 5px; background: #1c2a34; padding: 5px 8px;
@@ -86,10 +85,8 @@ h2 { font-size: 18px; font-weight: 650; }
   overflow-wrap: anywhere;
 }
 .map-link.submap { margin-inline-start: 16px; border-inline-start-color: #41515a; }
-.map-link small { display: block; color: var(--soft); font-size: 13px; margin-top: 3px; }
 .map-link:hover { background: #253641; }
 .map-link[aria-current="page"] { border-color: #8c744f; background: #36352e; color: var(--accent-text); }
-.map-link[aria-current="page"] small { color: #c0b6a5; }
 
 .stage {
   --drawer-width: min(390px, 44vw);
@@ -232,7 +229,6 @@ h2 { font-size: 18px; font-weight: 650; }
 .npc-quests li strong { color: var(--accent-text); }
 @media (max-width: 600px) {
   .top { padding: 6px; gap: 6px; }
-  .english { display: none; }
   .drawer-toggle { padding-inline: 6px; }
   .drawer { inset: auto 0 0; width: 100%; height: 50%; }
   #layers-drawer { bottom: 0; height: auto; max-height: 50%; }
@@ -258,7 +254,6 @@ h2 { font-size: 18px; font-weight: 650; }
   border-bottom: 1px solid var(--border);
 }
 .detail-dialog .entry-heading h2 { color: var(--accent-text); font-size: 21px; }
-.detail-dialog .entry-heading small { color: var(--soft); }
 .detail-dialog > .dialog-body { padding: 14px; overflow-wrap: anywhere; }
 .detail-dialog .dialog-body .intro, .detail-dialog .dialog-body dd { white-space: pre-line; }
 .detail-dialog .dialog-body dt, .detail-dialog .dialog-body .muted { color: var(--soft); }
@@ -284,7 +279,6 @@ h2 { font-size: 18px; font-weight: 650; }
 .overview-node text { fill: var(--text); font-size: 16px; }
 .overview-node.hub rect { fill: #283a40; stroke: #839d99; }
 .overview-node.hub text { font-weight: 600; }
-.overview-node text.overview-english { fill: var(--soft); font-size: 12px; font-weight: 400; }
 .overview-node:hover rect, .overview-node:focus-visible rect { fill: #364b54; stroke: #93ddfb; stroke-width: 2; }
 .overview-node[aria-current="location"] rect { fill: #39342b; stroke: var(--gold); stroke-width: 2; }
 .overview-node[aria-current="location"] text { fill: var(--accent-text); }

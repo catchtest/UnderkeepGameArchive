@@ -54,39 +54,6 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .archive-links strong { font: 700 1.12rem/1.4 "Microsoft JhengHei", "Microsoft JhengHei UI", sans-serif; }
 .archive-links span:not(.link-arrow) { color: #d3cabb; }
 .link-arrow { position: absolute; inset-inline-end: 17px; top: 14px; }
-.home-footer {
-  display: flow-root;
-  width: min(48rem, calc(100% - 32px));
-  margin: 0 auto 16px;
-  color: #bdb5a4;
-  font-size: .9rem;
-  text-align: center;
-  text-wrap: balance;
-}
-.home-footer p + p { margin-top: 6px; }
-.home-divider {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 10px;
-  width: min(70%, 360px);
-  margin: 16px auto 12px;
-}
-.home-divider::before,
-.home-divider::after {
-  content: "";
-  height: 1px;
-  background: linear-gradient(to right, transparent, #ab8851);
-}
-.home-divider::after { transform: scaleX(-1); }
-.home-divider span {
-  width: 9px;
-  height: 9px;
-  transform: rotate(45deg);
-  border: 1px solid var(--gold);
-  background: #745b35;
-  box-shadow: 0 0 8px #ab885166;
-}
 @media (min-width: 701px) {
   .home-hero { padding-block: clamp(24px, min(6vw, 4svh), 84px); }
 }

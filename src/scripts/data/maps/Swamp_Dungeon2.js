@@ -28,7 +28,7 @@ registerUnderkeepMap({
 {"id":40,"key":"dung_swamp_wooden_door_2","xy":[-7,-1],"code":"M14"},
 {"id":43,"key":"dung_swamp_wooden_door_2","xy":[-8,5],"code":"M15"},
 {"id":122,"key":"slime_egg","xy":[-4,-1],"code":"L01"},
-{"id":96,"key":"dung_swamp_alcove","xy":[0,-1],"code":"L02","detail":{"{{t:common.loot}}":"{{t:maps.points.swamp_dungeon2.l02.detail}}"},"itemLinks":{"{{t:common.loot}}":[[0,4,"item_potion_cure_poison"],[8,12,"item_potion_heal_and_mana"],[13,17,"item_potion_resurrection"]]}},
+{"id":96,"key":"dung_swamp_alcove","xy":[0,-1],"code":"L02","detail":{"{{t:common.loot}}":"{{t:maps.points.swamp_dungeon2.l02.detail}}"},"itemLinks":{"{{t:common.loot}}":{{t:maps.points.swamp_dungeon2.l02.detail.item-links|json}}}},
 {"id":45,"key":"enemy_swamp_tentacle_root","xy":[-14,-11],"code":"F01","targets":[[44,["trigger"]]]},
 {"id":72,"key":"enemy_spider","xy":[-16,-9],"code":"F02"},
 {"id":76,"key":"enemy_spider","xy":[-16,-9],"code":"F03"},

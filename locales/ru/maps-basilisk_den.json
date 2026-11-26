@@ -1,0 +1,10 @@
+{
+  "maps.points.basilisk_den.l01.detail": "Булава Звёзд, Тоник Боевой Крови (Рецепт)",
+  "maps.points.basilisk_den.l01.detail.item-links": "[[0,12,\"item_mace_of_stars\"],[14,41,\"item_recipe_potion_heal_and_endurance\"]]",
+  "maps.points.basilisk_den.l02.detail": "Ржавые кольчужные сапоги, Ржавый чешуйчатый шлем",
+  "maps.points.basilisk_den.l02.detail.item-links": "[[0,24,\"item_rusty_chain_boots\"],[26,48,\"item_rusty_scale_helmet\"]]",
+  "maps.points.basilisk_den.l03.detail": "Громобуд, Пустая фляга, Зелье лечения",
+  "maps.points.basilisk_den.l03.detail.item-links": "[[0,8,\"item_drakkan_potion_unstun\"],[10,22,\"item_empty_flask\"],[24,37,\"item_heal_potion\"]]",
+  "maps.points.basilisk_den.x01.detail": "Определяется механизмом или состоянием игры",
+  "maps.points.basilisk_den.x01.title": "Скважина"
+}

@@ -1,0 +1,10 @@
+{
+  "maps.points.basilisk_den.l01.detail": "Hvězdný palcát, Železné srdce (Recept)",
+  "maps.points.basilisk_den.l01.detail.item-links": "[[0,14,\"item_mace_of_stars\"],[16,38,\"item_recipe_potion_heal_and_endurance\"]]",
+  "maps.points.basilisk_den.l02.detail": "Rezavé kroužkové boty, Rezavá šupinová přilba",
+  "maps.points.basilisk_den.l02.detail.item-links": "[[0,21,\"item_rusty_chain_boots\"],[23,45,\"item_rusty_scale_helmet\"]]",
+  "maps.points.basilisk_den.l03.detail": "Hromové probuzení, Prázdná lahvička, Léčivý lektvar",
+  "maps.points.basilisk_den.l03.detail.item-links": "[[0,17,\"item_drakkan_potion_unstun\"],[19,35,\"item_empty_flask\"],[37,51,\"item_heal_potion\"]]",
+  "maps.points.basilisk_den.x01.detail": "Určité mechanismem nebo statusem hry",
+  "maps.points.basilisk_den.x01.title": "Hřeben"
+}

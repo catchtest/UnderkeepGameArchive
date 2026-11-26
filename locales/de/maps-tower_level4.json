@@ -1,0 +1,22 @@
+{
+  "maps.points.tower_level4.a02.title": "Geh nach unten . → Turm - Ebene 3",
+  "maps.points.tower_level4.detail": "Die vertraute Erscheinung nimmt vor euch Gestalt an.",
+  "maps.points.tower_level4.detail-2": "At (2, -3) Von der Party betreten",
+  "maps.points.tower_level4.dialogue": "\"VON ALL MEINEN GEFÄHRTEN WAR MIR KEINER TREUER.\"",
+  "maps.points.tower_level4.dialogue-2": "\"ICH ZOG IHN VOM EI AN AUF.\"",
+  "maps.points.tower_level4.dialogue-3": "\"VIELE JAHRE BLIEB ER AN MEINER SEITE.\"",
+  "maps.points.tower_level4.dialogue-4": "\"DOCH SELBST MEINE MAGIE KONNTE DIE NATUR EINES DRACHEN NICHT ZÄHMEN.\"",
+  "maps.points.tower_level4.dialogue-5": "\"ALSO LIESS ICH IHN IN DEN BERGEN FREI.\"",
+  "maps.points.tower_level4.dialogue-6": "\"DORT SOLLTE ER DEN LETZTEN SCHLÜSSEL BEWACHEN.\"",
+  "maps.points.tower_level4.dialogue-7": "\"ICH HOFFTE, ER WÜRDE DORT FRIEDEN FINDEN... UND DASS NIEMAND IHN STÖREN WÜRDE.\"",
+  "maps.points.tower_level4.l01.detail": "Blaue Caerlin-Blüte, Bernsteinrose ×3, Karmesinblüten, Mondblüte, Sonnenblüte ×2, Imitator-Herz",
+  "maps.points.tower_level4.l01.detail.item-links": "[[0,19,\"item_caerlin_blue_flowers\"],[21,34,\"item_flower_amberrose\"],[39,53,\"item_flower_crimsonspire_berries\"],[55,64,\"item_flower_moonpetal\"],[66,77,\"item_flower_solarbloom\"],[82,95,\"item_ingredient_mimic_heart\"]]",
+  "maps.points.tower_level4.l02.detail": "Feder der Barmherzigkeit, Medaille von Balduran, Großer Heiltrank, Trank des Vergessens",
+  "maps.points.tower_level4.l02.detail.item-links": "[[0,24,\"item_feather_of_mercy\"],[26,47,\"item_generic_balduran_medail\"],[49,65,\"item_mega_heal_potion\"],[67,87,\"item_respec_potion\"]]",
+  "maps.points.tower_level4.n01.detail": "1 × 1 Gitter",
+  "maps.points.tower_level4.name": "Abfallpunkte auf der Karte",
+  "maps.points.tower_level4.title": "Erinnerungen an den riesigen Drachen",
+  "maps.points.tower_level4.title-2": "Geh nach oben . → Turm - Ebene 5",
+  "maps.points.tower_level4.w01.detail": "Bei der Landung in Richtung",
+  "maps.points.tower_level4.wall-sign.tower4_1": "Manchmal muss man vorwärts gehen, also muss man zuerst einen Schritt zurücklegen."
+}

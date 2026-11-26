@@ -1,0 +1,10 @@
+{
+  "maps.points.tower_level2.a01.title": "Go downstairs → Tower Entrance",
+  "maps.points.tower_level2.a02.title": "Transition scene → Tower Level 2 (Corruption)",
+  "maps.points.tower_level2.a04.title": "Go upstairs → Tower Level 3",
+  "maps.points.tower_level2.detail": "Dungeon Toast, Potion of Resurrection",
+  "maps.points.tower_level2.detail.item-links": "[[0,13,\"item_food_toast\"],[15,37,\"item_potion_resurrection\"]]",
+  "maps.points.tower_level2.wall-sign.tower2_1": "Only those on the outer side should awaken.",
+  "maps.points.tower_level2.wall-sign.tower2_n1": "Friends and companions of the Tower Master",
+  "maps.points.tower_level2.wall-sign.tower2_n2": "He accepts the keys, vowing to guard Underkeep"
+}

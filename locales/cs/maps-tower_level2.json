@@ -1,0 +1,10 @@
+{
+  "maps.points.tower_level2.a01.title": "Jdi dolů. → Underkeep - Vstup",
+  "maps.points.tower_level2.a02.title": "Scenář přechodů → Underkeep - Druhé patro (Korupce)",
+  "maps.points.tower_level2.a04.title": "Jdi nahoru. → Underkeep - Třetí patro",
+  "maps.points.tower_level2.detail": "Toast dobrodruha, Lektvar vzkříšení",
+  "maps.points.tower_level2.detail.item-links": "[[0,16,\"item_food_toast\"],[18,35,\"item_potion_resurrection\"]]",
+  "maps.points.tower_level2.wall-sign.tower2_1": "Jen ti na vnější straně by se měli probudit.",
+  "maps.points.tower_level2.wall-sign.tower2_n1": "Přátelé a společníci velitele věže",
+  "maps.points.tower_level2.wall-sign.tower2_n2": "Přijímá klíče a slibuje, že bude hlídat Underkeep"
+}

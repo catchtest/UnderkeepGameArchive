@@ -1,0 +1,11 @@
+{
+  "maps.points.swamp_lost_city.detail": "Calavera, Flor solar, Saco de veneno",
+  "maps.points.swamp_lost_city.detail-2": "El Wrathspinner aparece",
+  "maps.points.swamp_lost_city.detail.item-links": "[[0,8,\"item_bones05\"],[10,20,\"item_flower_solarbloom\"],[22,36,\"item_venom_sac\"]]",
+  "maps.points.swamp_lost_city.l01.detail": "Poción de piel de hierro ×2, Anillo susurrante",
+  "maps.points.swamp_lost_city.l01.detail.item-links": "[[0,24,\"item_armor_potion\"],[29,46,\"item_ring_of_whisper\"]]",
+  "maps.points.swamp_lost_city.l03.detail": "Ceniza ×2, Daga oxidada",
+  "maps.points.swamp_lost_city.l03.detail.item-links": "[[0,6,\"item_generic_ash\"],[11,23,\"item_rusty_dagger\"]]",
+  "maps.points.swamp_lost_city.l14.detail": "Hueso roto, Guantes de acero de brasas, Ceniza",
+  "maps.points.swamp_lost_city.l14.detail.item-links": "[[0,10,\"item_bones01\"],[12,38,\"item_ember_gloves\"],[40,46,\"item_generic_ash\"]]"
+}

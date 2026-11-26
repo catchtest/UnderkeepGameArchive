@@ -1,0 +1,10 @@
+{
+  "maps.points.basilisk_den.l01.detail": "Masse des Étoiles, Tonique sang-de-guerre (Recette)",
+  "maps.points.basilisk_den.l01.detail.item-links": "[[0,17,\"item_mace_of_stars\"],[19,51,\"item_recipe_potion_heal_and_endurance\"]]",
+  "maps.points.basilisk_den.l02.detail": "Bottes en mailles de chaîne rouillées, Casque d'écailles rouillé",
+  "maps.points.basilisk_den.l02.detail.item-links": "[[0,37,\"item_rusty_chain_boots\"],[39,64,\"item_rusty_scale_helmet\"]]",
+  "maps.points.basilisk_den.l03.detail": "Breuvage réveille-tonnerre, Fiole vide, Potion de guérison",
+  "maps.points.basilisk_den.l03.detail.item-links": "[[0,26,\"item_drakkan_potion_unstun\"],[28,38,\"item_empty_flask\"],[40,58,\"item_heal_potion\"]]",
+  "maps.points.basilisk_den.x01.detail": "Déterminé en fonction de l'arme ou du statut du jeu",
+  "maps.points.basilisk_den.x01.title": "Fosse"
+}

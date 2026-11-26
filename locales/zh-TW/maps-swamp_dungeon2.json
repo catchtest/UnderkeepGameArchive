@@ -4,5 +4,6 @@
   "maps.points.swamp_dungeon2.detail-2": "在（-7, -14）觸發",
   "maps.points.swamp_dungeon2.f10.detail": "攻擊（-7, 5）的觸手根。",
   "maps.points.swamp_dungeon2.l02.detail": "解毒藥水 ×2、心泉藥劑、復活藥水",
+  "maps.points.swamp_dungeon2.l02.detail.item-links": "[[0,4,\"item_potion_cure_poison\"],[8,12,\"item_potion_heal_and_mana\"],[13,17,\"item_potion_resurrection\"]]",
   "maps.points.swamp_dungeon2.title": "消滅沼澤觸手根"
 }

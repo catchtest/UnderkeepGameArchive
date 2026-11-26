@@ -1,0 +1,14 @@
+{
+  "maps.points.caerlin_west_dungeon.f02.detail": "Search for the coffin on the altar at (14, -59).",
+  "maps.points.caerlin_west_dungeon.f06.detail": "Operating the stone coffin at (3, -53).",
+  "maps.points.caerlin_west_dungeon.h01.title": "Golden Coins ×12",
+  "maps.points.caerlin_west_dungeon.l01.detail": "Crown of Lightning, Amethyst, Mace of Staggering Blow",
+  "maps.points.caerlin_west_dungeon.l01.detail.item-links": "[[0,18,\"item_crown_of_lightning\"],[20,28,\"item_diamond_purple\"],[30,53,\"item_mace_stagger\"]]",
+  "maps.points.caerlin_west_dungeon.l02.detail": "Appears the Fallen Swordsman",
+  "maps.points.caerlin_west_dungeon.l03.detail": "Appear Frost Wrath, Hat of Winter",
+  "maps.points.caerlin_west_dungeon.l03.detail.item-links": "[[20,33,\"item_hat_of_winter\"]]",
+  "maps.points.caerlin_west_dungeon.l04.detail": "Dust and Bones, Skull",
+  "maps.points.caerlin_west_dungeon.l04.detail.item-links": "[[0,14,\"item_bones02\"],[16,21,\"item_bones05\"]]",
+  "maps.points.caerlin_west_dungeon.wall-sign.ac_wall_sign_01": "The crown is broken, The fire has been extinguished.\nOnly hair remains.",
+  "maps.points.caerlin_west_dungeon.x11.detail": "You have solved the puzzle."
+}

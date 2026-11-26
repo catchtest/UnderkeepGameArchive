@@ -1,0 +1,10 @@
+{
+  "maps.points.basilisk_den.l01.detail": "Mace of Stars, Warblood Tonic (Recipe)",
+  "maps.points.basilisk_den.l01.detail.item-links": "[[0,13,\"item_mace_of_stars\"],[15,38,\"item_recipe_potion_heal_and_endurance\"]]",
+  "maps.points.basilisk_den.l02.detail": "Rusty Chain Boots, Rusty Scale Helmet",
+  "maps.points.basilisk_den.l02.detail.item-links": "[[0,17,\"item_rusty_chain_boots\"],[19,37,\"item_rusty_scale_helmet\"]]",
+  "maps.points.basilisk_den.l03.detail": "Thunderwake Draught, Empty Flask, Potion of Healing",
+  "maps.points.basilisk_den.l03.detail.item-links": "[[0,19,\"item_drakkan_potion_unstun\"],[21,32,\"item_empty_flask\"],[34,51,\"item_heal_potion\"]]",
+  "maps.points.basilisk_den.x01.detail": "Determined by the Mechanism or Game Status",
+  "maps.points.basilisk_den.x01.title": "Pit"
+}

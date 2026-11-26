@@ -14,9 +14,9 @@
 <link rel="icon" type="image/x-icon" href="{{site:assets}}images/favicon.ico">
 <script>document.documentElement.classList.add('enhanced');</script>
 <!-- Update the matching t values when publishing CSS or JavaScript changes. -->
-<link rel="stylesheet" href="css/site.css?t=20261126.2">
-<noscript><link rel="stylesheet" href="css/home.css?t=20261126.1"></noscript>
-<script defer src="scripts/site.js?t=20261126.11"></script>
+<link rel="stylesheet" href="{{site:bundle}}css/site.css?t=20261126.6">
+<noscript><link rel="stylesheet" href="{{site:bundle}}css/home.css?t=20261126.3"></noscript>
+<script defer src="{{site:bundle}}scripts/site.js?t=20261126.20"></script>
 </head>
 <body data-page="home">
 <header class="masthead"><div class="mast-inner">
@@ -31,7 +31,7 @@
     <a href="?view=guide#enemies" data-title="{{t:common.enemy-catalog|attr}}">{{t:common.enemy}}</a><a href="?view=guide#quests" data-title="{{t:common.quest-list|attr}}">{{t:common.quest}}</a>
     <a id="to-walkthrough" href="?view=walkthrough">{{t:common.walkthrough}}</a>
   </nav>
-{{site:language-menu}}</div></header>
+</div></header>
 <p id="view-status" role="status" hidden></p>
 <div id="view">
 <main class="home" tabindex="-1">
@@ -60,12 +60,15 @@
   </nav>
   <noscript><p>{{t:site.home.javascript-required}}</p></noscript>
 </main>
-<footer class="home-footer">
-  <div class="home-divider" aria-hidden="true"><span></span></div>
-  <p>{{t:site.home.credit-before-link}}<a href="https://www.bilibili.com/video/BV1tS4n6CET2/" lang="zh-Hans">{{t:site.home.translator}}</a>{{t:site.home.credit-after-link}}</p>
-  <p>{{t:site.home.version-and-author}}</p>
-</footer>
 </div>
+<footer class="site-footer">
+  <div class="footer-credits">
+    <div class="footer-divider" aria-hidden="true"><span></span></div>
+    <p>{{t:site.home.credit-before-link}}<a href="https://www.bilibili.com/video/BV1tS4n6CET2/" lang="zh-Hans">{{t:site.home.translator}}</a>{{t:site.home.credit-after-link}}</p>
+    <p>{{t:site.home.version-and-author}}</p>
+  </div>
+{{site:language-menu}}
+</footer>
 <template id="walkthrough-view">
 <main class="book" tabindex="-1">
   <header class="banner"><h1>{{t:walkthrough.title}}</h1></header>
@@ -81,7 +84,7 @@
         <label class="flow-size"><input type="checkbox" aria-controls="flow-viewport"> {{t:walkthrough.actual-size}}</label>
       </div>
       <div id="flow-viewport" class="flow-viewport" tabindex="0" role="region" aria-label="{{t:walkthrough.story-flow.title|attr}}">
-        <img src="images/story-flow.svg" alt="{{t:walkthrough.story-flow.title|attr}}">
+        <img src="{{site:bundle}}images/story-flow.svg" alt="{{t:walkthrough.story-flow.title|attr}}">
       </div>
     </section>
     <section class="walkthrough-flow" aria-labelledby="ending-title">
@@ -91,7 +94,7 @@
       </div>
       <p>{{t:walkthrough.ending-flow.summary}}</p>
       <div id="ending-viewport" class="flow-viewport" tabindex="0" role="region" aria-labelledby="ending-title">
-        <img src="images/ending-flow.svg" alt="{{t:walkthrough.ending-flow.alt|attr}}">
+        <img src="{{site:bundle}}images/ending-flow.svg" alt="{{t:walkthrough.ending-flow.alt|attr}}">
       </div>
       <p>{{t:walkthrough.ending-flow.replay}}</p>
       <p>{{t:walkthrough.ending-flow.portal}}</p>
@@ -104,23 +107,23 @@
       <div id="side-quest-charts">
         <h3 id="mayor-title">{{t:walkthrough.side-quest-mayor.title}}</h3>
         <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="mayor-title">
-          <img src="images/side-quest-mayor.svg" alt="{{t:walkthrough.side-quest-mayor.alt|attr}}">
+          <img src="{{site:bundle}}images/side-quest-mayor.svg" alt="{{t:walkthrough.side-quest-mayor.alt|attr}}">
         </div>
         <h3 id="mushrooms-title">{{t:walkthrough.side-quest-mushrooms.title}}</h3>
         <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="mushrooms-title">
-          <img src="images/side-quest-mushrooms.svg" alt="{{t:walkthrough.side-quest-mushrooms.alt|attr}}">
+          <img src="{{site:bundle}}images/side-quest-mushrooms.svg" alt="{{t:walkthrough.side-quest-mushrooms.alt|attr}}">
         </div>
         <h3 id="jacob-title">{{t:walkthrough.side-quest-jacob.title}}</h3>
         <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="jacob-title">
-          <img src="images/side-quest-jacob.svg" alt="{{t:walkthrough.side-quest-jacob.alt|attr}}">
+          <img src="{{site:bundle}}images/side-quest-jacob.svg" alt="{{t:walkthrough.side-quest-jacob.alt|attr}}">
         </div>
         <h3 id="wards-title">{{t:walkthrough.side-quest-wards.title}}</h3>
         <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="wards-title">
-          <img src="images/side-quest-wards.svg" alt="{{t:walkthrough.side-quest-wards.alt|attr}}">
+          <img src="{{site:bundle}}images/side-quest-wards.svg" alt="{{t:walkthrough.side-quest-wards.alt|attr}}">
         </div>
         <h3 id="dwarves-title">{{t:walkthrough.side-quest-dwarves.title}}</h3>
         <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="dwarves-title">
-          <img src="images/side-quest-dwarves.svg" alt="{{t:walkthrough.side-quest-dwarves.alt|attr}}">
+          <img src="{{site:bundle}}images/side-quest-dwarves.svg" alt="{{t:walkthrough.side-quest-dwarves.alt|attr}}">
         </div>
       </div>
     </section>
@@ -131,7 +134,7 @@
 <template id="map-view">
 <header class="top">
   <button type="button" class="drawer-toggle" id="maps-toggle" aria-controls="maps-drawer" aria-expanded="false">{{t:common.location}}</button>
-  <div class="map-heading"><h1 id="map-title"></h1><p id="map-en" class="english"></p></div>
+  <div class="map-heading"><h1 id="map-title"></h1></div>
   <button type="button" class="drawer-toggle" id="layers-toggle" aria-controls="layers-drawer" aria-expanded="false">
     <span class="layers-icon" aria-hidden="true"></span>{{t:maps.ui.layers}}
   </button>

@@ -1,0 +1,14 @@
+{
+  "maps.points.wolf_den.l01.detail": "Ausdauertrank, Heiltrank, Stier-Helm",
+  "maps.points.wolf_den.l01.loot-links": "[[0,13,\"item_endurance_potion\"],[15,24,\"item_heal_potion\"],[26,36,\"item_helm_of_bull\"]]",
+  "maps.points.wolf_den.n01.detail": "Wälder von Caerlin (23, -45)",
+  "maps.points.wolf_den.n02.detail": "Wälder von Caerlin (16, -44)",
+  "maps.points.wolf_den.n03.detail": "Wälder von Caerlin (12, -43)",
+  "maps.points.wolf_den.n04.detail": "Wälder von Caerlin (14, -42)",
+  "maps.points.wolf_den.n05.detail": "Wälder von Caerlin (18, -42)",
+  "maps.points.wolf_den.n06.detail": "Wälder von Caerlin (11, -41)",
+  "maps.points.wolf_den.n07.detail": "Wälder von Caerlin (12, -41)",
+  "maps.points.wolf_den.n09.detail": "Wälder von Caerlin (13, -40)",
+  "maps.points.wolf_den.n10.detail": "Wälder von Caerlin (11, -39)",
+  "maps.points.wolf_den.n11.detail": "Wälder von Caerlin (9, -38)"
+}

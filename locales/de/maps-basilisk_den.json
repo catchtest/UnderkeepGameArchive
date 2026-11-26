@@ -1,0 +1,10 @@
+{
+  "maps.points.basilisk_den.l01.detail": "Streitkolben der Sterne, Kriegsblut-Tonikum (Rezept)",
+  "maps.points.basilisk_den.l01.detail.item-links": "[[0,23,\"item_mace_of_stars\"],[25,52,\"item_recipe_potion_heal_and_endurance\"]]",
+  "maps.points.basilisk_den.l02.detail": "Rostige Kettenstiefel, Rostiger Schuppenhelm",
+  "maps.points.basilisk_den.l02.detail.item-links": "[[0,21,\"item_rusty_chain_boots\"],[23,44,\"item_rusty_scale_helmet\"]]",
+  "maps.points.basilisk_den.l03.detail": "Trank des Donnerrufs, Leeres Fläschchen, Heiltrank",
+  "maps.points.basilisk_den.l03.detail.item-links": "[[0,20,\"item_drakkan_potion_unstun\"],[22,39,\"item_empty_flask\"],[41,50,\"item_heal_potion\"]]",
+  "maps.points.basilisk_den.x01.detail": "Bestimmt durch den Mechanismus oder den Spielstatus",
+  "maps.points.basilisk_den.x01.title": "Gruben"
+}

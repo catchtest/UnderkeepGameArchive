@@ -14,9 +14,9 @@ registerUnderkeepMap({
 {"id":57,"key":"dung_moss_wooden_door_2","xy":[9,-19],"code":"M02"},
 {"id":86,"key":"dung_moss_secret_button","xy":[2,-17],"code":"M03","targets":[[85,["toggle"]],[87,["toggle"]]]},
 {"id":74,"key":"dung_moss_wooden_door_1","xy":[6,-6],"code":"M04"},
-{"id":95,"key":"chest1","xy":[8,-22],"code":"L01","detail":{"{{t:common.loot}}":"{{t:maps.points.swamp_lost_city.l01.detail}}"},"itemLinks":{"{{t:common.loot}}":[[0,4,"item_armor_potion"],[8,12,"item_ring_of_whisper"]]}},
+{"id":95,"key":"chest1","xy":[8,-22],"code":"L01","detail":{"{{t:common.loot}}":"{{t:maps.points.swamp_lost_city.l01.detail}}"},"itemLinks":{"{{t:common.loot}}":{{t:maps.points.swamp_lost_city.l01.detail.item-links|json}}}},
 {"id":84,"key":"dung_moss_alcove","xy":[2,-21],"code":"L02"},
-{"id":96,"key":"chest1","xy":[10,-18],"code":"L03","detail":{"{{t:common.loot}}":"{{t:maps.points.swamp_lost_city.l03.detail}}"},"itemLinks":{"{{t:common.loot}}":[[0,2,"item_generic_ash"],[6,11,"item_rusty_dagger"]]}},
+{"id":96,"key":"chest1","xy":[10,-18],"code":"L03","detail":{"{{t:common.loot}}":"{{t:maps.points.swamp_lost_city.l03.detail}}"},"itemLinks":{"{{t:common.loot}}":{{t:maps.points.swamp_lost_city.l03.detail.item-links|json}}}},
 {"id":102,"key":"slime_egg_trap_nest","xy":[4,-15],"code":"L04"},
 {"id":101,"key":"slime_egg_trap_nest","xy":[5,-15],"code":"L05"},
 {"id":116,"key":"slime_egg_trap_nest","xy":[4,-14],"code":"L06"},
@@ -27,7 +27,7 @@ registerUnderkeepMap({
 {"id":104,"key":"slime_egg_trap_nest","xy":[5,-12],"code":"L11"},
 {"id":106,"key":"slime_egg_trap_nest","xy":[6,-12],"code":"L12"},
 {"id":109,"key":"slime_egg_trap_nest","xy":[8,-12],"code":"L13"},
-{"id":78,"key":"chest1","xy":[9,-7],"code":"L14","detail":{"{{t:common.loot}}":"{{t:maps.points.swamp_lost_city.l14.detail}}"},"itemLinks":{"{{t:common.loot}}":[[0,5,"item_bones01"],[6,10,"item_ember_gloves"],[11,13,"item_generic_ash"]]}},
+{"id":78,"key":"chest1","xy":[9,-7],"code":"L14","detail":{"{{t:common.loot}}":"{{t:maps.points.swamp_lost_city.l14.detail}}"},"itemLinks":{"{{t:common.loot}}":{{t:maps.points.swamp_lost_city.l14.detail.item-links|json}}}},
 {"id":93,"key":"dwarf_npc","xy":[-2,-20],"code":"H01","native":"mtile_enemy_friend"},
 {"id":98,"key":"item_heavy_crossbow","xy":[-2,-16],"code":"I01"},
 {"id":66,"key":"enemy_skeleton_archer","xy":[8,-21],"code":"F01"},
@@ -98,11 +98,11 @@ registerUnderkeepMap({
 {"id":146,"key":"slime_small_egg3","xy":[8,-11],"code":"X58"}
 ],
 "objects": {
-"dung_moss_alcove": {"type":"treasure","title":"{{t:common.wall-niche}}","detail":{"{{t:common.loot}}":"{{t:maps.points.swamp_lost_city.detail}}"},"sprite":"mtile_alcove","rotation":0,"native":"mtile_alcove","nativeRotation":90,"isChest":false,"itemLinks":{"{{t:common.loot}}":[[0,2,"item_bones05"],[3,6,"item_flower_solarbloom"],[7,9,"item_venom_sac"]]}},
+"dung_moss_alcove": {"type":"treasure","title":"{{t:common.wall-niche}}","detail":{"{{t:common.loot}}":"{{t:maps.points.swamp_lost_city.detail}}"},"sprite":"mtile_alcove","rotation":0,"native":"mtile_alcove","nativeRotation":90,"isChest":false,"itemLinks":{"{{t:common.loot}}":{{t:maps.points.swamp_lost_city.detail.item-links|json}}}},
 "dung_moss_stairs_up": {"type":"passage","title":"{{t:maps.points.swamp_dungeon1.a01.title}}","detail":{"{{t:common.landing}}":"33, 41","{{t:common.entrance-direction}}":"{{t:common.south}}"},"sprite":"mtile_passage","rotation":180,"native":"mtile_passage","nativeRotation":180,"isChest":false,"directExit":true},
 "dung_moss_wooden_door_1": {"type":"mechanism","title":"{{t:maps.objects.cave_door}}","sprite":"mtile_door","rotation":90,"native":"mtile_door","nativeRotation":90,"isChest":false},
 "dung_moss_wooden_door_2": {"type":"mechanism","title":"{{t:maps.objects.cave_door}}","sprite":"mtile_door","rotation":90,"native":"mtile_door","nativeRotation":90,"isChest":false},
-"item_heavy_crossbow": {"type":"item","title":"{{t:guide.item_heavy_crossbow}}","detail":{"{{t:common.available-items}}":"{{t:guide.item_heavy_crossbow}}"},"sprite":"item_crossbow_heavy","rotation":0,"native":null,"nativeRotation":0,"isChest":false,"itemLinks":{"{{t:common.available-items}}":[[0,2,"item_heavy_crossbow"]]},"titleLinks":[[0,2,"item_heavy_crossbow"]]},
+"item_heavy_crossbow": {"type":"item","title":"{{t:guide.item_heavy_crossbow}}","detail":{"{{t:common.available-items}}":"{{t:guide.item_heavy_crossbow}}"},"sprite":"item_crossbow_heavy","rotation":0,"native":null,"nativeRotation":0,"isChest":false,"itemLinks":{"{{t:common.available-items}}":[[0,{{t:guide.item_heavy_crossbow|length}},"item_heavy_crossbow"]]},"titleLinks":[[0,{{t:guide.item_heavy_crossbow|length}},"item_heavy_crossbow"]]},
 "slime_egg_trap_nest": {"type":"treasure","title":"{{t:common.searchable-container}}","detail":{"{{t:common.loot}}":"{{t:maps.points.swamp_lost_city.detail-2}}","{{t:common.acquire-method}}":"{{t:common.break-to-acquire}}"},"sprite":"urn1","rotation":0,"native":null,"nativeRotation":0,"isChest":false}
 }
 });

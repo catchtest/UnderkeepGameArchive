@@ -1,10 +1,5 @@
 {
-  "maps.points.surroundings_cave.wall-sign.four_paths_one_heart": "四方尋求同一顆心。\n讓四條路在中央交會。",
   "maps.points.surroundings_cave.a01.title": "上樓 → Underkeep 之根",
-  "maps.points.surroundings_cave.choice-xp": "等等這裡有足跡",
-  "maps.points.surroundings_cave.choice-xp-2": "等等讓我感知死者是否碰過這裡",
-  "maps.points.surroundings_cave.choice-xp-3": "給我一點時間如果這裡有陷阱我會找出來",
-  "maps.points.surroundings_cave.choice-xp-4": "等等讓我看看黑暗藏著什麼",
   "maps.points.surroundings_cave.detail": "洞窟張開，地面碎成參差的石堆與飄浮的塵土。感覺像 某種強大的東西有意把石室撕開。",
   "maps.points.surroundings_cave.detail-2": "在（0, -2）隊伍踩踏、物件壓住",
   "maps.points.surroundings_cave.detail-4": "倒下的方尖碑，斷裂半埋，可石頭上仍附著零星的符文。",
@@ -42,9 +37,12 @@
   "maps.points.surroundings_cave.dialogue-8": "你蹲在碎石旁，用兩根手指拂開塵土。",
   "maps.points.surroundings_cave.dialogue-9": "足跡。幾十個。細小的腿，緊挨在一起，在碎石上刻出狂亂的圖案。",
   "maps.points.surroundings_cave.l02.detail": "100% · 毒藥水、復活藥水、解毒藥水（配方）\n10% · 蠻牛腰帶、奧術回覆斗篷、虛空斗篷、燼跡便鞋、幸運遠視頭盔、皮鑲甲、神射手護腕、僧侶長袍、偵察風靴、雷鳴彈弓",
+  "maps.points.surroundings_cave.l02.detail.item-links": "[[7,10,\"item_potion_poison\"],[11,15,\"item_potion_resurrection\"],[16,24,\"item_recipe_cure_poison_dvojka\"],[31,35,\"item_belt_of_bull\"],[36,42,\"item_cloak_of_arcane_restoration\"],[43,47,\"item_cloak_of_emptiness\"],[48,52,\"item_embertrail_slippers\"],[53,59,\"item_helmet_of_lucky_farsight\"],[60,63,\"item_leather_brigandine\"],[64,69,\"item_marksman_bracers\"],[70,74,\"item_monk_tunic\"],[75,79,\"item_scoutwind_boots\"],[80,84,\"item_sling_splintered_aim\"]]",
   "maps.points.surroundings_cave.l03.detail": "祖母綠、霜噬之刃",
+  "maps.points.surroundings_cave.l03.detail.item-links": "[[0,3,\"item_diamond_green\"],[4,8,\"item_frostbite_edge\"]]",
   "maps.points.surroundings_cave.n08.detail": "每個按鈕似乎都連著其中一盞燈。",
   "maps.points.surroundings_cave.title": "抵達倒下的方尖碑",
   "maps.points.surroundings_cave.title-2": "閱讀方尖碑第 1 組符文",
-  "maps.points.surroundings_cave.title-3": "進入封印深處"
+  "maps.points.surroundings_cave.title-3": "進入封印深處",
+  "maps.points.surroundings_cave.wall-sign.four_paths_one_heart": "四方尋求同一顆心。\n讓四條路在中央交會。"
 }

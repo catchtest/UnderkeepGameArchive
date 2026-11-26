@@ -1,0 +1,14 @@
+{
+  "maps.points.caerlin_west_dungeon.f02.detail": "Поищите ковчег на алтаре в (14, -59).",
+  "maps.points.caerlin_west_dungeon.f06.detail": "Управление каменным ковчегом на (3, -53).",
+  "maps.points.caerlin_west_dungeon.h01.title": "Золотые монеты ×12",
+  "maps.points.caerlin_west_dungeon.l01.detail": "Корона Молнии, Аметист, Булава Оглушающего Удара",
+  "maps.points.caerlin_west_dungeon.l01.detail.item-links": "[[0,13,\"item_crown_of_lightning\"],[15,22,\"item_diamond_purple\"],[24,48,\"item_mace_stagger\"]]",
+  "maps.points.caerlin_west_dungeon.l02.detail": "Появляется упавший мечщик",
+  "maps.points.caerlin_west_dungeon.l03.detail": "Появляется мороженный гнев, Шляпа Зимы",
+  "maps.points.caerlin_west_dungeon.l03.detail.item-links": "[[28,38,\"item_hat_of_winter\"]]",
+  "maps.points.caerlin_west_dungeon.l04.detail": "Пыль и кости, Череп",
+  "maps.points.caerlin_west_dungeon.l04.detail.item-links": "[[0,12,\"item_bones02\"],[14,19,\"item_bones05\"]]",
+  "maps.points.caerlin_west_dungeon.wall-sign.ac_wall_sign_01": "Корона сломана, Огонь потушен.\nОстались только волосы.",
+  "maps.points.caerlin_west_dungeon.x11.detail": "Вы решили головоломку."
+}

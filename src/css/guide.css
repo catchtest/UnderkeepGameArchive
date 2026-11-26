@@ -51,7 +51,6 @@ h2 { color: var(--heading); font-size: 1.45rem; font-weight: 700; letter-spacing
 h3,.face-gallery h4,.skill-detail h4 { font-size: 1.03rem; color: var(--link); margin: 17px 0 7px; }
 .entry-names,.mutation-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2em .65em; min-width: 0; }
 .entry-heading h2 { font: 700 clamp(1.45rem,2.3vw,2rem)/1.3 var(--serif); color: var(--heading); }
-.entry-heading small { font: italic 1rem/1.4 Georgia,serif; color: var(--muted); }
 .intro,.notes { white-space: pre-line; }
 .facts { display: grid; grid-template-columns: repeat(auto-fit,minmax(115px,1fr)); border-block: 1px solid var(--line); margin: 16px 0 4px; }
 .facts > div { padding: 9px 12px 10px 0; }
@@ -112,12 +111,13 @@ body[data-section="recipes"] {
   --recipe-slot-size: 72px;
   --recipe-slot-gap: 5px;
   --recipe-grid-width: calc(var(--recipe-slot-size) * 5 + var(--recipe-slot-gap) * 4);
-  --recipe-list-padding: clamp(14px,2vw,28px);
+  --recipe-list-padding: 16px;
 }
 body[data-section="recipes"] #workspace {
   grid-template-columns: calc(var(--recipe-grid-width) + var(--recipe-list-padding) * 2 + 2px) minmax(0,1fr);
 }
-body[data-section="recipes"] #library { padding-inline: var(--recipe-list-padding); }
+body[data-section="recipes"] #library { padding: var(--recipe-list-padding); }
+body[data-section="recipes"] #library > h2 { text-align: center; }
 
 body:is([data-section="quests"],[data-section="enemies"]) #workspace { margin-top: 18px; }
 #library { position: sticky; top: 12px; }
@@ -125,18 +125,27 @@ body:is([data-section="quests"],[data-section="enemies"]) #workspace { margin-to
 input,select { width: 100%; min-width: 0; font: inherit; color: var(--ink); border: 1px solid #655f4c; background: #171d19; padding: 7px 10px; border-radius: 2px; }
 #results { margin-top: 12px; }
 body[data-section="recipes"] #results {
-  display: grid; grid-template-columns: repeat(auto-fill,var(--recipe-slot-size));
-  max-width: var(--recipe-grid-width); gap: var(--recipe-slot-gap);
+  display: grid; grid-template-columns: repeat(5,minmax(0,1fr));
+  max-width: var(--recipe-grid-width); margin-inline: auto; gap: var(--recipe-slot-gap);
 }
 .recipe-tile { display: grid; color: inherit; text-decoration: none; }
 .item-slot { display: inline-grid; place-items: center; position: relative; min-width: 48px; min-height: 48px; padding: 6px; flex: none; isolation: isolate; }
-.item-slot::before,.recipe-tile[aria-current] .item-slot::after { content: ""; position: absolute; inset: 0; border: 4px solid transparent; border-image: url("{{site:assets}}../images/slot.webp") 4 fill / 4px; image-rendering: pixelated; z-index: -1; }
-.recipe-tile[aria-current] .item-slot::after { border-image-source: url("{{site:assets}}../images/slot-selected.webp"); z-index: 0; pointer-events: none; }
-.recipe-tile .item-slot { width: var(--recipe-slot-size); height: var(--recipe-slot-size); padding: 0; }
+.item-slot::before { content: ""; position: absolute; inset: 0; border: 4px solid transparent; border-image: url("{{site:assets}}../images/slot.webp") 4 fill / 4px; image-rendering: pixelated; z-index: -1; }
+.recipe-tile .item-slot { width: 100%; min-width: 0; min-height: 0; aspect-ratio: 1; padding: 0; }
+:is(.recipe-tile, .bench) .item-slot {
+  border: 1px solid #b7a98145; border-radius: 4px;
+  background: linear-gradient(145deg, #24221e70, #766a5042);
+  box-shadow: inset 1px 2px 4px #100e0a66, inset 0 -1px 1px #e0cf9f12;
+}
+:is(.recipe-tile, .bench) .item-slot::before { content: none; }
+.recipe-tile:hover .item-slot { border-color: #b5a178a6; }
+.recipe-tile[aria-current] .item-slot { border-color: #e7bd65; outline: 1px solid #e7bd6566; outline-offset: -2px; }
 .recipe-tile:hover .icon { filter: brightness(1.18); }
-.bench { isolation: isolate; text-align: center; padding: 20px; color: var(--ink); }
-.bench:not(.smithy) { border-color: #847455; background: linear-gradient(90deg,#342b21af,#5e5039c7,#372f22bb),url("{{site:assets}}../images/parchment.webp") repeat; }
-.bench:not(.smithy)::before { content: ""; position: absolute; inset: 7px; border: 1px solid #ccb78255; z-index: -1; }
+.bench {
+  isolation: isolate; text-align: center; padding: 20px; color: var(--ink); border-color: #847455;
+  background: linear-gradient(90deg,#342b21af,#5e5039c7,#372f22bb),url("{{site:assets}}../images/parchment.webp") repeat;
+}
+.bench::before { content: ""; position: absolute; inset: 7px; border: 1px solid #ccb78255; z-index: -1; }
 .bench h2 { color: var(--heading); }
 .materials { display: flex; justify-content: center; align-items: start; flex-wrap: wrap; gap: 9px; margin: 13px auto 2px; }
 .material { display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; max-width: 90px; flex: 1; color: var(--ink); font-size: 1rem; }
@@ -150,7 +159,6 @@ a.material:hover .inventory-art { filter: brightness(1.18); }
 .bench:not(.smithy) .product::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url("{{site:assets}}../images/mortar.webp") center 0 / auto no-repeat; opacity: .8; image-rendering: pixelated; }
 .product .item-slot { min-width: 54px; min-height: 54px; }
 .product .entry-heading h2 { font-size: 1.65rem; }
-.product .entry-heading small { color: #c4beb1; }
 .effect { color: var(--name); font-weight: 650; }
 .product-note { color: var(--ink); margin: 6px auto 7px; font-size: 1rem; }
 .recipe-info { display: grid; gap: 12px; margin-top: 13px; }
@@ -175,7 +183,6 @@ body[data-section="traits"] h2 + .mutation-grid { margin-top: 12px; }
 .mutation-card p { margin-top: 6px; }
 .mutation-title { align-items: center; }
 .mutation-title strong { color: var(--name); }
-.trait-names small { color: var(--muted); font-size: .9rem; }
 .rarity { padding: 2px 7px; border: 1px solid #9a783e; border-radius: 4px; background: #3b3020; color: var(--link); font-size: .8125rem; line-height: 1.4; white-space: nowrap; }
 .item-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(76px,1fr)); gap: 4px; }
 .item-tile { text-decoration: none; text-align: center; color: var(--ink); display: flex; flex-flow: column; align-items: center; justify-content: center; gap: 6px; padding: 6px 3px; line-height: 1.4; overflow-wrap: anywhere; }
@@ -213,6 +220,7 @@ body:has(.guide-dialog[open]) { overflow: hidden; }
 .guide-dialog header h2 { font-family: var(--serif); color: var(--heading); }
 .guide-dialog > .dialog-body { padding: 14px 20px 20px; }
 .levels table { margin-top: 12px; }
+.levels thead th { white-space: normal; overflow-wrap: anywhere; }
 .product .entry-names { justify-content: center; }
 body[data-section="enemies"] { --scene: url("{{site:assets}}../images/enemies.webp"); --scene-y: 40%; }
 body[data-section="quests"] { --scene: url("{{site:assets}}../images/quests.webp"); --serif: "Noto Serif TC", "Underkeep Walkthrough Titles", "PMingLiU", serif; }
@@ -334,5 +342,3 @@ body[data-section="shops"] .chapter { flex: 1 0 auto; white-space: nowrap; text-
 @media (prefers-reduced-motion: no-preference) {
   .character,.skill-tile { transition: border-color .15s,background-color .15s; }
 }
-
-@media (max-width: 350px) { body[data-section="recipes"] { --recipe-list-padding: 6px; } }

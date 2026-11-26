@@ -1,0 +1,9 @@
+{
+  "maps.points.swamp_dungeon2.a01.title": "Go upstairs → The Mireheart",
+  "maps.points.swamp_dungeon2.detail": "With the last root destroyed, you feel some dark power has faded away.",
+  "maps.points.swamp_dungeon2.detail-2": "At (-7, -14) Trigger",
+  "maps.points.swamp_dungeon2.f10.detail": "The Tentacle Root that attacks at (-7, 5).",
+  "maps.points.swamp_dungeon2.l02.detail": "Potion of Cure Poison ×2, Mindwell Elixir, Potion of Resurrection",
+  "maps.points.swamp_dungeon2.l02.detail.item-links": "[[0,21,\"item_potion_cure_poison\"],[26,41,\"item_potion_heal_and_mana\"],[43,65,\"item_potion_resurrection\"]]",
+  "maps.points.swamp_dungeon2.title": "Eliminate the swamp tentacle root"
+}

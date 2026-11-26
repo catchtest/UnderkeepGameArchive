@@ -1,0 +1,9 @@
+{
+  "maps.points.swamp_dungeon2.a01.title": "Idź na górę. → Serce Mokradła",
+  "maps.points.swamp_dungeon2.detail": "Gdy ostatni korzeń zostaje zniszczony, czujesz, jak jakaś mroczna siła uchodzi z tego miejsca.",
+  "maps.points.swamp_dungeon2.detail-2": "Na (-7, -14) Trigger",
+  "maps.points.swamp_dungeon2.f10.detail": "Korzeń Tentacle, który atakuje w (-7, 5).",
+  "maps.points.swamp_dungeon2.l02.detail": "Antidotum ×2, Mikstura Spokojnej Głowy, Mikstura Wskrzeszenia",
+  "maps.points.swamp_dungeon2.l02.detail.item-links": "[[0,9,\"item_potion_cure_poison\"],[14,38,\"item_potion_heal_and_mana\"],[40,61,\"item_potion_resurrection\"]]",
+  "maps.points.swamp_dungeon2.title": "Zlikwidować korzenie łupówki bagna"
+}

@@ -1,0 +1,14 @@
+{
+  "maps.points.wolf_den.l01.detail": "Mikstura Kondycji, Mikstura Leczenia, Hełm Byka",
+  "maps.points.wolf_den.l01.loot-links": "[[0,17,\"item_endurance_potion\"],[19,36,\"item_heal_potion\"],[38,47,\"item_helm_of_bull\"]]",
+  "maps.points.wolf_den.n01.detail": "Lasy Caerlin (23, -45)",
+  "maps.points.wolf_den.n02.detail": "Lasy Caerlin (16, -44)",
+  "maps.points.wolf_den.n03.detail": "Lasy Caerlin (12, -43)",
+  "maps.points.wolf_den.n04.detail": "Lasy Caerlin (14, -42)",
+  "maps.points.wolf_den.n05.detail": "Lasy Caerlin (18, -42)",
+  "maps.points.wolf_den.n06.detail": "Lasy Caerlin (11, -41)",
+  "maps.points.wolf_den.n07.detail": "Lasy Caerlin (12, -41)",
+  "maps.points.wolf_den.n09.detail": "Lasy Caerlin (13, -40)",
+  "maps.points.wolf_den.n10.detail": "Lasy Caerlin (11, -39)",
+  "maps.points.wolf_den.n11.detail": "Lasy Caerlin (9, -38)"
+}

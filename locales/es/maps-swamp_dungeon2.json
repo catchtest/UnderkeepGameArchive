@@ -1,0 +1,9 @@
+{
+  "maps.points.swamp_dungeon2.a01.title": "- ¿Por qué no subes? → El Mireheart",
+  "maps.points.swamp_dungeon2.detail": "Una vez destruida la última raíz, sientes que parte de un poder oscuro se ha desvanecido.",
+  "maps.points.swamp_dungeon2.detail-2": "At (-7, -14) Desactivación",
+  "maps.points.swamp_dungeon2.f10.detail": "La Raíz del Tentaculo que ataca en (-7, 5).",
+  "maps.points.swamp_dungeon2.l02.detail": "Poción contra el veneno ×2, Elixir de claridad mental, Poción de resurrección",
+  "maps.points.swamp_dungeon2.l02.detail.item-links": "[[0,23,\"item_potion_cure_poison\"],[28,53,\"item_potion_heal_and_mana\"],[55,77,\"item_potion_resurrection\"]]",
+  "maps.points.swamp_dungeon2.title": "Eliminar la raíz del tentáculo del pantano"
+}

@@ -1,0 +1,10 @@
+{
+  "maps.points.tower_level2.a01.title": "Baja abajo . → Entrada a la Torre",
+  "maps.points.tower_level2.a02.title": "Escena de transición → Nivel 2 de la Torre (Corrupción)",
+  "maps.points.tower_level2.a04.title": "- ¿Por qué no subes? → Nivel 3 de la Torre",
+  "maps.points.tower_level2.detail": "Tostada de mazmorra, Poción de resurrección",
+  "maps.points.tower_level2.detail.item-links": "[[0,19,\"item_food_toast\"],[21,43,\"item_potion_resurrection\"]]",
+  "maps.points.tower_level2.wall-sign.tower2_1": "Sólo los que están en el lado exterior deben despertarse.",
+  "maps.points.tower_level2.wall-sign.tower2_n1": "Amigos y compañeros del Maestro de la Torre",
+  "maps.points.tower_level2.wall-sign.tower2_n2": "Él acepta las llaves, prometiendo proteger a la Secretaria"
+}

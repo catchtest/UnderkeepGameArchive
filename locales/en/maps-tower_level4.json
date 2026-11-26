@@ -1,0 +1,22 @@
+{
+  "maps.points.tower_level4.a02.title": "Go downstairs → Tower Level 3",
+  "maps.points.tower_level4.detail": "The familiar apparition takes shape before you.",
+  "maps.points.tower_level4.detail-2": "At (2, -3) Stepped on by the party",
+  "maps.points.tower_level4.dialogue": "\"OF ALL MY COMPANIONS, NONE WAS MORE FAITHFUL.\"",
+  "maps.points.tower_level4.dialogue-2": "\"I RAISED HIM FROM THE EGG.\"",
+  "maps.points.tower_level4.dialogue-3": "\"FOR MANY YEARS, HE REMAINED AT MY SIDE.\"",
+  "maps.points.tower_level4.dialogue-4": "\"BUT EVEN MY MAGIC COULD NOT TAME A DRAGON'S NATURE.\"",
+  "maps.points.tower_level4.dialogue-5": "\"SO I SET HIM FREE IN THE MOUNTAINS.\"",
+  "maps.points.tower_level4.dialogue-6": "\"THERE HE WOULD GUARD THE LAST KEY.\"",
+  "maps.points.tower_level4.dialogue-7": "\"I HOPED HE WOULD FIND PEACE... AND THAT NONE WOULD TROUBLE HIM.\"",
+  "maps.points.tower_level4.l01.detail": "Caerlin Blue Bloom, Amberrose ×3, Crimsonspire Berries, Moonpetal, Solarbloom ×2, Mimic Heart",
+  "maps.points.tower_level4.l01.detail.item-links": "[[0,18,\"item_caerlin_blue_flowers\"],[20,29,\"item_flower_amberrose\"],[34,54,\"item_flower_crimsonspire_berries\"],[56,65,\"item_flower_moonpetal\"],[67,77,\"item_flower_solarbloom\"],[82,93,\"item_ingredient_mimic_heart\"]]",
+  "maps.points.tower_level4.l02.detail": "Feather of Mercy, Medal of Balduran, Potion of Mega Healing, Potion of Forgetfulness",
+  "maps.points.tower_level4.l02.detail.item-links": "[[0,16,\"item_feather_of_mercy\"],[18,35,\"item_generic_balduran_medail\"],[37,59,\"item_mega_heal_potion\"],[61,84,\"item_respec_potion\"]]",
+  "maps.points.tower_level4.n01.detail": "1 × 1 grid",
+  "maps.points.tower_level4.name": "Drop points on the map",
+  "maps.points.tower_level4.title": "Memories of the giant dragon",
+  "maps.points.tower_level4.title-2": "Go upstairs → Tower Level 5",
+  "maps.points.tower_level4.w01.detail": "Facing direction upon landing",
+  "maps.points.tower_level4.wall-sign.tower4_1": "Sometimes you need to move forward, so you have to take a step back first."
+}

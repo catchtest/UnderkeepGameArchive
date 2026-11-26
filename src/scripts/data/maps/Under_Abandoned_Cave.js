@@ -7,9 +7,9 @@ registerUnderkeepMap({
 "focusBounds": [14.5,-36.5,9,11],
 "markers": [
 {"id":248,"key":"cave_exit2_up","xy":[17,-31],"code":"A01","title":"{{t:maps.points.under_abandoned_cave.a01.title}}","detail":{"{{t:common.landing}}":"17, -31","{{t:common.entrance-direction}}":"{{t:common.east}}"},"destination":{"map":"Abandoned_Mines_Cave","xy":[17,-31],"id":253,"name":"{{t:maps.names.abandoned_mines_cave}}"},"rotation":90,"nativeRotation":90},
-{"id":267,"key":"cave_alcove","xy":[18,-35],"code":"L01","detail":{"{{t:common.loot}}":"{{t:maps.points.forgotten_vein.l03.detail}}"},"nativeRotation":90,"itemLinks":{"{{t:common.loot}}":[[0,4,"item_heal_potion"],[5,11,"item_minor_endurance_potion"]]}},
-{"id":249,"key":"garbage1","xy":[21,-33],"code":"L02","detail":{"{{t:common.nothing-found}}":"{{t:maps.points.abandoned_mines_cave.l01.detail}}","{{t:common.loot}}":"{{t:guide.item_cloak_of_nature}}"},"itemLinks":{"{{t:common.loot}}":[[0,4,"item_cloak_of_nature"]]}},
-{"id":260,"key":"crate1_moss","xy":[15,-27],"code":"L03","title":"{{t:common.breakable-container}}","detail":{"{{t:common.loot}}":"{{t:guide.item_mana_potion}}"},"detailOrder":["{{t:common.loot}}","{{t:common.acquire-method}}"],"itemLinks":{"{{t:common.loot}}":[[0,4,"item_mana_potion"]]}},
+{"id":267,"key":"cave_alcove","xy":[18,-35],"code":"L01","detail":{"{{t:common.loot}}":"{{t:maps.points.forgotten_vein.l03.detail}}"},"nativeRotation":90,"itemLinks":{"{{t:common.loot}}":{{t:maps.points.forgotten_vein.l03.detail.item-links|json}}}},
+{"id":249,"key":"garbage1","xy":[21,-33],"code":"L02","detail":{"{{t:common.nothing-found}}":"{{t:maps.points.abandoned_mines_cave.l01.detail}}","{{t:common.loot}}":"{{t:guide.item_cloak_of_nature}}"},"itemLinks":{"{{t:common.loot}}":[[0,{{t:guide.item_cloak_of_nature|length}},"item_cloak_of_nature"]]}},
+{"id":260,"key":"crate1_moss","xy":[15,-27],"code":"L03","title":"{{t:common.breakable-container}}","detail":{"{{t:common.loot}}":"{{t:guide.item_mana_potion}}"},"detailOrder":["{{t:common.loot}}","{{t:common.acquire-method}}"],"itemLinks":{"{{t:common.loot}}":[[0,{{t:guide.item_mana_potion|length}},"item_mana_potion"]]}},
 {"id":274,"key":"item_mushroom1","xy":[22,-32],"code":"I03"},
 {"id":255,"key":"item_minor_endurance_potion","xy":[16,-30],"code":"I05"},
 {"id":268,"key":"item_buckler","xy":[16,-30],"code":"I06"},
@@ -26,6 +26,6 @@ registerUnderkeepMap({
 {"id":269,"key":"cave_gold_wall","xy":[22,-29],"code":"V01"}
 ],
 "objects": {
-"item_buckler": {"type":"item","title":"{{t:guide.item_buckler}}","detail":{"{{t:common.available-items}}":"{{t:guide.item_buckler}}"},"sprite":"item_buckler","rotation":0,"native":null,"nativeRotation":0,"isChest":false,"itemLinks":{"{{t:common.available-items}}":[[0,3,"item_buckler"]]},"titleLinks":[[0,3,"item_buckler"]]}
+"item_buckler": {"type":"item","title":"{{t:guide.item_buckler}}","detail":{"{{t:common.available-items}}":"{{t:guide.item_buckler}}"},"sprite":"item_buckler","rotation":0,"native":null,"nativeRotation":0,"isChest":false,"itemLinks":{"{{t:common.available-items}}":[[0,{{t:guide.item_buckler|length}},"item_buckler"]]},"titleLinks":[[0,{{t:guide.item_buckler|length}},"item_buckler"]]}
 }
 });

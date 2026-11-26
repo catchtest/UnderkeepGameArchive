@@ -1,0 +1,9 @@
+{
+  "maps.points.swamp_dungeon2.a01.title": "Jdi nahoru. → Srdce bažiny",
+  "maps.points.swamp_dungeon2.detail": "Se zničením posledního kořene cítíte, jak temná moc, která tu dosud přebývala, vyhasíná.",
+  "maps.points.swamp_dungeon2.detail-2": "At (-7, -14) Vypínač",
+  "maps.points.swamp_dungeon2.f10.detail": "Tentacle Root, který útočí na (-7, 5).",
+  "maps.points.swamp_dungeon2.l02.detail": "Protijed ×2, Pramen mysli, Lektvar vzkříšení",
+  "maps.points.swamp_dungeon2.l02.detail.item-links": "[[0,8,\"item_potion_cure_poison\"],[13,25,\"item_potion_heal_and_mana\"],[27,44,\"item_potion_resurrection\"]]",
+  "maps.points.swamp_dungeon2.title": "Odstraňte kořeny tentaklu močálu"
+}

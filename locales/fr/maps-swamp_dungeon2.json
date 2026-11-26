@@ -1,0 +1,9 @@
+{
+  "maps.points.swamp_dungeon2.a01.title": "Monter à l'étage supérieur → Mireheart",
+  "maps.points.swamp_dungeon2.detail": "Avec la dernière racine détruite, vous sentez qu'une puissance ténébreuse s'est dissipée.",
+  "maps.points.swamp_dungeon2.detail-2": "À (-7, -14) Déclenchement",
+  "maps.points.swamp_dungeon2.f10.detail": "Attaque des racines-tentacules à (-7, 5)",
+  "maps.points.swamp_dungeon2.l02.detail": "Potion de contre-venin ×2, Élixir puits-spirituel, Potion de résurrection",
+  "maps.points.swamp_dungeon2.l02.detail.item-links": "[[0,22,\"item_potion_cure_poison\"],[27,49,\"item_potion_heal_and_mana\"],[51,73,\"item_potion_resurrection\"]]",
+  "maps.points.swamp_dungeon2.title": "Élimination des racines-tentacules des marais"
+}

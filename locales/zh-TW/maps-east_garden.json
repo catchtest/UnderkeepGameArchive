@@ -1,8 +1,4 @@
 {
-  "maps.points.east_garden.wall-sign.east_riddle_01": "生於火焰，經雙手塑形，\n餵飽大地上飢餓的人。",
-  "maps.points.east_garden.wall-sign.east_riddle_02": "小玻璃瓶裡裝著療傷的紅液，\n畏懼死者的人四處尋覓。",
-  "maps.points.east_garden.wall-sign.east_riddle_03": "生於寂靜的天空下，\n從不飲下陽光，卻永不凋亡。",
-  "maps.points.east_garden.wall-sign.east_trial_endurance": "勇氣試煉",
   "maps.points.east_garden.a01.title": "下樓 → 靈魂鍛造爐 - 外廳",
   "maps.points.east_garden.choice-xp": "有 10 金幣",
   "maps.points.east_garden.detail": "空氣變得濃厚，滿是腐爛與濕土的氣味。曾經的花園如今 沉入泥濘與死水。",
@@ -22,6 +18,7 @@
   "maps.points.east_garden.detail-3": "三樣供品就位。塵土朝中心旋起。底座上，光從虛無中聚攏，織成一個微弱如玻璃的球體。",
   "maps.points.east_garden.detail-4": "在（3, -4）觸發，需將所需物品放到指定位置",
   "maps.points.east_garden.detail-5": "出現在容器或基座 藍色鑰匙球，位置（3, -6）",
+  "maps.points.east_garden.detail-5.item-links": "[[9,14,\"item_blue_orb\"]]",
   "maps.points.east_garden.detail-6": "森林地面沉入濕苔與黑水。每一步都讓大地發出一聲 輕嘆。前方，微弱的蛙鳴在霧中迴盪。",
   "maps.points.east_garden.detail-7": "在（22, 9）隊伍踩踏",
   "maps.points.east_garden.detail-9": "結局",
@@ -164,9 +161,13 @@
   "maps.points.east_garden.dialogue-98": "獻上十枚硬幣。",
   "maps.points.east_garden.dialogue-99": "選擇「獻上十枚硬幣。」（金幣不足 10 金幣）",
   "maps.points.east_garden.h09.title": "金幣 ×4",
+  "maps.points.east_garden.h09.title.item-links": "[[0,2,\"item_coins\"]]",
   "maps.points.east_garden.l03.detail": "「東園謎題」：藍色鑰匙球",
+  "maps.points.east_garden.l03.detail.item-links": "[[7,12,\"item_blue_orb\"]]",
   "maps.points.east_garden.l09.detail": "凱爾林藍花、大法師斗篷",
+  "maps.points.east_garden.l09.detail.item-links": "[[0,5,\"item_caerlin_blue_flowers\"],[6,11,\"item_cloak_of_archmage\"]]",
   "maps.points.east_garden.l11.detail": "100% · 凱爾林藍花、凱爾林精華（配方）\n10% · 蠻牛腰帶、奧術回覆斗篷、虛空斗篷、燼跡便鞋、幸運遠視頭盔、皮鑲甲、神射手護腕、僧侶長袍、偵察風靴、雷鳴彈弓",
+  "maps.points.east_garden.l11.detail.item-links": "[[7,12,\"item_caerlin_blue_flowers\"],[13,22,\"item_recipe_perma_mana\"],[29,33,\"item_belt_of_bull\"],[34,40,\"item_cloak_of_arcane_restoration\"],[41,45,\"item_cloak_of_emptiness\"],[46,50,\"item_embertrail_slippers\"],[51,57,\"item_helmet_of_lucky_farsight\"],[58,61,\"item_leather_brigandine\"],[62,67,\"item_marksman_bracers\"],[68,72,\"item_monk_tunic\"],[73,77,\"item_scoutwind_boots\"],[78,82,\"item_sling_splintered_aim\"]]",
   "maps.points.east_garden.title": "蘑菇田與菌裔",
   "maps.points.east_garden.title-2": "蛙王",
   "maps.points.east_garden.title-3": "蛙王事件後續",
@@ -175,5 +176,9 @@
   "maps.points.east_garden.title-6": "初入花園",
   "maps.points.east_garden.title-7": "石像鬼提示 1",
   "maps.points.east_garden.title-8": "石像鬼提示 2",
-  "maps.points.east_garden.w01.title": "快速旅行石 · 靈魂鍛造爐 - 東園"
+  "maps.points.east_garden.w01.title": "快速旅行石 · 靈魂鍛造爐 - 東園",
+  "maps.points.east_garden.wall-sign.east_riddle_01": "生於火焰，經雙手塑形，\n餵飽大地上飢餓的人。",
+  "maps.points.east_garden.wall-sign.east_riddle_02": "小玻璃瓶裡裝著療傷的紅液，\n畏懼死者的人四處尋覓。",
+  "maps.points.east_garden.wall-sign.east_riddle_03": "生於寂靜的天空下，\n從不飲下陽光，卻永不凋亡。",
+  "maps.points.east_garden.wall-sign.east_trial_endurance": "勇氣試煉"
 }

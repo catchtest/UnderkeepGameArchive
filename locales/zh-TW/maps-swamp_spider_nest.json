@@ -50,8 +50,12 @@
   "maps.points.swamp_spider_nest.dialogue-8": "仔細檢查蜘蛛。（隊伍有遊俠、僅可選一次）",
   "maps.points.swamp_spider_nest.dialogue-9": "蜘蛛守在卵旁，既看著它們，也看著你。",
   "maps.points.swamp_spider_nest.l03.detail": "頭骨、發霉的麵包",
+  "maps.points.swamp_spider_nest.l03.detail.item-links": "[[0,2,\"item_bones05\"],[3,8,\"item_food_bread_mold\"]]",
   "maps.points.swamp_spider_nest.l15.detail": "100% · 出現怒紡蛛 ×1–2、刺針\n25% · 金幣 ×1–5\n9.17% · 斷裂的骨頭 ×1–4、塵土與碎骨（1） ×1–4、骨頭 ×1–4、塵土與碎骨（2） ×1–4、頭骨 ×1–4\n5.56% · 空瓶、發霉的麵包、次級體力藥水、次級治療藥水、次級法力藥水、生鏽的劍",
+  "maps.points.swamp_spider_nest.l15.detail.item-links": "[[18,20,\"item_sword_of_striking\"],[27,29,\"item_coins\"],[43,48,\"item_bones01\"],[54,62,\"item_bones02\"],[68,70,\"item_bones03\"],[76,84,\"item_bones04\"],[90,92,\"item_bones05\"],[106,108,\"item_empty_flask\"],[109,114,\"item_food_bread_mold\"],[115,121,\"item_minor_endurance_potion\"],[122,128,\"item_minor_heal_potion\"],[129,135,\"item_minor_mana_potion\"],[136,140,\"item_rusty_sword\"]]",
   "maps.points.swamp_spider_nest.l22.detail": "守禦藥劑、火輝戒指",
+  "maps.points.swamp_spider_nest.l22.detail.item-links": "[[0,4,\"item_resist_potion\"],[5,9,\"item_ring_of_firespark\"]]",
   "maps.points.swamp_spider_nest.l23.detail": "蘑菇 ×5",
+  "maps.points.swamp_spider_nest.l23.detail.item-links": "[[0,2,\"item_mushroom1\"]]",
   "maps.points.swamp_spider_nest.title": "遭遇蜘蛛奧布拉"
 }

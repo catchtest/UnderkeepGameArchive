@@ -1,0 +1,14 @@
+{
+  "maps.points.caerlin_west_dungeon.f02.detail": "Szukaj trumny na ołtarzu przy (14, -59).",
+  "maps.points.caerlin_west_dungeon.f06.detail": "Wykorzystanie kamiennej trumny w (3, -53).",
+  "maps.points.caerlin_west_dungeon.h01.title": "Złote Monety ×12",
+  "maps.points.caerlin_west_dungeon.l01.detail": "Korona Władcy Burz, Ametyst, Młot Zachwiania",
+  "maps.points.caerlin_west_dungeon.l01.detail.item-links": "[[0,18,\"item_crown_of_lightning\"],[20,27,\"item_diamond_purple\"],[29,44,\"item_mace_stagger\"]]",
+  "maps.points.caerlin_west_dungeon.l02.detail": "Występuje upadły mieczarz",
+  "maps.points.caerlin_west_dungeon.l03.detail": "Pojawia się mroźny gniew, Kapelusz Zimy",
+  "maps.points.caerlin_west_dungeon.l03.detail.item-links": "[[26,39,\"item_hat_of_winter\"]]",
+  "maps.points.caerlin_west_dungeon.l04.detail": "Pył i Kości, Czaszka",
+  "maps.points.caerlin_west_dungeon.l04.detail.item-links": "[[0,11,\"item_bones02\"],[13,20,\"item_bones05\"]]",
+  "maps.points.caerlin_west_dungeon.wall-sign.ac_wall_sign_01": "Korona jest złamana, Ogień został ugasiony.\nPozostało tylko włosy.",
+  "maps.points.caerlin_west_dungeon.x11.detail": "Rozwiązałeś zagadkę."
+}

@@ -1,0 +1,14 @@
+{
+  "maps.points.wolf_den.l01.detail": "Potion of Stamina, Potion of Healing, Helm of Bull",
+  "maps.points.wolf_den.l01.loot-links": "[[0,17,\"item_endurance_potion\"],[19,36,\"item_heal_potion\"],[38,50,\"item_helm_of_bull\"]]",
+  "maps.points.wolf_den.n01.detail": "Caerlin Woods (23, -45)",
+  "maps.points.wolf_den.n02.detail": "Caerlin Woods (16, -44)",
+  "maps.points.wolf_den.n03.detail": "Caerlin Woods (12, -43)",
+  "maps.points.wolf_den.n04.detail": "Caerlin Woods (14, -42)",
+  "maps.points.wolf_den.n05.detail": "Caerlin Woods (18, -42)",
+  "maps.points.wolf_den.n06.detail": "Caerlin Woods (11, -41)",
+  "maps.points.wolf_den.n07.detail": "Caerlin Woods (12, -41)",
+  "maps.points.wolf_den.n09.detail": "Caerlin Woods (13, -40)",
+  "maps.points.wolf_den.n10.detail": "Caerlin Woods (11, -39)",
+  "maps.points.wolf_den.n11.detail": "Caerlin Woods (9, -38)"
+}

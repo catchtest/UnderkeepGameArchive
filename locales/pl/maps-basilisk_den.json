@@ -1,0 +1,10 @@
+{
+  "maps.points.basilisk_den.l01.detail": "Gwiezdna Buława, Mikstura Żelaznego Serca (Receptura)",
+  "maps.points.basilisk_den.l01.detail.item-links": "[[0,15,\"item_mace_of_stars\"],[17,53,\"item_recipe_potion_heal_and_endurance\"]]",
+  "maps.points.basilisk_den.l02.detail": "Zardzewiałe Buty Kolcze, Zardzewiały Łuskowy Hełm",
+  "maps.points.basilisk_den.l02.detail.item-links": "[[0,23,\"item_rusty_chain_boots\"],[25,49,\"item_rusty_scale_helmet\"]]",
+  "maps.points.basilisk_den.l03.detail": "Esencja Przebudzenia Gromu, Pusta Butelka, Mikstura Leczenia",
+  "maps.points.basilisk_den.l03.detail.item-links": "[[0,26,\"item_drakkan_potion_unstun\"],[28,41,\"item_empty_flask\"],[43,60,\"item_heal_potion\"]]",
+  "maps.points.basilisk_den.x01.detail": "Określone przez mechanizm lub status gry",
+  "maps.points.basilisk_den.x01.title": "Węża"
+}

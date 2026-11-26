@@ -1,0 +1,14 @@
+{
+  "maps.points.caerlin_west_dungeon.f02.detail": "Busca el ataúd en el altar en (14, -59).",
+  "maps.points.caerlin_west_dungeon.f06.detail": "Operando el ataúd de piedra en (3, -53).",
+  "maps.points.caerlin_west_dungeon.h01.title": "Monedas de oro ×12",
+  "maps.points.caerlin_west_dungeon.l01.detail": "Corona del rayo, Amatista, Maza del golpe aturdidor",
+  "maps.points.caerlin_west_dungeon.l01.detail.item-links": "[[0,15,\"item_crown_of_lightning\"],[17,25,\"item_diamond_purple\"],[27,51,\"item_mace_stagger\"]]",
+  "maps.points.caerlin_west_dungeon.l02.detail": "Aparece el espadachín caído",
+  "maps.points.caerlin_west_dungeon.l03.detail": "Aparece la ira de las heladas, Sombrero de invierno",
+  "maps.points.caerlin_west_dungeon.l03.detail.item-links": "[[31,51,\"item_hat_of_winter\"]]",
+  "maps.points.caerlin_west_dungeon.l04.detail": "Polvo y huesos, Calavera",
+  "maps.points.caerlin_west_dungeon.l04.detail.item-links": "[[0,14,\"item_bones02\"],[16,24,\"item_bones05\"]]",
+  "maps.points.caerlin_west_dungeon.wall-sign.ac_wall_sign_01": "La corona está rota, El fuego ha sido extinguido.\nSolo queda el pelo.",
+  "maps.points.caerlin_west_dungeon.x11.detail": "Has resuelto el acertijo."
+}

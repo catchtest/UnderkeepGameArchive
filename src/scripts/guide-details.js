@@ -51,8 +51,9 @@ const guideDetails = (() => {
   const node = underkeepElement;
 
   const attributeAliases = { {{t:common.xp|key}}: '{{t:common.xp-with-abbreviation|sq}}', {{t:common.xp-value|key}}: '{{t:common.xp-with-abbreviation|sq}}', XP: '{{t:common.xp-with-abbreviation|sq}}', {{t:common.melee-critical-chance|key}}: '{{t:common.critical-chance|sq}}' };
-  const terms = [...Object.keys(guide.attributes), ...Object.keys(attributeAliases)].sort((a, b) => b.length - a.length);
-  const attributePattern = new RegExp(terms.map(name => name === '{{t:common.armor|sq}}' ? '{{t:guide.ui|sq}}' : name).join('|'), 'g');
+  const armorPenetration = '{{t:common.armor-penetration|sq}}';
+  const terms = [armorPenetration, ...Object.keys(guide.attributes), ...Object.keys(attributeAliases)].sort((a, b) => b.length - a.length);
+  const attributePattern = new RegExp(terms.map(name => name.replace(/[.*+?^$(){}|[\]\\]/g, '\\$&')).join('|'), 'g');
   const tip = node('div', undefined, 'attribute-tooltip');
   tip.id = 'attribute-tooltip';
   tip.popover = 'manual';
@@ -99,6 +100,7 @@ const guideDetails = (() => {
     let fragment;
     let start = 0;
     for (const match of value.matchAll(attributePattern)) {
+      if (match[0] === armorPenetration) continue;
       fragment ??= document.createDocumentFragment();
       const name = match[0];
       const label = node('span', name, 'attribute-label');
@@ -232,7 +234,7 @@ const guideDetails = (() => {
     if (title) article.append(node('h3', title));
     const links = node('div', undefined, 'links');
     for (const r of records) {
-      const label = r.name + (r.unlock ? ' · Lv.' + r.unlock : '');
+      const label = r.name + (r.unlock ? ' · {{t:common.level|sq}} ' + r.unlock : '');
       const link = group === 'items' && detailButton ? detailButton(r, label) : node('a', label);
       if (link.tagName === 'A') link.href = guideUrl + route(group, r);
       if (showIcons) link.prepend(group === 'items' ? inventoryIcon(r.icon) : icon(r.icon));
@@ -242,9 +244,9 @@ const guideDetails = (() => {
     article.append(links);
   }
 
-  function heading(title, english, image, head = node('div', undefined, 'entry-heading'), tag = 'h2') {
+  function heading(title, image, head = node('div', undefined, 'entry-heading'), tag = 'h2') {
     const names = node('div', undefined, 'entry-names');
-    names.append(node(tag, title), node('small', english));
+    names.append(node(tag, title));
     head.replaceChildren(names);
     if (image) head.prepend(image);
     return head;
@@ -265,7 +267,7 @@ const guideDetails = (() => {
   }
 
   function catalogHeading(r, image, container, badge) {
-    const head = heading(r.name, r.english, image, container);
+    const head = heading(r.name, image, container);
     const title = head.querySelector('h2');
     if (itemsById.get(r.id) === r) {
       const properties = new Map(r.facts);
@@ -471,9 +473,11 @@ const guideDetails = (() => {
       const header = node('div', undefined, 'attack-heading');
       header.append(node('h4', '{{t:guide.ui.enemy-attacks-2|sq}} ' + attack.slot + ' · ' + attack.name));
       if (attack.minLevel || attack.maxLevel) {
-        const level = attack.minLevel && attack.maxLevel ? attack.minLevel + '–' + attack.maxLevel + ' {{t:guide.ui.enemy-attacks-3|sq}}' :
-          attack.minLevel ? attack.minLevel + ' {{t:guide.ui.enemy-attacks-4|sq}}' : attack.maxLevel + ' {{t:guide.ui.enemy-attacks-5|sq}}';
-        header.append(node('span', '{{t:common.party|sq}} ' + level, 'attack-level'));
+        const ranged = attack.minLevel && attack.maxLevel;
+        const level = ranged ? attack.minLevel + '–' + attack.maxLevel : attack.minLevel || attack.maxLevel;
+        const format = ranged ? '{{t:guide.ui.enemy-attacks-3|sq}}'
+          : attack.minLevel ? '{{t:guide.ui.enemy-attacks-4|sq}}' : '{{t:guide.ui.enemy-attacks-5|sq}}';
+        header.append(node('span', format.replace('{n}', level), 'attack-level'));
       }
       card.append(header, facts(attack.facts));
       if (attack.effects.length) {
@@ -541,11 +545,11 @@ const guideDetails = (() => {
   };
 
   function renderDetail(dialog, group, record, detailRoute, options) {
-    const { label, badge, sheet } = catalogTypes[group];
+    const { badge, sheet } = catalogTypes[group];
     const image = group === 'items' ? inventoryIcon(record.icon) : null;
     catalogHeading(record, image, dialog.querySelector('.entry-heading'), badge?.(record));
     dialog.setAttribute('aria-label', record.name);
-    dialog.querySelector('.close-button').setAttribute('aria-label', '{{t:common.close|sq}}' + label + '{{t:guide.ui.render-detail|sq}}');
+    dialog.querySelector('.close-button').setAttribute('aria-label', '{{t:guide.ui.render-detail|sq}}'.replace('{name}', () => record.name));
     dialog.querySelector('.dialog-body').replaceChildren(sheet(record, detailRoute, options));
   }
 

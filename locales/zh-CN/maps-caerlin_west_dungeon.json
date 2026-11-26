@@ -1,0 +1,14 @@
+{
+  "maps.points.caerlin_west_dungeon.f02.detail": "搜索（14, -59）祭坛上的棺木。",
+  "maps.points.caerlin_west_dungeon.f06.detail": "操作（3, -53）的石棺。",
+  "maps.points.caerlin_west_dungeon.h01.title": "金币 ×12",
+  "maps.points.caerlin_west_dungeon.l01.detail": "闪电之冠、紫水晶、蹒跚钉锤",
+  "maps.points.caerlin_west_dungeon.l01.detail.item-links": "[[0,4,\"item_crown_of_lightning\"],[5,8,\"item_diamond_purple\"],[9,13,\"item_mace_stagger\"]]",
+  "maps.points.caerlin_west_dungeon.l02.detail": "出现倒下的剑士",
+  "maps.points.caerlin_west_dungeon.l03.detail": "出现冰霜之怒、寒冬帽",
+  "maps.points.caerlin_west_dungeon.l03.detail.item-links": "[[7,10,\"item_hat_of_winter\"]]",
+  "maps.points.caerlin_west_dungeon.l04.detail": "尘土与碎骨、头骨",
+  "maps.points.caerlin_west_dungeon.l04.detail.item-links": "[[0,5,\"item_bones02\"],[6,8,\"item_bones05\"]]",
+  "maps.points.caerlin_west_dungeon.wall-sign.ac_wall_sign_01": "王冠破碎，火焰熄灭。\n只剩根须。",
+  "maps.points.caerlin_west_dungeon.x11.detail": "你解开了谜题。"
+}

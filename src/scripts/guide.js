@@ -162,7 +162,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
       faces.forEach(({index}, i) => {
         const tile = node('span', undefined, 'face-tile');
         tile.setAttribute('role', 'img');
-        tile.setAttribute('aria-label', r.name + (supporter ? '{{t:guide.ui.face-gallery-4|sq}}' : '') + '{{t:guide.ui.face-gallery-5|sq}} ' + (i + 1));
+        tile.setAttribute('aria-label', r.name + ' · ' + (supporter ? '{{t:guide.ui.face-gallery-4|sq}}' : '{{t:guide.ui.face-gallery-5|sq}}') + ' ' + (i + 1));
         tile.append(portrait(index));
         grid.append(tile);
       });
@@ -173,7 +173,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
 
   function traitNames(trait, nameTag = 'strong') {
     const names = node('div', undefined, 'trait-names');
-    names.append(node(nameTag, trait.name), node('small', trait.english));
+    names.append(node(nameTag, trait.name));
     return names;
   }
 
@@ -235,7 +235,10 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
   function startingRanges(race, job) {
     const raceFacts = Object.fromEntries(race.facts);
     const jobFacts = Object.fromEntries(job.facts);
-    const [primary, primaryRange] = jobFacts['{{t:guide.warrior.facts|sq}}'].split(' ');
+    const primaryFact = jobFacts['{{t:guide.warrior.facts|sq}}'];
+    const rangeStart = primaryFact.lastIndexOf(' ');
+    const primary = primaryFact.slice(0, rangeStart);
+    const primaryRange = primaryFact.slice(rangeStart + 1);
     const wisdomModifier = Number(jobFacts['{{t:guide.paladin.facts|sq}}'] ?? 0);
     const stats = race.table.slice(1).map(([name, range, modifier]) => {
       const isPrimary = name === primary;
@@ -268,7 +271,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
       ? guide.races.map(race => [race.name, ...startingRanges(race, r)])
       : guide.classes.map(job => [job.name, ...startingRanges(r, job)]);
     const panel = node('section', undefined, 'panel starting-ranges');
-    panel.append(node('h3', '{{t:guide.ui.show-character-panels|sq}}' + group + '{{t:guide.ui.show-character-panels-2|sq}}'), table([[group, ...labels, '{{t:guide.ui.show-character-panels-3|sq}}', '{{t:guide.human.facts-2|sq}}'], ...rows]),
+    panel.append(node('h3', '{{t:guide.ui.show-character-panels|sq}}'.replace('{group}', () => group)), table([[group, ...labels, '{{t:guide.ui.show-character-panels-3|sq}}', '{{t:guide.human.facts-2|sq}}'], ...rows]),
       node('p', '{{t:guide.ui.show-character-panels-4|sq}}', 'range-note'));
     const side = node('div', undefined, 'character-side');
     side.append(panel, otherPanel);
@@ -278,7 +281,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
   function showRace(r) {
     characterChoices(guide.races, r, true);
     const bio = node('section', undefined, 'panel race-bio');
-    const title = heading(r.name, r.english);
+    const title = heading(r.name);
     const levels = node('button', '{{t:guide.ui.show-race|sq}}', 'guide-action levels-trigger');
     levels.type = 'button';
     levels.setAttribute('aria-haspopup', 'dialog');
@@ -315,11 +318,11 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
     const selected = skill || skills[0];
     const summary = node('section', undefined, 'panel class-summary');
     const classFacts = r.facts.filter(([label, value]) => label !== '{{t:guide.warrior.facts-3|sq}}' || Number(value) !== 0);
-    summary.append(heading(r.name, r.english), node('p', r.lore, 'character-lore'),
+    summary.append(heading(r.name), node('p', r.lore, 'character-lore'),
       attributeElement('p', r.intro, 'intro'), facts(classFacts));
 
     const board = node('nav', undefined, 'skill-board');
-    board.setAttribute('aria-label', r.name + '{{t:guide.ui.show-class|sq}}');
+    board.setAttribute('aria-label', '{{t:guide.ui.show-class|sq}}'.replace('{name}', () => r.name));
     for (const kind of ['{{t:common.active|sq}}','{{t:common.aura|sq}}','{{t:common.passive|sq}}']) {
       const members = skills.filter(s => s.kind === kind);
       if (!members.length) continue;
@@ -328,7 +331,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
       const tiles = node('div', undefined, 'skill-grid');
       for (const s of members) {
         const a = linkTo('skills', s, 'skill-tile', s === selected);
-        a.append(framedSkill(s), node('span', s.name), node('small', 'Lv. ' + s.unlock));
+        a.append(framedSkill(s), node('span', s.name), node('small', '{{t:common.level|sq}} ' + s.unlock));
         tiles.append(a);
       }
       group.append(tiles);
@@ -336,7 +339,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
     }
     summary.append(board);
     const detail = node('section', undefined, 'panel skill-detail');
-    const title = heading(selected.name, selected.english, framedSkill(selected), undefined, 'h3');
+    const title = heading(selected.name, framedSkill(selected), undefined, 'h3');
     title.append(node('span', selected.kind, 'kind'));
     detail.append(title, attributeElement('p', selected.intro, 'intro'),
       facts(selected.facts.filter(([label]) => !['{{t:common.type|sq}}', '{{t:common.skill-level-cap|sq}}', '{{t:common.skill-upgrade-requirement|sq}}'].includes(label))),
@@ -400,7 +403,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
     }
     const product = node('div', undefined, 'product');
     const productLink = recipeItemLink(r, r.productId, 'recipe-product-link');
-    productLink.append(itemSlot(r.icon), heading(r.name, r.english));
+    productLink.append(itemSlot(r.icon), heading(r.name));
     product.append(productLink);
     bench.append(materials, product);
     if (r.effect) bench.append(node('p', r.effect, 'effect'));
@@ -506,13 +509,13 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
     for (const { record, label } of entries) {
       const tile = linkTo(section, record, 'item-tile');
       tile.setAttribute('aria-haspopup', 'dialog');
-      if (!items || sort) tile.title = [record.name, record.english].filter(Boolean).join('\n');
+      if (!items || sort) tile.title = record.name;
       if (sort) tile.setAttribute('aria-label', record.name + '{{t:common.punctuation.comma|sq}}' + sort + ' ' + label);
       if (catalogs[section].thumbnail) tile.append(catalogs[section].thumbnail(record));
       tile.append(node('span', label));
       grid.append(tile);
     }
-    article.replaceChildren(grid.childElementCount ? grid : node('p', '{{t:guide.ui.render-catalog-grid|sq}}' + catalogTypes[section].label + '{{t:common.punctuation.period|sq}}', 'panel empty'));
+    article.replaceChildren(grid.childElementCount ? grid : node('p', '{{t:guide.ui.render-catalog-grid|sq}}'.replace('{group}', () => catalogTypes[section].label), 'panel empty'));
   }
 
   function renderItemPage(id, group, subtype, changed) {
@@ -595,7 +598,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
     const scene = new URL(underkeepSharedAssets + r.scene, document.baseURI);
     document.body.style.setProperty('--shop-scene', 'url("' + scene.href + '")');
     const sheet = node('section', undefined, 'panel item-detail shop-detail');
-    sheet.append(heading(r.name, r.english), node('p', r.intro));
+    sheet.append(heading(r.name), node('p', r.intro));
     if (r.questId) entryLinks(sheet, '{{t:guide.ui.show-shop|sq}}', 'quests', guide.quests.filter(q => q.id === r.questId));
     sources(sheet, r, '{{t:guide.shop_village_barlo.sources|sq}}');
     const grid = node('div', undefined, 'stock-grid');
@@ -692,7 +695,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
       } else if (Object.hasOwn(catalogs, section)) {
         catalogQuery.value = '';
         catalogQuery.placeholder = catalogs[section].placeholder;
-        catalogQuery.setAttribute('aria-label', section === 'items' ? '{{t:guide.ui.render-route-2|sq}}' : '{{t:guide.ui.render-route-3|sq}}' + catalogTypes[section].label);
+        catalogQuery.setAttribute('aria-label', section === 'items' ? '{{t:guide.ui.render-route-2|sq}}' : '{{t:guide.ui.render-route-3|sq}}'.replace('{group}', () => catalogTypes[section].label));
       }
       window.scrollTo(0,0);
     }

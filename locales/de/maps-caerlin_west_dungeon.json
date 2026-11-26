@@ -1,0 +1,14 @@
+{
+  "maps.points.caerlin_west_dungeon.f02.detail": "Suchen Sie nach dem Sarg auf dem Altar bei (14, -59).",
+  "maps.points.caerlin_west_dungeon.f06.detail": "Betrieb des Steinkorbs bei (3, -53).",
+  "maps.points.caerlin_west_dungeon.h01.title": "Goldmünzen ×12",
+  "maps.points.caerlin_west_dungeon.l01.detail": "Blitzkrone, Amethyst, Streitkolben des Erschütternden Hiebs",
+  "maps.points.caerlin_west_dungeon.l01.detail.item-links": "[[0,10,\"item_crown_of_lightning\"],[12,20,\"item_diamond_purple\"],[22,59,\"item_mace_stagger\"]]",
+  "maps.points.caerlin_west_dungeon.l02.detail": "Der gefallene Schwertmann erscheint",
+  "maps.points.caerlin_west_dungeon.l03.detail": "Der Frostblut erscheint, Winterhut",
+  "maps.points.caerlin_west_dungeon.l03.detail.item-links": "[[25,34,\"item_hat_of_winter\"]]",
+  "maps.points.caerlin_west_dungeon.l04.detail": "Staub und Knochen, Schädel",
+  "maps.points.caerlin_west_dungeon.l04.detail.item-links": "[[0,17,\"item_bones02\"],[19,26,\"item_bones05\"]]",
+  "maps.points.caerlin_west_dungeon.wall-sign.ac_wall_sign_01": "Die Krone ist zerbrochen, Das Feuer ist ausgelöscht.\nNur Haare sind übrig.",
+  "maps.points.caerlin_west_dungeon.x11.detail": "Ihr habt das Rätsel gelöst."
+}

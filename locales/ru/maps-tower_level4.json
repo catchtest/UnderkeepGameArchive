@@ -1,0 +1,22 @@
+{
+  "maps.points.tower_level4.a02.title": "Иди вниз. → Башня - уровень 3",
+  "maps.points.tower_level4.detail": "Перед тобой возникает знакомое видение.",
+  "maps.points.tower_level4.detail-2": "На (2, -3) Команда наступила ",
+  "maps.points.tower_level4.dialogue": "\"ИЗ ВСЕХ МОИХ СПУТНИКОВ НИКТО НЕ БЫЛ ПРЕДАННЕЕ.\"",
+  "maps.points.tower_level4.dialogue-2": "\"Я ВЫРАСТИЛ ЕГО ИЗ ЯЙЦА.\"",
+  "maps.points.tower_level4.dialogue-3": "\"МНОГИЕ ГОДЫ ОН ОСТАВАЛСЯ РЯДОМ СО МНОЙ.\"",
+  "maps.points.tower_level4.dialogue-4": "\"НО ДАЖЕ МОЯ МАГИЯ НЕ СМОГЛА УКРОТИТЬ ДРАКОНЬЮ ПРИРОДУ.\"",
+  "maps.points.tower_level4.dialogue-5": "\"ПОЭТОМУ Я ОТПУСТИЛ ЕГО В ГОРЫ.\"",
+  "maps.points.tower_level4.dialogue-6": "\"ТАМ ОН ДОЛЖЕН БЫЛ ОХРАНЯТЬ ПОСЛЕДНИЙ КЛЮЧ.\"",
+  "maps.points.tower_level4.dialogue-7": "\"Я НАДЕЯЛСЯ, ЧТО ОН ОБРЕТЁТ ПОКОЙ... И ЧТО НИКТО НЕ СТАНЕТ ЕГО ТРЕВОЖИТЬ.\"",
+  "maps.points.tower_level4.l01.detail": "Синий Цветок Кэрлина, Янтарная Роза ×3, Ягоды Багряного Шпиля, Лунолепесток, Солнцецвет ×2, Сердце мимика",
+  "maps.points.tower_level4.l01.detail.item-links": "[[0,20,\"item_caerlin_blue_flowers\"],[22,35,\"item_flower_amberrose\"],[40,61,\"item_flower_crimsonspire_berries\"],[63,75,\"item_flower_moonpetal\"],[77,87,\"item_flower_solarbloom\"],[92,105,\"item_ingredient_mimic_heart\"]]",
+  "maps.points.tower_level4.l02.detail": "Перо Милосердия, Медальон Балдурана, Мегазелье лечения, Зелье забвения",
+  "maps.points.tower_level4.l02.detail.item-links": "[[0,15,\"item_feather_of_mercy\"],[17,35,\"item_generic_balduran_medail\"],[37,54,\"item_mega_heal_potion\"],[56,70,\"item_respec_potion\"]]",
+  "maps.points.tower_level4.n01.detail": "1 × 1 сетка",
+  "maps.points.tower_level4.name": "Отпускные пункты на карте",
+  "maps.points.tower_level4.title": "Вспоминания о гигантском драконе",
+  "maps.points.tower_level4.title-2": "Иди наверх. → Башня - уровень 5",
+  "maps.points.tower_level4.w01.detail": "Направление по направлению при посадке",
+  "maps.points.tower_level4.wall-sign.tower4_1": "Иногда нужно двигаться вперед, поэтому сначала нужно сделать шаг назад."
+}
