@@ -6,6 +6,9 @@ registerUnderkeepMap({
 "zone": "red_mausoleum_env",
 "focusBounds": [-4.5,-11.5,18,15],
 "markers": [
+{"id":396,"key":"wall_sign","xy":[3,-11],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.tower_level2_corrupted.wall-sign.tower2c_n1}}"}},
+{"id":397,"key":"wall_sign","xy":[5,-11],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.tower_level2_corrupted.wall-sign.tower2c_n2}}"}},
+{"id":398,"key":"wall_sign","xy":[1,-3],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.tower_level2_corrupted.wall-sign.tower2c_n3}}"}},
 {"id":315,"key":"invisible_passage","xy":[-4,-6],"code":"A01","type":"passage","title":"{{t:maps.points.tower_level2_corrupted.a01.title}}","detail":{"{{t:common.landing}}":"0, -6"},"destination":{"map":"Tower_Level2","xy":[0,-6],"id":31,"name":"{{t:maps.names.tower_level2}}"},"sources":[[301,["start_transition"]]],"native":"mtile_passage","directExit":true},
 {"id":317,"key":"invisible_passage","xy":[12,-6],"code":"A02","type":"passage","title":"{{t:maps.points.tower_level2_corrupted.a01.title}}","detail":{"{{t:common.landing}}":"8, -6"},"destination":{"map":"Tower_Level2","xy":[8,-6],"id":37,"name":"{{t:maps.names.tower_level2}}"},"sources":[[300,["start_transition"]]],"native":"mtile_passage","directExit":true},
 {"id":322,"key":"invisible_passage","xy":[4,2],"code":"A03","type":"passage","title":"{{t:maps.points.tower_level2_corrupted.a01.title}}","detail":{"{{t:common.landing}}":"4, -2"},"destination":{"map":"Tower_Level2","xy":[4,-2],"id":44,"name":"{{t:maps.names.tower_level2}}"},"sources":[[320,["start_transition"]]],"native":null,"directExit":true},

@@ -1,4 +1,5 @@
 {
+  "maps.points.surroundings_cave.wall-sign.four_paths_one_heart": "四方尋求同一顆心。\n讓四條路在中央交會。",
   "maps.points.surroundings_cave.a01.title": "上樓 → Underkeep 之根",
   "maps.points.surroundings_cave.choice-xp": "等等這裡有足跡",
   "maps.points.surroundings_cave.choice-xp-2": "等等讓我感知死者是否碰過這裡",
@@ -6,7 +7,6 @@
   "maps.points.surroundings_cave.choice-xp-4": "等等讓我看看黑暗藏著什麼",
   "maps.points.surroundings_cave.detail": "洞窟張開，地面碎成參差的石堆與飄浮的塵土。感覺像 某種強大的東西有意把石室撕開。",
   "maps.points.surroundings_cave.detail-2": "在（0, -2）隊伍踩踏、物件壓住",
-  "maps.points.surroundings_cave.detail-3": "“等等。這裡有足跡。”（隊伍有遊俠）\n“等等。讓我感知死者是否碰過這裡。”（隊伍有聖騎士）\n“給我一點時間。如果這裡有陷阱，我會找出來。”（隊伍有盜賊）\n“等等。讓我看看黑暗藏著什麼。”（隊伍有矮人）",
   "maps.points.surroundings_cave.detail-4": "倒下的方尖碑，斷裂半埋，可石頭上仍附著零星的符文。",
   "maps.points.surroundings_cave.detail-5": "操作「機關」（-17, -4）\n操作「機關」（-10, -2）",
   "maps.points.surroundings_cave.detail-6": "最後一隻甲殼在你靴下裂開，窸窣聲消失了。岩石讓開， 露出一間中空石室，倒下的方尖碑躺在那裡。",

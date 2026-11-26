@@ -1,4 +1,5 @@
 {
+  "maps.points.swamp.wall-sign.swamp_01": "回頭！你會迷路！",
   "maps.points.swamp.a01.title": "下樓 → 奧布拉之巢",
   "maps.points.swamp.a02.title": "下樓 → 泥沼之心",
   "maps.points.swamp.a03.title": "通道 → 凱爾林森林",
@@ -7,7 +8,6 @@
   "maps.points.swamp.choice-xp-2": "窺視虛空",
   "maps.points.swamp.detail": "又見格爾格拉、霧中迷宮",
   "maps.points.swamp.detail-10": "在（34, 27）隊伍踩踏\n在（34, 23）隊伍踩踏\n限首次觸發",
-  "maps.points.swamp.detail-11": "試著安撫這生物。（隊伍有蛞蝓人）\n窺視虛空。（隊伍有虛空喚者）",
   "maps.points.swamp.detail-12": "經過（52, 40）\n限首次觸發",
   "maps.points.swamp.detail-13": "經過（14, 22），需格爾格拉同行\n經過（17, 34），需格爾格拉同行\n經過（46, 18），需格爾格拉同行\n經過（27, 12），需格爾格拉同行",
   "maps.points.swamp.detail-14": "踩上（31, 33）的感應板，在「遇見格爾格拉」事件中繼續對話至戰鬥開始。",

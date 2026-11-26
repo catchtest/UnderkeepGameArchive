@@ -236,8 +236,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
     const raceFacts = Object.fromEntries(race.facts);
     const jobFacts = Object.fromEntries(job.facts);
     const [primary, primaryRange] = jobFacts['{{t:guide.warrior.facts|sq}}'].split(' ');
-    const [bonusStat, bonusValue] = (jobFacts['{{t:guide.paladin.facts|sq}}'] || '').split(' ');
-    const bonus = Number(bonusValue || 0);
+    const wisdomModifier = Number(jobFacts['{{t:guide.paladin.facts|sq}}'] ?? 0);
     const stats = race.table.slice(1).map(([name, range, modifier]) => {
       const isPrimary = name === primary;
       const [min, max] = (isPrimary ? primaryRange : range).split('–').map(Number);
@@ -252,12 +251,12 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
     const formatRange = (min, max) => min === max ? String(min) : min + '–' + max;
     // The game adjusts the three secondary rolls to meet the race's total before applying the class bonus.
     const ranges = stats.map(({ name, min, max }) => {
-      const extra = name === bonusStat ? bonus : 0;
+      const extra = name === '{{t:common.wisdom|sq}}' ? wisdomModifier : 0;
       return formatRange(Math.max(min, totalMin - (maxSum - max)) + extra,
         Math.min(max, totalMax - (minSum - min)) + extra);
     });
     const hp = Number(raceFacts['{{t:guide.human.facts-2|sq}}']) + Number(jobFacts['{{t:guide.warrior.facts-2|sq}}']);
-    return [...ranges, formatRange(totalMin + bonus, totalMax + bonus), hp > 0 ? '+' + hp : String(hp)];
+    return [...ranges, formatRange(totalMin + wisdomModifier, totalMax + wisdomModifier), hp > 0 ? '+' + hp : String(hp)];
   }
 
   function showCharacterPanels(bio, r, otherPanel) {
@@ -270,8 +269,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
       : guide.classes.map(job => [job.name, ...startingRanges(r, job)]);
     const panel = node('section', undefined, 'panel starting-ranges');
     panel.append(node('h3', '{{t:guide.ui.show-character-panels|sq}}' + group + '{{t:guide.ui.show-character-panels-2|sq}}'), table([[group, ...labels, '{{t:guide.ui.show-character-panels-3|sq}}', '{{t:guide.human.facts-2|sq}}'], ...rows]),
-      node('p', '{{t:guide.ui.show-character-panels-4|sq}}', 'range-note'),
-      node('p', '{{t:guide.ui.show-character-panels-5|sq}}', 'range-note'));
+      node('p', '{{t:guide.ui.show-character-panels-4|sq}}', 'range-note'));
     const side = node('div', undefined, 'character-side');
     side.append(panel, otherPanel);
     article.replaceChildren(bio, side);

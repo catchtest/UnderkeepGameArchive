@@ -5,8 +5,8 @@ const underkeepMapPuzzles = (() => {
   const communityMap = id => 'https://www.oldgames.sk/en/dungeon-mapper/map/' + id;
   const hints = 'https://underkeep.cz/en/guide/walkthrough/puzzles-and-hints/';
   const towerWalkthrough = 'https://intoindiegames.com/walkthroughs/underkeep-walkthrough-part-6-ascending-the-underkeep-tower/';
-  const puzzle = (area, title, goal, steps, source, route) => ({
-    areas: Array.isArray(area[0]) ? area : [area], title, goal, steps, source, route
+  const puzzle = (area, title, goal, steps, source, route, braziers) => ({
+    areas: Array.isArray(area[0]) ? area : [area], title, goal, steps, source, route, braziers
   });
 
   return {
@@ -14,14 +14,6 @@ const underkeepMapPuzzles = (() => {
       puzzle([-5, -29, 5, 5], '{{t:maps.puzzles.starting_forest.1.title|sq}}', '{{t:maps.puzzles.starting_forest.1.goal|sq}}', [
         '{{t:maps.puzzles.starting_forest.1.step-1|sq}}'
       ])
-    ],
-    Village_of_Underkeep: [
-      puzzle([[2, -6, 3, 3], [-7, 1, 3, 3], [3, 10, 3, 3], [17, 6, 3, 3], [26, 1, 3, 3], [26, -15, 3, 3]],
-        '{{t:maps.puzzles.village_of_underkeep.1.title|sq}}', '{{t:maps.puzzles.village_of_underkeep.1.goal|sq}}', [
-        '{{t:maps.puzzles.village_of_underkeep.1.step-1|sq}}',
-        '{{t:maps.puzzles.village_of_underkeep.1.step-2|sq}}',
-        '{{t:maps.puzzles.village_of_underkeep.1.step-3|sq}}'
-      ], communityMap(1825))
     ],
     Mines_under_forest: [
       puzzle([25, -30, 5, 5], '{{t:maps.puzzles.mines_under_forest.1.title|sq}}', '{{t:maps.puzzles.mines_under_forest.1.goal|sq}}', [
@@ -48,7 +40,9 @@ const underkeepMapPuzzles = (() => {
       puzzle([13, 5, 6, 9], '{{t:maps.puzzles.underkeep_cemetery.1.title|sq}}', '{{t:maps.puzzles.underkeep_cemetery.1.goal|sq}}', [
         '{{t:maps.puzzles.underkeep_cemetery.1.step-1|sq}}',
         '{{t:maps.puzzles.underkeep_cemetery.1.step-2|sq}}',
-        '{{t:maps.puzzles.underkeep_cemetery.1.step-3|sq}}'
+        '{{t:maps.puzzles.underkeep_cemetery.1.step-3|sq}}',
+        '{{t:maps.puzzles.underkeep_cemetery.1.step-4|sq}}',
+        '{{t:maps.puzzles.underkeep_cemetery.1.step-5|sq}}'
       ], communityMap(1832)),
       puzzle([18, 12, 4, 4], '{{t:maps.puzzles.underkeep_cemetery.2.title|sq}}', '{{t:maps.puzzles.underkeep_cemetery.2.goal|sq}}', [
         '{{t:maps.puzzles.underkeep_cemetery.2.step-1|sq}}',
@@ -75,6 +69,10 @@ const underkeepMapPuzzles = (() => {
         [7, -10], [7, -11], [8, -11], [9, -11], [9, -10], [10, -10], [10, -9], [10, -8], [10, -7],
         [11, -7], [12, -7], [12, -8], [12, -9], [13, -9], [14, -9], [14, -10], [14, -11],
         [13, -11], [12, -11], [11, -11], [11, -12], [11, -13], [11, -14]
+      ], [
+        [8, -12], [10, -12], [12, -12], [13, -12], [10, -11],
+        [8, -10], [11, -10], [12, -10], [13, -10], [9, -9],
+        [11, -9], [11, -8], [13, -8], [14, -8], [9, -7]
       ]),
       puzzle([8, 1, 9, 7], '{{t:maps.puzzles.mausoleum_2.3.title|sq}}', '{{t:maps.puzzles.mausoleum_2.3.goal|sq}}', [
         '{{t:maps.puzzles.mausoleum_2.3.step-1|sq}}',
@@ -94,10 +92,6 @@ const underkeepMapPuzzles = (() => {
       puzzle([17, -23, 6, 5], '{{t:maps.puzzles.caerlin_woods.1.title|sq}}', '{{t:maps.puzzles.caerlin_woods.1.goal|sq}}', [
         '{{t:maps.puzzles.caerlin_woods.1.step-1|sq}}',
         '{{t:maps.puzzles.caerlin_woods.1.step-2|sq}}'
-      ], communityMap(1840)),
-      puzzle([-12, -47, 6, 4], '{{t:maps.puzzles.caerlin_woods.2.title|sq}}', '{{t:maps.puzzles.caerlin_woods.2.goal|sq}}', [
-        '{{t:maps.puzzles.caerlin_woods.2.step-1|sq}}',
-        '{{t:maps.puzzles.caerlin_woods.2.step-2|sq}}'
       ], communityMap(1840))
     ],
     Caerlin_West_Dungeon: [
@@ -291,12 +285,6 @@ const underkeepMapPuzzles = (() => {
       puzzle([1, -14, 3, 5], '{{t:maps.puzzles.tower_level4.2.title|sq}}', '{{t:maps.puzzles.tower_level4.2.goal|sq}}', [
         '{{t:maps.puzzles.tower_level4.2.step-1|sq}}'
       ], towerWalkthrough)
-    ],
-    Tower_Level5: [
-      puzzle([2, -7, 3, 9], '{{t:maps.puzzles.tower_level5.1.title|sq}}', '{{t:maps.puzzles.tower_level5.1.goal|sq}}', [
-        '{{t:maps.puzzles.tower_level5.1.step-1|sq}}',
-        '{{t:maps.puzzles.tower_level5.1.step-2|sq}}'
-      ], communityMap(1862))
     ],
     Undertower: [
       puzzle([-3, -14, 5, 7], '{{t:maps.puzzles.undertower.1.title|sq}}', '{{t:maps.puzzles.undertower.1.goal|sq}}', [

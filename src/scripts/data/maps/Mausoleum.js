@@ -6,6 +6,7 @@ registerUnderkeepMap({
 "zone": "mausoleum_env",
 "focusBounds": [1.5,-18.5,38,27],
 "markers": [
+{"id":375,"key":"wall_sign","xy":[27,-9],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.mausoleum.wall-sign.skeleton_riddle_01}}"}},
 {"id":467,"key":"mausoleum_stairs_up","xy":[2,-9],"code":"A01","title":"{{t:maps.points.mausoleum.a01.title}}","detail":{"{{t:common.landing}}":"17, 9"},"detailOrder":["{{t:common.landing}}","{{t:common.entrance-direction}}"],"destination":{"map":"Underkeep_Cemetery","xy":[17,9],"id":433,"name":"{{t:maps.names.underkeep_cemetery}}"}},
 {"id":466,"key":"mausoleum_stairs_down","xy":[38,-9],"code":"A02","title":"{{t:maps.points.mausoleum.a02.title}}","detail":{"{{t:common.landing}}":"-9, -9","{{t:common.entrance-direction}}":"{{t:common.west}}"},"destination":{"map":"Mausoleum_2","xy":[-9,-9],"id":302,"name":"{{t:maps.names.mausoleum_2}}"},"rotation":270,"nativeRotation":270},
 {"id":468,"key":"mausoleum_stairs_up","xy":[3,1],"code":"A03","title":"{{t:maps.points.mausoleum.a01.title}}","detail":{"{{t:common.landing}}":"20, 14"},"detailOrder":["{{t:common.landing}}","{{t:common.entrance-direction}}"],"destination":{"map":"Underkeep_Cemetery","xy":[20,14],"id":584,"name":"{{t:maps.names.underkeep_cemetery}}"}},

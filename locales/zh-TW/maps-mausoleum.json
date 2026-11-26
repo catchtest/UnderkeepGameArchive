@@ -1,4 +1,5 @@
 {
+  "maps.points.mausoleum.wall-sign.skeleton_riddle_01": "身披白骨，守著去路。\n帶著血印的靈魂，它不會殺害。\n圓環鑄成，猩紅繫縛，\n血印所在，便是安寧。",
   "maps.points.mausoleum.a01.title": "上樓 → Underkeep 墓園",
   "maps.points.mausoleum.a02.title": "下樓 → 被遺忘者的牢房",
   "maps.points.mausoleum.a04.title": "下樓 → 永眠之室",
@@ -9,7 +10,7 @@
   "maps.points.mausoleum.choice-xp-5": "等等檢查陷阱",
   "maps.points.mausoleum.choice-xp-6": "破壞法陣",
   "maps.points.mausoleum.detail": "你走進一間與陵墓其餘部分相比整潔得詭異的石室。鋪滿 卷軸的書桌、靠牆的床、積灰的書架，與周圍的腐朽形成 怪異的對比。",
-  "maps.points.mausoleum.detail-10": "“這裡的平衡不對。”（隊伍有麋鹿）\n“古老符文。讓我讀讀它們的流向。”（隊伍有法師）\n“一個召喚法陣。也許是地獄的。”（隊伍有血法師）\n“等等。檢查陷阱。”（隊伍有盜賊）",
+  "maps.points.mausoleum.detail-10": "“這裡的平衡不對。”（隊伍有麋鹿）\n“古老符文。讓我讀讀它們的流向。”（隊伍有法師）\n“一個召喚法陣。也許是地獄的。”（隊伍有血法師）",
   "maps.points.mausoleum.detail-11": "持有束縛卷軸，在（10, -16）操作五芒星法陣。法陣尚未被破壞時，選「試著讀那本書」，再選「完成儀式。召喚伊克薩里昂」。",
   "maps.points.mausoleum.detail-12": "馬爾瑟里昂的金鑰匙、猩紅戒指、冰晶法杖、金幣 ×6",
   "maps.points.mausoleum.detail-2": "在（6, -16）隊伍踩踏、物件壓住",

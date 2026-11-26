@@ -6,6 +6,8 @@ registerUnderkeepMap({
 "zone": "red_mausoleum_env",
 "focusBounds": [-9.5,-17.5,20,21],
 "markers": [
+{"id":210,"key":"wall_sign","xy":[-2,-9],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.mausoleum_3_2.wall-sign.maus_riddle_source_01}}"}},
+{"id":211,"key":"wall_sign","xy":[-3,-9],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.mausoleum_3_2.wall-sign.maus_riddle_source_02}}"}},
 {"id":212,"key":"red_mausoleum_stairs_up","xy":[-9,-4],"code":"A01","title":"{{t:maps.points.mausoleum_3.a01.title}}","detail":{"{{t:common.landing}}":"12, -4","{{t:common.entrance-direction}}":"{{t:common.east}}"},"destination":{"map":"Mausoleum_2","xy":[12,-4],"id":304,"name":"{{t:maps.names.mausoleum_2}}"},"rotation":90,"nativeRotation":90},
 {"id":258,"key":"red_mausoleum_stairs_up","xy":[-3,0],"code":"A02","title":"{{t:maps.points.mausoleum_2.a02.title}}","detail":{"{{t:common.landing}}":"15, 1","{{t:common.entrance-direction}}":"{{t:common.east}}"},"destination":{"map":"Mausoleum","xy":[15,1],"id":513,"name":"{{t:maps.names.mausoleum}}"},"rotation":90,"nativeRotation":90},
 {"id":179,"key":"encounter_enter_last_mausoleum","xy":[-8,-3],"code":"E01","sources":[[180,["toggle"]]],"displayXY":[-8,-4]},

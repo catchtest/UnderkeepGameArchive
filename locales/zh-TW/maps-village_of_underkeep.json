@@ -1,4 +1,5 @@
 {
+  "maps.points.village_of_underkeep.wall-sign.aldren_mayor_sign": "奧爾德倫・維恩\n村長",
   "maps.points.village_of_underkeep.a02.title": "通道 → Underkeep 之根",
   "maps.points.village_of_underkeep.choice-xp": "我們在半獸人營地找到了這張紙條",
   "maps.points.village_of_underkeep.choice-xp-10": "希望你別再把那些蘑菇弄丟了",
@@ -32,7 +33,7 @@
   "maps.points.village_of_underkeep.detail-16": "任務「逃走的五朵」已完成\n任務「逃走的五朵」尚未完成",
   "maps.points.village_of_underkeep.detail-17": "一個孤獨的身影隨意靠在村邊的低石牆上。深紅斗篷在 微風中輕輕擺動。你走近時，他抬起頭，嘴角帶著淡淡的 笑。皮膚蒼白，姿態銳利，但站姿裡沒有任何危險的 氣息。",
   "maps.points.village_of_underkeep.detail-18": "在（-5, -15）隊伍踩踏\n操作「托倫·馬利克」（0, -13）",
-  "maps.points.village_of_underkeep.detail-19": "問問北方有什麼。\n查看他的靈光是否有魔法。（隊伍有法師）\n觀察他的神情。（隊伍有盜賊）",
+  "maps.points.village_of_underkeep.detail-19": "問問北方有什麼。",
   "maps.points.village_of_underkeep.detail-2": "你推開村長家的門，屋裡卻空無一人。文件散落在桌上， 蠟燭倒了，淡淡的煙味從百葉窗縫裡滲進來。",
   "maps.points.village_of_underkeep.detail-20": "直接獲得 不明酊劑（選項「問問北方有什麼。」）",
   "maps.points.village_of_underkeep.detail-21": "南方之影、小屋的麻煩、Underkeep 的低語、西方結界",

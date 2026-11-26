@@ -1,4 +1,5 @@
 {
+  "maps.points.west_woods.wall-sign.west_woods_sign_patient": "唯有最有耐心的人，才能取得門後之物。",
   "maps.points.west_woods.a02.title": "下樓 → 最後之焰聖所",
   "maps.points.west_woods.b01.detail": "在（24, -28）接觸白樺林的提燈，砸碎提燈，或用遊俠選項射破提燈。",
   "maps.points.west_woods.b03.detail": "在（31, -16）調查燒焦的無名墓，使用虛空碎片、舉起靈魂提燈，或用虛空喚者的選項舉行召喚儀式。",
@@ -72,7 +73,7 @@
   "maps.points.west_woods.detail-40": "在（26, -28）隊伍踩踏",
   "maps.points.west_woods.detail-41": "只剩玻璃碎片掛在燻黑的鏈上。曾在此燃燒的東西已經 消失。",
   "maps.points.west_woods.detail-42": "操作「機關」（24, -28）",
-  "maps.points.west_woods.detail-43": "搭箭射提燈。（隊伍有遊俠）\n感知附著在光上的東西。（隊伍有血法師）",
+  "maps.points.west_woods.detail-43": "搭箭射提燈。（隊伍有遊俠）",
   "maps.points.west_woods.detail-44": "提燈已被打破\n提燈仍完好\n任務「燃燒兩次的光」已完成",
   "maps.points.west_woods.detail-45": "森林盡頭是一片焦黑的空地。灰燼沾滿你的靴子，空氣裡 彌漫著燒焦的鋼鐵與死亡的氣味。",
   "maps.points.west_woods.detail-46": "在（19, -15）隊伍踩踏\n在（17, -16）隊伍踩踏",

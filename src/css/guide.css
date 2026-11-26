@@ -228,7 +228,7 @@ body[data-page="walkthrough"] {
   --serif: "Underkeep Walkthrough Titles", "Noto Serif TC", "PMingLiU", serif;
 }
 #spoiler-notice { width: min(26rem, 100%); margin: 2rem auto; text-align: center; }
-#spoiler-title { font: 700 1.5rem/1.4 var(--serif); color: var(--heading); }
+#spoiler-title { font-size: 1.5rem; line-height: 1.4; }
 #spoiler-notice p { margin: .5rem 0 1rem; }
 #reveal-walkthrough { padding: 8px 18px; border: 1px solid #baa071; background: #453c2c; color: #f3e6cf; font: inherit; cursor: pointer; }
 @media (min-height: 46rem) {

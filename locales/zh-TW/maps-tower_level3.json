@@ -1,4 +1,6 @@
 {
+  "maps.points.tower_level3.wall-sign.tower3_1": "畫廊",
+  "maps.points.tower_level3.wall-sign.tower3_2": "暗室",
   "maps.points.tower_level3.a01.title": "上樓 → 高塔四層",
   "maps.points.tower_level3.a03.title": "下樓 → 高塔二層",
   "maps.points.tower_level3.b01.detail": "把兩尊法師雕像推到外側的感應板（1, -11 和 5, -11），兩尊騎士雕像推到內側（2, -11 和 4, -11），開啟暗門。",

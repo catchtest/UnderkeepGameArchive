@@ -7,6 +7,7 @@ registerUnderkeepMap({
 "focusBounds": [-17.5,-24.5,51,43],
 "referencePoints": {"973":{"xy":[-11,-9],"title":"decal ground blood1","code":null}},
 "markers": [
+{"id":364,"key":"wall_sign","xy":[11,-11],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.village_of_underkeep.wall-sign.aldren_mayor_sign}}"}},
 {"id":1005,"key":"level_portal1_grass","xy":[0,-20],"code":"A01","title":"{{t:maps.points.swamp.a03.title}}","detail":{"{{t:common.landing}}":"8, -16"},"destination":{"map":"Caerlin_Woods","xy":[8,-16],"id":1150,"name":"{{t:maps.names.caerlin_woods}}"}},
 {"id":1004,"key":"level_portal2_grass","xy":[-14,-8],"code":"A02","title":"{{t:maps.points.village_of_underkeep.a02.title}}","detail":{"{{t:common.landing}}":"45, -40"},"destination":{"map":"Underkeep_Surroundings","xy":[45,-40],"id":987,"name":"{{t:maps.names.underkeep_surroundings}}"}},
 {"id":1002,"key":"level_portal2_grass","xy":[28,-7],"code":"A03","title":"{{t:maps.points.underkeep_cemetery.a02.title}}","detail":{"{{t:common.landing}}":"-28, -53"},"destination":{"map":"Starting_forest","xy":[-28,-53],"id":2688,"name":"{{t:maps.names.starting_forest}}"}},

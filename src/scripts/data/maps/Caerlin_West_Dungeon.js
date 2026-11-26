@@ -7,6 +7,7 @@ registerUnderkeepMap({
 "focusBounds": [2.5,-59.5,21,25],
 "referencePoints": {"195":{"xy":[13,-43],"title":"pushable statue gargoyle no grass","code":null},"196":{"xy":[16,-43],"title":"pushable statue gargoyle no grass","code":null},"197":{"xy":[13,-40],"title":"pushable statue gargoyle no grass","code":null},"198":{"xy":[16,-40],"title":"pushable statue gargoyle no grass","code":null}},
 "markers": [
+{"id":66,"key":"wall_sign","xy":[13,-44],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.caerlin_west_dungeon.wall-sign.ac_wall_sign_01}}"}},
 {"id":72,"key":"mine_forest_entrance","xy":[15,-36],"code":"A01","title":"{{t:maps.objects.cave2_exit1}}","detail":{"{{t:common.landing}}":"-2, -28","{{t:common.entrance-direction}}":"{{t:common.north}}"},"destination":{"map":"Caerlin_Woods","xy":[-2,-28],"id":107,"name":"{{t:maps.names.caerlin_woods}}"},"rotation":0,"nativeRotation":0},
 {"id":93,"key":"dung_moss_secret_wall","xy":[10,-49],"code":"S01","sources":[[90,["toggle"]]]},
 {"id":99,"key":"sarcophagus2","xy":[3,-53],"code":"M01","type":"mechanism","title":"{{t:common.mechanism}}","targets":[[204,["enable"]]],"sprite":"mtile_sarcophagus","native":"mtile_sarcophagus"},

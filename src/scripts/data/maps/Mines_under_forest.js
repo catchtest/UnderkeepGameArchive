@@ -6,6 +6,9 @@ registerUnderkeepMap({
 "zone": "mine_env",
 "focusBounds": [-15.5,-51.5,59,37],
 "markers": [
+{"id":257,"key":"wall_sign","xy":[9,-44],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.mines_under_forest.wall-sign.warehouse_hint}}"}},
+{"id":371,"key":"wall_sign","xy":[12,-35],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.mines_under_forest.wall-sign.keep_out_sign}}"}},
+{"id":669,"key":"wall_sign","xy":[37,-22],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.mines_under_forest.wall-sign.keep_out_sign}}"}},
 {"id":45,"key":"mine_stairs_up","xy":[-12,-48],"code":"A01","title":"{{t:maps.points.mines_under_forest.a01.title}}","detail":{"{{t:common.landing}}":"-12, -48","{{t:common.entrance-direction}}":"{{t:common.south}}"},"destination":{"map":"Starting_forest","xy":[-12,-48],"id":660,"name":"{{t:maps.names.starting_forest}}"},"rotation":180,"nativeRotation":180},
 {"id":88,"key":"mine_stairs_down","xy":[13,-35],"code":"A02","title":"{{t:maps.points.mines_under_forest.a02.title}}","detail":{"{{t:common.landing}}":"11, -35","{{t:common.entrance-direction}}":"{{t:common.west}}"},"destination":{"map":"Abandoned_Mines_Cave","xy":[11,-35],"id":241,"name":"{{t:maps.names.abandoned_mines_cave}}"},"rotation":270,"nativeRotation":270},
 {"id":87,"key":"mine_stairs_down","xy":[37,-33],"code":"A03","title":"{{t:maps.points.mines_under_forest.a03.title}}","detail":{"{{t:common.landing}}":"37, -34","{{t:common.entrance-direction}}":"{{t:common.south}}"},"destination":{"map":"Rat_nest","xy":[37,-34],"id":269,"name":"{{t:maps.names.rat_nest}}"},"rotation":180,"nativeRotation":180},

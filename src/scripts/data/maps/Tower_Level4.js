@@ -6,6 +6,8 @@ registerUnderkeepMap({
 "zone": "tower_env",
 "focusBounds": [-10.5,-14.5,22,20],
 "markers": [
+{"id":23,"key":"wall_sign","xy":[1,-13],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.tower_level4.wall-sign.tower4_1}}"}},
+{"id":37,"key":"wall_sign","xy":[3,-13],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.tower_level4.wall-sign.tower4_1}}"}},
 {"id":1,"key":"tower_backward_stairs_up","xy":[2,-14],"code":"A01","destination":{"map":"Tower_Level5","xy":[3,1],"id":2,"name":"{{t:maps.names.tower_level5}}"}},
 {"id":2,"key":"tower_stairs_down","xy":[2,-1],"code":"A02","title":"{{t:maps.points.tower_level4.a02.title}}","detail":{"{{t:common.landing}}":"3, -18","{{t:common.entrance-direction}}":"{{t:common.north}}"},"destination":{"map":"Tower_Level3","xy":[3,-18],"id":5,"name":"{{t:maps.names.tower_level3}}"},"rotation":0,"nativeRotation":0},
 {"id":15,"key":"tower_teleport","xy":[-5,-5],"code":"W01","detail":{"{{t:common.landing}}":"0, 0","{{t:maps.points.tower_level4.w01.detail}}":"{{t:common.south}}"},"destination":{"map":"Tower_Level4","xy":[0,0],"id":null,"name":"{{t:maps.points.tower_level4.name}}"}},

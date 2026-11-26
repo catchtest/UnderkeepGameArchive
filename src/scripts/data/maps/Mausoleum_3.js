@@ -6,6 +6,7 @@ registerUnderkeepMap({
 "zone": "red_mausoleum_env",
 "focusBounds": [2.5,-16.5,15,22],
 "markers": [
+{"id":282,"key":"wall_sign","xy":[8,2],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.mausoleum_3.wall-sign.test_subject_01}}"}},
 {"id":183,"key":"red_mausoleum_stairs_up","xy":[10,-16],"code":"A01","title":"{{t:maps.points.mausoleum_3.a01.title}}","detail":{"{{t:common.landing}}":"11, -16","{{t:common.entrance-direction}}":"{{t:common.south}}"},"destination":{"map":"Mausoleum_2","xy":[11,-16],"id":303,"name":"{{t:maps.names.mausoleum_2}}"},"rotation":180,"nativeRotation":180},
 {"id":266,"key":"encounter_enter_red_mausoleum","xy":[11,-16],"code":"E01","sources":[[267,["toggle"]]],"displayXY":[10,-15]},
 {"id":302,"key":"encounter_zerethic_first","xy":[8,-3],"code":"E02","targets":[[304,["teleport_party_to"]],[88,["close","disable"]],[193,["enable","set_stationary"]]],"sources":[[303,["toggle"]]],"displayXY":[10,-4]},

@@ -1,4 +1,8 @@
 {
+  "maps.points.east_garden.wall-sign.east_riddle_01": "生於火焰，經雙手塑形，\n餵飽大地上飢餓的人。",
+  "maps.points.east_garden.wall-sign.east_riddle_02": "小玻璃瓶裡裝著療傷的紅液，\n畏懼死者的人四處尋覓。",
+  "maps.points.east_garden.wall-sign.east_riddle_03": "生於寂靜的天空下，\n從不飲下陽光，卻永不凋亡。",
+  "maps.points.east_garden.wall-sign.east_trial_endurance": "勇氣試煉",
   "maps.points.east_garden.a01.title": "下樓 → 靈魂鍛造爐 - 外廳",
   "maps.points.east_garden.choice-xp": "有 10 金幣",
   "maps.points.east_garden.detail": "空氣變得濃厚，滿是腐爛與濕土的氣味。曾經的花園如今 沉入泥濘與死水。",
@@ -20,7 +24,6 @@
   "maps.points.east_garden.detail-5": "出現在容器或基座 藍色鑰匙球，位置（3, -6）",
   "maps.points.east_garden.detail-6": "森林地面沉入濕苔與黑水。每一步都讓大地發出一聲 輕嘆。前方，微弱的蛙鳴在霧中迴盪。",
   "maps.points.east_garden.detail-7": "在（22, 9）隊伍踩踏",
-  "maps.points.east_garden.detail-8": "“它正穿過心靈伸過來……”（隊伍有法師）\n“心靈感應……但很原始。”（隊伍有血法師）\n“它觸碰心靈。柔軟而冰冷。”（隊伍有蛞蝓人）",
   "maps.points.east_garden.detail-9": "結局",
   "maps.points.east_garden.dialogue": "空氣變得濃厚，滿是腐爛與溼土的氣味。曾經的花園如今沉入泥濘與死水。",
   "maps.points.east_garden.dialogue-10": "「它觸碰心靈。柔軟而冰冷。」（隊伍有蛞蝓人）",

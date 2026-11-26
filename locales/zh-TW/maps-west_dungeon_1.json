@@ -1,4 +1,11 @@
 {
+  "maps.points.west_dungeon_1.wall-sign.blind_corridor": "盲廊",
+  "maps.points.west_dungeon_1.wall-sign.east_garden": "東園",
+  "maps.points.west_dungeon_1.wall-sign.seal_of_purple": "紫印",
+  "maps.points.west_dungeon_1.wall-sign.seal_of_yellow": "黃印",
+  "maps.points.west_dungeon_1.wall-sign.stone_yields_to_bones": "石頭向白骨讓路，血肉卻無法使它讓步。",
+  "maps.points.west_dungeon_1.wall-sign.west_dungeon_1_sign_do_not_press": "不要按按鈕！",
+  "maps.points.west_dungeon_1.wall-sign.west_garden": "西園",
   "maps.points.west_dungeon_1.a02.title": "下樓 → 寂靜謎廳",
   "maps.points.west_dungeon_1.a03.title": "上樓 → 靈魂鍛造爐 - 東園",
   "maps.points.west_dungeon_1.a04.title": "上樓 → 靈魂鍛造爐 - 西園",

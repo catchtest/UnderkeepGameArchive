@@ -7,6 +7,7 @@ registerUnderkeepMap({
 "focusBounds": [-35.5,-67.5,63,20],
 "referencePoints": {"228":{"xy":[-2,-54],"title":"barrel1 tnt","code":null},"229":{"xy":[1,-61],"title":"barrel1 tnt","code":null},"230":{"xy":[1,-50],"title":"barrel1 tnt","code":null},"232":{"xy":[-5,-59],"title":"boulder4","code":null},"233":{"xy":[-5,-59],"title":"boulder1","code":null},"297":{"xy":[17,-52],"title":"collapsed rocks cave tough","code":null}},
 "markers": [
+{"id":123,"key":"wall_sign","xy":[-27,-67],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.dragon_den.wall-sign.dragon_den_riddle}}"}},
 {"id":29,"key":"cave_exit1","xy":[-35,-60],"code":"A01","title":"{{t:maps.points.dragon_den.a01.title}}","detail":{"{{t:common.landing}}":"2, -15","{{t:common.initial-state}}":"{{t:common.close}}","{{t:common.entrance-direction}}":"{{t:common.south}}"},"destination":{"map":"West_woods","xy":[2,-15],"id":460,"name":"{{t:maps.names.west_woods}}"},"sources":[[240,["open"]],[244,["open"]]],"rotation":180,"nativeRotation":180},
 {"id":238,"key":"cave_exit1","xy":[24,-54],"code":"A02","title":"{{t:maps.points.dragon_den.a01.title}}","detail":{"{{t:common.landing}}":"16, -9","{{t:common.entrance-direction}}":"{{t:common.south}}"},"destination":{"map":"West_woods","xy":[16,-9],"id":823,"name":"{{t:maps.names.west_woods}}"},"rotation":180,"nativeRotation":180},
 {"id":449,"key":"encounter_secret_dragon_library","xy":[5,-65],"code":"E01","sources":[[450,["toggle"]]],"displayXY":[5,-63]},

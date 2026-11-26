@@ -7,6 +7,9 @@ registerUnderkeepMap({
 "focusBounds": [-4.5,-11.5,18,15],
 "referencePoints": {"69":{"xy":[4,-2],"title":"statue knight no grass pushable","code":null},"70":{"xy":[5,-2],"title":"statue knight no grass pushable","code":null},"71":{"xy":[6,-2],"title":"statue knight no grass pushable","code":null}},
 "markers": [
+{"id":34,"key":"wall_sign","xy":[1,-2],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.tower_level2.wall-sign.tower2_1}}"}},
+{"id":84,"key":"wall_sign","xy":[3,-11],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.tower_level2.wall-sign.tower2_n1}}"}},
+{"id":85,"key":"wall_sign","xy":[5,-11],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.tower_level2.wall-sign.tower2_n2}}"}},
 {"id":1,"key":"tower_stairs_down","xy":[4,-7],"code":"A01","title":"{{t:maps.points.tower_level2.a01.title}}","detail":{"{{t:common.landing}}":"3, -6","{{t:common.entrance-direction}}":"{{t:common.north}}"},"destination":{"map":"Tower_Level1","xy":[3,-6],"id":78,"name":"{{t:maps.names.tower_level1}}"},"rotation":0,"nativeRotation":0},
 {"id":36,"key":"invisible_passage","xy":[-4,-6],"code":"A02","type":"passage","title":"{{t:maps.points.tower_level2.a02.title}}","detail":{"{{t:common.landing}}":"0, -6"},"destination":{"map":"Tower_Level2_Corrupted","xy":[0,-6],"id":316,"name":"{{t:maps.names.tower_level2_corrupted}}"},"sources":[[32,["start_transition"]]],"native":"mtile_passage","directExit":true},
 {"id":28,"key":"invisible_passage","xy":[12,-6],"code":"A03","type":"passage","title":"{{t:maps.points.tower_level2.a02.title}}","detail":{"{{t:common.landing}}":"8, -6"},"destination":{"map":"Tower_Level2_Corrupted","xy":[8,-6],"id":307,"name":"{{t:maps.names.tower_level2_corrupted}}"},"sources":[[29,["start_transition"]]],"native":null,"directExit":true},

@@ -6,6 +6,13 @@ registerUnderkeepMap({
 "zone": "dung_metal_stone_env",
 "focusBounds": [-37.5,-77.5,39,29],
 "markers": [
+{"id":107,"key":"wall_sign","xy":[-34,-71],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_1.wall-sign.seal_of_yellow}}"}},
+{"id":108,"key":"wall_sign","xy":[-34,-73],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_1.wall-sign.seal_of_purple}}"}},
+{"id":165,"key":"wall_sign","xy":[-7,-67],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_1.wall-sign.east_garden}}"}},
+{"id":179,"key":"wall_sign","xy":[-19,-51],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_1.wall-sign.stone_yields_to_bones}}"}},
+{"id":329,"key":"wall_sign","xy":[-33,-65],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_1.wall-sign.west_garden}}"}},
+{"id":348,"key":"wall_sign","xy":[-26,-64],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_1.wall-sign.blind_corridor}}"}},
+{"id":351,"key":"wall_sign","xy":[-12,-58],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_1.wall-sign.west_dungeon_1_sign_do_not_press}}"}},
 {"id":80,"key":"dung_metal_stairs_up","xy":[-25,-77],"code":"A01","title":"{{t:maps.points.dragon_den.a01.title}}","detail":{"{{t:common.landing}}":"-13, 12","{{t:common.entrance-direction}}":"{{t:common.south}}"},"destination":{"map":"West_woods","xy":[-13,12],"id":16,"name":"{{t:maps.names.west_woods}}"},"rotation":180,"nativeRotation":180,"directExit":true},
 {"id":150,"key":"dung_metal_stairs_down","xy":[0,-73],"code":"A02","title":"{{t:maps.points.west_dungeon_1.a02.title}}","detail":{"{{t:common.landing}}":"-27, -73","{{t:common.entrance-direction}}":"{{t:common.west}}"},"destination":{"map":"West_Dungeon_2","xy":[-27,-73],"id":82,"name":"{{t:maps.names.west_dungeon_2}}"},"rotation":270,"nativeRotation":270,"directExit":true},
 {"id":297,"key":"dung_metal_stairs_up","xy":[-7,-66],"code":"A03","title":"{{t:maps.points.west_dungeon_1.a03.title}}","detail":{"{{t:common.landing}}":"8, -15","{{t:common.entrance-direction}}":"{{t:common.north}}"},"destination":{"map":"East_Garden","xy":[8,-15],"id":471,"name":"{{t:maps.names.east_garden}}"},"rotation":0,"nativeRotation":0,"directExit":true},

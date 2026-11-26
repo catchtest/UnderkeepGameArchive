@@ -1,4 +1,6 @@
 {
+  "maps.points.mausoleum_2.wall-sign.flame_riddle_01": "有一團火焰在說謊，擋住了去路。它的暖意虛假，像畫上去的傷痕。\n真正的火焰燃得同樣旺盛。生命的氣息必須護住它的光。",
+  "maps.points.mausoleum_2.wall-sign.flame_riddle_02": "別讓任何火焰灼燒你的靈魂。",
   "maps.points.mausoleum_2.a01.title": "下樓 → 寂靜之室",
   "maps.points.mausoleum_2.a02.title": "上樓 → 陵墓入口",
   "maps.points.mausoleum_2.choice-xp": "不對勁他的靈魂不在這裡",
@@ -9,7 +11,6 @@
   "maps.points.mausoleum_2.choice-xp-6": "問斧頭的事我們在森林裡找到了這個是你的嗎",
   "maps.points.mausoleum_2.detail": "與陵墓其餘部分不同，這間石室幾乎算得上整潔。紅色 掛毯像沉默的見證者般垂著。",
   "maps.points.mausoleum_2.detail-2": "在（12, 2）隊伍踩踏、物件壓住",
-  "maps.points.mausoleum_2.detail-3": "“不對勁。他的靈魂不在這裡。”（隊伍有虛空喚者）\n“這些印記……是血祭。他改變了自己。”（隊伍有血法師）\n“快射。瞄準心臟。”（隊伍有遊俠）\n“你的腐化到此為止。”（隊伍有聖騎士）",
   "maps.points.mausoleum_2.detail-4": "南方之影、源頭之心",
   "maps.points.mausoleum_2.detail-5": "火把的光照出一個男人，他癱靠在石室牆邊，手腕被鎖在 石頭上。",
   "maps.points.mausoleum_2.detail-6": "在（1, -3）隊伍踩踏、物件壓住",

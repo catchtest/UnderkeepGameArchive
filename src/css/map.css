@@ -179,11 +179,6 @@ h2 { font-size: 18px; font-weight: 650; }
 .puzzle-row ol { margin: 0; padding-inline-start: 1.2em; }
 .puzzle-row li::marker { color: var(--accent-text); }
 .puzzle-row li + li { margin-block-start: 4px; }
-.puzzle-source {
-  display: inline-block; margin-block-start: 7px; margin-inline-start: calc(2em + 9px);
-  color: var(--link-text); font-size: 13px; text-decoration: underline; text-underline-offset: 2px;
-}
-.puzzle-source:hover { color: var(--text); }
 @media (max-height: 420px) {
   #details-drawer { padding-block: 6px; }
   #details-drawer .panel-heading { margin-block-end: 4px; }

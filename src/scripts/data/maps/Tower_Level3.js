@@ -7,6 +7,8 @@ registerUnderkeepMap({
 "focusBounds": [-1.5,-18.5,16,18],
 "referencePoints": {"29":{"xy":[3,-11],"title":"painting frame","code":null},"34":{"xy":[2,-6],"title":"statue knight no grass pushable","code":null},"35":{"xy":[4,-6],"title":"statue knight no grass pushable","code":null},"36":{"xy":[2,-9],"title":"statue mage no grass pushable","code":null},"37":{"xy":[4,-9],"title":"statue mage no grass pushable","code":null},"47":{"xy":[3,-11],"title":"painting cliff","code":null},"106":{"xy":[3,-15],"title":"dark room effect","code":null}},
 "markers": [
+{"id":16,"key":"wall_sign","xy":[3,-15],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.tower_level3.wall-sign.tower3_2}}"}},
+{"id":40,"key":"wall_sign","xy":[3,-4],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.tower_level3.wall-sign.tower3_1}}"}},
 {"id":5,"key":"tower_stairs_up","xy":[3,-18],"code":"A01","title":"{{t:maps.points.tower_level3.a01.title}}","detail":{"{{t:common.landing}}":"2, -1"},"detailOrder":["{{t:common.landing}}","{{t:common.entrance-direction}}"],"destination":{"map":"Tower_Level4","xy":[2,-1],"id":2,"name":"{{t:maps.names.tower_level4}}"}},
 {"id":4,"key":"tower_stairs_down","xy":[3,-2],"code":"A03","title":"{{t:maps.points.tower_level3.a03.title}}","detail":{"{{t:common.landing}}":"4, -5","{{t:common.entrance-direction}}":"{{t:common.north}}"},"destination":{"map":"Tower_Level2","xy":[4,-5],"id":2,"name":"{{t:maps.names.tower_level2}}"},"rotation":0,"nativeRotation":0},
 {"id":95,"key":"encounter_painted_hunt_enter","xy":[-1,-11],"code":"E01","sources":[[64,["trigger"]]],"displayXY":[1,-9]},

@@ -6,6 +6,13 @@ registerUnderkeepMap({
 "zone": "dung_metal_stone_env",
 "focusBounds": [-34.5,-93.5,35,31],
 "markers": [
+{"id":129,"key":"wall_sign","xy":[-24,-75],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_2.wall-sign.pickaxe_riddle}}"}},
+{"id":130,"key":"wall_sign","xy":[-22,-74],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_2.wall-sign.small_stone_riddle}}"}},
+{"id":131,"key":"wall_sign","xy":[-22,-72],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_2.wall-sign.apple_riddle}}"}},
+{"id":132,"key":"wall_sign","xy":[-24,-71],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_2.wall-sign.shovel_riddle}}"}},
+{"id":296,"key":"wall_sign","xy":[-5,-79],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_2.wall-sign.timer_riddle_time}}"}},
+{"id":342,"key":"wall_sign","xy":[-17,-84],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_2.wall-sign.test_of_dexterity}}"}},
+{"id":364,"key":"wall_sign","xy":[-9,-81],"detail":{"{{t:common.displayed-text}}":"{{t:maps.points.west_dungeon_2.wall-sign.small_things_decide_great}}"}},
 {"id":353,"key":"pit_dung_metal","xy":[-9,-86],"code":"A01","type":"passage","title":"{{t:maps.points.west_dungeon_2.a01.title}}","detail":{"{{t:common.landing}}":"5, -82","{{t:common.initial-state}}":"{{t:common.close}}"},"destination":{"map":"West_Dungeon_3","xy":[5,-82],"id":191,"name":"{{t:maps.names.west_dungeon_3}}"},"sources":[[348,["toggle"]]],"directExit":true},
 {"id":354,"key":"pit_dung_metal","xy":[-9,-85],"code":"A02","type":"passage","title":"{{t:maps.points.west_dungeon_2.a01.title}}","detail":{"{{t:common.landing}}":"5, -81","{{t:common.initial-state}}":"{{t:common.close}}"},"destination":{"map":"West_Dungeon_3","xy":[5,-81],"id":190,"name":"{{t:maps.names.west_dungeon_3}}"},"sources":[[350,["toggle"]]],"directExit":true},
 {"id":357,"key":"pit_dung_metal","xy":[-9,-84],"code":"A03","type":"passage","title":"{{t:maps.points.west_dungeon_2.a01.title}}","detail":{"{{t:common.landing}}":"5, -80","{{t:common.initial-state}}":"{{t:common.close}}"},"destination":{"map":"West_Dungeon_3","xy":[5,-80],"id":189,"name":"{{t:maps.names.west_dungeon_3}}"},"sources":[[349,["toggle"]]],"directExit":true},
