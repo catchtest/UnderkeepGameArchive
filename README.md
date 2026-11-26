@@ -1,6 +1,6 @@
 # Underkeep遊戲圖鑑
 
-《Underkeep》的多語攻略與圖鑑，收錄互動地圖、任務流程與遊戲資料。頁尾可切換繁體中文、简体中文、Čeština、Deutsch、English、Español、Français、Polski 與 Русский。
+《Underkeep》的多語攻略與圖鑑，收錄互動地圖、任務流程與遊戲資料。頁尾可切換Čeština、Deutsch、English、Español、Français、Polski、Русский、繁體中文與简体中文。
 
 [Underkeep遊戲圖鑑](https://catchtest.github.io/UnderkeepGameArchive/)
 

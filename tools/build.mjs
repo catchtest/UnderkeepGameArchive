@@ -49,7 +49,7 @@ const localeDirs = (await readdir(localeRoot, { withFileTypes: true })).filter(e
 const locales = await Promise.all(localeDirs.map(entry => entry.name).sort().map(readLocale));
 const rootLocale = locales.find(locale => locale.code === defaultLocale);
 if (!rootLocale) throw new Error('Unknown default locale: ' + defaultLocale);
-const languageOrder = code => code === 'zh-TW' ? 0 : code === 'zh-CN' ? 1 : 2;
+const languageOrder = code => code === 'zh-TW' ? 1 : code === 'zh-CN' ? 2 : 0;
 locales.sort((a, b) => languageOrder(a.code) - languageOrder(b.code));
 const alternateLinks = [...locales.map(({ code }) =>
   `<link rel="alternate" hreflang="${code}" href="${publicRoot}${code}/">`),
