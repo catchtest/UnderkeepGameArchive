@@ -1,0 +1,18 @@
+{
+  "maps.points.west_dungeon_2.wall-sign.apple_riddle": "果園裡最甜美的收穫。\n落下的那一刻便注定毀去。",
+  "maps.points.west_dungeon_2.wall-sign.pickaxe_riddle": "生於石頭，為劈開大地而造。\n從不搬運，只用來擊碎。",
+  "maps.points.west_dungeon_2.wall-sign.shovel_riddle": "為搬運泥土而造。\n從不將泥土擊碎。",
+  "maps.points.west_dungeon_2.wall-sign.small_stone_riddle": "生於群山，由凡人擲出。\n小到能握在手掌中。",
+  "maps.points.west_dungeon_2.wall-sign.small_things_decide_great": "微小之物，足以決定大事。",
+  "maps.points.west_dungeon_2.wall-sign.test_of_dexterity": "敏捷試煉",
+  "maps.points.west_dungeon_2.wall-sign.timer_riddle_time": "2 : 35",
+  "maps.points.west_dungeon_2.a01.title": "落坑 → 熔爐",
+  "maps.points.west_dungeon_2.a06.title": "上樓 → 靈魂鍛造爐 - 外廳",
+  "maps.points.west_dungeon_2.a07.title": "下樓 → 熔爐",
+  "maps.points.west_dungeon_2.l02.detail": "開鎖工具、露西爾",
+  "maps.points.west_dungeon_2.l06.detail": "斷裂的骨頭、骨頭",
+  "maps.points.west_dungeon_2.l08.detail": "鼠糧 ×2、心泉藥劑、毒藥水",
+  "maps.points.west_dungeon_2.l11.detail": "完成該處機關後：鐵鑰匙（將機關調到正確位置）",
+  "maps.points.west_dungeon_2.l15.detail": "治療藥水、解毒藥水",
+  "maps.points.west_dungeon_2.x08.detail": "出現在容器或基座 鐵鑰匙（將機關調到正確位置），位置（-5, -74）"
+}

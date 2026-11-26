@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="{{t:site.html-language|attr}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="underkeep-version" content="1.0.6">
+<meta name="application-name" content="{{t:site.name|attr}}">
+<meta name="description" content="{{t:site.description|attr}}">
+<meta property="og:site_name" content="{{t:site.name|attr}}">
+<meta property="og:title" content="{{t:site.name|attr}}">
+<meta property="og:description" content="{{t:site.description|attr}}">
+<title>{{t:site.name}}</title>
+<link rel="icon" type="image/x-icon" href="{{site:assets}}images/favicon.ico">
+<script>document.documentElement.classList.add('enhanced');</script>
+<!-- Update the matching t values when publishing CSS or JavaScript changes. -->
+<link rel="stylesheet" href="css/site.css?t=20261126.2">
+<noscript><link rel="stylesheet" href="css/home.css?t=20261126.1"></noscript>
+<script defer src="scripts/site.js?t=20261126.11"></script>
+</head>
+<body data-page="home">
+<header class="masthead"><div class="mast-inner">
+  <div class="brand">
+    <a href="index.html" aria-current="page"><img src="{{site:assets}}images/logo.webp" alt="{{t:site.home-link|attr}}"></a>
+  </div>
+  <nav id="sections" aria-label="{{t:site.navigation|attr}}">
+    <a id="to-map" href="?view=map">{{t:common.map}}</a>
+    <a href="?view=guide#races" data-title="{{t:common.race-bonuses|attr}}">{{t:common.race}}</a><a href="?view=guide#classes" data-title="{{t:common.classes-and-skills|attr}}">{{t:common.class}}</a>
+    <a href="?view=guide#traits" data-title="{{t:common.traits-and-statuses|attr}}">{{t:common.trait}}</a>
+    <a href="?view=guide#items" data-title="{{t:common.item-catalog|attr}}">{{t:common.item}}</a><a href="?view=guide#shops" data-title="{{t:common.shop-goods|attr}}">{{t:common.shop}}</a><a href="?view=guide#recipes" data-title="{{t:common.recipe-table|attr}}">{{t:common.craft}}</a>
+    <a href="?view=guide#enemies" data-title="{{t:common.enemy-catalog|attr}}">{{t:common.enemy}}</a><a href="?view=guide#quests" data-title="{{t:common.quest-list|attr}}">{{t:common.quest}}</a>
+    <a id="to-walkthrough" href="?view=walkthrough">{{t:common.walkthrough}}</a>
+  </nav>
+{{site:language-menu}}</div></header>
+<p id="view-status" role="status" hidden></p>
+<div id="view">
+<main class="home" tabindex="-1">
+  <section class="home-hero" aria-labelledby="game-title">
+    <div class="hero-copy">
+      <h1 id="game-title"><img src="{{site:assets}}images/logo.webp" alt="{{t:site.name|attr}}" width="334" height="74"></h1>
+      <p>{{t:site.home.summary}}</p>
+      <div class="store-links">
+        <a class="steam-link" href="https://store.steampowered.com/app/2411200/Underkeep/" target="_blank" rel="noopener noreferrer">{{t:site.home.steam}} <span aria-hidden="true">↗</span></a>
+        <a href="https://www.gog.com/en/game/underkeep" target="_blank" rel="noopener noreferrer">{{t:site.home.gog}} <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+  <section class="game-info" aria-labelledby="game-info-title">
+    <h2 id="game-info-title">{{t:site.home.game-info-title}}</h2>
+    <dl>
+      <div><dt>{{t:site.home.release-date}}</dt><dd><time datetime="2026-11-05">{{t:site.home.release-date-text}}</time></dd></div>
+      <div><dt>{{t:site.home.developer-publisher}}</dt><dd><a href="https://www.rakeingrass.com/game_underkeep.php">Rake in Grass <span aria-hidden="true">↗</span></a></dd></div>
+      <div><dt>{{t:site.home.platform}}</dt><dd>Windows</dd></div>
+      <div><dt>{{t:common.type}}</dt><dd>{{t:site.home.genre}}</dd></div>
+    </dl>
+  </section>
+  <nav class="archive-links" aria-label="{{t:site.home.quick-links|attr}}">
+    <a href="?view=map"><strong>{{t:maps.ui.title}}</strong><span>{{t:site.home.map-description}}</span><span class="link-arrow" aria-hidden="true">↗</span></a>
+    <a href="?view=guide#items"><strong>{{t:site.archive}}</strong><span>{{t:site.home.archive-description}}</span><span class="link-arrow" aria-hidden="true">↗</span></a>
+  </nav>
+  <noscript><p>{{t:site.home.javascript-required}}</p></noscript>
+</main>
+<footer class="home-footer">
+  <div class="home-divider" aria-hidden="true"><span></span></div>
+  <p>{{t:site.home.credit-before-link}}<a href="https://www.bilibili.com/video/BV1tS4n6CET2/" lang="zh-Hans">{{t:site.home.translator}}</a>{{t:site.home.credit-after-link}}</p>
+  <p>{{t:site.home.version-and-author}}</p>
+</footer>
+</div>
+<template id="walkthrough-view">
+<main class="book" tabindex="-1">
+  <header class="banner"><h1>{{t:walkthrough.title}}</h1></header>
+  <section id="spoiler-notice" aria-labelledby="spoiler-title" hidden>
+    <h2 id="spoiler-title">{{t:site.walkthrough.spoiler-title}}</h2>
+    <p>{{t:walkthrough.spoiler-warning}}</p>
+    <button type="button" id="reveal-walkthrough" aria-controls="walkthrough-content">{{t:common.show}}</button>
+  </section>
+  <div id="walkthrough-content" hidden>
+    <section class="walkthrough-flow" aria-labelledby="flow-title">
+      <div class="flow-heading">
+        <h2 id="flow-title" tabindex="-1">{{t:site.walkthrough.flow-title}}</h2>
+        <label class="flow-size"><input type="checkbox" aria-controls="flow-viewport"> {{t:walkthrough.actual-size}}</label>
+      </div>
+      <div id="flow-viewport" class="flow-viewport" tabindex="0" role="region" aria-label="{{t:walkthrough.story-flow.title|attr}}">
+        <img src="images/story-flow.svg" alt="{{t:walkthrough.story-flow.title|attr}}">
+      </div>
+    </section>
+    <section class="walkthrough-flow" aria-labelledby="ending-title">
+      <div class="flow-heading">
+        <h2 id="ending-title">{{t:walkthrough.ending-flow.title}}</h2>
+        <label class="flow-size"><input type="checkbox" aria-controls="ending-viewport"> {{t:walkthrough.actual-size}}</label>
+      </div>
+      <p>{{t:walkthrough.ending-flow.summary}}</p>
+      <div id="ending-viewport" class="flow-viewport" tabindex="0" role="region" aria-labelledby="ending-title">
+        <img src="images/ending-flow.svg" alt="{{t:walkthrough.ending-flow.alt|attr}}">
+      </div>
+      <p>{{t:walkthrough.ending-flow.replay}}</p>
+      <p>{{t:walkthrough.ending-flow.portal}}</p>
+    </section>
+    <section class="walkthrough-flow" aria-labelledby="side-quest-title">
+      <div class="flow-heading">
+        <h2 id="side-quest-title">{{t:site.walkthrough.side-quest-title}}</h2>
+        <label class="flow-size"><input type="checkbox" aria-controls="side-quest-charts"> {{t:walkthrough.actual-size}}</label>
+      </div>
+      <div id="side-quest-charts">
+        <h3 id="mayor-title">{{t:walkthrough.side-quest-mayor.title}}</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="mayor-title">
+          <img src="images/side-quest-mayor.svg" alt="{{t:walkthrough.side-quest-mayor.alt|attr}}">
+        </div>
+        <h3 id="mushrooms-title">{{t:walkthrough.side-quest-mushrooms.title}}</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="mushrooms-title">
+          <img src="images/side-quest-mushrooms.svg" alt="{{t:walkthrough.side-quest-mushrooms.alt|attr}}">
+        </div>
+        <h3 id="jacob-title">{{t:walkthrough.side-quest-jacob.title}}</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="jacob-title">
+          <img src="images/side-quest-jacob.svg" alt="{{t:walkthrough.side-quest-jacob.alt|attr}}">
+        </div>
+        <h3 id="wards-title">{{t:walkthrough.side-quest-wards.title}}</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="wards-title">
+          <img src="images/side-quest-wards.svg" alt="{{t:walkthrough.side-quest-wards.alt|attr}}">
+        </div>
+        <h3 id="dwarves-title">{{t:walkthrough.side-quest-dwarves.title}}</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="dwarves-title">
+          <img src="images/side-quest-dwarves.svg" alt="{{t:walkthrough.side-quest-dwarves.alt|attr}}">
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+</template>
+
+<template id="map-view">
+<header class="top">
+  <button type="button" class="drawer-toggle" id="maps-toggle" aria-controls="maps-drawer" aria-expanded="false">{{t:common.location}}</button>
+  <div class="map-heading"><h1 id="map-title"></h1><p id="map-en" class="english"></p></div>
+  <button type="button" class="drawer-toggle" id="layers-toggle" aria-controls="layers-drawer" aria-expanded="false">
+    <span class="layers-icon" aria-hidden="true"></span>{{t:maps.ui.layers}}
+  </button>
+</header>
+<main class="stage" id="stage" aria-labelledby="map-title" tabindex="-1">
+  <svg id="map-svg" xmlns="http://www.w3.org/2000/svg" aria-labelledby="map-title" preserveAspectRatio="none"></svg>
+  <div class="tools">
+    <div class="zoom-group" role="group" aria-label="{{t:maps.ui.zoom|attr}}">
+      <button type="button" id="zoom-in" aria-label="{{t:maps.ui.zoom-in|attr}}" title="{{t:maps.ui.zoom-in|attr}}">+</button>
+      <button type="button" id="zoom-out" aria-label="{{t:maps.ui.zoom-out|attr}}" title="{{t:maps.ui.zoom-out|attr}}">−</button>
+    </div>
+    <button type="button" id="zoom-fit" aria-label="{{t:maps.ui.zoom-fit|attr}}" title="{{t:maps.ui.zoom-fit|attr}}">⤢</button>
+  </div>
+  <div class="map-status"><span id="coords"></span><span id="scale"></span></div>
+  <div id="map-tip" class="map-tip" role="group" aria-label="{{t:maps.ui.tile-hint|attr}}" hidden></div>
+  <nav id="maps-drawer" class="drawer drawer-start" aria-labelledby="maps-title" hidden>
+    <div class="panel-heading">
+      <h2 id="maps-title">{{t:maps.ui.locations}}</h2>
+      <button type="button" class="overview-toggle" id="overview-toggle" aria-haspopup="dialog" aria-controls="map-overview">{{t:common.overview}} <span aria-hidden="true">↗</span></button>
+      <button type="button" class="close-button" aria-label="{{t:maps.ui.close-locations|attr}}">✕</button>
+    </div>
+    <label class="find"><span aria-hidden="true">⌕</span><input id="map-query" type="search" placeholder="{{t:site.map-query.placeholder|attr}}" aria-label="{{t:site.map-query.aria-label|attr}}" aria-keyshortcuts="/"><kbd class="search-key" aria-hidden="true">/</kbd></label>
+    <div id="catalog"></div>
+  </nav>
+  <section id="layers-drawer" class="drawer drawer-end" aria-labelledby="layers-title" hidden>
+    <div class="panel-heading">
+      <h2 id="layers-title">{{t:site.map.layers-title}}</h2>
+      <button type="button" id="reset-types" class="text-button">{{t:site.map.reset-types}}</button>
+      <button type="button" class="close-button" aria-label="{{t:maps.ui.close-layers|attr}}">✕</button>
+    </div>
+    <div id="filters" class="layer-list"></div>
+  </section>
+  <section id="details-drawer" class="drawer drawer-end" aria-labelledby="details-title" hidden>
+    <div class="panel-heading">
+      <h2 id="details-title" aria-live="polite"></h2>
+      <button type="button" class="text-button" id="locate-selection">{{t:site.map.locate-selection}}</button>
+      <button type="button" class="close-button" aria-label="{{t:maps.ui.close-detail|attr}}">✕</button>
+    </div>
+    <div class="detail-scroll" id="selection" aria-live="polite"></div>
+  </section>
+</main>
+<dialog id="map-overview" aria-labelledby="overview-title" closedby="any">
+  <header>
+    <h2 id="overview-title">{{t:maps.ui.locations}}</h2>
+    <form method="dialog"><button class="close-button" aria-label="{{t:maps.ui.close-locations|attr}}" autofocus>✕</button></form>
+  </header>
+  <div class="dialog-body overview-scroll">
+    <svg id="overview-svg" viewBox="0 0 1140 570" aria-labelledby="overview-title"></svg>
+  </div>
+</dialog>
+</template>
+
+<template id="guide-view">
+<main class="book" tabindex="-1">
+  <div class="banner">
+    <h1 id="page-title"></h1>
+    <label class="guide-search"><input id="item-query" type="search" autocomplete="off" aria-keyshortcuts="/"><kbd class="search-key" aria-hidden="true">/</kbd></label>
+  </div>
+  <nav id="choices" aria-label="{{t:site.choices.aria-label|attr}}" hidden></nav>
+  <div class="item-controls" hidden>
+    <nav id="item-subtypes" aria-label="{{t:site.item-subtypes.aria-label|attr}}" hidden></nav>
+    <label class="item-sort">
+      {{t:guide.ui.sort}}
+      <select id="item-sort">
+        <option value="">{{t:guide.ui.default-sort}}</option>
+        <optgroup label="{{t:common.attack|attr}}">
+          <option>{{t:common.damage}}</option>
+          <option>{{t:common.base-damage}}</option>
+          <option>{{t:common.sharpness}}</option>
+          <option>{{t:common.armor-penetration}}</option>
+          <option>{{t:common.melee-critical-chance}}</option>
+          <option>{{t:common.ranged-critical-chance}}</option>
+          <option>{{t:common.ranged-accuracy}}</option>
+        </optgroup>
+        <optgroup label="{{t:guide.ui.equipment-requirements|attr}}">
+          <option>{{t:common.require-strength}}</option>
+          <option>{{t:common.require-dexterity}}</option>
+          <option>{{t:common.require-wisdom}}</option>
+        </optgroup>
+        <optgroup label="{{t:common.defense|attr}}">
+          <option>{{t:common.armor}}</option>
+          <option>{{t:common.evasion}}</option>
+          <option>{{t:common.melee-protection}}</option>
+          <option>{{t:common.ranged-protection}}</option>
+          <option>{{t:common.fire-resistance}}</option>
+          <option>{{t:common.ice-resistance}}</option>
+          <option>{{t:common.lightning-resistance}}</option>
+          <option>{{t:common.poison-resistance}}</option>
+          <option>{{t:common.blood-resistance}}</option>
+        </optgroup>
+        <optgroup id="item-immunity-options" label="{{t:common.status-immunities|attr}}"></optgroup>
+        <optgroup label="{{t:guide.ui.supplies-and-prices|attr}}">
+          <option>{{t:common.restore-health}}</option>
+          <option>{{t:common.restore-stamina}}</option>
+          <option>{{t:common.restore-mana}}</option>
+          <option>{{t:common.food-supplies}}</option>
+          <option>{{t:common.buy-price}}</option>
+          <option>{{t:common.sell-price}}</option>
+        </optgroup>
+      </select>
+    </label>
+  </div>
+  <div id="workspace">
+    <aside id="library" class="panel" aria-label="{{t:site.library.aria-label|attr}}" hidden>
+      <h2>{{t:common.recipe}}</h2>
+      <div id="results" aria-label="{{t:site.results.aria-label|attr}}"></div>
+    </aside>
+    <article id="detail" aria-label="{{t:site.detail.aria-label|attr}}"></article>
+  </div>
+</main>
+<dialog id="levels-dialog" class="levels guide-dialog" aria-labelledby="levels-title" closedby="any">
+  <header><h2 id="levels-title">{{t:site.guide.levels-title}}</h2><form method="dialog"><button class="close-button" aria-label="{{t:guide.ui.close-levels|attr}}" autofocus>✕</button></form></header>
+  <div class="dialog-body"><p>{{t:guide.ui.level-up-skill-point}}</p></div>
+</dialog>
+</template>
+
+<template id="detail-dialog-template">
+<dialog class="detail-dialog" closedby="any">
+  <header>
+    <div class="entry-heading"></div>
+    <form method="dialog"><button class="close-button" aria-label="{{t:guide.ui.close-detail|attr}}" autofocus>✕</button></form>
+  </header>
+  <div class="dialog-body"></div>
+</dialog>
+</template>
+</body>
+</html>
