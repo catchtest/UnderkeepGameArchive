@@ -20,11 +20,8 @@ jobs:
         with:
           persist-credentials: false
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
-      - name: Prepare website files
-        run: |
-          mkdir dist
-          cp -- index.html google2bb38367b58a7b42.html dist/
-          cp -R -- css fonts images scripts dist/
+      - name: Build Traditional Chinese website
+        run: node tools/build.mjs zh-TW
       - name: Minify CSS and JavaScript
         shell: bash
         run: |

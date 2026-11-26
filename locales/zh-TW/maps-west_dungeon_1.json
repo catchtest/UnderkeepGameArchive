@@ -1,0 +1,18 @@
+{
+  "maps.points.west_dungeon_1.a02.title": "下樓 → 寂靜謎廳",
+  "maps.points.west_dungeon_1.a03.title": "上樓 → 靈魂鍛造爐 - 東園",
+  "maps.points.west_dungeon_1.a04.title": "上樓 → 靈魂鍛造爐 - 西園",
+  "maps.points.west_dungeon_1.detail": "你站在一扇巨大的石門前。門面刻著八個圓形凹槽，每 一個都明顯是為鑰匙而造。毫無疑問：只有找齊這八把 奇特的鑰匙，前方的路才會打開。",
+  "maps.points.west_dungeon_1.detail-2": "在（-4, -73）隊伍踩踏",
+  "maps.points.west_dungeon_1.dialogue": "你站在一扇巨大的石門前。門面刻著八個圓形凹槽，每一個都明顯是為鑰匙而造。毫無疑問：只有找齊這八把奇特的鑰匙，前方的路才會打開。",
+  "maps.points.west_dungeon_1.dialogue-2": "後續對話（持有 藍色鑰匙球 ×8）",
+  "maps.points.west_dungeon_1.dialogue-3": "你一把接一把地把鑰匙放進凹槽。最後一把歸位時，石門開始發光，石頭摩擦著石頭。隨著一聲深沉的轟鳴，前方的路打開了。",
+  "maps.points.west_dungeon_1.dialogue-4": "後續對話（缺少 藍色鑰匙球 ×8）",
+  "maps.points.west_dungeon_1.dialogue-5": "你還缺幾把鑰匙。廢墟不會這麼輕易交出秘密。",
+  "maps.points.west_dungeon_1.f01.detail": "史萊姆隨機掉落、史萊姆隨機掉落、史萊姆隨機掉落、史萊姆隨機掉落",
+  "maps.points.west_dungeon_1.f01.detail-2": "史萊姆隨機掉落候選：手斧、戰斧、生鏽的手斧、生鏽的鎖甲靴、生鏽的長劍、生鏽大斧、金幣 ×3、金幣 ×4、金幣 ×2、金幣 ×5、治療藥水、體力藥水",
+  "maps.points.west_dungeon_1.l01.detail": "冰矛、守護之盾",
+  "maps.points.west_dungeon_1.l03.detail": "月鋼礦石、強擊之戒",
+  "maps.points.west_dungeon_1.n01.detail": "6 × 10 格",
+  "maps.points.west_dungeon_1.title": "八把鑰匙"
+}
