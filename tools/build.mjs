@@ -89,6 +89,14 @@ function languageMenu(current, directory) {
   return '  <select id="site-language" aria-label="' + label + '">' + options.join('') + '</select>\n';
 }
 
+function translationCredit(locale) {
+  const key = 'site.home.translator';
+  if (!locale.messages.has(key)) return '';
+  const translator = markupText(messageFor(locale, key, 'index.html'));
+  const after = markupText(messageFor(locale, 'site.home.credit-after-link', 'index.html'));
+  return '<a href="https://www.bilibili.com/video/BV1tS4n6CET2/" lang="zh-Hans">' + translator + '</a>' + after;
+}
+
 // Widen the diagram's horizontal coordinates for translations, keeping fonts,
 // corner radii, arrowheads and vertical spacing in their original pixel units.
 function layoutFlowchart(svg) {
@@ -119,7 +127,8 @@ function render(text, file, locale, menu, directory = locale.code) {
   const content = result.replaceAll('{{site:assets}}', directory ? '../' : '')
     .replaceAll('{{site:bundle}}', directory ? '' : locale.code + '/')
     .replace('{{site:alternate-links}}', alternateLinks)
-    .replace('{{site:language-menu}}', () => menu);
+    .replace('{{site:language-menu}}', () => menu)
+    .replace('{{site:translation-credit}}', () => translationCredit(locale));
   return extname(file) === '.svg' && content.includes('class="paths"') ? layoutFlowchart(content) : content;
 }
 
