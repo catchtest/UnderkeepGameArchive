@@ -1,14 +1,32 @@
-import { cp, lstat, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { dirname, extname, join, posix, relative } from 'node:path';
+import { lstat, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { dirname, extname, join, posix, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const source = join(root, 'src');
 const output = join(root, 'dist');
-const { values } = parseArgs({ options: { 'default-locale': { type: 'string', default: 'zh-TW' } } });
+const { values } = parseArgs({ options: { 'default-locale': { type: 'string', default: 'en' } } });
 const defaultLocale = values['default-locale'];
 const localeRoot = join(root, 'locales');
+const publicRoot = 'https://catchtest.github.io/UnderkeepGameArchive/';
+
+// Check new translations against the ranges the browser can actually load.
+const fontDir = join(root, 'fonts');
+const headingCSS = await readFile(join(fontDir, 'headings.css'), 'utf8');
+const fontFiles = new Set(await readdir(fontDir));
+const headingRanges = [];
+for (const [face] of headingCSS.matchAll(/@font-face\s*\{[^}]+\}/g)) {
+  const filename = face.match(/url\("([^"?]+)(?:\?[^"]*)?"\)/)?.[1];
+  if (!fontFiles.has(filename)) throw new Error('Missing heading font: ' + filename);
+  const ranges = face.match(/unicode-range:\s*([^;]+);/)?.[1];
+  if (!ranges) throw new Error('Missing character ranges for ' + filename);
+  for (const range of ranges.split(',')) {
+    const [, first, last] = /^U\+([0-9A-F]+)(?:-([0-9A-F]+))?$/.exec(range.trim());
+    headingRanges.push('\\u{' + first + '}' + (last ? '-\\u{' + last + '}' : ''));
+  }
+}
+const missingGlyph = new RegExp('[^\\p{Cc}' + headingRanges.join('') + ']', 'u');
 
 async function readLocale(code) {
   if (Intl.getCanonicalLocales(code)[0] !== code) throw new Error('Use the canonical locale code for ' + code);
@@ -19,6 +37,8 @@ async function readLocale(code) {
     for (const [key, message] of Object.entries(catalog)) {
       if (messages.has(key)) throw new Error(`Duplicate ${code} key ${key} in ${file}`);
       if (typeof message !== 'string') throw new Error(`Expected ${code} text for ${key} in ${file}`);
+      const missing = message.match(missingGlyph);
+      if (missing) throw new Error(`Missing heading glyph ${missing[0]} in ${code}/${file} (${key})`);
       messages.set(key, message);
     }
   }
@@ -31,6 +51,9 @@ const rootLocale = locales.find(locale => locale.code === defaultLocale);
 if (!rootLocale) throw new Error('Unknown default locale: ' + defaultLocale);
 const languageOrder = code => code === 'zh-TW' ? 0 : code === 'zh-CN' ? 1 : 2;
 locales.sort((a, b) => languageOrder(a.code) - languageOrder(b.code));
+const alternateLinks = [...locales.map(({ code }) =>
+  `<link rel="alternate" hreflang="${code}" href="${publicRoot}${code}/">`),
+  `<link rel="alternate" hreflang="x-default" href="${publicRoot}">`].join('\n');
 
 const jsString = value => JSON.stringify(value).slice(1, -1);
 const singleQuoted = value => jsString(value).replace(/\\"|'/g, match => match === "'" ? "\\'" : '"');
@@ -66,17 +89,38 @@ function languageMenu(current, directory) {
   return '  <select id="site-language" aria-label="' + label + '">' + options.join('') + '</select>\n';
 }
 
+// Widen the diagram's horizontal coordinates for translations, keeping fonts,
+// corner radii, arrowheads and vertical spacing in their original pixel units.
+function layoutFlowchart(svg) {
+  const [header, drawing] = svg.split('</defs>');
+  const width = Number(header.match(/<svg\b[^>]*\bwidth="(\d+)"/)[1]);
+  const viewBox = /(<svg\b[^>]*\bviewBox="0 0 )(\d+)/;
+  const originalWidth = Number(header.match(viewBox)[2]);
+  if (width === originalWidth) return svg;
+  const scaleX = x => Number((Number(x) * width / originalWidth).toFixed(3));
+  const positioned = drawing.replace(/<(?:rect|text|path|g)\b[^>]*>/g, tag => tag
+    .replace(/\b(x|width)="(-?[\d.]+)"/g, (_, attr, x) => `${attr}="${scaleX(x)}"`)
+    .replace(/translate\((-?[\d.]+) /g, (_, x) => `translate(${scaleX(x)} `)
+    // The connectors use absolute M/H/V commands. V has no x coordinate.
+    .replace(/\bd="([^"]+)"/g, (_, path) => 'd="' +
+      path.replace(/([MH])\s*(-?[\d.]+)/g, (_, command, x) => command + scaleX(x)) + '"'));
+  return header.replace(viewBox, (_, start) => start + width) + '</defs>' + positioned;
+}
+
 function render(text, file, locale, menu, directory = locale.code) {
+  const defaultEncode = defaultFormat[extname(file)];
   const result = text.replace(/\{\{t:([\w.-]+)(?:\|(\w+))?\}\}/g, (_, key, format) => {
     if (format && !Object.hasOwn(formats, format)) throw new Error(`Unknown locale format ${format} in ${file}`);
-    const encode = format ? formats[format] : defaultFormat[extname(file)];
+    const encode = format ? formats[format] : defaultEncode;
     if (!encode) throw new Error(`Unsupported template file ${file}`);
     return encode(messageFor(locale, key, file));
   });
   if (/\{\{t:/.test(result)) throw new Error(`Invalid locale reference in ${file}`);
-  return result.replaceAll('{{site:assets}}', directory ? '../' : '')
+  const content = result.replaceAll('{{site:assets}}', directory ? '../' : '')
     .replaceAll('{{site:bundle}}', directory ? '' : locale.code + '/')
+    .replace('{{site:alternate-links}}', alternateLinks)
     .replace('{{site:language-menu}}', () => menu);
+  return extname(file) === '.svg' && content.includes('class="paths"') ? layoutFlowchart(content) : content;
 }
 
 const templates = [];
@@ -94,29 +138,47 @@ const renderedFiles = locales.flatMap(locale => {
 const [, indexTemplate] = templates.find(([file]) => file === 'index.html');
 renderedFiles.push(['index.html', render(indexTemplate, 'index.html', rootLocale, languageMenu(rootLocale, ''), '')]);
 
-// Old bookmarks can include both a view query and a map marker in the fragment.
-for (const { code, messages } of locales) {
-  const url = '../../' + code + '/';
-  const title = markupText(messages.get('site.name'));
-  const redirect = `<!doctype html><html lang="${code}"><meta charset="utf-8"><title>${title}</title>
-<script>location.replace(${JSON.stringify(url)} + location.search + location.hash)</script>
-<noscript><meta http-equiv="refresh" content="0;url=${url}"></noscript><a href="${url}">${title}</a></html>`;
-  renderedFiles.push([join('languages', code, 'index.html'), redirect]);
-}
 const previousOutput = await lstat(output).catch(error => {
   if (error.code !== 'ENOENT') throw error;
 });
 if (previousOutput && !previousOutput.isDirectory()) throw new Error('Expected dist/ to be a directory');
-if (previousOutput) await rm(output, { recursive: true });
 await mkdir(output, { recursive: true });
-for (const asset of ['fonts', 'images', 'google2bb38367b58a7b42.html']) {
-  await cp(join(root, asset), join(output, asset), { recursive: true });
+const files = new Map(renderedFiles.map(([file, text]) => [file, Buffer.from(text)]));
+const assets = ['google2bb38367b58a7b42.html'];
+for (const folder of ['fonts', 'images']) {
+  for (const entry of await readdir(join(root, folder), { recursive: true, withFileTypes: true })) {
+    if (entry.isFile()) assets.push(relative(root, join(entry.parentPath, entry.name)));
+  }
 }
-
-for (const [file, content] of renderedFiles) {
-  const destination = join(output, file);
-  await mkdir(dirname(destination), { recursive: true });
-  await writeFile(destination, content, 'utf8');
+for (let i = 0; i < assets.length; i += 32) {
+  await Promise.all(assets.slice(i, i + 32).map(async file => files.set(file, await readFile(join(root, file)))));
+}
+const directories = new Set();
+for (const file of files.keys()) {
+  for (let dir = dirname(file); dir !== '.' && !directories.has(dir); dir = dirname(dir)) directories.add(dir);
+}
+const existing = new Set();
+async function cleanDirectory(dir) {
+  for (const entry of await readdir(join(output, dir), { withFileTypes: true })) {
+    const file = join(dir, entry.name);
+    if (entry.isDirectory() && directories.has(file)) await cleanDirectory(file);
+    else if (entry.isFile() && files.has(file)) existing.add(file);
+    else {
+      const target = resolve(output, file);
+      if (!target.startsWith(output + sep)) throw new Error('Unexpected output path: ' + target);
+      await rm(target, { recursive: entry.isDirectory(), force: true });
+    }
+  }
+}
+await cleanDirectory('.');
+await Promise.all([...directories].map(dir => mkdir(join(output, dir), { recursive: true })));
+const entries = [...files];
+for (let i = 0; i < entries.length; i += 32) {
+  await Promise.all(entries.slice(i, i + 32).map(async ([file, content]) => {
+    const destination = join(output, file);
+    if (existing.has(file) && (await readFile(destination)).equals(content)) return;
+    await writeFile(destination, content);
+  }));
 }
 
 console.log(`Built ${locales.map(locale => locale.code).join(', ')} in dist/ (${renderedFiles.length} site files).`);

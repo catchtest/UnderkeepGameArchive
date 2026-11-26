@@ -112,14 +112,6 @@ dialog .entry-heading .inventory-icon { zoom: 3; }
 .quest-detail .links button { display: inline-flex; align-items: center; gap: 6px; }
 .quest-detail .links .inventory-icon { zoom: 1; }
 
-@font-face {
-  font-family: "Noto Serif TC";
-  src: url("{{site:assets}}../fonts/noto-serif-tc.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 200 900;
-  font-display: swap;
-}
-
 .detail-dialog:has(.enemy-detail) {
   --heading: #e3ded2;
   --name: #d9d2c4;
@@ -146,7 +138,7 @@ dialog .entry-heading .inventory-icon { zoom: 3; }
   display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px;
 }
 .detail-dialog:has(.enemy-detail) .entry-heading h2 {
-  color: var(--heading); font: 700 clamp(1.45rem, 2.3vw, 2rem)/1.3 "Noto Serif TC", "PMingLiU", serif;
+  color: var(--heading); font: 700 clamp(1.45rem, 2.3vw, 2rem)/1.3 var(--serif);
 }
 .detail-dialog:has(.enemy-detail) > .dialog-body { padding: 14px 20px 20px; overflow-wrap: anywhere; }
 .detail-dialog:has(.enemy-detail) .icon {

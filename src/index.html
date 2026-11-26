@@ -10,13 +10,15 @@
 <meta property="og:site_name" content="{{t:site.name|attr}}">
 <meta property="og:title" content="{{t:site.name|attr}}">
 <meta property="og:description" content="{{t:site.description|attr}}">
+{{site:alternate-links}}
 <title>{{t:site.name}}</title>
 <link rel="icon" type="image/x-icon" href="{{site:assets}}images/favicon.ico">
 <script>document.documentElement.classList.add('enhanced');</script>
 <!-- Update the matching t values when publishing CSS or JavaScript changes. -->
+<link rel="stylesheet" href="{{site:assets}}fonts/headings.css?t=20261126.1">
 <link rel="stylesheet" href="{{site:bundle}}css/site.css?t=20261126.6">
-<noscript><link rel="stylesheet" href="{{site:bundle}}css/home.css?t=20261126.3"></noscript>
-<script defer src="{{site:bundle}}scripts/site.js?t=20261126.20"></script>
+<noscript><link rel="stylesheet" href="{{site:bundle}}css/home.css?t=20261126.5"></noscript>
+<script defer src="{{site:bundle}}scripts/site.js?t=20261126.25"></script>
 </head>
 <body data-page="home">
 <header class="masthead"><div class="mast-inner">
@@ -81,7 +83,7 @@
     <section class="walkthrough-flow" aria-labelledby="flow-title">
       <div class="flow-heading">
         <h2 id="flow-title" tabindex="-1">{{t:site.walkthrough.flow-title}}</h2>
-        <label class="flow-size"><input type="checkbox" aria-controls="flow-viewport"> {{t:walkthrough.actual-size}}</label>
+        <label class="flow-size"><input type="checkbox" checked aria-controls="flow-viewport"> {{t:walkthrough.actual-size}}</label>
       </div>
       <div id="flow-viewport" class="flow-viewport" tabindex="0" role="region" aria-label="{{t:walkthrough.story-flow.title|attr}}">
         <img src="{{site:bundle}}images/story-flow.svg" alt="{{t:walkthrough.story-flow.title|attr}}">
@@ -90,7 +92,7 @@
     <section class="walkthrough-flow" aria-labelledby="ending-title">
       <div class="flow-heading">
         <h2 id="ending-title">{{t:walkthrough.ending-flow.title}}</h2>
-        <label class="flow-size"><input type="checkbox" aria-controls="ending-viewport"> {{t:walkthrough.actual-size}}</label>
+        <label class="flow-size"><input type="checkbox" checked aria-controls="ending-viewport"> {{t:walkthrough.actual-size}}</label>
       </div>
       <p>{{t:walkthrough.ending-flow.summary}}</p>
       <div id="ending-viewport" class="flow-viewport" tabindex="0" role="region" aria-labelledby="ending-title">
@@ -102,7 +104,7 @@
     <section class="walkthrough-flow" aria-labelledby="side-quest-title">
       <div class="flow-heading">
         <h2 id="side-quest-title">{{t:site.walkthrough.side-quest-title}}</h2>
-        <label class="flow-size"><input type="checkbox" aria-controls="side-quest-charts"> {{t:walkthrough.actual-size}}</label>
+        <label class="flow-size"><input type="checkbox" checked aria-controls="side-quest-charts"> {{t:walkthrough.actual-size}}</label>
       </div>
       <div id="side-quest-charts">
         <h3 id="mayor-title">{{t:walkthrough.side-quest-mayor.title}}</h3>

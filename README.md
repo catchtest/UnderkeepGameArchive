@@ -20,18 +20,6 @@ node tools/build.mjs
 python -m http.server --directory dist 8000
 ```
 
-GitHub Pages 發布前也會拆分圖鑑字型並壓縮 CSS 與 JavaScript。本機若要驗證分檔字型，可在建置後安裝 `tools/font-requirements.txt` 並執行 `python tools/split_fonts.py`。`tools/guide-font-common.txt` 收錄常見標題字元，其餘字元由瀏覽器依內容載入。
-
-## 維護詞條
-
-各語系詞條位於 `locales/<語系>/`。網站採用遊戲 1.0.6 的語系資料，攻略解說與介面另行翻譯。`src/` 的網站介面、圖鑑資料、地圖與 SVG 流程圖透過 `{{t:詞條鍵}}` 共用文字。修改時以既有鍵搜尋使用位置，例如 `common.loot` 同時供地圖資料與地圖介面使用。
-
-各語系可從 `/<語系>/` 或 `/<語系>/index.html` 直接開啟，例如 `/zh-TW/index.html`、`/zh-CN/` 和 `/cs/`。也可在連結加上 `?lang=zh-CN`；已有查詢參數時使用 `&lang=zh-CN`。舊版 `/languages/<語系>/` 連結會轉往新網址，保留圖鑑詞條或地圖標記。
-
-根目錄預設顯示繁體中文，可用 `node tools/build.mjs --default-locale=en` 指定英文。新增語系時，在 `locales/<語系>/` 填妥相同的詞條鍵，並以 `site.language-name` 設定選單名稱。首頁、圖鑑與攻略共用頁尾，左下角的語系選單會保留目前頁面與詞條位置。
-
-詞條預設依檔案類型跳脫。`|attr` 用於雙引號 HTML／SVG 屬性，`|sq` 用於單引號 JavaScript 字串，`|key` 與 `|member` 用於物件鍵和屬性存取，`|re` 用於正規表示式的文字，`|pattern` 用於正規表示式語法。
-
-地圖上整個物品名都可點擊時，`|length` 會計算譯名的 JavaScript 字串長度。含多個連結的文字使用同語系的 `|json` 索引，範例見狼穴寶箱。修改這類文字時，請一併更新索引。對話選項可附帶經驗值獎勵，條件選項的獎勵依顯示列順序排列。各流程圖的 `.width` 詞條控制圖框的橫向空間，修改標籤後可在攻略頁勾選原尺寸檢查。
+根目錄預設顯示英文，各語系可由 `/en/`、`/zh-TW/` 等網址直接開啟。建置會檢查各語系用字並複製已分檔的字型。GitHub Pages 發布前會壓縮 CSS 與 JavaScript。
 
 遊戲資料、美術與文字的著作權屬原權利人。

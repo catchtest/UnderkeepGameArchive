@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Noto Serif";
+  src: url("noto-serif.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: {{western-range}};
+}
+
+@font-face {
+  font-family: "Noto Serif TC";
+  src: url("noto-serif-tc.woff2?t=20261126.1") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Serif SC";
+  src: url("noto-serif-sc.woff2?t=20261126.1") format("woff2");
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+:root { --serif: "Noto Serif", "Noto Serif TC", "Noto Serif SC", serif; }
+:root:lang(zh-Hant) { --serif: "Noto Serif TC", "Noto Serif SC", "Noto Serif", serif; }
+:root:lang(zh-Hans) { --serif: "Noto Serif SC", "Noto Serif TC", "Noto Serif", serif; }

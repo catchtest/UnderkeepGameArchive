@@ -1,7 +1,6 @@
 :root {
   --heading: #e3ded2; --name: #d9d2c4; --ink: #cecdc6; --muted: #b1afa7;
   --link: #c9b694; --gold: #e2bf79; --line: #47443a;
-  --serif: "Noto Serif TC","PMingLiU",serif;
   font: 100%/1.6 "Segoe UI","Microsoft JhengHei UI",sans-serif;
 }
 body { min-height: 100vh; background: #171b19 radial-gradient(ellipse at 15% 15%,#353329 0,transparent 65%) fixed no-repeat; color: var(--ink); }
@@ -22,7 +21,8 @@ body[data-section="classes"] { --scene: url("{{site:assets}}../images/classes.we
 body[data-section="items"] { --scene: url("{{site:assets}}../images/equipment.webp"); --scene-y: 40%; }
 body[data-section="recipes"] { --scene: url("{{site:assets}}../images/recipes.webp"); --scene-y: 57%; }
 body[data-section="recipes"].forge { --scene: url("{{site:assets}}../images/forge.webp"); --scene-y: 49%; }
-.banner h1 { position: relative; font: 700 clamp(2.1rem,4.2vw,3.75rem)/1.25 var(--serif); color: var(--heading); letter-spacing: .09em; text-shadow: 0 3px 12px #17150f; }
+.banner h1 { position: relative; font: 700 clamp(2.1rem,4.2vw,3.75rem)/1.25 var(--serif); color: var(--heading); text-shadow: 0 3px 12px #17150f; }
+.banner h1:is(:lang(zh-Hant), :lang(zh-Hans)) { letter-spacing: .09em; }
 .banner h1::after { content: ""; display: block; margin-top: 16px; width: 82px; height: 1px; background: linear-gradient(90deg,#e4c385,#c7aa6f55); }
 .banner h1::before { content: ""; position: absolute; width: 5px; height: 5px; left: 0; bottom: -2px; transform: rotate(45deg); background: #f2d395; }
 #choices:not([hidden]) { display: flex; }
@@ -61,7 +61,9 @@ dd { color: var(--name); font-weight: 600; }
 .stat-negative { color: #d3a7a1; }
 .table-scroll { overflow: auto; }
 table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: 1rem; }
-th,td { text-align: right; padding: 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th,td { text-align: right; padding: 8px; border-bottom: 1px solid var(--line); }
+th { white-space: normal; overflow-wrap: break-word; hyphens: auto; }
+td { white-space: nowrap; }
 th:first-child,td:first-child { text-align: left; white-space: normal; }
 thead { background: #35372e; color: var(--link); }
 tbody th { font-weight: 500; color: var(--ink); }
@@ -69,7 +71,6 @@ tbody tr:nth-child(even) { background: #ffffff04; }
 body:is([data-section="races"],[data-section="classes"]) #detail { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); align-items: start; gap: 18px; }
 .character-side { display: grid; gap: 18px; min-width: 0; }
 .character-side > .panel > h3,.skill-detail .entry-heading h3 { margin: 0 0 12px; font: 700 clamp(1.25rem,1.9vw,1.65rem)/1.3 var(--serif); color: var(--heading); }
-.starting-ranges tbody th { white-space: nowrap; }
 .range-note { margin-top: 10px; color: var(--muted); font-size: .95rem; }
 .race-bio,.class-summary,.character-side > .panel {
   align-self: stretch; border-top-color: #9f895d;
@@ -220,21 +221,9 @@ body:has(.guide-dialog[open]) { overflow: hidden; }
 .guide-dialog header h2 { font-family: var(--serif); color: var(--heading); }
 .guide-dialog > .dialog-body { padding: 14px 20px 20px; }
 .levels table { margin-top: 12px; }
-.levels thead th { white-space: normal; overflow-wrap: anywhere; }
 .product .entry-names { justify-content: center; }
 body[data-section="enemies"] { --scene: url("{{site:assets}}../images/enemies.webp"); --scene-y: 40%; }
-body[data-section="quests"] { --scene: url("{{site:assets}}../images/quests.webp"); --serif: "Noto Serif TC", "Underkeep Walkthrough Titles", "PMingLiU", serif; }
-@font-face {
-  font-family: "Underkeep Walkthrough Titles";
-  src: url("{{site:assets}}../fonts/walkthrough-heading.woff2?t=20261126.2") format("woff2");
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-}
-body[data-page="walkthrough"] {
-  --scene: url("{{site:assets}}../images/quests.webp");
-  --serif: "Underkeep Walkthrough Titles", "Noto Serif TC", "PMingLiU", serif;
-}
+body[data-section="quests"],body[data-page="walkthrough"] { --scene: url("{{site:assets}}../images/quests.webp"); }
 #spoiler-notice { width: min(26rem, 100%); margin: 2rem auto; text-align: center; }
 #spoiler-title { font-size: 1.5rem; line-height: 1.4; }
 #spoiler-notice p { margin: .5rem 0 1rem; }
@@ -252,9 +241,6 @@ body[data-page="walkthrough"] {
 .flow-viewport { overflow-x: auto; border: 1px solid #50646b; border-radius: 8px; background: radial-gradient(circle, #36434a 1px, transparent 1px) 0 0 / 18px 18px, #131d24; }
 .flow-viewport img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
 .walkthrough-flow:has(.flow-size input:checked) .flow-viewport img { max-width: none; }
-@media (min-width: 1120px) {
-  .flow-size { display: none; }
-}
 body[data-section="shops"] { --scene: var(--shop-scene); --scene-y: 42%; }
 body:is([data-section="items"],[data-section="recipes"],[data-section="shops"]) .icon { zoom: 2; }
 .guide-search {

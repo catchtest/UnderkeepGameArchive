@@ -1,7 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="{{t:walkthrough.side-quest-mushrooms.width|attr}}" height="1203" preserveAspectRatio="none" viewBox="0 0 675 1203" role="img" aria-labelledby="title" lang="{{t:site.html-language|attr}}">
+<svg xmlns="http://www.w3.org/2000/svg" width="{{t:walkthrough.side-quest-mushrooms.width|attr}}" height="1203" viewBox="0 0 675 1203" role="img" aria-labelledby="title" lang="{{t:site.html-language|attr}}">
   <title id="title">{{t:walkthrough.side-quest-mushrooms.title}}</title>
   <style>
-    text { transform-box: fill-box; transform-origin: center; transform: scaleX(calc(675 / {{t:walkthrough.side-quest-mushrooms.width}})); }
     :root { background: #131d24; }
     text { font: 16px "Segoe UI", "Microsoft JhengHei UI", sans-serif; fill: #dce4e7; text-anchor: middle; }
     .paths { fill: none; stroke: #91a7a0; stroke-width: 1.7; stroke-linejoin: round; marker-end: url(#arrow); }

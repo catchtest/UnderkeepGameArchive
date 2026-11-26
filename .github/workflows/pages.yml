@@ -22,11 +22,6 @@ jobs:
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       - name: Build website in all available languages
         run: node tools/build.mjs
-      - name: Split guide font for on-demand loading
-        run: |
-          python3 -m venv "$RUNNER_TEMP/underkeep-fonts"
-          "$RUNNER_TEMP/underkeep-fonts/bin/python" -m pip install -r tools/font-requirements.txt
-          "$RUNNER_TEMP/underkeep-fonts/bin/python" tools/split_fonts.py
       - name: Minify CSS and JavaScript
         shell: bash
         run: |

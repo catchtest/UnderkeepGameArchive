@@ -169,8 +169,14 @@ h2 { font-size: 18px; font-weight: 650; }
 .selection-card dd { margin: 1px 0 0; overflow-wrap: anywhere; white-space: pre-line; }
 .selection-card details { margin: 7px 0 0; font-size: 15px; }
 .selection-card summary { cursor: pointer; color: var(--text); }
-.puzzle-card { padding: 4px 2px 6px; font-size: 15px; line-height: 1.55; user-select: text; }
-.puzzle-row { display: grid; grid-template-columns: 2em minmax(0, 1fr); align-items: baseline; gap: 9px; }
+.puzzle-card {
+  display: grid; grid-template-columns: fit-content(35%) minmax(0, 1fr); column-gap: 9px;
+  padding: 4px 2px 6px; font-size: 15px; line-height: 1.55; user-select: text;
+}
+.puzzle-row {
+  display: grid; grid-column: 1 / -1; grid-template-columns: subgrid;
+  align-items: baseline; overflow-wrap: anywhere;
+}
 .puzzle-row h3 { color: var(--accent-text); font-size: 14px; }
 .puzzle-row + .puzzle-row { border-top: 1px solid var(--border); margin-block-start: 7px; padding-block-start: 7px; }
 .puzzle-row ol { margin: 0; padding-inline-start: 1.2em; }
@@ -284,6 +290,6 @@ h2 { font-size: 18px; font-weight: 650; }
 .overview-node[aria-current="location"] text { fill: var(--accent-text); }
 .place-name {
   fill: #e7dfce; stroke: #32291e; stroke-width: .12; stroke-linejoin: round;
-  paint-order: stroke; font-family: Georgia, "Microsoft JhengHei", serif;
+  paint-order: stroke; font-family: var(--serif);
   font-size: var(--place-size, .78px); font-weight: 600;
 }
