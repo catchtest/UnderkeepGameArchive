@@ -341,9 +341,12 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
     const detail = node('section', undefined, 'panel skill-detail');
     const title = heading(selected.name, framedSkill(selected), undefined, 'h3');
     title.append(node('span', selected.kind, 'kind'));
+    const levelHeaders = selected.table[0].slice(1);
+    const learningLevels = ['{{t:guide.ui.show-class-3|sq}}',
+      ...levelHeaders.map((_, index) => String(selected.unlock + index))];
     detail.append(title, attributeElement('p', selected.intro, 'intro'),
       facts(selected.facts.filter(([label]) => !['{{t:common.type|sq}}', '{{t:common.skill-level-cap|sq}}'].includes(label))),
-      node('h4', '{{t:guide.ui.show-class-2|sq}}'), table(selected.table));
+      node('h4', '{{t:guide.ui.show-class-2|sq}}'), table([...selected.table, learningLevels]));
     if (selected.notes) detail.append(attributeElement('p', selected.notes, 'notes'));
     showCharacterPanels(summary, r, detail);
   }
