@@ -34,7 +34,8 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   const atlas = window.UNDERKEEP_ATLAS;
   const svg = byId('map-svg');
   const nspace = 'http://www.w3.org/2000/svg';
-  const typeKeys = Object.keys(atlas.types);
+  const layerTypes = { ...atlas.types, puzzle: ['謎題區域', '', '', true] };
+  const typeKeys = Object.keys(layerTypes);
   const layerStorageKey = 'underkeep.atlas.layers';
   const zoomStorageKey = 'underkeep.atlas.zoom';
   const secretWallSprite = 'secret_wall_tile';
@@ -52,6 +53,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   let active = loadLayers();
   let scalableSprites = [];
   let laidOutZoom;
+  let puzzleLayer;
   let markerLayer;
   let selectedLayer;
   let selected = null;
@@ -81,7 +83,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   let pending = null;
 
   function defaultLayers() {
-    return new Set(typeKeys.filter(key => atlas.types[key][3]));
+    return new Set(typeKeys.filter(key => layerTypes[key][3]));
   }
 
   function loadLayers() {
@@ -91,7 +93,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     } catch {
       return defaultLayers();
     }
-    return new Set(typeKeys.filter(key => typeof saved?.[key] === 'boolean' ? saved[key] : atlas.types[key][3]));
+    return new Set(typeKeys.filter(key => typeof saved?.[key] === 'boolean' ? saved[key] : layerTypes[key][3]));
   }
 
   function saveLayer(key) {
@@ -99,7 +101,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
       const settings = loadLayers();
       if (active.has(key)) settings.add(key);
       else settings.delete(key);
-      const overrides = typeKeys.filter(type => settings.has(type) !== atlas.types[type][3]);
+      const overrides = typeKeys.filter(type => settings.has(type) !== layerTypes[type][3]);
       if (overrides.length) {
         const values = Object.fromEntries(overrides.map(type => [type, settings.has(type)]));
         window.localStorage.setItem(layerStorageKey, JSON.stringify(values));
@@ -150,11 +152,15 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   }
 
   function symbol(type, sprite = atlas.legendIcons[type], initiallyAbsent = false) {
-    const [label] = atlas.types[type];
+    const [label] = layerTypes[type];
     const tag = underkeepElement('span', undefined, 'symbol');
+    tag.setAttribute('aria-hidden', 'true');
+    if (type === 'puzzle') {
+      tag.classList.add('puzzle-symbol');
+      return tag;
+    }
     if (type === 'location') {
       tag.textContent = '文';
-      tag.setAttribute('aria-hidden', 'true');
       return tag;
     }
     const art = underkeepElement('img');
@@ -166,7 +172,6 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     art.alt = '';
     tag.append(art);
     tag.title = label;
-    tag.setAttribute('aria-hidden', 'true');
     return tag;
   }
 
@@ -309,6 +314,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     for (const key of typeKeys) {
       byId('filter-' + key).setAttribute('aria-pressed', active.has(key));
     }
+    puzzleLayer?.toggleAttribute('hidden', !active.has('puzzle'));
   }
 
   function connect(label, callback, className = 'jump') {
@@ -327,6 +333,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
       toggle?.setAttribute('aria-expanded', String(open));
     }
     clearHover();
+    updatePuzzleSelection();
     if (focus) {
       const target = name ? drawers[name] : drawers[previous];
       let next = name ? target.focus : target?.toggle || stage;
@@ -341,6 +348,45 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     } else {
       pending = target ? { ...target, map: id } : null;
       window.location.hash = id + (target?.id == null ? '' : '@' + target.id);
+    }
+  }
+
+  function drawPuzzles() {
+    puzzleLayer = draw('g', { class: 'puzzle-layer' }, svg);
+    const puzzles = underkeepMapPuzzles[current.id] || [];
+    puzzles.forEach((puzzle, index) => {
+      const d = puzzle.areas.map(([x, y, width, height]) =>
+        `M ${x} ${y} h ${width} v ${height} h ${-width} Z`).join(' ');
+      const shape = draw('path', { d, class: 'puzzle-area', 'data-puzzle': index, tabindex: 0, role: 'button',
+        'aria-label': puzzle.title, 'aria-controls': 'details-drawer', 'aria-expanded': 'false' }, puzzleLayer);
+      shape.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        selectPuzzle(puzzle, true);
+      });
+    });
+  }
+
+  function puzzleAt({ x, y }) {
+    if (!active.has('puzzle')) return null;
+    return underkeepMapPuzzles[current.id]?.findLast(puzzle => puzzle.areas.some(([left, top, width, height]) =>
+      x >= left && x < left + width && y >= top && y < top + height));
+  }
+
+  function selectPuzzle(puzzle, focus = false) {
+    const [x, y, width, height] = puzzle.areas[0];
+    selected = { xy: [x + (width - 1) / 2, y + (height - 1) / 2], puzzle };
+    setDrawer('details', focus);
+    selectGraphic();
+    renderSelection();
+  }
+
+  function updatePuzzleSelection() {
+    if (!puzzleLayer) return;
+    const puzzles = underkeepMapPuzzles[current.id] || [];
+    for (const shape of puzzleLayer.children) {
+      shape.setAttribute('aria-expanded', String(openDrawer === 'details' &&
+        selected?.puzzle === puzzles[shape.dataset.puzzle]));
     }
   }
 
@@ -491,10 +537,12 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     if (point.questGuide) return { 觸發條件: point.detail['觸發條件'] };
     const groundPickup = point.type === 'item' && point.detail['可取得'] === point.title;
     const repeatedHint = point.detail['互動提示'] && point.detail['互動提示'] === point.detail['互動後提示'];
-    if (!groundPickup && !repeatedHint) return point.detail;
+    const landing = /^(-?\d+),\s*(-?\d+)$/.exec(point.detail['落點'] ?? '');
+    if (!groundPickup && !repeatedHint && !landing) return point.detail;
     const details = groundPickup ? { 取得方式: '地面拾取', ...point.detail } : { ...point.detail };
     if (groundPickup) delete details['可取得'];
     if (repeatedHint) delete details['互動後提示'];
+    if (landing) details['落點'] = underkeepCoordinates(landing.slice(1));
     return details;
   }
 
@@ -625,19 +673,26 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   function updateHover(event, location) {
     const x = Math.floor(location.x);
     const y = Math.floor(location.y);
-    byId('coords').textContent = 'X ' + x + ' / Y ' + y;
+    byId('coords').textContent = underkeepCoordinates([x, y]);
     if (drag?.moved || event.pointerType === 'touch') {
       clearHover();
       return;
     }
-    const key = x + ',' + y;
+    const points = plotted.get(x + ',' + y) || [];
+    const puzzle = points.length ? null : puzzleAt(location);
+    const key = x + ',' + y + (puzzle ? '/' + puzzle.title : '');
     if (hoveredCell !== key) {
       hoveredCell = key;
       placeCellFrame(hoverFrame, x, y);
       hoverFrame.setAttribute('visibility', 'visible');
-      const points = plotted.get(key) || [];
-      tooltip.hidden = !points.length;
+      tooltip.hidden = !points.length && !puzzle;
       if (points.length) paintTooltip(groupCoinPiles(points));
+      else if (puzzle) {
+        const card = underkeepElement('div', undefined, 'tip-card');
+        card.append(underkeepElement('div', puzzle.title, 'tip-title'),
+          underkeepElement('p', '點選查看目標與解法', 'tip-more'));
+        tooltip.replaceChildren(card);
+      }
     }
     if (tooltip.hidden) return;
     const bounds = stage.getBoundingClientRect();
@@ -653,7 +708,17 @@ function mountUnderkeepAtlas(signal, loadDetails) {
 
   function selectGraphic() {
     selectedLayer.replaceChildren();
+    updatePuzzleSelection();
     if (!selected) return;
+    if (selected.puzzle) {
+      if (active.has('puzzle') && selected.puzzle.route) {
+        const points = selected.puzzle.route.map(([x, y]) => `${x + .5},${y + .5}`).join(' ');
+        draw('polyline', { class: 'puzzle-route', points }, selectedLayer);
+        const [x, y] = selected.puzzle.route[0];
+        draw('circle', { class: 'puzzle-route-start', cx: x + .5, cy: y + .5, r: .15 }, selectedLayer);
+      }
+      return;
+    }
     const [x, y] = selected.xy;
     const point = markersById.get(selected.id);
     const sameMapExit = point?.destination?.map === current.id ? [point.destination] : [];
@@ -701,11 +766,40 @@ function mountUnderkeepAtlas(signal, loadDetails) {
       heading.textContent = '';
       return;
     }
+    if (selected.puzzle) {
+      const { title, goal, steps, source } = selected.puzzle;
+      heading.textContent = title;
+      const card = underkeepElement('article', undefined, 'puzzle-card');
+      const goalRow = underkeepElement('section', undefined, 'puzzle-row');
+      goalRow.append(underkeepElement('h3', '目標'), underkeepElement('p', goal));
+      const solutionRow = underkeepElement('section', undefined, 'puzzle-row');
+      const solution = underkeepElement(steps.length === 1 ? 'p' : 'ol');
+      if (steps.length === 1) solution.append(underkeepXpText(steps[0]));
+      else {
+        for (const step of steps) {
+          const item = underkeepElement('li');
+          item.append(underkeepXpText(step));
+          solution.append(item);
+        }
+      }
+      solutionRow.append(underkeepElement('h3', '解法'), solution);
+      card.append(goalRow, solutionRow);
+      if (source) {
+        const link = underkeepElement('a', '攻略來源 ↗', 'puzzle-source');
+        link.href = source;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        card.append(link);
+      }
+      container.append(card);
+      container.scrollTop = 0;
+      return;
+    }
     const cell = groupCoinPiles(current.markers.filter(p =>
       ((!miningLayers.has(p.type) && p.type !== 'junk') || active.has(p.type)) &&
       plot(p)[0] === selected.xy[0] && plot(p)[1] === selected.xy[1]));
     cell.sort((a, b) => Number(b.id === selected.id) - Number(a.id === selected.id));
-    heading.textContent = '座標 ' + selected.xy.join(', ') + (cell.length ? '' : ' · 落點');
+    heading.textContent = '座標 ' + underkeepCoordinates(selected.xy) + (cell.length ? '' : ' · 落點');
     for (const point of cell) {
       const card = underkeepElement('article', undefined, 'selection-card');
       const title = underkeepElement('h3');
@@ -756,7 +850,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
       renderFilters();
     }
     const [x, y] = selected.xy;
-    byId('coords').textContent = 'X ' + x + ' / Y ' + y;
+    byId('coords').textContent = underkeepCoordinates([x, y]);
     if (center) centerView(x, y);
     renderMarkers();
     renderSelection();
@@ -859,7 +953,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     byId('map-title').textContent = name;
     byId('map-title').title = name;
     byId('map-en').textContent = english;
-    byId('coords').textContent = 'X / Y';
+    byId('coords').textContent = '—';
     document.title = name + ' | ' + underkeepSiteName;
     svg.replaceChildren();
     addSvgSprites();
@@ -871,6 +965,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     paperFill = draw('rect', { fill: 'url(#atlas-paper)', 'pointer-events': 'all' }, svg);
     const [x, y, width, height] = current.bounds;
     draw('image', { href: 'images/maps/' + current.id + '.webp', x, y, width, height }, svg);
+    drawPuzzles();
     markerLayer = draw('g', {}, svg);
     hoverFrame = drawCellFrame({ id: 'hover-cell', stroke: '#ffe4a7', visibility: 'hidden' }, svg);
     selectedLayer = draw('g', { 'pointer-events': 'none' }, svg);
@@ -908,7 +1003,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
       renderSelection();
     }, 'layer-button');
     button.id = 'filter-' + key;
-    button.append(symbol(key), underkeepElement('span', atlas.types[key][0]));
+    button.append(symbol(key), underkeepElement('span', layerTypes[key][0]));
     byId('filters').append(button);
   }
   byId('reset-types').addEventListener('click', () => {
@@ -926,7 +1021,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   bindUnderkeepSearch(byId('map-query'), signal, () => setDrawer('maps'));
   byId('locate-selection').addEventListener('click', () => {
     setDrawer(null, true);
-    selected.highlight = true;
+    if (!selected.puzzle) selected.highlight = true;
     centerView(...selected.xy);
     selectGraphic();
   });
@@ -963,8 +1058,9 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     const location = mapPoint(event);
     if (!location) return;
     const candidates = plotted.get(Math.floor(location.x) + ',' + Math.floor(location.y));
+    const marker = candidates?.[0];
     drag = { id: event.pointerId, center: { ...camera }, pageX: event.clientX, pageY: event.clientY,
-      moved: false, marker: candidates?.[0] };
+      moved: false, marker, puzzle: marker ? null : puzzleAt(location) };
     svg.setPointerCapture(event.pointerId);
   });
   svg.addEventListener('pointermove', event => {
@@ -985,7 +1081,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
   svg.addEventListener('pointerleave', clearHover);
   svg.addEventListener('pointerup', event => {
     if (drag?.id !== event.pointerId) return;
-    const { moved, marker } = drag;
+    const { moved, marker, puzzle } = drag;
     drag = null;
     svg.classList.remove('dragging');
     if (!moved && marker) {
@@ -994,6 +1090,8 @@ function mountUnderkeepAtlas(signal, loadDetails) {
         select(plot(marker), marker.id, false);
         setDrawer('details');
       }
+    } else if (!moved && puzzle) {
+      selectPuzzle(puzzle);
     } else if (!moved) {
       setDrawer(null);
       selected = null;
@@ -1314,7 +1412,7 @@ window.UNDERKEEP_ATLAS = {
 "red_sarcophagus1": {"rotation":0,"nativeRotation":0,"isChest":false},
 "resurrect_shrine": {"type":"service","title":"復活祭壇","sprite":"mtile_shrine","rotation":0,"native":"mtile_shrine","nativeRotation":0,"isChest":false},
 "resurrect_shrine_no_grass": {"type":"service","title":"復活祭壇","sprite":"mtile_shrine","rotation":0,"native":"mtile_shrine","nativeRotation":0,"isChest":false},
-"road_sign1": {"type":"mechanism","title":"機關","sprite":"etile_boulder","rotation":0,"native":null,"nativeRotation":0,"isChest":false},
+"road_sign1": {"type":"mechanism","title":"路標","sprite":"etile_road_sign","rotation":0,"native":null,"nativeRotation":0,"isChest":false},
 "sarcophagus1": {"type":"treasure","title":"可搜尋容器","sprite":"urn1","rotation":0,"native":null,"nativeRotation":0,"isChest":false},
 "sarcophagus2": {"rotation":0,"nativeRotation":0,"isChest":false},
 "scriptor": {"type":"trigger","sprite":"etile_pressure_plate","rotation":0,"native":null,"nativeRotation":0,"isChest":false},
@@ -1351,3 +1449,8 @@ window.UNDERKEEP_ATLAS = {
 "wizard_npc_illu": {"type":"service","title":"大法師的幻影","detail":{"初始狀態":"隱藏"},"sprite":"mtile_enemy_friend","rotation":0,"native":null,"nativeRotation":0,"isChest":false}
 }
 };
+
+window.UNDERKEEP_ATLAS.art.etile_road_sign = [
+  'data:image/webp;base64,UklGRlgAAABXRUJQVlA4TEwAAAAvB8ABECegkG0E6EzO3+AFOiTCbKMJzR9iz8M4CYJsm1mMdXo3usH8BwC1yjb/ASFkK3of4U0EZdBEcP5aBxHR/8Cg0jPZu1LDC58B',
+  8, 8
+];

@@ -95,6 +95,7 @@ const guideDetails = (() => {
 
   function attributeText(value) {
     if (typeof value !== 'string') return value;
+    value = underkeepCoordinateText(value);
     let fragment;
     let start = 0;
     for (const match of value.matchAll(attributePattern)) {
@@ -172,9 +173,9 @@ const guideDetails = (() => {
 
   function placeLabel(mid, id) {
     const [name] = underkeepMapNames[mid];
-    if (Array.isArray(id)) return [name, '（' + id.join(', ') + '）'];
+    if (Array.isArray(id)) return [name, underkeepCoordinates(id)];
     const [title, xy] = guide.mapPoints[mid][id];
-    return [name + ' · ' + title, '（' + xy.join(', ') + '）'];
+    return [name + ' · ' + title, underkeepCoordinates(xy)];
   }
 
   function sources(parent, r, title, sourceRoute, { guideUrl = '', mapHref, detailButton, acquisition = false, staticGroups = false } = {}) {

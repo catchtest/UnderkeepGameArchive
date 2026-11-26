@@ -2,9 +2,19 @@
 
 const underkeepSiteName = document.title;
 
+function underkeepCoordinates([x, y]) {
+  return '(' + x + ', ' + y + ')';
+}
+
+function underkeepCoordinateText(text) {
+  return text.replace(/(\p{Script=Han})?[（(][ \t]*(-?\d+)[ \t]*[,，][ \t]*(-?\d+)[ \t]*[）)](?=(\p{Script=Han})?)/gu,
+    (_, previous, x, y, next) =>
+      (previous ? previous + ' ' : '') + underkeepCoordinates([x, y]) + (next ? ' ' : ''));
+}
+
 function underkeepElement(tag, text, className) {
   const element = document.createElement(tag);
-  if (text !== undefined) element.textContent = text;
+  if (text !== undefined) element.textContent = typeof text === 'string' ? underkeepCoordinateText(text) : text;
   if (className) element.className = className;
   return element;
 }
@@ -42,7 +52,7 @@ function underkeepXp(value, withUnit = true) {
   return span;
 }
 
-function underkeepXpText(text, formatText = String) {
+function underkeepXpText(text, formatText = underkeepCoordinateText) {
   let fragment;
   let start = 0;
   for (const match of text.matchAll(/([+-]?\d+(?:,\d{3})*(?:–\d+(?:,\d{3})*)?(%?))([ \t]*(?:經驗值?|XP\b))/gi)) {
@@ -123,7 +133,7 @@ function underkeepXpText(text, formatText = String) {
     map: {
       title: '互動地圖 | ' + underkeepSiteName,
       styles: ['map.css'],
-      load: () => Promise.all([loadScript(mapNames), loadScript('map.js')]),
+      load: () => Promise.all([loadScript(mapNames), loadScript('map.js'), loadScript('data/map-puzzles.js')]),
       loadRoute: url => {
         const id = underkeepMapId(url.hash);
         if (!underkeepMaps.has(id)) return loadScript('data/maps/' + id + '.js');
