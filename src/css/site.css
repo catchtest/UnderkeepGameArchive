@@ -31,10 +31,26 @@ body { margin: 0; width: 100vw; overflow-x: clip; }
 #sections a { display: flex; align-items: center; color: #b1afa7; text-decoration: none; border-bottom: 2px solid transparent; padding: 4px clamp(8px,1.4vw,21px) 2px; white-space: nowrap; }
 #sections a[aria-current] { color: #c9b694; border-color: #cb9f50; }
 #sections a:hover { color: #c9b694; }
+.mast-inner:has(#site-language) #sections a {
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+#site-language {
+  max-width: 100%;
+  align-self: center;
+  padding: 4px 8px;
+  border: 1px solid #514938;
+  border-radius: 4px;
+  background: #171b19;
+  color: #e4ddd0;
+  font: inherit;
+}
 @media (max-width: 880px) {
   .mast-inner { flex-direction: column; align-items: flex-start; gap: 4px; padding-top: 8px; }
   #sections { justify-content: space-between; }
   #sections a { flex: 1; justify-content: center; padding: 7px 0; }
+  #site-language { align-self: flex-end; margin-bottom: 6px; }
 }
 @media (max-width: 740px) {
   .mast-inner { width: calc(100% - 24px); }

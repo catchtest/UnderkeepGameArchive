@@ -1,5 +1,6 @@
 {
   "maps.points.wolf_den.l01.detail": "體力藥水、治療藥水、蠻牛頭盔",
+  "maps.points.wolf_den.l01.loot-links": "[[0,4,\"item_endurance_potion\"],[5,9,\"item_heal_potion\"],[10,14,\"item_helm_of_bull\"]]",
   "maps.points.wolf_den.n01.detail": "凱爾林森林 (23, -45)",
   "maps.points.wolf_den.n02.detail": "凱爾林森林 (16, -44)",
   "maps.points.wolf_den.n03.detail": "凱爾林森林 (12, -43)",

@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Underkeep Home Titles";
-  src: url("../fonts/home-heading.woff2") format("woff2");
+  src: url("{{site:assets}}../fonts/home-heading.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
   unicode-range: U+6232, U+8A0A, U+8CC7, U+904A;
@@ -16,7 +16,7 @@ a { color: var(--gold); text-underline-offset: .2em; }
 a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .home { width: min(1280px, calc(100% - 32px)); margin: 24px auto 0; }
 .home-hero {
-  --title-art: url("../images/title-screen.webp");
+  --title-art: url("{{site:assets}}../images/title-screen.webp");
   display: grid;
   align-items: center;
   min-height: clamp(300px, min(36vw, 100svh - 440px), 490px);

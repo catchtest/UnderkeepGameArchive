@@ -23,6 +23,8 @@
   "site.home.translator": "星鸣s",
   "site.home.version-and-author": "遊戲版本：1.0.6　網站製作：蕭雲",
   "site.html-language": "zh-Hant",
+  "site.language-name": "繁體中文",
+  "site.language-switcher": "網站語系",
   "site.item-subtypes.aria-label": "物品細分類",
   "site.library.aria-label": "圖鑑目錄",
   "site.load-failed": "載入失敗。",

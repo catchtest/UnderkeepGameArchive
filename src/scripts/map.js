@@ -964,7 +964,7 @@ function mountUnderkeepAtlas(signal, loadDetails) {
     draw('image', { href: paper, ...paperSize, style: 'image-rendering:pixelated' }, mat);
     paperFill = draw('rect', { fill: 'url(#atlas-paper)', 'pointer-events': 'all' }, svg);
     const [x, y, width, height] = current.bounds;
-    draw('image', { href: 'images/maps/' + current.id + '.webp', x, y, width, height }, svg);
+    draw('image', { href: underkeepSharedAssets + 'images/maps/' + current.id + '.webp', x, y, width, height }, svg);
     drawPuzzles();
     markerLayer = draw('g', {}, svg);
     hoverFrame = drawCellFrame({ id: 'hover-cell', stroke: '#ffe4a7', visibility: 'hidden' }, svg);

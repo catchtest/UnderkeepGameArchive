@@ -1,6 +1,7 @@
 'use strict';
 
 const underkeepSiteName = document.title;
+const underkeepSharedAssets = '{{site:assets}}';
 
 function underkeepCoordinates([x, y]) {
   return '(' + x + ', ' + y + ')';
@@ -79,12 +80,13 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
   const status = document.getElementById('view-status');
   const mapLink = document.getElementById('to-map');
   const homeLink = document.querySelector('.brand a');
+  const language = document.getElementById('site-language');
   const guideLinks = document.querySelectorAll('#sections a[data-title]');
   const homeContent = [...view.children];
   const mapNames = 'data/map-names.js';
   const sheetStyle = 'sheet.css';
   const styleOrder = ['home.css', 'map.css', 'guide.css', sheetStyle];
-  const guideDataKeys = { characters: 'races', catalog: 'mapPoints', items: 'items', enemies: 'enemies', quests: 'quests' };
+  const guideDataKeys = { characters: 'races', catalog: 'recipes', 'map-points': 'mapPoints', items: 'items', enemies: 'enemies', quests: 'quests' };
   const scripts = new Map();
   const styles = new Map();
   const spoilerStorageKey = 'underkeep.walkthrough.showSpoilers';
@@ -95,6 +97,18 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
   let refreshView;
   let navigation = 0;
   let pendingUrl;
+
+  if (language) {
+    language.addEventListener('change', () => {
+      const target = new URL(language.value, base);
+      target.search = location.search;
+      target.hash = location.hash;
+      location.assign(target);
+    });
+    window.addEventListener('pageshow', () => {
+      language.querySelector('[selected]').selected = true;
+    });
+  }
 
   const pages = {
     home: {
@@ -145,7 +159,7 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
       styles: ['guide.css', sheetStyle],
       load: () => Promise.all([loadScript(mapNames), loadScript('guide-details.js'), loadScript('guide.js')]),
       loadRoute: loadGuideSection,
-      mount: signal => mountUnderkeepGuide(signal, () => navigate(new URL(location.href), 'guide'))
+      mount: signal => mountUnderkeepGuide(signal, () => navigate(new URL(location.href), 'guide'), loadGuideSearch)
     }
   };
 
@@ -206,25 +220,29 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
   }
 
   function loadGuideRoute(hash) {
-    const [key, entry] = hash.slice(1).split('/');
+    const [key, entry, related] = hash.slice(1).split('/');
     const section = underkeepGuideSection(key);
     switch (section) {
       case 'items':
+        return entry && entry !== 'category' ? loadGuideParts('items', 'map-points', 'catalog', 'enemies') : loadGuideParts('items');
       case 'recipes':
       case 'shops':
-        return loadGuideParts('catalog', 'items', 'enemies', section === 'shops' && 'quests');
+        return loadGuideParts('catalog', 'map-points', 'items', related && 'enemies', section === 'shops' && 'quests');
       case 'enemies':
-        return loadGuideParts('catalog', 'enemies', entry && 'items');
       case 'quests':
-        return loadGuideParts('catalog', 'quests', entry && 'items');
+        return loadGuideParts(section, entry && 'map-points', entry && 'items');
       default:
         return loadGuideParts('characters');
     }
   }
 
+  function loadGuideSearch(section) {
+    return loadGuideParts('map-points', section === 'items' && 'enemies');
+  }
+
   async function loadMapDetails(signal, group) {
     await Promise.all([
-      loadScript('guide-details.js').then(() => loadGuideParts('catalog', 'items', 'enemies', group === 'quests' && 'quests')),
+      loadScript('guide-details.js').then(() => loadGuideParts('catalog', 'map-points', 'items', 'enemies', group === 'quests' && 'quests')),
       loadStyle(sheetStyle)
     ]);
     if (!signal.aborted) styles.get(sheetStyle).link.media = 'all';

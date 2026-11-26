@@ -11,17 +11,17 @@
 <meta property="og:title" content="{{t:site.name|attr}}">
 <meta property="og:description" content="{{t:site.description|attr}}">
 <title>{{t:site.name}}</title>
-<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="icon" type="image/x-icon" href="{{site:assets}}images/favicon.ico">
 <script>document.documentElement.classList.add('enhanced');</script>
 <!-- Update the matching t values when publishing CSS or JavaScript changes. -->
-<link rel="stylesheet" href="css/site.css?t=20261126.1">
+<link rel="stylesheet" href="css/site.css?t=20261126.2">
 <noscript><link rel="stylesheet" href="css/home.css?t=20261126.1"></noscript>
-<script defer src="scripts/site.js?t=20261126.10"></script>
+<script defer src="scripts/site.js?t=20261126.11"></script>
 </head>
 <body data-page="home">
 <header class="masthead"><div class="mast-inner">
   <div class="brand">
-    <a href="index.html" aria-current="page"><img src="images/logo.webp" alt="{{t:site.home-link|attr}}"></a>
+    <a href="index.html" aria-current="page"><img src="{{site:assets}}images/logo.webp" alt="{{t:site.home-link|attr}}"></a>
   </div>
   <nav id="sections" aria-label="{{t:site.navigation|attr}}">
     <a id="to-map" href="?view=map">{{t:common.map}}</a>
@@ -31,13 +31,13 @@
     <a href="?view=guide#enemies" data-title="{{t:common.enemy-catalog|attr}}">{{t:common.enemy}}</a><a href="?view=guide#quests" data-title="{{t:common.quest-list|attr}}">{{t:common.quest}}</a>
     <a id="to-walkthrough" href="?view=walkthrough">{{t:common.walkthrough}}</a>
   </nav>
-</div></header>
+{{site:language-menu}}</div></header>
 <p id="view-status" role="status" hidden></p>
 <div id="view">
 <main class="home" tabindex="-1">
   <section class="home-hero" aria-labelledby="game-title">
     <div class="hero-copy">
-      <h1 id="game-title"><img src="images/logo.webp" alt="{{t:site.name|attr}}" width="334" height="74"></h1>
+      <h1 id="game-title"><img src="{{site:assets}}images/logo.webp" alt="{{t:site.name|attr}}" width="334" height="74"></h1>
       <p>{{t:site.home.summary}}</p>
       <div class="store-links">
         <a class="steam-link" href="https://store.steampowered.com/app/2411200/Underkeep/" target="_blank" rel="noopener noreferrer">{{t:site.home.steam}} <span aria-hidden="true">↗</span></a>

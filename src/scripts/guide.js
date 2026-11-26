@@ -9,7 +9,7 @@ function underkeepGuideSection(key) {
   return Object.hasOwn(guideSections, key) ? key : 'races';
 }
 
-function mountUnderkeepGuide(signal, refresh) {
+function mountUnderkeepGuide(signal, refresh, prepareSearch) {
   const { data: guide, spriteIcon, route, placeLabel, entryLinks, heading, facts, attributeText, attributeElement,
     itemsById, enemiesById, artImage, inventoryIcon, coinPrice, itemFactRow, catalogTypes, renderDetail } = guideDetails;
   const node = underkeepElement;
@@ -40,6 +40,35 @@ function mountUnderkeepGuide(signal, refresh) {
     {{t:common.armor|key}}: itemCategories{{t:common.armor|member}},
     {{t:common.accessory|key}}: itemCategories{{t:common.accessory|member}}
   };
+  const categoryRoutes = {
+    weapon: '{{t:common.weapon|sq}}',
+    armor: '{{t:common.armor|sq}}',
+    accessory: '{{t:common.accessory|sq}}',
+    potion: '{{t:common.potion|sq}}',
+    consumable: '{{t:common.consumable|sq}}',
+    food: '{{t:common.food|sq}}',
+    key: '{{t:common.key|sq}}',
+    other: '{{t:common.miscellaneous|sq}}',
+    recipe: '{{t:common.recipe|sq}}'
+  };
+  const subtypeRoutes = {
+    staff: '{{t:guide.item_quarterstaff.facts|sq}}',
+    bow: '{{t:guide.item_sling.facts|sq}}',
+    dagger: '{{t:guide.thief-skill_backstab_the_weak.facts|sq}}',
+    sword: '{{t:guide.warrior-skill_flurry_thrust.facts-2|sq}}',
+    blunt: '{{t:guide.warrior-skill_skull_rattle.facts|sq}}',
+    axe: '{{t:guide.warrior-skill_slice_and_dice.facts|sq}}',
+    shield: '{{t:guide.warrior-skill_shield_bash.facts|sq}}',
+    body: '{{t:guide.item_tattered_robe.group|sq}}',
+    head: '{{t:guide.item_bandage_helmet.group|sq}}',
+    hands: '{{t:guide.item_bracers_leather.group|sq}}',
+    feet: '{{t:guide.item_generic_sock_of_lich_king.group|sq}}',
+    cloak: '{{t:guide.item_drakkan_monk_robe.group|sq}}',
+    ring: '{{t:common.ring|sq}}',
+    amulet: '{{t:guide.item_archmages_seal.group|sq}}',
+    belt: '{{t:guide.item_belt_of_minor_evasion.group|sq}}'
+  };
+  let catalogUpdate = 0;
   const catalogDialogs = [];
   let dismissingCatalogDialog = false;
   const catalogQuery = $('item-query');
@@ -412,12 +441,41 @@ function mountUnderkeepGuide(signal, refresh) {
     catalogDialogs.push(dialog);
   }
 
+  function itemRoutePart(routes, label) {
+    return Object.keys(routes).find(slug => routes[slug] === label) ?? encodeURIComponent(label);
+  }
+
   function categoryRoute(category, subtype = '') {
-    return '#items/category/' + encodeURIComponent(category) + (subtype ? '/' + encodeURIComponent(subtype) : '');
+    return '#items/category/' + itemRoutePart(categoryRoutes, category) + (subtype ? '/' + itemRoutePart(subtypeRoutes, subtype) : '');
   }
 
   function queryTerms() {
     return catalogQuery.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  }
+
+  async function updateCatalogGrid() {
+    const request = ++catalogUpdate;
+    const activeSection = section;
+    const isCurrent = () => !signal.aborted && activeSection === section && request === catalogUpdate;
+    const data = queryTerms().length && prepareSearch(activeSection);
+    if (data) {
+      article.setAttribute('aria-busy', 'true');
+      try {
+        await data;
+      } catch (error) {
+        if (!isCurrent()) return;
+        article.removeAttribute('aria-busy');
+        const retry = node('button', '{{t:site.retry|sq}}', 'guide-action');
+        retry.type = 'button';
+        retry.addEventListener('click', updateCatalogGrid);
+        article.replaceChildren(node('p', '{{t:site.load-failed|sq}}', 'panel empty'), retry);
+        console.error(error);
+        return;
+      }
+    }
+    if (!isCurrent()) return;
+    article.removeAttribute('aria-busy');
+    renderCatalogGrid();
   }
 
   function renderCatalogGrid() {
@@ -472,10 +530,15 @@ function mountUnderkeepGuide(signal, refresh) {
     const item = itemsById.get(id);
     const categories = Object.keys(itemCategories);
     if (group === encodeURIComponent('{{t:guide.ui.render-item-page|sq}}')) group = encodeURIComponent('{{t:common.accessory|sq}}');
-    const category = categories.find(c => item ? itemCategories[c].includes(item.group) : id === 'category' && encodeURIComponent(c) === group) || categories[0];
+    const category = categories.find(c => item ? itemCategories[c].includes(item.group) :
+      id === 'category' && (categoryRoutes[group] === c || encodeURIComponent(c) === group)) || categories[0];
     const options = itemSubtypes[category] || [];
     const selected = item && !changed && itemCategory === category && subtypeOf(item) === itemSubtype
-      ? itemSubtype : options.find(option => encodeURIComponent(option) === subtype) || '';
+      ? itemSubtype : options.find(option => subtypeRoutes[subtype] === option || encodeURIComponent(option) === subtype) || '';
+    if (id === 'category') {
+      const canonical = categoryRoute(category, selected);
+      if (canonical !== location.hash) history.replaceState(history.state, '', canonical);
+    }
     const categoryChanged = changed || itemCategory !== category;
     if (categoryChanged) {
       itemCategory = category;
@@ -497,7 +560,7 @@ function mountUnderkeepGuide(signal, refresh) {
         if (option === selected) link.setAttribute('aria-current', 'page');
         return link;
       }));
-      renderCatalogGrid();
+      updateCatalogGrid();
     }
     return item;
   }
@@ -514,8 +577,8 @@ function mountUnderkeepGuide(signal, refresh) {
     }
   }
 
-  catalogQuery.addEventListener('input', () => section === 'traits' ? showTraits() : renderCatalogGrid());
-  itemSort.addEventListener('change', renderCatalogGrid);
+  catalogQuery.addEventListener('input', () => section === 'traits' ? showTraits() : updateCatalogGrid());
+  itemSort.addEventListener('change', updateCatalogGrid);
   article.addEventListener('click', event => {
     const tile = event.target.closest('a[aria-haspopup="dialog"]');
     if (!tile || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -531,7 +594,7 @@ function mountUnderkeepGuide(signal, refresh) {
       link.textContent = shop.name;
       return link;
     }));
-    const scene = new URL(r.scene, document.baseURI);
+    const scene = new URL(underkeepSharedAssets + r.scene, document.baseURI);
     document.body.style.setProperty('--shop-scene', 'url("' + scene.href + '")');
     const sheet = node('section', undefined, 'panel item-detail shop-detail');
     sheet.append(heading(r.name, r.english), node('p', r.intro));
@@ -622,6 +685,7 @@ function mountUnderkeepGuide(signal, refresh) {
       else a.removeAttribute('aria-current');
     });
     if (changed) {
+      article.removeAttribute('aria-busy');
       revealCurrentLink($('sections'));
       if (section === 'traits') {
         catalogQuery.value = '';
@@ -637,7 +701,7 @@ function mountUnderkeepGuide(signal, refresh) {
     itemControls.hidden = section !== 'items';
     if (section === 'items') record = renderItemPage(id, group, subtype, changed);
     else if (Object.hasOwn(catalogs, section)) {
-      if (changed) renderCatalogGrid();
+      if (changed) updateCatalogGrid();
       record = requested;
     }
     else if (section === 'shops') {

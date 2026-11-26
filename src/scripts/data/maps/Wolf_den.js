@@ -7,7 +7,7 @@ registerUnderkeepMap({
 "focusBounds": [9.5,-48.5,20,12],
 "markers": [
 {"id":11,"key":"cave_exit1","xy":[15,-38],"code":"A01","title":"{{t:maps.objects.cave2_exit1}}","detail":{"{{t:common.landing}}":"10, -36","{{t:common.entrance-direction}}":"{{t:common.east}}"},"destination":{"map":"Caerlin_Woods","xy":[10,-36],"id":35,"name":"{{t:maps.names.caerlin_woods}}"},"rotation":90,"nativeRotation":90},
-{"id":265,"key":"chest1_moss","xy":[11,-42],"code":"L01","detail":{"{{t:common.loot}}":"{{t:maps.points.wolf_den.l01.detail}}"},"itemLinks":{"{{t:common.loot}}":[[0,4,"item_endurance_potion"],[5,9,"item_heal_potion"],[10,14,"item_helm_of_bull"]]}},
+{"id":265,"key":"chest1_moss","xy":[11,-42],"code":"L01","detail":{"{{t:common.loot}}":"{{t:maps.points.wolf_den.l01.detail}}"},"itemLinks":{"{{t:common.loot}}":{{t:maps.points.wolf_den.l01.loot-links|json}}}},
 {"id":233,"key":"item_coins","xy":[16,-48],"code":"H01","title":"{{t:common.coins-3}}","coinAmount":3},
 {"id":234,"key":"item_coins","xy":[16,-48],"code":"H02","title":"{{t:common.coins}}","coinAmount":1},
 {"id":235,"key":"item_coins","xy":[16,-48],"code":"H03","title":"{{t:common.coins}}","coinAmount":1},

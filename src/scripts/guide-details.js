@@ -446,7 +446,7 @@ const guideDetails = (() => {
   function artImage(src, className, loading = 'eager') {
     const img = node('img', undefined, className);
     img.loading = loading;
-    img.src = src;
+    img.src = underkeepSharedAssets + src;
     img.alt = '';
     return img;
   }
