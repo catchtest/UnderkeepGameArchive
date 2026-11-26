@@ -218,7 +218,7 @@ body[data-section="enemies"] { --scene: url("../images/enemies.webp"); --scene-y
 body[data-section="quests"] { --scene: url("../images/quests.webp"); --serif: "Noto Serif TC", "Underkeep Walkthrough Titles", "PMingLiU", serif; }
 @font-face {
   font-family: "Underkeep Walkthrough Titles";
-  src: url("../fonts/walkthrough-heading.woff2?t=20261126.1") format("woff2");
+  src: url("../fonts/walkthrough-heading.woff2?t=20261126.2") format("woff2");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -227,14 +227,18 @@ body[data-page="walkthrough"] {
   --scene: url("../images/quests.webp");
   --serif: "Underkeep Walkthrough Titles", "Noto Serif TC", "PMingLiU", serif;
 }
-.spoiler-notice { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 20px; width: fit-content; max-width: 100%; margin: 24px auto; text-align: center; }
-.spoiler-notice strong { margin-inline-end: .6em; color: var(--gold); }
-.spoiler-notice button { padding: 8px 18px; border: 1px solid #baa071; background: #453c2c; color: #f3e6cf; font: inherit; cursor: pointer; }
-.spoiler-notice button:hover { background: #554a37; }
+#spoiler-notice { width: min(26rem, 100%); margin: 2rem auto; text-align: center; }
+#spoiler-title { font: 700 1.5rem/1.4 var(--serif); color: var(--heading); }
+#spoiler-notice p { margin: .5rem 0 1rem; }
+#reveal-walkthrough { padding: 8px 18px; border: 1px solid #baa071; background: #453c2c; color: #f3e6cf; font: inherit; cursor: pointer; }
+@media (min-height: 46rem) {
+  #spoiler-notice { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: min(26rem, calc(100% - 24px)); margin: 0; }
+}
 .walkthrough-flow { margin-top: 20px; }
 .walkthrough-flow > p { margin: 10px 0; }
 .flow-heading { display: flex; align-items: center; justify-content: space-between; gap: 1em; margin-bottom: 12px; }
 .flow-heading h2 { font: 700 1.5rem/1.4 var(--serif); color: var(--heading); }
+#side-quest-charts h3 { margin: 1.25rem 0 .5rem; font: 700 1.2rem/1.4 var(--serif); color: var(--heading); }
 .flow-size { display: inline-flex; align-items: center; gap: .4em; color: var(--muted); cursor: pointer; }
 .flow-size input { width: auto; margin: 0; accent-color: var(--gold); }
 .flow-viewport { overflow-x: auto; border: 1px solid #50646b; border-radius: 8px; background: radial-gradient(circle, #36434a 1px, transparent 1px) 0 0 / 18px 18px, #131d24; }

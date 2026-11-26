@@ -77,6 +77,8 @@ function underkeepXpText(text, formatText = String) {
   const guideDataKeys = { characters: 'races', catalog: 'mapPoints', items: 'items', enemies: 'enemies', quests: 'quests' };
   const scripts = new Map();
   const styles = new Map();
+  const spoilerStorageKey = 'underkeep.walkthrough.showSpoilers';
+  let spoilersAccepted = false;
   let activePage;
   let activeUrl;
   let lifecycle;
@@ -93,11 +95,27 @@ function underkeepXpText(text, formatText = String) {
       title: '流程攻略 | ' + underkeepSiteName,
       styles: ['guide.css'],
       mount(signal) {
-        const button = document.getElementById('reveal-walkthrough');
         const content = document.getElementById('walkthrough-content');
-        button.addEventListener('click', () => {
+        try {
+          spoilersAccepted ||= localStorage.getItem(spoilerStorageKey) === 'true';
+        } catch {
+          // Keep the choice for this visit when browser storage is unavailable.
+        }
+        if (spoilersAccepted) {
           content.hidden = false;
-          button.closest('.spoiler-notice').remove();
+          return;
+        }
+        const notice = document.getElementById('spoiler-notice');
+        notice.hidden = false;
+        document.getElementById('reveal-walkthrough').addEventListener('click', () => {
+          spoilersAccepted = true;
+          try {
+            localStorage.setItem(spoilerStorageKey, 'true');
+          } catch {
+            // The walkthrough can still be opened without persistent storage.
+          }
+          notice.hidden = true;
+          content.hidden = false;
           document.getElementById('flow-title').focus({ preventScroll: true });
         }, { signal });
       }

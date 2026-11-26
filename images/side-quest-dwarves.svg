@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="734" height="913" viewBox="0 0 734 913" role="img" aria-labelledby="title" lang="zh-Hant">
+  <title id="title">矮人遠征、古龍與靈魂鍛造爐</title>
+  <style>
+    :root { background: #131d24; }
+    text { font: 16px "Segoe UI", "Microsoft JhengHei UI", sans-serif; fill: #dce4e7; text-anchor: middle; }
+    .paths { fill: none; stroke: #91a7a0; stroke-width: 1.7; stroke-linejoin: round; marker-end: url(#arrow); }
+    .branch { stroke-dasharray: 4 4; }
+    .nodes rect { fill: #1e2b33; stroke: #50646b; }
+    .hub rect { fill: #283a40; stroke: #839d99; }
+    .hub text:first-of-type, .decision text { font-weight: 600; }
+    .nodes .decision rect { fill: #19272e; stroke: #96b2ae; stroke-dasharray: 3 3; }
+    .nodes .goal rect { fill: #39342b; stroke: #e5bb70; stroke-width: 1.5; }
+    .goal text:first-of-type { fill: #f0ce91; font-weight: 600; }
+    .labels rect { fill: #15222a; stroke: #486169; }
+    .labels text, .nodes .detail { font-size: 14px; fill: #c2d0d2; }
+  </style>
+  <defs>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="9" cy="9" r="1" fill="#36434a" />
+    </pattern>
+    <marker id="arrow" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L8 4L0 8Z" fill="#91a7a0" />
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#dots)" />
+  <g transform="translate(-21 -6)">
+    <g class="paths">
+      <path id="L_dwarf_oath" d="M202 68 V166.46" />
+      <path id="L_oath_persuade" d="M202 229.46 V310.62" />
+      <path id="L_persuade_peace" d="M202 373.62 V449.34" />
+      <path id="L_dwarf_slay" d="M288 47 H569 V310.62" />
+      <path id="L_peace_forge" d="M202 512.34 V614.88" />
+      <path id="L_slay_forge" d="M569 373.62 V635.88 H288" />
+      <path id="L_forge_keys" d="M202 656.88 V723.68" />
+      <path id="L_keys_axe" d="M202 765.68 V835.58" />
+    </g>
+    <g class="labels">
+      <g>
+        <rect x="157" y="100.13" width="90" height="24" rx="12" />
+        <text x="202" y="117.13">想保住古龍</text>
+      </g>
+      <g>
+        <rect x="531" y="161.71" width="76" height="24" rx="12" />
+        <text x="569" y="178.71">選擇討伐</text>
+      </g>
+      <g>
+        <rect x="489" y="492.75" width="160" height="24" rx="12" />
+        <text x="569" y="509.75">回報杜洛克後也能進入</text>
+      </g>
+    </g>
+    <g class="nodes">
+      <g id="dwarf" class="hub">
+        <rect x="116" y="26" width="172" height="42" rx="6" />
+        <text x="202" y="52.5">暮谷森林的矮人營地</text>
+      </g>
+      <g id="oath" class="hub">
+        <rect x="97" y="166.46" width="210" height="63" rx="6" />
+        <text x="202" y="192.96">山之心</text>
+        <text x="202" y="213.96" class="detail">出發前先答應杜洛克保全古龍</text>
+      </g>
+      <g id="persuade">
+        <rect x="41" y="310.62" width="322" height="63" rx="6" />
+        <text x="202" y="337.12">參加科爾的「最後的爐火」</text>
+        <text x="202" y="358.12" class="detail">在三處炸藥點都勸阻科爾，再破壞石柱驅離古龍</text>
+      </g>
+      <g id="peace">
+        <rect x="100" y="449.34" width="204" height="63" rx="6" />
+        <text x="202" y="475.84">回報杜洛克，完成山之心</text>
+        <text x="202" y="496.84" class="detail">獲得武器「杜洛克的承諾」</text>
+      </g>
+      <g id="slay">
+        <rect x="403" y="310.62" width="332" height="63" rx="6" />
+        <text x="569" y="337.12">參加「最後的爐火」，引爆炸藥並擊殺古龍</text>
+        <text x="569" y="358.12" class="detail">若已接下山之心，該委託失敗</text>
+      </g>
+      <g id="forge" class="hub">
+        <rect x="116" y="614.88" width="172" height="42" rx="6" />
+        <text x="202" y="641.38">進入靈魂鍛造爐外廳</text>
+      </g>
+      <g id="keys">
+        <rect x="156" y="723.68" width="92" height="42" rx="6" />
+        <text x="202" y="750.18">八鑰試煉</text>
+      </g>
+      <g id="axe" class="goal">
+        <rect x="92" y="835.58" width="220" height="63" rx="6" />
+        <text x="202" y="862.08">抵達創世之砧後回報杜洛克</text>
+        <text x="202" y="883.08" class="detail">取得靈魂切割者</text>
+      </g>
+    </g>
+  </g>
+</svg>

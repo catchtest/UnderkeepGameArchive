@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="518" height="626" viewBox="0 0 518 626" role="img" aria-labelledby="title" lang="zh-Hant">
+  <title id="title">雅各布、凱勒巴與源頭</title>
+  <style>
+    :root { background: #131d24; }
+    text { font: 16px "Segoe UI", "Microsoft JhengHei UI", sans-serif; fill: #dce4e7; text-anchor: middle; }
+    .paths { fill: none; stroke: #91a7a0; stroke-width: 1.7; stroke-linejoin: round; marker-end: url(#arrow); }
+    .branch { stroke-dasharray: 4 4; }
+    .nodes rect { fill: #1e2b33; stroke: #50646b; }
+    .hub rect { fill: #283a40; stroke: #839d99; }
+    .hub text:first-of-type, .decision text { font-weight: 600; }
+    .nodes .decision rect { fill: #19272e; stroke: #96b2ae; stroke-dasharray: 3 3; }
+    .nodes .goal rect { fill: #39342b; stroke: #e5bb70; stroke-width: 1.5; }
+    .goal text:first-of-type { fill: #f0ce91; font-weight: 600; }
+    .labels rect { fill: #15222a; stroke: #486169; }
+    .labels text, .nodes .detail { font-size: 14px; fill: #c2d0d2; }
+  </style>
+  <defs>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="9" cy="9" r="1" fill="#36434a" />
+    </pattern>
+    <marker id="arrow" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L8 4L0 8Z" fill="#91a7a0" />
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#dots)" />
+  <g transform="translate(-18 0)">
+    <g class="paths">
+      <path id="L_shack_rescue" d="M136 83.5 V200.02" />
+      <path id="L_chest_rescue" d="M366 73 V174.46 H171 V200.02" class="branch" />
+      <path id="L_rescue_visits" d="M136 263.02 V353.1" />
+      <path id="L_rescue_source" d="M206 231.52 H366 V374.1" />
+      <path id="L_source_kill" d="M346 437.1 V460.54 H280 V542.74" />
+      <path id="L_source_spare" d="M386 437.1 V460.54 H453 V542.74" />
+    </g>
+    <g class="labels">
+      <g>
+        <rect x="313" y="111.73" width="106" height="24" rx="12" />
+        <text x="366" y="128.73">救人時可歸還</text>
+      </g>
+      <g>
+        <rect x="242" y="484.54" width="76" height="24" rx="12" />
+        <text x="280" y="501.54">了結源頭</text>
+      </g>
+      <g>
+        <rect x="415" y="484.54" width="76" height="24" rx="12" />
+        <text x="453" y="501.54">放過源頭</text>
+      </g>
+    </g>
+    <g class="nodes">
+      <g id="shack" class="hub">
+        <rect x="73" y="20.5" width="126" height="63" rx="6" />
+        <text x="136" y="47">小屋的麻煩</text>
+        <text x="136" y="68" class="detail">讀信後找凱勒巴</text>
+      </g>
+      <g id="rescue" class="hub">
+        <rect x="66" y="200.02" width="140" height="63" rx="6" />
+        <text x="136" y="226.52">南方之影</text>
+        <text x="136" y="247.52" class="detail">在牢房救出雅各布</text>
+      </g>
+      <g id="chest">
+        <rect x="264" y="31" width="204" height="42" rx="6" />
+        <text x="366" y="57.5">獠牙根森林取得 J 的手斧</text>
+      </g>
+      <g id="visits" class="goal">
+        <rect x="38" y="353.1" width="196" height="105" rx="6" />
+        <text x="136" y="379.6">救人後可分別回訪</text>
+        <text x="136" y="400.6" class="detail">凱勒巴：賢者護符</text>
+        <text x="136" y="421.6" class="detail">雅各布：長弓</text>
+        <text x="136" y="442.6" class="detail">處理源頭後再訪：遊俠守護</text>
+      </g>
+      <g id="source" class="hub">
+        <rect x="289" y="374.1" width="154" height="63" rx="6" />
+        <text x="366" y="400.6">源頭之心</text>
+        <text x="366" y="421.6" class="detail">到永眠之室調查源頭</text>
+      </g>
+      <g id="kill" class="goal">
+        <rect x="224" y="542.74" width="112" height="63" rx="6" />
+        <text x="280" y="569.24">完成委託</text>
+        <text x="280" y="590.24" class="detail">可回報凱勒巴</text>
+      </g>
+      <g id="spare" class="goal">
+        <rect x="390" y="542.74" width="126" height="63" rx="6" />
+        <text x="453" y="569.24">委託失敗</text>
+        <text x="453" y="590.24" class="detail">保住一名守護者</text>
+      </g>
+    </g>
+  </g>
+</svg>

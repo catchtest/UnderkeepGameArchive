@@ -16,7 +16,7 @@
 <!-- Update the matching t values when publishing CSS or JavaScript changes. -->
 <link rel="stylesheet" href="css/site.css?t=20261126.1">
 <noscript><link rel="stylesheet" href="css/home.css?t=20261126.1"></noscript>
-<script defer src="scripts/site.js?t=20261126.5"></script>
+<script defer src="scripts/site.js?t=20261126.8"></script>
 </head>
 <body data-page="home">
 <header class="masthead"><div class="mast-inner">
@@ -69,10 +69,11 @@
 <template id="walkthrough-view">
 <main class="book" tabindex="-1">
   <header class="banner"><h1>流程攻略</h1></header>
-  <div class="spoiler-notice">
-    <p><strong>劇透提示</strong>本頁包含主線解謎、劇情分歧與最終結局。</p>
+  <section id="spoiler-notice" aria-labelledby="spoiler-title" hidden>
+    <h2 id="spoiler-title">劇透提示</h2>
+    <p>本頁包含主線解謎、劇情分歧與最終結局。</p>
     <button type="button" id="reveal-walkthrough" aria-controls="walkthrough-content">顯示</button>
-  </div>
+  </section>
   <div id="walkthrough-content" hidden>
     <section class="walkthrough-flow" aria-labelledby="flow-title">
       <div class="flow-heading">
@@ -80,7 +81,7 @@
         <label class="flow-size"><input type="checkbox" aria-controls="flow-viewport"> 原尺寸</label>
       </div>
       <div id="flow-viewport" class="flow-viewport" tabindex="0" role="region" aria-label="主線流程圖">
-        <img src="images/story-flow.svg?t=20261125.15" alt="從獠牙根森林經空墓隧道抵達村莊，循墓園、陰沼、龍巢與托倫四條路線收齊符文，開啟高塔入口。靈魂鍛造爐是古龍事件後的支線。">
+        <img src="images/story-flow.svg" alt="主線流程圖">
       </div>
     </section>
     <section class="walkthrough-flow" aria-labelledby="ending-title">
@@ -90,9 +91,38 @@
       </div>
       <p>從高塔入口登上五層面見大法師，依三名守護者的生死與隊伍的選擇走向四種結局。</p>
       <div id="ending-viewport" class="flow-viewport" tabindex="0" role="region" aria-labelledby="ending-title">
-        <img src="images/ending-flow.svg?t=20261125.16" alt="若擊敗大法師，未帶靈魂切割者會使高塔崩塌，帶著斧頭則由隊伍進入傳送門封印。若保全三名守護者並協助大法師，擊倒托倫會由大法師進入傳送門封印，用虛空脈衝將活著的托倫推入門內則由大法師從外側封印。">
+        <img src="images/ending-flow.svg" alt="結局路線圖">
       </div>
+      <p>要觀看四種結局不需要重玩，可靠對話選項與戰鬥交談前將靈魂切割者扔地上的方式切換分支。</p>
       <p>要將托倫推入傳送門，由力量至少 8 的隊員裝備靈魂切割者，等托倫站到門前，再用「虛空脈衝」把他推上感應格（-1, -12）。</p>
+    </section>
+    <section class="walkthrough-flow" aria-labelledby="side-quest-title">
+      <div class="flow-heading">
+        <h2 id="side-quest-title">可選支線任務</h2>
+        <label class="flow-size"><input type="checkbox" aria-controls="side-quest-charts"> 原尺寸</label>
+      </div>
+      <div id="side-quest-charts">
+        <h3 id="mayor-title">村長奧爾登的三個委託</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="mayor-title">
+          <img src="images/side-quest-mayor.svg" alt="村長委託流程圖">
+        </div>
+        <h3 id="mushrooms-title">巴洛、五朵蘑菇與東園的蛙王</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="mushrooms-title">
+          <img src="images/side-quest-mushrooms.svg" alt="蘑菇與蛙王流程圖">
+        </div>
+        <h3 id="jacob-title">雅各布、凱勒巴與源頭</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="jacob-title">
+          <img src="images/side-quest-jacob.svg" alt="雅各布與源頭流程圖">
+        </div>
+        <h3 id="wards-title">凱勒巴的西方結界</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="wards-title">
+          <img src="images/side-quest-wards.svg" alt="西方結界流程圖">
+        </div>
+        <h3 id="dwarves-title">矮人遠征、古龍與靈魂鍛造爐</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="dwarves-title">
+          <img src="images/side-quest-dwarves.svg" alt="矮人遠征流程圖">
+        </div>
+      </div>
     </section>
   </div>
 </main>
