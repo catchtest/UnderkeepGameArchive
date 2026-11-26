@@ -6,8 +6,22 @@ const underkeepMapPuzzles = (() => {
   const hints = 'https://underkeep.cz/en/guide/walkthrough/puzzles-and-hints/';
   const towerWalkthrough = 'https://intoindiegames.com/walkthroughs/underkeep-walkthrough-part-6-ascending-the-underkeep-tower/';
   const puzzle = (area, title, goal, steps, source, route, braziers) => ({
-    areas: Array.isArray(area[0]) ? area : [area], title, goal, steps, source, route, braziers
+    areas: Array.isArray(area[0]) ? area : [area], title,
+    goal: goal.text ?? goal, goalLinks: goal.links, steps, source, route, braziers
   });
+  const itemText = (template, ...items) => {
+    let [text, ...parts] = template.split('{item}');
+    const links = items.map(([id, name], index) => {
+      const start = text.length;
+      text += name + parts[index];
+      return [start, start + name.length, id];
+    });
+    return { text, links };
+  };
+  const place = (location, xy, item) => itemText('{{t:maps.puzzles.item-placement|sq}}'
+    .replace('{location}', () => location).replace('{coordinates}', () => underkeepCoordinates(xy)), item);
+  const blueOrb = ['item_blue_orb', '{{t:guide.item_blue_orb|sq}}'];
+  const rock = ['item_boulder', '{{t:guide.item_boulder|sq}}'];
 
   return {
     Starting_forest: [
@@ -38,10 +52,10 @@ const underkeepMapPuzzles = (() => {
     ],
     Underkeep_Cemetery: [
       puzzle([13, 5, 6, 9], '{{t:maps.puzzles.underkeep_cemetery.1.title|sq}}', '{{t:maps.puzzles.underkeep_cemetery.1.goal|sq}}', [
-        '{{t:maps.puzzles.underkeep_cemetery.1.step-1|sq}}',
-        '{{t:maps.puzzles.underkeep_cemetery.1.step-2|sq}}',
-        '{{t:maps.puzzles.underkeep_cemetery.1.step-3|sq}}',
-        '{{t:maps.puzzles.underkeep_cemetery.1.step-4|sq}}',
+        place('{{t:maps.puzzles.underkeep_cemetery.1.northwest-grave|sq}}', [14, 6], ['item_generic_arrow', '{{t:guide.item_generic_arrow|sq}}']),
+        place('{{t:maps.puzzles.underkeep_cemetery.1.northeast-grave|sq}}', [17, 7], ['item_generic_black_feather', '{{t:guide.item_generic_black_feather|sq}}']),
+        place('{{t:maps.puzzles.underkeep_cemetery.1.southeast-grave|sq}}', [17, 11], ['item_generic_coin', '{{t:guide.item_generic_coin|sq}}']),
+        place('{{t:maps.puzzles.underkeep_cemetery.1.southwest-grave|sq}}', [14, 12], ['item_generic_charcoal_stick', '{{t:guide.item_generic_charcoal_stick|sq}}']),
         '{{t:maps.puzzles.underkeep_cemetery.1.step-5|sq}}'
       ], communityMap(1832)),
       puzzle([18, 12, 4, 4], '{{t:maps.puzzles.underkeep_cemetery.2.title|sq}}', '{{t:maps.puzzles.underkeep_cemetery.2.goal|sq}}', [
@@ -90,7 +104,7 @@ const underkeepMapPuzzles = (() => {
     ],
     Caerlin_Woods: [
       puzzle([17, -23, 6, 5], '{{t:maps.puzzles.caerlin_woods.1.title|sq}}', '{{t:maps.puzzles.caerlin_woods.1.goal|sq}}', [
-        '{{t:maps.puzzles.caerlin_woods.1.step-1|sq}}',
+        itemText('{{t:maps.puzzles.caerlin_woods.1.step-1|sq}}', ['item_coins', '{{t:common.coins|sq}}']),
         '{{t:maps.puzzles.caerlin_woods.1.step-2|sq}}'
       ], communityMap(1840))
     ],
@@ -143,40 +157,45 @@ const underkeepMapPuzzles = (() => {
         '{{t:maps.puzzles.west_dungeon_1.5.step-2|sq}}'
       ], communityMap(1853)),
       puzzle([-6, -75, 7, 5], '{{t:guide.eight_keys|sq}}', '{{t:maps.puzzles.west_dungeon_1.6.goal|sq}}', [
-        '{{t:maps.puzzles.west_dungeon_1.6.step-1|sq}}'
+        itemText('{{t:maps.puzzles.west_dungeon_1.6.step-1|sq}}', blueOrb)
       ], communityMap(1853))
     ],
     East_Garden: [
-      puzzle([0, -9, 7, 6], '{{t:maps.puzzles.east_garden.1.title|sq}}', '{{t:maps.puzzles.east_garden.1.goal|sq}}', [
-        '{{t:maps.puzzles.east_garden.1.step-1|sq}}',
+      puzzle([0, -9, 7, 6], '{{t:maps.puzzles.east_garden.1.title|sq}}', itemText('{{t:maps.puzzles.east_garden.1.goal|sq}}', blueOrb), [
+        place('{{t:maps.puzzles.east_garden.1.north-niche|sq}}', [2, -8], ['item_minor_heal_potion', '{{t:guide.recipe_minor_healing|sq}}']),
+        place('{{t:maps.puzzles.east_garden.1.west-niche|sq}}', [1, -5], ['item_food_bread', '{{t:guide.item_recipe_item_food_toast.ingredients-2|sq}}']),
+        place('{{t:maps.puzzles.east_garden.1.east-niche|sq}}', [5, -6], ['item_flower_moonpetal', '{{t:guide.item_minor_mana_potion.ingredients|sq}}']),
         '{{t:maps.puzzles.east_garden.1.step-2|sq}}'
       ], communityMap(1854)),
-      puzzle([9, -8, 8, 7], '{{t:maps.puzzles.east_garden.2.title|sq}}', '{{t:maps.puzzles.east_garden.2.goal|sq}}', [
+      puzzle([9, -8, 8, 7], '{{t:maps.puzzles.east_garden.2.title|sq}}', itemText('{{t:maps.puzzles.east_garden.2.goal|sq}}', blueOrb), [
         '{{t:maps.puzzles.east_garden.2.step-1|sq}}',
         '{{t:maps.puzzles.east_garden.2.step-2|sq}}'
       ], communityMap(1854)),
-      puzzle([0, 4, 7, 5], '{{t:maps.puzzles.east_garden.3.title|sq}}', '{{t:maps.puzzles.east_garden.3.goal|sq}}', [
+      puzzle([0, 4, 7, 5], '{{t:maps.puzzles.east_garden.3.title|sq}}', itemText('{{t:maps.puzzles.east_garden.3.goal|sq}}', blueOrb), [
         '{{t:maps.puzzles.east_garden.3.step-1|sq}}'
       ], hints),
-      puzzle([17, 6, 11, 7], '{{t:maps.puzzles.east_garden.4.title|sq}}', '{{t:maps.puzzles.east_garden.4.goal|sq}}', [
+      puzzle([17, 6, 11, 7], '{{t:maps.puzzles.east_garden.4.title|sq}}', itemText('{{t:maps.puzzles.east_garden.4.goal|sq}}', blueOrb), [
         '{{t:maps.puzzles.east_garden.4.step-1|sq}}',
         '{{t:maps.puzzles.east_garden.4.step-2|sq}}'
       ], hints)
     ],
     West_Garden: [
-      puzzle([0, -9, 7, 7], '{{t:maps.puzzles.west_garden.1.title|sq}}', '{{t:maps.puzzles.west_garden.1.goal|sq}}', [
+      puzzle([0, -9, 7, 7], '{{t:maps.puzzles.west_garden.1.title|sq}}', itemText('{{t:maps.puzzles.west_garden.1.goal|sq}}', blueOrb), [
         '{{t:maps.puzzles.west_garden.1.step-1|sq}}',
         '{{t:maps.puzzles.west_garden.1.step-2|sq}}'
       ], communityMap(1855)),
-      puzzle([11, -8, 5, 5], '{{t:maps.puzzles.west_garden.2.title|sq}}', '{{t:maps.puzzles.west_garden.2.goal|sq}}', [
+      puzzle([11, -8, 5, 5], '{{t:maps.puzzles.west_garden.2.title|sq}}', itemText('{{t:maps.puzzles.west_garden.2.goal|sq}}', blueOrb), [
         '{{t:maps.puzzles.west_garden.2.step-1|sq}}',
         '{{t:maps.puzzles.west_garden.2.step-2|sq}}'
       ], communityMap(1855)),
-      puzzle([-1, 3, 7, 7], '{{t:maps.puzzles.west_garden.3.title|sq}}', '{{t:maps.puzzles.west_garden.3.goal|sq}}', [
-        '{{t:maps.puzzles.west_garden.3.step-1|sq}}',
+      puzzle([-1, 3, 7, 7], '{{t:maps.puzzles.west_garden.3.title|sq}}', itemText('{{t:maps.puzzles.west_garden.3.goal|sq}}', blueOrb), [
+        itemText('{{t:maps.puzzles.west_garden.3.step-1|sq}}', rock,
+          ['item_golden_ore', '{{t:guide.item_golden_ore|sq}}'], ['item_ancient_ore', '{{t:guide.item_moonsteel_helmet.ingredients|sq}}']),
+        ...[[2, 4], [1, 5], [2, 6], [1, 7], [2, 8]].map(xy =>
+          '{{t:maps.puzzles.west_garden.3.counterweight|sq}}'.replace('{coordinates}', () => underkeepCoordinates(xy))),
         '{{t:maps.puzzles.west_garden.3.step-2|sq}}'
       ], communityMap(1855)),
-      puzzle([10, 3, 9, 8], '{{t:maps.puzzles.west_garden.4.title|sq}}', '{{t:maps.puzzles.west_garden.4.goal|sq}}', [
+      puzzle([10, 3, 9, 8], '{{t:maps.puzzles.west_garden.4.title|sq}}', itemText('{{t:maps.puzzles.west_garden.4.goal|sq}}', blueOrb), [
         '{{t:maps.puzzles.west_garden.4.step-1|sq}}',
         '{{t:maps.puzzles.west_garden.4.step-2|sq}}'
       ], communityMap(1855))
@@ -184,7 +203,10 @@ const underkeepMapPuzzles = (() => {
     West_Dungeon_2: [
       puzzle([-26, -77, 7, 7], '{{t:maps.puzzles.west_dungeon_2.1.title|sq}}', '{{t:maps.puzzles.west_dungeon_2.1.goal|sq}}', [
         '{{t:maps.puzzles.west_dungeon_2.1.step-1|sq}}',
-        '{{t:maps.puzzles.west_dungeon_2.1.step-2|sq}}'
+        place('{{t:maps.puzzles.west_dungeon_2.1.north-niche|sq}}', [-24, -75], ['item_pickaxe', '{{t:guide.item_pickaxe|sq}}']),
+        place('{{t:maps.puzzles.west_dungeon_2.1.upper-east-niche|sq}}', [-22, -74], rock),
+        place('{{t:maps.puzzles.west_dungeon_2.1.lower-east-niche|sq}}', [-22, -72], ['item_food_apple', '{{t:guide.item_food_apple|sq}}']),
+        place('{{t:maps.puzzles.west_dungeon_2.1.south-niche|sq}}', [-24, -71], ['item_shovel', '{{t:guide.item_shovel|sq}}'])
       ], communityMap(1856)),
       puzzle([-8, -77, 7, 7], '{{t:maps.puzzles.west_dungeon_2.2.title|sq}}', '{{t:maps.puzzles.west_dungeon_2.2.goal|sq}}', [
         '{{t:maps.puzzles.west_dungeon_2.2.step-1|sq}}',
@@ -304,11 +326,15 @@ const underkeepMapPuzzles = (() => {
     ],
     Underkeep_Surroundings: [
       puzzle([27, -33, 5, 4], '{{t:maps.puzzles.underkeep_surroundings.1.title|sq}}', '{{t:maps.puzzles.underkeep_surroundings.1.goal|sq}}', [
-        '{{t:maps.puzzles.underkeep_surroundings.1.step-1|sq}}'
+        itemText('{{t:maps.puzzles.underkeep_surroundings.1.step-1|sq}}',
+          ['item_generic_white_feather', '{{t:guide.item_generic_white_feather|sq}}'], ['item_feather_of_mercy', '{{t:guide.item_feather_of_mercy|sq}}'])
       ], communityMap(1837)),
       puzzle([19, -38, 5, 5], '{{t:maps.puzzles.underkeep_surroundings.2.title|sq}}', '{{t:maps.puzzles.underkeep_surroundings.2.goal|sq}}', [
-        '{{t:maps.puzzles.underkeep_surroundings.2.step-1|sq}}',
-        '{{t:maps.puzzles.underkeep_surroundings.2.step-2|sq}}'
+        itemText('{{t:maps.puzzles.underkeep_surroundings.2.step-1|sq}}', ['item_underkeep_key_1', '{{t:guide.item_underkeep_key_1|sq}}']),
+        itemText('{{t:maps.puzzles.underkeep_surroundings.2.step-2|sq}}', ['item_underkeep_key_2', '{{t:guide.item_underkeep_key_2|sq}}']),
+        itemText('{{t:maps.puzzles.underkeep_surroundings.2.step-3|sq}}', ['item_underkeep_key_3', '{{t:guide.item_underkeep_key_3|sq}}']),
+        itemText('{{t:maps.puzzles.underkeep_surroundings.2.step-4|sq}}', ['item_underkeep_key_4', '{{t:guide.item_underkeep_key_4|sq}}']),
+        '{{t:maps.puzzles.underkeep_surroundings.2.step-5|sq}}'
       ], towerWalkthrough)
     ],
     Dragon_den: [

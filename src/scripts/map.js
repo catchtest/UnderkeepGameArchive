@@ -781,18 +781,21 @@ function mountUnderkeepAtlas(signal, loadDetails) {
       return;
     }
     if (selected.puzzle) {
-      const { title, goal, steps } = selected.puzzle;
+      const { title, goal, goalLinks, steps } = selected.puzzle;
       heading.textContent = title;
       const card = underkeepElement('article', undefined, 'puzzle-card');
       const goalRow = underkeepElement('section', undefined, 'puzzle-row');
-      goalRow.append(underkeepElement('h3', '{{t:common.target|sq}}'), underkeepElement('p', goal));
+      const goalText = underkeepElement('p');
+      goalText.append(goalLinks ? linkedText(goal, goalLinks) : underkeepCoordinateText(goal));
+      goalRow.append(underkeepElement('h3', '{{t:common.target|sq}}'), goalText);
       const solutionRow = underkeepElement('section', undefined, 'puzzle-row');
       const solution = underkeepElement(steps.length === 1 ? 'p' : 'ol');
-      if (steps.length === 1) solution.append(underkeepXpText(steps[0]));
-      else {
-        for (const step of steps) {
+      for (const step of steps) {
+        const content = typeof step === 'string' ? underkeepXpText(step) : linkedText(step.text, step.links);
+        if (steps.length === 1) solution.append(content);
+        else {
           const item = underkeepElement('li');
-          item.append(underkeepXpText(step));
+          item.append(content);
           solution.append(item);
         }
       }
