@@ -342,7 +342,7 @@ function mountUnderkeepGuide(signal, refresh, prepareSearch) {
     const title = heading(selected.name, framedSkill(selected), undefined, 'h3');
     title.append(node('span', selected.kind, 'kind'));
     detail.append(title, attributeElement('p', selected.intro, 'intro'),
-      facts(selected.facts.filter(([label]) => !['{{t:common.type|sq}}', '{{t:common.skill-level-cap|sq}}', '{{t:common.skill-upgrade-requirement|sq}}'].includes(label))),
+      facts(selected.facts.filter(([label]) => !['{{t:common.type|sq}}', '{{t:common.skill-level-cap|sq}}'].includes(label))),
       node('h4', '{{t:guide.ui.show-class-2|sq}}'), table(selected.table));
     if (selected.notes) detail.append(attributeElement('p', selected.notes, 'notes'));
     showCharacterPanels(summary, r, detail);

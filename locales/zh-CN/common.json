@@ -188,7 +188,7 @@
   "common.show": "显示",
   "common.side-quest": "支线",
   "common.skill-level-cap": "技能上限",
-  "common.skill-point-per-level": "每升一级投入 1 点技能点",
+  "common.skill-point-per-level": "每级消耗 1 点技能点，并须达到该技能等级所要求的角色等级。",
   "common.skill-upgrade-requirement": "升级条件",
   "common.source-pit": "来源地坑",
   "common.south": "南",

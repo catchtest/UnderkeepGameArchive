@@ -188,7 +188,7 @@
   "common.show": "Afficher",
   "common.side-quest": "Quête secondaire",
   "common.skill-level-cap": "Niveau maximal de compétence",
-  "common.skill-point-per-level": "1 point de compétence par niveau",
+  "common.skill-point-per-level": "Chaque rang coûte 1 point de compétence et exige le niveau de personnage correspondant.",
   "common.skill-upgrade-requirement": "Condition d’amélioration",
   "common.source-pit": "Fosse de départ",
   "common.south": "Sud",
