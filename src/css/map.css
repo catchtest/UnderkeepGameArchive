@@ -1,5 +1,5 @@
 :root {
-  font-family: "Segoe UI", "Microsoft JhengHei UI", sans-serif;
+  font-family: var(--font-ui);
   color: var(--text);
   background: #101920;
   --panel: #18242d;

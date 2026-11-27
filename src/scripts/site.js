@@ -93,6 +93,7 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
   const styleOrder = Object.keys(styleRevisions);
   const guideDataKeys = { characters: 'races', catalog: 'recipes', 'map-points': 'mapPoints', items: 'items', enemies: 'enemies', quests: 'quests' };
   const scripts = new Map();
+  // Keep the link for stylesheet ordering and switching its media on navigation.
   const styles = new Map();
   const templates = new Map();
   const spoilerStorageKey = 'underkeep.walkthrough.showSpoilers';
@@ -394,7 +395,7 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
       retry.textContent = '{{t:site.retry|sq}}';
       retry.addEventListener('click', () => navigate(url, page, push));
       status.append(' ', retry);
-      console.error(error);
+      console.error('Failed to load', url.href, error);
     } finally {
       if (ticket === navigation) pendingUrl = undefined;
     }

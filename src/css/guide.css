@@ -1,7 +1,7 @@
 :root {
   --heading: #e3ded2; --name: #d9d2c4; --ink: #cecdc6; --muted: #b1afa7;
   --link: #c9b694; --gold: #e2bf79; --line: #47443a;
-  font: 100%/1.6 "Segoe UI","Microsoft JhengHei UI",sans-serif;
+  font: 100%/1.6 var(--font-ui);
 }
 body { min-height: 100vh; background: #171b19 radial-gradient(ellipse at 15% 15%,#353329 0,transparent 65%) fixed no-repeat; color: var(--ink); }
 h1,h2,h3,p,dl,dd { margin: 0; }

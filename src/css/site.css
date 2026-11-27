@@ -1,4 +1,7 @@
-:root { color-scheme: dark; background: #161915; scrollbar-width: thin; scrollbar-color: #82745a transparent; }
+:root {
+  color-scheme: dark; background: #161915; scrollbar-width: thin; scrollbar-color: #82745a transparent;
+  --font-ui: "Segoe UI", "Microsoft JhengHei UI", sans-serif;
+}
 * { box-sizing: border-box; }
 /* Keep the shared layout at viewport width when the page scrollbar appears. */
 body { margin: 0; width: 100vw; overflow-x: clip; }
@@ -14,12 +17,12 @@ body { margin: 0; width: 100vw; overflow-x: clip; }
 #view-status {
   position: fixed; z-index: 6; inset: auto auto 16px 16px; margin: 0; padding: 8px 12px;
   border: 1px solid #514938; background: #171b19; color: #e4ddd0;
-  font: 1rem/1.4 "Segoe UI", "Microsoft JhengHei UI", sans-serif;
+  font: 1rem/1.4 var(--font-ui);
 }
 .masthead {
   background: linear-gradient(180deg, #1b1d17, #121613);
   border-bottom: 1px solid #514938;
-  font: 100%/1.6 "Segoe UI","Microsoft JhengHei UI",sans-serif;
+  font: 100%/1.6 var(--font-ui);
 }
 .mast-inner { width: min(1280px,calc(100% - 64px)); margin: auto; }
 .mast-inner,.brand,#sections { display: flex; align-items: center; }
@@ -54,7 +57,7 @@ body[data-page="map"] .site-footer { display: none; }
   padding: 0 16px 12px;
   background: #161915;
   color: #bdb5a4;
-  font: .9rem/1.65 "Segoe UI", "Microsoft JhengHei UI", sans-serif;
+  font: .9rem/1.65 var(--font-ui);
   --footer-gold: #efcd8e;
 }
 .footer-credits {
@@ -141,7 +144,7 @@ dialog > header > form { align-self: flex-start; flex: none; margin-inline-start
 /* Home layout */
 :root:where(:has(body[data-page="home"])) {
   color: #e4ddd0;
-  font: 1rem/1.65 "Segoe UI", "Microsoft JhengHei UI", sans-serif;
+  font: 1rem/1.65 var(--font-ui);
   --gold: #efcd8e;
   --line: #534a36;
 }

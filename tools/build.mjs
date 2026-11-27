@@ -4,6 +4,8 @@ import { dirname, extname, join, posix, relative, resolve, sep } from 'node:path
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 
+const start = performance.now();
+const BATCH_SIZE = 32;
 const root = fileURLToPath(new URL('../', import.meta.url));
 const source = join(root, 'src');
 const output = join(root, 'dist');
@@ -18,8 +20,8 @@ const esbuild = values.minify ? await import('esbuild') : null;
 
 async function mapBatches(entries, transform) {
   const results = [];
-  for (let i = 0; i < entries.length; i += 32) {
-    results.push(...await Promise.all(entries.slice(i, i + 32).map(transform)));
+  for (let i = 0; i < entries.length; i += BATCH_SIZE) {
+    results.push(...await Promise.all(entries.slice(i, i + BATCH_SIZE).map(transform)));
   }
   return results;
 }
@@ -35,8 +37,9 @@ async function readTree(directory, encoding) {
 }
 
 async function compile(file, text) {
+  if (!esbuild) return Buffer.from(text);
   const loader = extname(file).slice(1);
-  if (!esbuild || (loader !== 'css' && loader !== 'js')) return Buffer.from(text);
+  if (loader !== 'css' && loader !== 'js') return Buffer.from(text);
   const { code } = await esbuild.transform(text, {
     loader, sourcefile: file, minify: true, charset: 'utf8', legalComments: 'inline'
   });
@@ -241,9 +244,10 @@ await mapBatches([...sharedAssets, ...localizedAssets], async ([file, text]) => 
   addCachedAsset(file, await compile(file, text));
 });
 
+const localizedPaths = localizedTemplates.map(([file]) => webPath(file)).sort();
 await Promise.all(locales.map(async locale => {
-  const bundleRevisions = revisionTable(localizedTemplates.map(([file]) =>
-    [webPath(file), assetRevisions.get(locale.code + '/' + webPath(file))]));
+  const bundleRevisions = JSON.stringify(Object.fromEntries(localizedPaths.map(path =>
+    [path, assetRevisions.get(locale.code + '/' + path)])));
   const file = join(locale.code, siteScript);
   const script = render(bundleTemplate, siteScript, locale, '')
     .replace('{{site:bundle-revisions}}', () => bundleRevisions);
@@ -288,4 +292,5 @@ await mapBatches([...files], async ([file, content]) => {
   await writeFile(destination, content);
 });
 
-console.log(`Built ${locales.map(locale => locale.code).join(', ')} in dist/ (${files.size} files).`);
+const elapsed = ((performance.now() - start) / 1000).toFixed(1);
+console.log(`Built ${locales.map(locale => locale.code).join(', ')} in dist/ (${files.size} files, ${elapsed}s).`);
