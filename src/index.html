@@ -20,9 +20,7 @@
 </head>
 <body data-page="home">
 <header class="masthead"><div class="mast-inner">
-  <div class="brand">
-    <a href="index.html" aria-current="page"><img src="{{site:assets}}images/logo.webp?v={{rev:images/logo.webp}}" alt="{{t:site.home-link|attr}}"></a>
-  </div>
+  <a class="brand" href="index.html" aria-current="page"><img src="{{site:assets}}images/logo.webp?v={{rev:images/logo.webp}}" alt="{{t:site.home-link|attr}}"></a>
   <nav id="sections" aria-label="{{t:site.navigation|attr}}">
     <a id="to-map" href="?view=map">{{t:common.map}}</a>
     <a href="?view=guide#races" data-title="{{t:common.race-bonuses|attr}}">{{t:common.race}}</a><a href="?view=guide#classes" data-title="{{t:common.classes-and-skills|attr}}">{{t:common.class}}</a>
@@ -36,13 +34,11 @@
 <div id="view">
 <main class="home" tabindex="-1">
   <section class="home-hero" aria-labelledby="game-title">
-    <div class="hero-copy">
-      <h1 id="game-title"><img src="{{site:assets}}images/logo.webp?v={{rev:images/logo.webp}}" alt="{{t:site.name|attr}}" width="334" height="74"></h1>
-      <p>{{t:site.home.summary}}</p>
-      <div class="store-links">
-        <a class="steam-link" href="https://store.steampowered.com/app/2411200/Underkeep/" target="_blank" rel="noopener noreferrer">{{t:site.home.steam}} <span aria-hidden="true">↗</span></a>
-        <a href="https://www.gog.com/en/game/underkeep" target="_blank" rel="noopener noreferrer">{{t:site.home.gog}} <span aria-hidden="true">↗</span></a>
-      </div>
+    <h1 id="game-title"><img src="{{site:assets}}images/logo.webp?v={{rev:images/logo.webp}}" alt="{{t:site.name|attr}}" width="334" height="74"></h1>
+    <p>{{t:site.home.summary}}</p>
+    <div class="store-links">
+      <a class="steam-link" href="https://store.steampowered.com/app/2411200/Underkeep/" target="_blank" rel="noopener noreferrer">{{t:site.home.steam}} <span aria-hidden="true">↗</span></a>
+      <a href="https://www.gog.com/en/game/underkeep" target="_blank" rel="noopener noreferrer">{{t:site.home.gog}} <span aria-hidden="true">↗</span></a>
     </div>
   </section>
   <section class="game-info" aria-labelledby="game-info-title">

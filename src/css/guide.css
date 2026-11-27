@@ -6,7 +6,6 @@
 body { min-height: 100vh; background: #171b19 radial-gradient(ellipse at 15% 15%,#353329 0,transparent 65%) fixed no-repeat; color: var(--ink); }
 h1,h2,h3,p,dl,dd { margin: 0; }
 a { color: var(--link); text-underline-offset: 3px; }
-a,button,input,select,summary { outline-offset: 3px; }
 :focus-visible { outline: 2px solid #ffdda3; }
 .book { width: min(1280px,calc(100% - 64px)); margin: 24px auto 48px; }
 .banner {
