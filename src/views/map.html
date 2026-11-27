@@ -1,0 +1,53 @@
+<header class="top">
+  <button type="button" class="drawer-toggle" id="maps-toggle" aria-controls="maps-drawer" aria-expanded="false">{{t:common.location}}</button>
+  <div class="map-heading"><h1 id="map-title"></h1></div>
+  <button type="button" class="drawer-toggle" id="layers-toggle" aria-controls="layers-drawer" aria-expanded="false">
+    <span class="layers-icon" aria-hidden="true"></span>{{t:maps.ui.layers}}
+  </button>
+</header>
+<main class="stage" id="stage" aria-labelledby="map-title" tabindex="-1">
+  <svg id="map-svg" xmlns="http://www.w3.org/2000/svg" aria-labelledby="map-title" preserveAspectRatio="none"></svg>
+  <div class="tools">
+    <div class="zoom-group" role="group" aria-label="{{t:maps.ui.zoom|attr}}">
+      <button type="button" id="zoom-in" aria-label="{{t:maps.ui.zoom-in|attr}}" title="{{t:maps.ui.zoom-in|attr}}">+</button>
+      <button type="button" id="zoom-out" aria-label="{{t:maps.ui.zoom-out|attr}}" title="{{t:maps.ui.zoom-out|attr}}">−</button>
+    </div>
+    <button type="button" id="zoom-fit" aria-label="{{t:maps.ui.zoom-fit|attr}}" title="{{t:maps.ui.zoom-fit|attr}}">⤢</button>
+  </div>
+  <div class="map-status"><span id="coords"></span><span id="scale"></span></div>
+  <div id="map-tip" class="map-tip" role="group" aria-label="{{t:maps.ui.tile-hint|attr}}" hidden></div>
+  <nav id="maps-drawer" class="drawer drawer-start" aria-labelledby="maps-title" hidden>
+    <div class="panel-heading">
+      <h2 id="maps-title">{{t:maps.ui.locations}}</h2>
+      <button type="button" class="overview-toggle" id="overview-toggle" aria-haspopup="dialog" aria-controls="map-overview">{{t:common.overview}} <span aria-hidden="true">↗</span></button>
+      <button type="button" class="close-button" aria-label="{{t:maps.ui.close-locations|attr}}">✕</button>
+    </div>
+    <label class="find"><span aria-hidden="true">⌕</span><input id="map-query" type="search" placeholder="{{t:site.map-query.aria-label|attr}}" aria-label="{{t:site.map-query.aria-label|attr}}" aria-keyshortcuts="/"><kbd class="search-key" aria-hidden="true">/</kbd></label>
+    <div id="catalog"></div>
+  </nav>
+  <section id="layers-drawer" class="drawer drawer-end" aria-labelledby="layers-title" hidden>
+    <div class="panel-heading">
+      <h2 id="layers-title">{{t:site.map.layers-title}}</h2>
+      <button type="button" id="reset-types" class="text-button">{{t:site.map.reset-types}}</button>
+      <button type="button" class="close-button" aria-label="{{t:maps.ui.close-layers|attr}}">✕</button>
+    </div>
+    <div id="filters" class="layer-list"></div>
+  </section>
+  <section id="details-drawer" class="drawer drawer-end" aria-labelledby="details-title" hidden>
+    <div class="panel-heading">
+      <h2 id="details-title" aria-live="polite"></h2>
+      <button type="button" class="text-button" id="locate-selection">{{t:site.map.locate-selection}}</button>
+      <button type="button" class="close-button" aria-label="{{t:maps.ui.close-detail|attr}}">✕</button>
+    </div>
+    <div class="detail-scroll" id="selection" aria-live="polite"></div>
+  </section>
+</main>
+<dialog id="map-overview" aria-labelledby="overview-title" closedby="any">
+  <header>
+    <h2 id="overview-title">{{t:maps.ui.locations}}</h2>
+    <form method="dialog"><button class="close-button" aria-label="{{t:maps.ui.close-locations|attr}}" autofocus>✕</button></form>
+  </header>
+  <div class="dialog-body overview-scroll">
+    <svg id="overview-svg" viewBox="0 0 1140 570" aria-labelledby="overview-title"></svg>
+  </div>
+</dialog>

@@ -1,0 +1,59 @@
+<main class="book" tabindex="-1">
+  <header class="banner"><h1>{{t:walkthrough.title}}</h1></header>
+  <section id="spoiler-notice" aria-labelledby="spoiler-title" hidden>
+    <h2 id="spoiler-title">{{t:site.walkthrough.spoiler-title}}</h2>
+    <p>{{t:walkthrough.spoiler-warning}}</p>
+    <button type="button" id="reveal-walkthrough" aria-controls="walkthrough-content">{{t:common.show}}</button>
+  </section>
+  <div id="walkthrough-content" hidden>
+    <section class="walkthrough-flow" aria-labelledby="flow-title">
+      <div class="flow-heading">
+        <h2 id="flow-title" tabindex="-1">{{t:site.walkthrough.flow-title}}</h2>
+        <label class="flow-size"><input type="checkbox" checked aria-controls="flow-viewport"> {{t:walkthrough.actual-size}}</label>
+      </div>
+      <div id="flow-viewport" class="flow-viewport" tabindex="0" role="region" aria-label="{{t:walkthrough.story-flow.title|attr}}">
+        <img loading="lazy" decoding="async" src="images/story-flow.svg?v={{rev:images/story-flow.svg}}" alt="{{t:walkthrough.story-flow.title|attr}}">
+      </div>
+    </section>
+    <section class="walkthrough-flow" aria-labelledby="ending-title">
+      <div class="flow-heading">
+        <h2 id="ending-title">{{t:walkthrough.ending-flow.title}}</h2>
+        <label class="flow-size"><input type="checkbox" checked aria-controls="ending-viewport"> {{t:walkthrough.actual-size}}</label>
+      </div>
+      <p>{{t:walkthrough.ending-flow.summary}}</p>
+      <div id="ending-viewport" class="flow-viewport" tabindex="0" role="region" aria-labelledby="ending-title">
+        <img loading="lazy" decoding="async" src="images/ending-flow.svg?v={{rev:images/ending-flow.svg}}" alt="{{t:walkthrough.ending-flow.alt|attr}}">
+      </div>
+      <p>{{t:walkthrough.ending-flow.replay}}</p>
+      <p>{{t:walkthrough.ending-flow.portal}}</p>
+    </section>
+    <section class="walkthrough-flow" aria-labelledby="side-quest-title">
+      <div class="flow-heading">
+        <h2 id="side-quest-title">{{t:site.walkthrough.side-quest-title}}</h2>
+        <label class="flow-size"><input type="checkbox" checked aria-controls="side-quest-charts"> {{t:walkthrough.actual-size}}</label>
+      </div>
+      <div id="side-quest-charts">
+        <h3 id="mayor-title">{{t:walkthrough.side-quest-mayor.title}}</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="mayor-title">
+          <img loading="lazy" decoding="async" src="images/side-quest-mayor.svg?v={{rev:images/side-quest-mayor.svg}}" alt="{{t:walkthrough.side-quest-mayor.alt|attr}}">
+        </div>
+        <h3 id="mushrooms-title">{{t:walkthrough.side-quest-mushrooms.title}}</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="mushrooms-title">
+          <img loading="lazy" decoding="async" src="images/side-quest-mushrooms.svg?v={{rev:images/side-quest-mushrooms.svg}}" alt="{{t:walkthrough.side-quest-mushrooms.alt|attr}}">
+        </div>
+        <h3 id="jacob-title">{{t:walkthrough.side-quest-jacob.title}}</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="jacob-title">
+          <img loading="lazy" decoding="async" src="images/side-quest-jacob.svg?v={{rev:images/side-quest-jacob.svg}}" alt="{{t:walkthrough.side-quest-jacob.alt|attr}}">
+        </div>
+        <h3 id="wards-title">{{t:walkthrough.side-quest-wards.title}}</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="wards-title">
+          <img loading="lazy" decoding="async" src="images/side-quest-wards.svg?v={{rev:images/side-quest-wards.svg}}" alt="{{t:walkthrough.side-quest-wards.alt|attr}}">
+        </div>
+        <h3 id="dwarves-title">{{t:walkthrough.side-quest-dwarves.title}}</h3>
+        <div class="flow-viewport" tabindex="0" role="region" aria-labelledby="dwarves-title">
+          <img loading="lazy" decoding="async" src="images/side-quest-dwarves.svg?v={{rev:images/side-quest-dwarves.svg}}" alt="{{t:walkthrough.side-quest-dwarves.alt|attr}}">
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

@@ -1,7 +1,6 @@
 'use strict';
 
 const underkeepMaps = new Map();
-const underkeepMapImageRevisions = {{site:map-image-revisions}};
 
 function underkeepMapId(hash) {
   const id = hash.slice(1).split('@', 1)[0];

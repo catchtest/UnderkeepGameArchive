@@ -1,0 +1,61 @@
+<main class="book" tabindex="-1">
+  <div class="banner">
+    <h1 id="page-title"></h1>
+    <label class="guide-search"><input id="item-query" type="search" autocomplete="off" aria-keyshortcuts="/"><kbd class="search-key" aria-hidden="true">/</kbd></label>
+  </div>
+  <nav id="choices" aria-label="{{t:site.choices.aria-label|attr}}" hidden></nav>
+  <div class="item-controls" hidden>
+    <nav id="item-subtypes" aria-label="{{t:site.item-subtypes.aria-label|attr}}" hidden></nav>
+    <label class="item-sort">
+      {{t:guide.ui.sort}}
+      <select id="item-sort">
+        <option value="">{{t:guide.ui.default-sort}}</option>
+        <optgroup label="{{t:common.attack|attr}}">
+          <option>{{t:common.damage}}</option>
+          <option>{{t:common.base-damage}}</option>
+          <option>{{t:common.sharpness}}</option>
+          <option>{{t:common.armor-penetration}}</option>
+          <option>{{t:common.melee-critical-chance}}</option>
+          <option>{{t:common.ranged-critical-chance}}</option>
+          <option>{{t:common.ranged-accuracy}}</option>
+        </optgroup>
+        <optgroup label="{{t:guide.ui.equipment-requirements|attr}}">
+          <option>{{t:common.require-strength}}</option>
+          <option>{{t:common.require-dexterity}}</option>
+          <option>{{t:common.require-wisdom}}</option>
+        </optgroup>
+        <optgroup label="{{t:common.defense|attr}}">
+          <option>{{t:common.armor}}</option>
+          <option>{{t:common.evasion}}</option>
+          <option>{{t:common.melee-protection}}</option>
+          <option>{{t:common.ranged-protection}}</option>
+          <option>{{t:common.fire-resistance}}</option>
+          <option>{{t:common.ice-resistance}}</option>
+          <option>{{t:common.lightning-resistance}}</option>
+          <option>{{t:common.poison-resistance}}</option>
+          <option>{{t:common.blood-resistance}}</option>
+        </optgroup>
+        <optgroup id="item-immunity-options" label="{{t:common.status-immunities|attr}}"></optgroup>
+        <optgroup label="{{t:guide.ui.supplies-and-prices|attr}}">
+          <option>{{t:common.restore-health}}</option>
+          <option>{{t:common.restore-stamina}}</option>
+          <option>{{t:common.restore-mana}}</option>
+          <option>{{t:common.food-supplies}}</option>
+          <option>{{t:common.buy-price}}</option>
+          <option>{{t:common.sell-price}}</option>
+        </optgroup>
+      </select>
+    </label>
+  </div>
+  <div id="workspace">
+    <aside id="library" class="panel" aria-label="{{t:site.library.aria-label|attr}}" hidden>
+      <h2>{{t:common.recipe}}</h2>
+      <div id="results" aria-label="{{t:site.results.aria-label|attr}}"></div>
+    </aside>
+    <article id="detail" aria-label="{{t:site.detail.aria-label|attr}}"></article>
+  </div>
+</main>
+<dialog id="levels-dialog" class="levels guide-dialog" aria-labelledby="levels-title" closedby="any">
+  <header><h2 id="levels-title">{{t:site.guide.levels-title}}</h2><form method="dialog"><button class="close-button" aria-label="{{t:guide.ui.close-levels|attr}}" autofocus>✕</button></form></header>
+  <div class="dialog-body"><p>{{t:guide.ui.level-up-skill-point}}</p></div>
+</dialog>

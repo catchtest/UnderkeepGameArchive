@@ -20,6 +20,6 @@ node tools/build.mjs
 python -m http.server --directory dist 8000
 ```
 
-根目錄預設顯示英文，各語系可由 `/en/`、`/zh-TW/` 等網址直接開啟。建置會檢查各語系用字並複製已分檔的字型。GitHub Pages 發布前會壓縮 CSS 與 JavaScript。
+根目錄預設顯示英文，各語系可由 `/en/`、`/zh-TW/` 等網址直接開啟。建置會檢查各語系用字並複製已分檔的字型。要在本機產出與 GitHub Pages 相同的壓縮版本，請先執行 `npm ci`，再執行 `node tools/build.mjs --minify`。資源依輸出內容產生快取版本，未變更的檔案會沿用原網址。
 
 遊戲資料、美術與文字的著作權屬原權利人。

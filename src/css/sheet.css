@@ -38,7 +38,7 @@
 .item-sheet .item-poison { --item-row-color: #02cc38; }
 .item-sheet .item-effects { list-style: none; }
 .item-effects li { padding-block: 2px; color: var(--item-row-color, var(--item-feature-color)); }
-.item-sheet .item-effects[aria-label="{{t:common.special-effect}}"]:not(:first-child), .item-hidden-effects:not(:first-child) {
+.item-sheet .item-effects.item-special-effects:not(:first-child), .item-hidden-effects:not(:first-child) {
   border-top: 1px solid var(--item-divider); margin-top: 10px; padding-top: 8px;
 }
 .item-hidden-effects { margin: 0; padding-inline-start: 1.2em; color: #d3bfdb; }
@@ -74,9 +74,8 @@
 }
 .inventory-icon { display: inline-block; position: relative; overflow: hidden; width: 26px; height: 26px; flex: none; zoom: 2; }
 .inventory-art { position: absolute; transform-origin: top left; background: url("{{site:assets}}../images/guide-icons.webp?v={{rev:images/guide-icons.webp}}") no-repeat; image-rendering: pixelated; }
-dialog .entry-heading .inventory-icon { zoom: 3; }
-@media (max-width: 360px) {
-  dialog .entry-heading .inventory-icon { zoom: 2; }
+@media (width > 360px) {
+  dialog .entry-heading .inventory-icon { zoom: 3; }
 }
 .staff-icon { display: inline-block; flex: none; width: 28px; height: 28px; background: url("{{site:assets}}../images/staff-icons.webp?v={{rev:images/staff-icons.webp}}") no-repeat; image-rendering: pixelated; }
 .granted-skill { border-block-start: 1px solid var(--item-divider); margin-top: 10px; padding-top: 8px; }

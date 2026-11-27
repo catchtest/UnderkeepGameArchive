@@ -122,7 +122,6 @@ body[data-section="recipes"] #library > h2 { text-align: center; }
 
 body:is([data-section="quests"],[data-section="enemies"]) #workspace { margin-top: 18px; }
 #library { position: sticky; top: 12px; }
-#list-title { margin-bottom: 12px; }
 input,select { width: 100%; min-width: 0; font: inherit; color: var(--ink); border: 1px solid #655f4c; background: #171d19; padding: 7px 10px; border-radius: 2px; }
 #results { margin-top: 12px; }
 body[data-section="recipes"] #results {
@@ -193,14 +192,11 @@ body[data-section="traits"] h2 + .mutation-grid { margin-top: 12px; }
 .locations a:hover,.links a:hover { border-color: var(--gold); }
 .item-detail { --source-accent: #a7baca; }
 .item-detail h3 { color: var(--name); }
-.item-detail details[data-method="{{t:common.ground-pickup}}"],
-.item-detail details[data-method="{{t:common.gather}}"] { --source-accent: #a8bda5; }
-.item-detail details[data-method^="{{t:common.loot-container}}"],
-.item-detail details[data-method="{{t:common.open-chest}}"] { --source-accent: #c7b291; }
-.item-detail details[data-method^="{{t:common.dig-grave}}"],
-.item-detail details[data-method^="{{t:common.random-drop}}"] { --source-accent: #bfb1ca; }
-.item-detail details[data-method="{{t:common.enemy-drop}}"] { --source-accent: #cfaaa2; }
-.item-detail details[data-method="{{t:common.shop-purchase}}"],
+.item-detail details[data-method="gather"] { --source-accent: #a8bda5; }
+.item-detail details[data-method="container"] { --source-accent: #c7b291; }
+.item-detail details[data-method="random"] { --source-accent: #bfb1ca; }
+.item-detail details[data-method="enemy"] { --source-accent: #cfaaa2; }
+.item-detail details[data-method="shop"],
 .item-detail .links:has(a[href^="#shops/"]) { --source-accent: #9fbfb8; }
 .item-detail summary { color: var(--source-accent); font-weight: 600; }
 .item-detail :is(.locations,.links) a {
@@ -330,8 +326,6 @@ body[data-section="shops"] .chapter { flex: 1 0 auto; white-space: nowrap; text-
   .item-sort { flex: 1 1 100%; flex-wrap: wrap; margin-inline-start: 0; white-space: normal; }
   .item-sort select { flex: 1 1 auto; min-width: 0; width: auto; max-width: 100%; }
   body:is([data-section="races"],[data-section="classes"]) #detail,.character-side { grid-template-columns: minmax(0,1fr); gap: 10px; }
-  .skill-tile { font-size: 1rem; }
-  #library { position: static; }
   .panel { padding: 14px; }
   .chapter { padding: 5px 14px; }
   .table-scroll th,.table-scroll td { padding: 6px; }

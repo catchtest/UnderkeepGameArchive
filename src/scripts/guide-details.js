@@ -197,7 +197,13 @@ const guideDetails = (() => {
     }
     function appendMethod(method, links, count) {
       const group = node(staticGroups ? 'section' : 'details');
-      group.dataset.method = method;
+      let type = '';
+      if (method === '{{t:common.shop-purchase|sq}}') type = 'shop';
+      else if (method === '{{t:common.enemy-drop|sq}}') type = 'enemy';
+      else if (method.startsWith('{{t:common.dig-grave|sq}}') || method.startsWith('{{t:common.random-drop|sq}}')) type = 'random';
+      else if (method.startsWith('{{t:common.loot-container|sq}}') || method === '{{t:common.open-chest|sq}}') type = 'container';
+      else if (method === '{{t:common.ground-pickup|sq}}' || method === '{{t:common.gather|sq}}') type = 'gather';
+      group.dataset.method = type;
       if (!staticGroups) group.open = !acquisition && count <= 5;
       group.append(node(staticGroups ? 'h4' : 'summary', method), links);
       article.append(group);
@@ -347,7 +353,7 @@ const guideDetails = (() => {
     const attributes = [];
     const requirements = [];
     const immunities = node('ul', undefined, 'item-effects');
-    const effects = node('ul', undefined, 'item-effects');
+    const effects = node('ul', undefined, 'item-effects item-special-effects');
     let salePrice;
     let questItem = false;
     let skill;

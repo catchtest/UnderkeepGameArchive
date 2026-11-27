@@ -72,10 +72,13 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
 
 (() => {
   const scriptUrl = new URL(document.currentScript.src);
-  const assetVersion = scriptUrl.searchParams.get('t');
-  const scriptsBase = new URL('.', scriptUrl);
-  const bundle = new URL('../', scriptsBase);
-  const sharedStyles = { 'home.css': '{{rev:css/home.css}}', 'map.css': '{{rev:css/map.css}}' };
+  const bundle = new URL('../', scriptUrl);
+  const bundleRevisions = {{site:bundle-revisions}};
+  const styleRevisions = {
+    'map.css': '{{rev:css/map.css}}',
+    'guide.css': '{{rev:css/guide.css}}',
+    'sheet.css': '{{rev:css/sheet.css}}'
+  };
   const base = new URL('.', location.href);
   const entry = new URL('index.html', base);
   const view = document.getElementById('view');
@@ -87,10 +90,11 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
   const homeContent = [...view.children];
   const mapNames = 'data/map-names.js';
   const sheetStyle = 'sheet.css';
-  const styleOrder = ['home.css', 'map.css', 'guide.css', sheetStyle];
+  const styleOrder = Object.keys(styleRevisions);
   const guideDataKeys = { characters: 'races', catalog: 'recipes', 'map-points': 'mapPoints', items: 'items', enemies: 'enemies', quests: 'quests' };
   const scripts = new Map();
   const styles = new Map();
+  const templates = new Map();
   const spoilerStorageKey = 'underkeep.walkthrough.showSpoilers';
   let spoilersAccepted = false;
   let activePage;
@@ -136,7 +140,7 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
   const pages = {
     home: {
       title: underkeepSiteName,
-      styles: ['home.css']
+      styles: []
     },
     walkthrough: {
       title: '{{t:walkthrough.title|sq}} | ' + underkeepSiteName,
@@ -170,25 +174,25 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
     map: {
       title: '{{t:maps.ui.title|sq}} | ' + underkeepSiteName,
       styles: ['map.css'],
-      load: async () => {
+      load: async url => {
+        const mapReady = Promise.all([loadScript(mapNames), loadScript('map.js')]);
         await Promise.all([
-          loadScript(mapNames),
-          loadScript('map.js'),
+          mapReady.then(() => loadMapRoute(url)),
           loadScript('data/map-puzzles.js'),
           loadScript('map-art.js', underkeepSharedAssets + 'scripts/map-art.js?v={{rev:scripts/map-art.js}}')
         ]);
         Object.assign(window.UNDERKEEP_ATLAS, underkeepMapArt);
       },
-      loadRoute: url => {
-        const id = underkeepMapId(url.hash);
-        if (!underkeepMaps.has(id)) return loadScript('data/maps/' + id + '.js');
-      },
+      loadRoute: loadMapRoute,
       mount: signal => mountUnderkeepAtlas(signal, group => loadMapDetails(signal, group))
     },
     guide: {
       title: underkeepSiteName,
       styles: ['guide.css', sheetStyle],
-      load: () => Promise.all([loadScript(mapNames), loadScript('guide-details.js'), loadScript('guide.js')]),
+      load: url => {
+        const guideReady = Promise.all([loadScript('guide-details.js'), loadScript('guide.js')]);
+        return Promise.all([loadScript(mapNames), guideReady.then(() => loadGuideSection(url))]);
+      },
       loadRoute: loadGuideSection,
       mount: signal => mountUnderkeepGuide(signal, () => navigate(new URL(location.href), 'guide'), loadGuideSearch)
     }
@@ -205,13 +209,11 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
     });
   }
 
-  function assetUrl(file, directory) {
-    const url = new URL(file, directory);
-    if (assetVersion) url.searchParams.set('t', assetVersion);
-    return url;
+  function assetUrl(file) {
+    return new URL(file + '?v=' + bundleRevisions[file], bundle);
   }
 
-  function loadScript(file, url = assetUrl(file, scriptsBase)) {
+  function loadScript(file, url = assetUrl('scripts/' + file)) {
     if (!scripts.has(file)) {
       const script = document.createElement('script');
       script.src = url;
@@ -227,9 +229,7 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
     if (!styles.has(file)) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = Object.hasOwn(sharedStyles, file)
-        ? underkeepSharedAssets + 'css/' + file + '?v=' + sharedStyles[file]
-        : assetUrl('css/' + file, bundle);
+      link.href = underkeepSharedAssets + 'css/' + file + '?v=' + styleRevisions[file];
       link.media = 'not all';
       const next = styleOrder.slice(styleOrder.indexOf(file) + 1).find(name => styles.has(name));
       const ready = appendResource(link, styles.get(next)?.link).catch(error => {
@@ -239,6 +239,31 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
       styles.set(file, { link, ready });
     }
     return styles.get(file).ready;
+  }
+
+  function loadTemplate(page) {
+    if (!templates.has(page)) {
+      const url = assetUrl('views/' + page + '.html');
+      const loading = fetch(url).then(async response => {
+        if (!response.ok) throw new Error('Unable to load ' + url);
+        const template = document.createElement('template');
+        template.innerHTML = await response.text();
+        for (const image of template.content.querySelectorAll('img[src]')) {
+          image.src = new URL(image.getAttribute('src'), bundle);
+        }
+        return template.content;
+      }).catch(error => {
+        templates.delete(page);
+        throw error;
+      });
+      templates.set(page, loading);
+    }
+    return templates.get(page);
+  }
+
+  function loadMapRoute(url) {
+    const id = underkeepMapId(url.hash);
+    if (!underkeepMaps.has(id)) return loadScript('data/maps/' + id + '.js');
   }
 
   function loadGuideParts(...parts) {
@@ -332,9 +357,11 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
         return;
       }
 
-      setStatus('{{t:site.loading|sq}}');
-      const assets = next.load?.().then(() => next.loadRoute?.(url));
-      await Promise.all([assets, ...next.styles.map(loadStyle)]);
+      let template;
+      if (page !== 'home') {
+        setStatus('{{t:site.loading|sq}}');
+        [template] = await Promise.all([loadTemplate(page), next.load?.(url), ...next.styles.map(loadStyle)]);
+      }
       if (ticket !== navigation || (!push && location.href !== url.href)) return;
       if (push && location.href !== url.href) history.pushState(null, '', url);
 
@@ -348,8 +375,9 @@ function underkeepXpText(text, formatText = underkeepCoordinateText) {
       activeUrl = url;
       document.body.dataset.page = page;
       document.title = next.title;
-      if (page === 'home') view.replaceChildren(...homeContent);
-      else view.replaceChildren(document.getElementById(page + '-view').content.cloneNode(true));
+      if (page === 'home') {
+        if (hasPreviousView) view.replaceChildren(...homeContent);
+      } else view.replaceChildren(template.cloneNode(true));
       view.dataset.ready = '';
       window.scrollTo(0, 0);
       refreshView = mount(page, lifecycle.signal);
